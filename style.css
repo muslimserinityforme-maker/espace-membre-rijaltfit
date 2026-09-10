@@ -1,0 +1,325 @@
+/* ═══════════════════════════════════════════
+   RIJAL FIT — Espace Membre (offre Starter)
+   Palette : vert kaki #4A5240 · or #C9A84C · beige #F5F0E8 · noir #1A1A1A
+   Typo : Rajdhani (titres) · Inter (corps)
+   Reprend le système visuel de bilan-sens-rijalfit/style.css
+════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --kaki:   #4A5240;
+  --kaki-dark: #363d2f;
+  --or:     #C9A84C;
+  --beige:  #F5F0E8;
+  --noir:   #1A1A1A;
+  --blanc:  #FFFFFF;
+  --gris:   #6b7280;
+  --rouge:  #a13a3a;
+  --radius: 8px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--noir);
+  background: var(--beige);
+}
+
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+a { color: inherit; }
+
+/* ── Bouton ── */
+.btn {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  border: none;
+  transition: background .2s, transform .15s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn--primary { background: var(--or); color: var(--noir); }
+.btn--primary:hover { background: #b8952f; transform: translateY(-2px); }
+.btn--large { font-size: 1.2rem; padding: 16px 40px; width: 100%; }
+.btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+/* ══ TOPBAR ══ */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #e4ddd0;
+  background: var(--beige);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar__brand {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--kaki);
+  text-decoration: none;
+}
+
+.topbar__brand em { color: var(--or); font-style: normal; }
+
+.topbar__action {
+  background: none;
+  border: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gris);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.topbar__action:hover { color: var(--kaki); }
+
+main.container { padding-top: 48px; padding-bottom: 64px; }
+
+/* ── Hero (gate + dashboard) ── */
+.hero {
+  background: var(--kaki);
+  color: var(--beige);
+  margin: -48px -24px 40px;
+  padding: 64px 24px 56px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: .85rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.15;
+  color: var(--blanc);
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: #d1cfc9;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
+/* ── Formulaire code d'accès ── */
+#code-form {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--blanc);
+  border-radius: var(--radius);
+  padding: 28px;
+  border-top: 3px solid var(--or);
+  text-align: left;
+}
+
+.field { margin-bottom: 20px; }
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: .92rem;
+  color: var(--kaki-dark);
+  margin-bottom: 6px;
+}
+
+input[type="text"] {
+  width: 100%;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: .06em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--noir);
+  background: var(--beige);
+  border: 1px solid #ded8cc;
+  border-radius: var(--radius);
+  padding: 12px 12px;
+}
+
+input:focus { outline: none; border-color: var(--or); }
+
+.form-error { margin-top: 14px; color: var(--rouge); font-size: .92rem; text-align: center; }
+.form-hint { margin-top: 14px; color: var(--gris); font-size: .85rem; text-align: center; }
+
+/* ── Dashboard : grille des modules ── */
+.welcome-line { text-align: center; color: var(--kaki-dark); font-size: 1.05rem; margin-bottom: 2.5rem; }
+.welcome-line strong { color: var(--kaki); }
+
+.modules-grid { display: flex; flex-direction: column; gap: 16px; }
+
+.module-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--blanc);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--or);
+  padding: 22px 24px;
+  text-decoration: none;
+  color: var(--noir);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.module-card:hover { transform: translateX(3px); box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+
+.module-card__num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--beige);
+  color: var(--kaki);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-card__body { flex: 1; }
+
+.module-card__name {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--kaki);
+  margin-bottom: .2rem;
+}
+
+.module-card__desc { font-size: .92rem; color: var(--gris); }
+
+.module-card__arrow { flex-shrink: 0; color: var(--or); font-size: 1.3rem; }
+
+/* ── Page module ── */
+.module-header {
+  background: var(--kaki);
+  color: var(--beige);
+  margin: -48px -24px 40px;
+  padding: 48px 24px 40px;
+}
+
+.module-header__back {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #d1cfc9;
+  text-decoration: none;
+  margin-bottom: 1.2rem;
+}
+
+.module-header__back:hover { color: var(--or); }
+
+.module-header__title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  color: var(--blanc);
+  margin-bottom: .6rem;
+}
+
+.module-header__desc { color: #d1cfc9; max-width: 520px; }
+
+.niveau {
+  background: var(--blanc);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.niveau__title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--kaki);
+  margin-bottom: 1.2rem;
+}
+
+.niveau__video-block { margin-bottom: 22px; }
+.niveau__video-block:last-child { margin-bottom: 0; }
+
+.niveau__video-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--kaki-dark);
+  margin-bottom: .7rem;
+}
+
+/* Cadre vidéo responsive 16:9, sans dépendance externe */
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #ddd6c8;
+  margin-bottom: .9rem;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.niveau__text { color: #3a3a3a; }
+.niveau__text p { margin-bottom: .9rem; }
+.niveau__text p:last-child { margin-bottom: 0; }
+
+.niveau__placeholder {
+  color: var(--gris);
+  font-size: .92rem;
+  font-style: italic;
+  border: 1px dashed #ded8cc;
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+/* ══ FOOTER ══ */
+.footer { background: var(--noir); padding: 32px 0; text-align: center; }
+.footer__brand { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--or); letter-spacing: .08em; text-transform: uppercase; }
+.footer__sub { font-size: .85rem; color: #6b7280; margin-top: .2rem; }
+
+@media (max-width: 640px) {
+  .module-card { flex-direction: column; text-align: center; }
+  .module-card__arrow { display: none; }
+}

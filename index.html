@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espace Membre — Rijal Fit</title>
+  <meta name="description" content="Accède à ton espace membre Rijal Fit avec ton code d'accès." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    // Si un accès est déjà mémorisé, on saute directement le formulaire.
+    (function () {
+      try {
+        if (localStorage.getItem('rf_espace_membre_access')) {
+          window.location.replace('espace.html');
+        }
+      } catch (err) { /* rien à faire */ }
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="topbar__brand">Rijal Fit · <em>Espace Membre</em></span>
+  </div>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Offre Starter</p>
+      <h1 class="hero-title">Ton espace membre</h1>
+      <p class="hero-sub">Entre le code d'accès que tu as reçu par email ou message pour débloquer les 5 modules.</p>
+
+      <form id="code-form" novalidate>
+        <div class="field">
+          <label for="access-code">Code d'accès *</label>
+          <input type="text" id="access-code" name="code" autocomplete="off" autocapitalize="characters" required />
+        </div>
+        <button type="submit" id="submit-btn" class="btn btn--primary btn--large">Accéder à mes modules →</button>
+        <p id="code-error" class="form-error" role="alert" hidden></p>
+        <p class="form-hint">Pas encore reçu de code ? Contacte Matthieu directement.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__brand">Rijal Fit</p>
+      <p class="footer__sub">Coach Réalignement Corps &amp; Foi</p>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script>
+    const form = document.getElementById('code-form');
+    const input = document.getElementById('access-code');
+    const errorEl = document.getElementById('code-error');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      errorEl.hidden = true;
+
+      const code = input.value.trim();
+      if (!code) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Vérification…';
+
+      try {
+        const res = await fetch('/api/verify-code', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code }),
+        });
+        const data = await res.json();
+
+        if (res.ok && data.valid) {
+          rfGrantAccess(code, data.origin);
+          window.location.href = 'espace.html';
+          return;
+        }
+
+        errorEl.textContent = 'Code invalide. Vérifie qu\'il est bien recopié, sans espace.';
+        errorEl.hidden = false;
+      } catch (err) {
+        errorEl.textContent = 'Vérification impossible pour le moment. Réessaie dans un instant.';
+        errorEl.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Accéder à mes modules →';
+      }
+    });
+  </script>
+</body>
+</html>
