@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Programme — Espace Membre Rijal Fit</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="auth.js"></script>
+  <script src="jours-data.js"></script>
+  <script>rfRequireAccess();</script>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="topbar__brand">Rijal Fit · <em>Espace Membre</em></span>
+    <a href="espace.html" class="topbar__action">Mes modules</a>
+  </div>
+
+  <main class="container container--wide">
+    <header class="module-header">
+      <a href="espace.html" class="module-header__back">← Retour à mes modules</a>
+      <h1 class="module-header__title">Mon Programme</h1>
+      <p class="module-header__desc">Un nouveau jour débloqué chaque jour — réservé à la formule Premium. Reçois le lien directement sur Telegram dès qu'il est disponible.</p>
+    </header>
+
+    <div class="programme-layout">
+      <aside class="programme-sidebar" id="programme-sidebar"></aside>
+      <section class="programme-main" id="programme-main">
+        <p class="programme-empty">Chargement…</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__brand">Rijal Fit</p>
+      <p class="footer__sub">Coach Réalignement Corps &amp; Foi</p>
+    </div>
+  </footer>
+
+  <script>
+    (async function () {
+      const access = (await rfRefreshAccess()) || rfGetAccess();
+      const formule = ((access && access.formule) || 'Starter').toLowerCase();
+      const isPremium = formule === 'premium';
+
+      let jourCourant = 0;
+      if (isPremium && access.dateDebut) {
+        const debut = new Date(access.dateDebut + 'T00:00:00');
+        const debutUTC = Date.UTC(debut.getFullYear(), debut.getMonth(), debut.getDate());
+        const now = new Date();
+        const nowUTC = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+        jourCourant = Math.floor((nowUTC - debutUTC) / 86400000) + 1;
+      }
+
+      function isJourUnlocked(jour) {
+        if (!isPremium) return false;
+        if (jour > jourCourant) return false;
+        if (jour > 90 && !access.accesEtendu) return false;
+        return true;
+      }
+
+      function formatDateJour(jour) {
+        if (!access || !access.dateDebut) return 'bientôt';
+        const debut = new Date(access.dateDebut + 'T00:00:00');
+        const d = new Date(debut);
+        d.setDate(d.getDate() + (jour - 1));
+        return d.toLocaleDateString('fr-FR');
+      }
+
+      const sidebar = document.getElementById('programme-sidebar');
+      const main = document.getElementById('programme-main');
+      const totalSemaines = Math.ceil(RF_JOURS_TOTAL / 7);
+      const semaineCourante = jourCourant > 0 ? Math.ceil(Math.min(jourCourant, RF_JOURS_TOTAL) / 7) : 1;
+
+      function renderJour(jour) {
+        const content = rfGetJourContent(jour);
+        let html = '<p class="eyebrow">Jour ' + jour + '</p><h2 class="niveau__title">' + content.titre + '</h2>';
+        if (content.videoId) {
+          html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + content.videoId + '" title="Jour ' + jour + '" allowfullscreen loading="lazy"></iframe></div>';
+        }
+        html += '<div class="niveau__text"><p>' + content.texte + '</p></div>';
+        main.innerHTML = html;
+
+        sidebar.querySelectorAll('.jour-item').forEach(function (btn) {
+          btn.classList.toggle('is-active', Number(btn.dataset.jour) === jour);
+        });
+      }
+
+      function showLockedMessage(jour) {
+        if (!isPremium) {
+          main.innerHTML =
+            '<div class="programme-locked-banner">' +
+            '<p class="programme-locked-banner__title">Réservé à la formule Premium</p>' +
+            '<p class="programme-locked-banner__text">Le Programme jour par jour (Jour ' + jour + ' et les suivants) est débloqué avec la formule Premium (1 980€). Contacte Matthieu pour en savoir plus.</p>' +
+            '</div>';
+          return;
+        }
+        if (jour > 90 && !access.accesEtendu) {
+          main.innerHTML =
+            '<div class="programme-locked-banner">' +
+            '<p class="programme-locked-banner__title">Accès à prolonger</p>' +
+            '<p class="programme-locked-banner__text">Tu as terminé les 90 premiers jours. Contacte Matthieu pour activer la suite de l\'accompagnement (200€/mois) et débloquer le Jour ' + jour + '.</p>' +
+            '</div>';
+          return;
+        }
+        main.innerHTML = '<p class="programme-empty">Le Jour ' + jour + ' se débloquera le ' + formatDateJour(jour) + '.</p>';
+      }
+
+      let sidebarHtml = '';
+      for (let s = 1; s <= totalSemaines; s++) {
+        const startJour = (s - 1) * 7 + 1;
+        const endJour = Math.min(s * 7, RF_JOURS_TOTAL);
+        let daysHtml = '';
+        for (let j = startJour; j <= endJour; j++) {
+          const unlocked = isJourUnlocked(j);
+          const icon = unlocked ? '🔓' : '🔒';
+          daysHtml += '<button type="button" class="jour-item' + (unlocked ? '' : ' is-locked') + '" data-jour="' + j + '"><span class="jour-item__icon">' + icon + '</span> Jour ' + j + '</button>';
+        }
+        const isOpen = s === semaineCourante;
+        sidebarHtml +=
+          '<div class="semaine' + (isOpen ? ' is-open' : '') + '">' +
+          '<button type="button" class="semaine__header' + (s === semaineCourante ? ' is-current' : '') + '">' +
+          '<span>Semaine ' + s + '</span><span class="semaine__chevron">›</span>' +
+          '</button>' +
+          '<div class="semaine__days">' + daysHtml + '</div>' +
+          '</div>';
+      }
+      sidebar.innerHTML = sidebarHtml;
+
+      sidebar.querySelectorAll('.semaine__header').forEach(function (header) {
+        header.addEventListener('click', function () {
+          header.closest('.semaine').classList.toggle('is-open');
+        });
+      });
+
+      sidebar.querySelectorAll('.jour-item').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const jour = Number(btn.dataset.jour);
+          if (btn.classList.contains('is-locked')) {
+            showLockedMessage(jour);
+            return;
+          }
+          renderJour(jour);
+        });
+      });
+
+      // Ouvre directement le jour demandé si le lien vient d'un message
+      // Telegram (?jour=N) ou, par défaut, le jour courant.
+      const params = new URLSearchParams(window.location.search);
+      const jourDemande = Number(params.get('jour')) || jourCourant || 1;
+      if (isJourUnlocked(jourDemande)) {
+        renderJour(jourDemande);
+      } else {
+        showLockedMessage(jourDemande);
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -81,7 +81,7 @@
         const data = await res.json();
 
         if (res.ok && data.valid) {
-          rfGrantAccess(code, data.origin);
+          rfGrantAccess(code, data);
           window.location.href = 'espace.html';
           return;
         }

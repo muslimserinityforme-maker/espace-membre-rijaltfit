@@ -14,11 +14,16 @@ function rfGetAccess() {
   }
 }
 
-function rfGrantAccess(code, origin) {
+// data = { origin, formule, dateDebut, accesEtendu } (renvoyé par /api/verify-code)
+function rfGrantAccess(code, data) {
+  data = data || {};
   try {
     localStorage.setItem(RF_STORAGE_KEY, JSON.stringify({
       code,
-      origin: origin || null,
+      origin: data.origin || null,
+      formule: data.formule || 'Starter',
+      dateDebut: data.dateDebut || null,
+      accesEtendu: !!data.accesEtendu,
       grantedAt: new Date().toISOString(),
     }));
   } catch (err) {
@@ -41,6 +46,31 @@ function rfRequireAccess() {
   const access = rfGetAccess();
   if (!access || !access.code) {
     window.location.replace('index.html');
+  }
+  return access;
+}
+
+// Rappelle /api/verify-code avec le code déjà mémorisé pour rafraîchir
+// formule/dateDebut/accesEtendu — utile sur programme.html, car
+// "accesEtendu" peut avoir été coché par Matthieu depuis la dernière visite
+// et on ne veut pas forcer le client à se reconnecter pour en profiter.
+async function rfRefreshAccess() {
+  const access = rfGetAccess();
+  if (!access || !access.code) return null;
+
+  try {
+    const res = await fetch('/api/verify-code', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: access.code }),
+    });
+    const data = await res.json();
+    if (res.ok && data.valid) {
+      rfGrantAccess(access.code, data);
+      return rfGetAccess();
+    }
+  } catch (err) {
+    // Pas de réseau / API indisponible — on continue avec la version en cache.
   }
   return access;
 }

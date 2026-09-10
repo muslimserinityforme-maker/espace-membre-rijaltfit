@@ -323,3 +323,85 @@ input:focus { outline: none; border-color: var(--or); }
   .module-card { flex-direction: column; text-align: center; }
   .module-card__arrow { display: none; }
 }
+
+/* ── Programme jour par jour (Premium) ── */
+.container--wide { max-width: 1040px; }
+
+.programme-layout { display: flex; gap: 24px; align-items: flex-start; }
+
+.programme-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--blanc);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.semaine { border-bottom: 1px solid #eee6d8; }
+.semaine:last-child { border-bottom: none; }
+
+.semaine__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: .98rem;
+  color: var(--kaki);
+  text-align: left;
+}
+
+.semaine__header:hover { background: var(--beige); }
+.semaine__header.is-current { color: var(--or); }
+.semaine__chevron { transition: transform .15s; color: var(--gris); }
+.semaine.is-open .semaine__chevron { transform: rotate(90deg); }
+
+.semaine__days { display: none; padding: 0 8px 10px; }
+.semaine.is-open .semaine__days { display: block; }
+
+.jour-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: .9rem;
+  color: var(--noir);
+  text-align: left;
+}
+
+.jour-item:hover { background: var(--beige); }
+.jour-item.is-active { background: var(--kaki); color: var(--blanc); }
+.jour-item.is-locked { color: var(--gris); cursor: not-allowed; }
+.jour-item.is-locked:hover { background: none; }
+.jour-item__icon { flex-shrink: 0; font-size: .85rem; }
+
+.programme-main { flex: 1; min-width: 0; background: var(--blanc); border-radius: var(--radius); padding: 28px; }
+
+.programme-empty { color: var(--gris); text-align: center; padding: 40px 20px; }
+
+.programme-locked-banner {
+  background: var(--kaki);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+
+.programme-locked-banner__title { font-family: 'Rajdhani', sans-serif; font-weight: 700; color: var(--blanc); font-size: 1.15rem; margin-bottom: .4rem; }
+.programme-locked-banner__text { color: #d1cfc9; font-size: .95rem; }
+
+@media (max-width: 820px) {
+  .programme-layout { flex-direction: column; }
+  .programme-sidebar { width: 100%; max-height: 320px; }
+}

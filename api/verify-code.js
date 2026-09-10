@@ -1,7 +1,9 @@
 // Vérifie un code d'accès côté serveur (jamais de liste de codes exposée au
 // navigateur) en interrogeant la Google Sheet via le webhook Apps Script.
 // Même pattern que bilan-sens-rijalfit/api/log-lead.js (rate limit basique,
-// pas de dépendance externe).
+// pas de dépendance externe). Renvoie aussi la formule (Starter/Premium) et
+// l'état du Programme jour par jour (dateDebut/accesEtendu) pour que le
+// navigateur sache quoi débloquer.
 
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const RATE_LIMIT_MAX = 20;
@@ -55,7 +57,13 @@ module.exports = async (req, res) => {
     const data = await sheetRes.json();
 
     if (data && data.valid === true) {
-      res.status(200).json({ valid: true, origin: data.origin || null });
+      res.status(200).json({
+        valid: true,
+        origin: data.origin || null,
+        formule: data.formule || 'Starter',
+        dateDebut: data.dateDebut || null,
+        accesEtendu: !!data.accesEtendu,
+      });
     } else {
       res.status(200).json({ valid: false });
     }
