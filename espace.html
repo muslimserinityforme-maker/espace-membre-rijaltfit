@@ -100,7 +100,8 @@
           var doneCount = mod.niveaux.filter(function (n, i) { return progress.indexOf(niveauKey(mod.id, i)) !== -1; }).length;
           var isOpen = mod.id === activeMod;
           html += '<div class="nav-group' + (isOpen ? ' is-open' : '') + '" data-mod="' + mod.id + '">';
-          html += '<button type="button" class="nav-group__header"><span class="nav-group__title">' + mod.num + '. ' + mod.nom + '</span><span class="nav-group__pct">' + doneCount + '/' + mod.niveaux.length + '</span><span class="nav-group__chevron">›</span></button>';
+          var label = (mod.num ? mod.num + '. ' : '') + mod.nom;
+          html += '<button type="button" class="nav-group__header"><span class="nav-group__title">' + label + '</span><span class="nav-group__pct">' + doneCount + '/' + mod.niveaux.length + '</span><span class="nav-group__chevron">›</span></button>';
           html += '<div class="nav-group__items">';
           mod.niveaux.forEach(function (niveau, i) {
             var isDone = progress.indexOf(niveauKey(mod.id, i)) !== -1;
@@ -134,6 +135,13 @@
         var html = '<p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2>';
         if (niveau.videoId) {
           html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + niveau.videoId + '" title="' + niveau.titre + '" allowfullscreen loading="lazy"></iframe></div>';
+        }
+        if (niveau.images) {
+          if (niveau.images.length) {
+            html += '<div class="niveau__images">' + niveau.images.map(function (src) { return '<img src="' + src + '" alt="" loading="lazy">'; }).join('') + '</div>';
+          } else {
+            html += '<p class="niveau__placeholder">Images d\'illustration à venir.</p>';
+          }
         }
         html += '<div class="niveau__text"><p>' + niveau.texte + '</p></div>';
         html += '<button type="button" id="validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Terminé' : 'Marquer comme terminé') + '</button>';

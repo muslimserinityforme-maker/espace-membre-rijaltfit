@@ -302,6 +302,19 @@ input:focus { outline: none; border-color: var(--or); }
   border: 0;
 }
 
+.niveau__images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 1.2rem;
+}
+
+.niveau__images img {
+  width: 100%;
+  border-radius: var(--radius);
+  display: block;
+}
+
 .niveau__text { color: #3a3a3a; }
 .niveau__text p { margin-bottom: .9rem; }
 .niveau__text p:last-child { margin-bottom: 0; }

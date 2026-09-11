@@ -1,11 +1,29 @@
-// Contenu des 5 modules Starter. Même logique que jours-data.js : un objet
-// par module, une entrée par niveau (titre + lien YouTube non listé + texte).
-// Donne le contenu module par module, je remplis directement ici.
+// Contenu des 5 modules Starter (+ l'Introduction). Même logique que
+// jours-data.js : un objet par module, une entrée par niveau (titre + lien
+// YouTube non listé + texte). Donne le contenu module par module, je
+// remplis directement ici.
 //
 // Exemple pour ajouter une vidéo à un niveau :
 // { titre: 'Niveau 1 — Ton intention', videoId: 'ID_VIDEO_ICI', texte: '...' }
+//
+// Un niveau peut aussi avoir un champ `images` (tableau d'URLs) pour des
+// images d'illustration à la place ou en plus d'une vidéo — laisser le
+// tableau vide en attendant les vraies images :
+// { titre: '...', images: [], texte: '...' }
 
 const RF_MODULES = [
+  {
+    id: 'introduction',
+    num: null,
+    nom: 'Introduction',
+    desc: "Avant de commencer : comment utiliser l'espace, la vision Rijal Fit, et comment t'équiper.",
+    niveaux: [
+      { titre: 'Comment ça marche ?', videoId: null, texte: "Vidéo à venir — explique comment utiliser l'espace membre." },
+      { titre: 'La vision Rijal Fit', videoId: null, texte: "Vidéo à venir (~5 min) — ce qu'est Rijal Fit." },
+      { titre: 'Quoi choisir ? En salle ou à la maison ?', videoId: null, images: [], texte: 'Texte à venir.' },
+      { titre: 'Matériels à prévoir à la maison', videoId: null, images: [], texte: 'Texte à venir.' },
+    ],
+  },
   {
     id: 'motive-forme',
     num: 1,
