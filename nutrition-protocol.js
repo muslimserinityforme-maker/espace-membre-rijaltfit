@@ -22,8 +22,13 @@ const RF_PROTOCOLS = {
     titrePage: 'TON PROTOCOLE FIT',
     intro: "Ton objectif n'est pas simplement de voir ton poids descendre sur la balance.\nNous voulons principalement réduire ta masse grasse tout en conservant ton muscle, ton énergie et une alimentation que tu peux tenir sur la durée.",
     petitDejeuner: {
-      texte: "Si tu n'as naturellement pas faim le matin, tu peux choisir de décaler ton premier repas.\nSi tu as l'habitude de prendre un petit-déjeuner, tu peux parfaitement le conserver. L'objectif sera simplement de choisir un petit-déjeuner équilibré et rassasiant.",
-      note: 'Le jeûne intermittent est un outil facultatif, jamais une obligation.',
+      texte: "Le jeûne intermittent est un outil facultatif : tu peux choisir de sauter le petit-déjeuner (jeûne le matin) ou de sauter le dîner (jeûne le soir), selon ce qui correspond le mieux à ton rythme de vie — aucun des deux n'est une obligation.\nSi tu préfères garder un petit-déjeuner, voici 4 exemples sains et rassasiants, adaptés au Protocole FIT. Ce sont des propositions séparées, pas une liste à combiner : choisis celle qui te convient le mieux.",
+      exemples: [
+        'skyr ou yaourt grec + fruits rouges + une cuillère de granola ;',
+        'œufs + une tranche de pain complet + tomates ou concombre ;',
+        'flocons d’avoine + lait ou boisson végétale + fruits ;',
+        'fromage blanc + oléagineux + un fruit.',
+      ],
     },
     midiSoir: {
       texte: 'Pour chacun de tes repas du midi et du soir, base-toi sur ces repères (méthode des poings vue plus haut) :',
