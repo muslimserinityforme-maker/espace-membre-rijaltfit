@@ -39,6 +39,7 @@ const RF_MODULES = [
           { text: "<em>Il n'est donc pas nécessaire d'opposer les deux.</em>" },
         ],
       },
+      { titre: 'Ne te casse plus la tête', videoId: null, texte: 'Texte à venir.' },
       { titre: 'Matériels à prévoir à la maison', videoId: null, images: [], texte: 'Texte à venir.' },
     ],
   },
