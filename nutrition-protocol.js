@@ -180,6 +180,7 @@ function rfRenderNutritionProtocol(root) {
     if (state.step === 'intro') {
       html =
         '<div class="np-card">' +
+        '<div class="niveau__images"><img src="images/protocole-nutrition-intro.jpg" alt="Ton protocole nutrition" loading="lazy"></div>' +
         '<div class="np-text">' + paragraphes(
           'Avant de commencer, tu dois savoir quelle stratégie nutritionnelle correspond réellement à ton corps.\n' +
           'Ton objectif personnel est important, mais ton taux de masse grasse va également nous aider à déterminer par quoi commencer.\n' +
