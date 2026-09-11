@@ -59,7 +59,7 @@ const RF_PROTOCOLS = {
     titrePage: 'TON PROTOCOLE MUSCLE',
     intro: "Ton objectif est de donner à ton corps suffisamment d’énergie et de nutriments pour développer du muscle tout en limitant la prise de masse grasse.",
     petitDejeuner: {
-      texte: 'Si tu prends un petit-déjeuner, privilégie une base rassasiante avec une source de protéines, une source de bons lipides et, selon tes besoins, une source de glucides.',
+      texte: 'Si tu prends un petit-déjeuner, privilégie une base rassasiante avec une source de protéines, une source de bons lipides et, selon tes besoins, une source de glucides.\nVoici 4 exemples au choix — ce sont des propositions séparées, pas une liste à combiner : choisis celle qui te convient le mieux.',
       exemples: [
         'œufs + pain complet + fruit ;',
         'omelette + avocat + pain complet ;',
