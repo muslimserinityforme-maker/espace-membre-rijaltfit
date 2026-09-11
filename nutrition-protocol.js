@@ -3,74 +3,86 @@
 // protocoles nutrition. Rendu dans le panneau principal du tableau de bord
 // (espace.html) quand le niveau sélectionné a `special: 'nutrition-protocol'`.
 //
+// Rijal Fit s'adresse uniquement aux hommes — pas de sélection de sexe,
+// formule US Navy homme uniquement.
+//
 // Tout ce qui est modifiable (seuils, textes, CTA) est regroupé dans
 // RF_PROTOCOLS/RF_OBJECTIFS en haut du fichier — la logique de calcul et le
 // rendu ne contiennent aucun texte/seuil en dur.
 
 // ── Configuration centrale des protocoles ──────────────────────────────
 // min/max = bornes du taux de masse grasse (%) qui orientent vers ce
-// protocole. Seuils "homme" donnés par Matthieu ; seuils "femme" absents du
-// brief initial — décalés de +10 points par convention courante en
-// attendant confirmation (à ajuster ici si besoin, rien d'autre à toucher).
+// protocole.
 const RF_PROTOCOLS = {
   fit: {
     id: 'fit',
     label: 'PROTOCOLE FIT',
-    seuils: { homme: { min: 20, max: Infinity }, femme: { min: 30, max: Infinity } },
+    seuils: { min: 20, max: Infinity },
     prioriteDefaut: "Ta priorité est de réduire progressivement ta masse grasse tout en préservant ton muscle, ton énergie et tes performances.\nTu vas commencer par le Protocole FIT.",
     titrePage: 'TON PROTOCOLE FIT',
     intro: "Ton objectif n'est pas simplement de voir ton poids descendre sur la balance.\nNous voulons principalement réduire ta masse grasse tout en conservant ton muscle, ton énergie et une alimentation que tu peux tenir sur la durée.",
-    strategie: [
-      'la méthode F.A.C.I.L.E. ;',
-      'des portions adaptées ;',
-      'une bonne consommation de protéines ;',
-      'des légumes et aliments rassasiants ;',
-      'une gestion adaptée des féculents ;',
-      'un déficit calorique raisonnable.',
-    ],
-    petitDejeunerTitre: 'Concernant le petit-déjeuner',
-    petitDejeuner: "Si tu n'as naturellement pas faim le matin, tu peux choisir de décaler ton premier repas.\nSi tu as l'habitude de prendre un petit-déjeuner, tu peux parfaitement le conserver. L'objectif sera simplement de choisir un petit-déjeuner équilibré et rassasiant.",
-    petitDejeunerNote: 'Le jeûne intermittent est un outil facultatif, jamais une obligation.',
+    petitDejeuner: {
+      texte: "Si tu n'as naturellement pas faim le matin, tu peux choisir de décaler ton premier repas.\nSi tu as l'habitude de prendre un petit-déjeuner, tu peux parfaitement le conserver. L'objectif sera simplement de choisir un petit-déjeuner équilibré et rassasiant.",
+      note: 'Le jeûne intermittent est un outil facultatif, jamais une obligation.',
+    },
+    midiSoir: {
+      liste: [
+        'la méthode F.A.C.I.L.E. ;',
+        'des portions adaptées ;',
+        'une bonne consommation de protéines ;',
+        'des légumes et aliments rassasiants ;',
+        'une gestion adaptée des féculents ;',
+        'un déficit calorique raisonnable.',
+      ],
+    },
   },
   recomposition: {
     id: 'recomposition',
     label: 'PROTOCOLE RECOMPOSITION',
-    seuils: { homme: { min: 15, max: 20 }, femme: { min: 25, max: 30 } },
+    seuils: { min: 15, max: 20 },
     prioriteDefaut: "Ton objectif sera de réduire progressivement ta masse grasse tout en développant ou en préservant ta masse musculaire.\nTu vas commencer par le Protocole Recomposition.",
     titrePage: 'TON PROTOCOLE RECOMPOSITION',
     intro: 'Ton objectif est double : diminuer progressivement ton taux de masse grasse tout en donnant à ton corps les nutriments nécessaires pour construire ou préserver du muscle.\nTu vas donc chercher l’équilibre entre alimentation, protéines, entraînement et récupération.',
-    note: 'Utilise également la méthode F.A.C.I.L.E., avec des portions adaptées à ton profil.',
+    petitDejeuner: {
+      texte: "Comme pour les autres protocoles, le jeûne intermittent reste facultatif : garde ton petit-déjeuner habituel s'il te convient, ou décale ton premier repas si tu n'as naturellement pas faim le matin.",
+      note: 'Aucune obligation — choisis ce qui te permet de tenir sur la durée.',
+    },
+    midiSoir: {
+      texte: 'Utilise la méthode F.A.C.I.L.E., avec des portions adaptées à ton profil.',
+    },
   },
   muscle: {
     id: 'muscle',
     label: 'PROTOCOLE MUSCLE',
-    seuils: { homme: { min: 12, max: 15 }, femme: { min: 22, max: 25 } },
+    seuils: { min: 12, max: 15 },
     prioriteDefaut: "Ton niveau de masse grasse te permet de t’orienter vers une construction musculaire contrôlée.\nL’objectif sera de développer du muscle sans augmenter inutilement ton taux de gras.",
     titrePage: 'TON PROTOCOLE MUSCLE',
     intro: "Ton objectif est de donner à ton corps suffisamment d’énergie et de nutriments pour développer du muscle tout en limitant la prise de masse grasse.",
-    principes: [
-      'conserver un apport suffisant en protéines ;',
-      'augmenter progressivement l’énergie disponible ;',
-      'augmenter principalement les glucides selon les besoins ;',
-      'conserver suffisamment de lipides ;',
-      'répartir les repas selon le quotidien du client.',
-    ],
-    feculentsTitre: 'Concernant les féculents',
-    feculentsNote: 'La méthode F.A.C.I.L.E. reste la base. Pour ce protocole, les portions de féculents sont augmentées par rapport au Protocole FIT, selon les besoins caloriques réels du client — pas une règle fixe universelle.',
-    petitDejeunerTitre: 'Ton petit-déjeuner',
-    petitDejeuner: 'Si tu prends un petit-déjeuner, privilégie une base rassasiante avec une source de protéines, une source de bons lipides et, selon tes besoins, une source de glucides.',
-    petitDejeunerExemples: [
-      'œufs + pain complet + fruit ;',
-      'omelette + avocat + pain complet ;',
-      'œufs + pommes de terre + légumes ;',
-      'fromage blanc ou skyr + fruits + oléagineux si tu préfères une version sucrée.',
-    ],
-    petitDejeunerNote: 'Le petit-déjeuner salé est une option, jamais une obligation.',
+    petitDejeuner: {
+      texte: 'Si tu prends un petit-déjeuner, privilégie une base rassasiante avec une source de protéines, une source de bons lipides et, selon tes besoins, une source de glucides.',
+      exemples: [
+        'œufs + pain complet + fruit ;',
+        'omelette + avocat + pain complet ;',
+        'œufs + pommes de terre + légumes ;',
+        'fromage blanc ou skyr + fruits + oléagineux si tu préfères une version sucrée.',
+      ],
+      note: 'Le petit-déjeuner salé est une option, jamais une obligation.',
+    },
+    midiSoir: {
+      liste: [
+        'conserver un apport suffisant en protéines ;',
+        'augmenter progressivement l’énergie disponible ;',
+        'augmenter principalement les glucides selon les besoins ;',
+        'conserver suffisamment de lipides ;',
+        'répartir les repas selon le quotidien du client.',
+      ],
+      note: 'La méthode F.A.C.I.L.E. reste la base. Pour ce protocole, les portions de féculents sont augmentées par rapport au Protocole FIT, selon les besoins caloriques réels du client — pas une règle fixe universelle.',
+    },
   },
   'muscle-maintenance': {
     id: 'muscle-maintenance',
     label: 'PROTOCOLE MUSCLE / MAINTENANCE',
-    seuils: { homme: { min: -Infinity, max: 12 }, femme: { min: -Infinity, max: 22 } },
+    seuils: { min: -Infinity, max: 12 },
     prioriteDefaut: "Ton taux de masse grasse est relativement bas.\nSelon ton objectif, tu vas pouvoir augmenter progressivement tes apports pour développer ta masse musculaire ou maintenir ta composition corporelle.",
     // Pas de section dédiée dans le brief — partage la page du Protocole Muscle.
     shareContentWith: 'muscle',
@@ -87,19 +99,16 @@ const RF_OBJECTIFS = [
 
 const RF_NUTRITION_STORAGE_KEY = 'rf_nutrition_profile';
 
-// ── Calcul (formule US Navy, adaptée métrique) ─────────────────────────
-function rfComputeBodyFat(sexe, tailleCm, tourTailleCm, tourCouCm, tourHanchesCm) {
+// ── Calcul (formule US Navy métrique, homme) ────────────────────────────
+function rfComputeBodyFat(tailleCm, tourTailleCm, tourCouCm) {
   const log10 = Math.log10;
-  if (sexe === 'homme') {
-    return 495 / (1.0324 - 0.19077 * log10(tourTailleCm - tourCouCm) + 0.15456 * log10(tailleCm)) - 450;
-  }
-  return 495 / (1.29579 - 0.35004 * log10(tourTailleCm + tourHanchesCm - tourCouCm) + 0.221 * log10(tailleCm)) - 450;
+  return 495 / (1.0324 - 0.19077 * log10(tourTailleCm - tourCouCm) + 0.15456 * log10(tailleCm)) - 450;
 }
 
-function rfDetermineProtocol(sexe, tauxMasseGrasse) {
+function rfDetermineProtocol(tauxMasseGrasse) {
   const ordre = ['fit', 'recomposition', 'muscle', 'muscle-maintenance'];
   for (const id of ordre) {
-    const seuils = RF_PROTOCOLS[id].seuils[sexe];
+    const seuils = RF_PROTOCOLS[id].seuils;
     if (tauxMasseGrasse >= seuils.min && tauxMasseGrasse < seuils.max) return id;
   }
   return 'muscle-maintenance';
@@ -142,13 +151,11 @@ function rfRenderNutritionProtocol(root) {
   const saved = rfGetNutritionProfile();
   const state = {
     step: saved ? 'resultat' : 'intro',
-    sexe: (saved && saved.sexe) || 'homme',
     age: (saved && saved.age) || '',
     poids: (saved && saved.poids) || '',
     taille: (saved && saved.taille) || '',
     tourTaille: (saved && saved.tourTaille) || '',
     tourCou: (saved && saved.tourCou) || '',
-    tourHanches: (saved && saved.tourHanches) || '',
     tauxMasseGrasse: saved ? saved.tauxMasseGrasse : null,
     protocolId: saved ? saved.protocolId : null,
     objectifId: saved ? saved.objectifId : null,
@@ -157,6 +164,14 @@ function rfRenderNutritionProtocol(root) {
 
   function paragraphes(texte) {
     return texte.split('\n').map(function (p) { return '<p>' + p + '</p>'; }).join('');
+  }
+
+  // Bloc "protocole des poings" (vidéo + image), affiché sur chaque page protocole.
+  function poingsBlockHtml() {
+    return (
+      '<div class="video-embed"><iframe src="https://www.youtube.com/embed/SJTdzvcY77c" title="Le protocole des poings" allowfullscreen loading="lazy"></iframe></div>' +
+      '<div class="niveau__images"><img src="images/protocole-poings.jpg" alt="Le protocole des poings — équivalences de portions" loading="lazy"></div>'
+    );
   }
 
   function render() {
@@ -177,12 +192,6 @@ function rfRenderNutritionProtocol(root) {
     if (state.step === 'form') {
       html =
         '<div class="np-card">' +
-        '<div class="np-field">' +
-        '<label>Ton sexe</label>' +
-        '<div class="np-radio-row">' +
-        '<button type="button" class="np-radio' + (state.sexe === 'homme' ? ' is-selected' : '') + '" data-field="sexe" data-value="homme">Homme</button>' +
-        '<button type="button" class="np-radio' + (state.sexe === 'femme' ? ' is-selected' : '') + '" data-field="sexe" data-value="femme">Femme</button>' +
-        '</div></div>' +
         '<div class="np-field-grid">' +
         '<div class="np-field"><label for="np-age">Ton âge (années)</label><input type="number" id="np-age" value="' + state.age + '" min="12" max="100" /></div>' +
         '<div class="np-field"><label for="np-poids">Ton poids (kg)</label><input type="number" id="np-poids" value="' + state.poids + '" min="30" max="300" /></div>' +
@@ -197,13 +206,6 @@ function rfRenderNutritionProtocol(root) {
         '<input type="number" id="np-tour-cou" value="' + state.tourCou + '" min="20" max="70" />' +
         '<p class="np-hint">Mesure ton tour de cou juste sous la pomme d’Adam.</p>' +
         '</div>' +
-        (state.sexe === 'femme'
-          ? '<div class="np-field">' +
-            '<label for="np-tour-hanches">Ton tour de hanches (cm)</label>' +
-            '<input type="number" id="np-tour-hanches" value="' + state.tourHanches + '" min="50" max="200" />' +
-            '<p class="np-hint">Mesure au niveau le plus large de tes hanches.</p>' +
-            '</div>'
-          : '') +
         '</div>' +
         (state.formError ? '<p class="form-error">' + state.formError + '</p>' : '') +
         '<button type="button" id="np-calc-btn" class="btn btn--primary">Calculer mon profil →</button>' +
@@ -245,30 +247,32 @@ function rfRenderNutritionProtocol(root) {
       html += '<p class="np-protocol-title">' + protocole.titrePage + '</p>';
       html += '<div class="np-text">' + paragraphes(contenu.intro) + '</div>';
 
-      if (contenu.strategie) {
-        html += '<p class="np-subtitle">La stratégie repose notamment sur :</p>';
-        html += '<ul class="np-list">' + contenu.strategie.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul>';
-      }
-      if (contenu.principes) {
-        html += '<ul class="np-list">' + contenu.principes.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul>';
-      }
-      if (contenu.note) {
-        html += '<div class="np-text">' + paragraphes(contenu.note) + '</div>';
-      }
-      if (contenu.feculentsTitre) {
-        html += '<p class="np-subtitle">' + contenu.feculentsTitre + '</p>';
-        html += '<div class="np-text">' + paragraphes(contenu.feculentsNote) + '</div>';
-      }
-      if (contenu.petitDejeunerTitre) {
-        html += '<p class="np-subtitle">' + contenu.petitDejeunerTitre + '</p>';
-        html += '<div class="np-text">' + paragraphes(contenu.petitDejeuner) + '</div>';
-        if (contenu.petitDejeunerExemples) {
-          html += '<ul class="np-list">' + contenu.petitDejeunerExemples.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul>';
+      html += poingsBlockHtml();
+
+      if (contenu.petitDejeuner) {
+        html += '<p class="np-subtitle">Petit déjeuner ou jeûne intermittent</p>';
+        html += '<div class="np-text">' + paragraphes(contenu.petitDejeuner.texte) + '</div>';
+        if (contenu.petitDejeuner.exemples) {
+          html += '<ul class="np-list">' + contenu.petitDejeuner.exemples.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul>';
         }
-        if (contenu.petitDejeunerNote) {
-          html += '<p class="np-note">' + contenu.petitDejeunerNote + '</p>';
+        if (contenu.petitDejeuner.note) {
+          html += '<p class="np-note">' + contenu.petitDejeuner.note + '</p>';
         }
       }
+
+      if (contenu.midiSoir) {
+        html += '<p class="np-subtitle">Midi et soir</p>';
+        if (contenu.midiSoir.texte) {
+          html += '<div class="np-text">' + paragraphes(contenu.midiSoir.texte) + '</div>';
+        }
+        if (contenu.midiSoir.liste) {
+          html += '<ul class="np-list">' + contenu.midiSoir.liste.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul>';
+        }
+        if (contenu.midiSoir.note) {
+          html += '<p class="np-note">' + contenu.midiSoir.note + '</p>';
+        }
+      }
+
       html += '<button type="button" id="np-back-result-btn" class="np-restart-link">← Retour à mon profil</button>';
       html += '</div>';
     }
@@ -281,13 +285,6 @@ function rfRenderNutritionProtocol(root) {
     const startBtn = root.querySelector('#np-start-btn');
     if (startBtn) startBtn.addEventListener('click', function () { state.step = 'form'; render(); });
 
-    root.querySelectorAll('.np-radio').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        state.sexe = btn.dataset.value;
-        render();
-      });
-    });
-
     const calcBtn = root.querySelector('#np-calc-btn');
     if (calcBtn) {
       calcBtn.addEventListener('click', function () {
@@ -296,11 +293,8 @@ function rfRenderNutritionProtocol(root) {
         const taille = Number(root.querySelector('#np-taille').value);
         const tourTaille = Number(root.querySelector('#np-tour-taille').value);
         const tourCou = Number(root.querySelector('#np-tour-cou').value);
-        const tourHanchesInput = root.querySelector('#np-tour-hanches');
-        const tourHanches = tourHanchesInput ? Number(tourHanchesInput.value) : 0;
 
         const valeurs = [age, poids, taille, tourTaille, tourCou];
-        if (state.sexe === 'femme') valeurs.push(tourHanches);
 
         if (valeurs.some(function (v) { return !v || v <= 0 || Number.isNaN(v); })) {
           state.formError = 'Merci de remplir tous les champs avec des valeurs valides.';
@@ -314,10 +308,10 @@ function rfRenderNutritionProtocol(root) {
         }
 
         state.age = age; state.poids = poids; state.taille = taille;
-        state.tourTaille = tourTaille; state.tourCou = tourCou; state.tourHanches = tourHanches;
+        state.tourTaille = tourTaille; state.tourCou = tourCou;
         state.formError = '';
-        state.tauxMasseGrasse = rfComputeBodyFat(state.sexe, taille, tourTaille, tourCou, tourHanches);
-        state.protocolId = rfDetermineProtocol(state.sexe, state.tauxMasseGrasse);
+        state.tauxMasseGrasse = rfComputeBodyFat(taille, tourTaille, tourCou);
+        state.protocolId = rfDetermineProtocol(state.tauxMasseGrasse);
         state.step = 'objectif';
         render();
       });
@@ -328,8 +322,8 @@ function rfRenderNutritionProtocol(root) {
         state.objectifId = btn.dataset.objectif;
         state.step = 'resultat';
         rfSaveNutritionProfile({
-          sexe: state.sexe, age: state.age, poids: state.poids, taille: state.taille,
-          tourTaille: state.tourTaille, tourCou: state.tourCou, tourHanches: state.tourHanches,
+          age: state.age, poids: state.poids, taille: state.taille,
+          tourTaille: state.tourTaille, tourCou: state.tourCou,
           tauxMasseGrasse: state.tauxMasseGrasse, protocolId: state.protocolId, objectifId: state.objectifId,
         });
         render();

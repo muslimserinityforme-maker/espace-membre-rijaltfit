@@ -604,27 +604,6 @@ input:focus { outline: none; border-color: var(--or); }
 
 .np-hint { font-size: .8rem; color: var(--gris); margin-top: 5px; }
 
-.np-radio-row { display: flex; gap: 12px; }
-
-.np-radio {
-  flex: 1;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-  padding: 12px;
-  border: 1.5px solid #ded8cc;
-  border-radius: var(--radius);
-  background: var(--blanc);
-  color: var(--kaki-dark);
-  cursor: pointer;
-  transition: border-color .15s, background .15s;
-}
-
-.np-radio:hover { border-color: var(--or); }
-.np-radio.is-selected { background: var(--kaki); border-color: var(--kaki); color: var(--blanc); }
-
 .np-question {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
@@ -740,7 +719,6 @@ input:focus { outline: none; border-color: var(--or); }
 
 @media (max-width: 560px) {
   .np-field-grid { grid-template-columns: 1fr; }
-  .np-radio-row { flex-direction: column; }
   .np-result-row { flex-direction: column; align-items: flex-start; gap: 2px; }
   .np-result-row strong { text-align: left; }
 }
