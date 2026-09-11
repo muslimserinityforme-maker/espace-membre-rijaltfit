@@ -50,7 +50,7 @@ const RF_MODULES = [
         blocks: [
           { image: 'images/intro-exercice-pourquoi.jpg' },
           { text: '<strong><u>Exercice : trouve ton Pourquoi en 7 questions</u></strong>' },
-          { text: 'Prends quelques minutes et réponds honnêtement. Ne cherche pas la « bonne » réponse. Plus tu avances, plus je veux que tu dépasses le physique.' },
+          { text: "Prends quelques minutes et réponds honnêtement. Utilise un cahier, un Word ou autre, et garde tout ton travail précieusement : ça sera <strong>TRÈS TRÈS TRÈS IMPORTANT</strong> pour trouver ton <strong>GRAND DOMINO</strong>. Chaque mot que tu rédiges permet de le trouver, donc ne cherche pas la « bonne » réponse, mais avance dans une démarche sincère envers toi-même." },
           { text: "1. Quel est le changement physique que tu souhaites obtenir aujourd'hui ?<br>Exemple : perdre 10 kg, retrouver de l'énergie, devenir plus fort, améliorer ma santé…" },
           { text: "2. Pourquoi est-ce important pour toi d'obtenir ce résultat ?<br>Qu'est-ce que cela changerait réellement dans ton quotidien ?" },
           { text: "3. Quel est le changement intérieur que tu souhaites obtenir aujourd'hui ?" },
