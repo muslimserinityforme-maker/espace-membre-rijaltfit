@@ -211,9 +211,10 @@ input:focus { outline: none; border-color: var(--or); }
   justify-content: center;
 }
 
-.module-card__body { flex: 1; }
+.module-card__body { flex: 1; display: block; }
 
 .module-card__name {
+  display: block;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
@@ -221,7 +222,7 @@ input:focus { outline: none; border-color: var(--or); }
   margin-bottom: .2rem;
 }
 
-.module-card__desc { font-size: .92rem; color: var(--gris); }
+.module-card__desc { display: block; font-size: .92rem; color: var(--gris); }
 
 .module-card__arrow { flex-shrink: 0; color: var(--or); font-size: 1.3rem; }
 
