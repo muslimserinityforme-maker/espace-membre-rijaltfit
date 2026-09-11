@@ -15,6 +15,7 @@
   <script src="auth.js"></script>
   <script src="modules-data.js"></script>
   <script src="nutrition-protocol.js"></script>
+  <script src="announcements-data.js"></script>
   <script>rfRequireAccess();</script>
 </head>
 <body>
@@ -38,8 +39,21 @@
         <p class="dash-header__hello">Bienvenue sur ton espace membre</p>
         <p class="dash-header__sub" id="dash-progress-text">0% de ta formation Starter terminée</p>
       </div>
-      <button type="button" id="continue-btn" class="btn btn--primary">Continuer ma formation →</button>
+      <div class="dash-header__actions">
+        <button type="button" id="continue-btn" class="btn btn--primary">Reprendre ma formation →</button>
+        <div class="dash-search">
+          <input type="text" id="dash-search-input" placeholder="🔍 Rechercher dans l'espace membre…" autocomplete="off" />
+          <div class="dash-search__results" id="dash-search-results" hidden></div>
+        </div>
+      </div>
     </header>
+
+    <nav class="dash-tabs" id="dash-tabs">
+      <button type="button" class="dash-tab" data-view="dashboard">Tableau de bord</button>
+      <button type="button" class="dash-tab" data-view="telegram">Télégramme</button>
+      <button type="button" class="dash-tab" data-view="favoris">Favoris</button>
+      <button type="button" class="dash-tab" data-view="annonces">Annonces</button>
+    </nav>
 
     <div class="dash-layout">
       <aside class="dash-sidebar" id="dash-sidebar"></aside>
@@ -63,6 +77,8 @@
 
     (function () {
       var PROGRESS_KEY = 'rf_module_progress';
+      var FAVORITES_KEY = 'rf_favorites';
+      var TELEGRAM_COMMUNAUTE_LIEN = 'LIEN_TELEGRAM_COMMUNAUTE_ICI';
 
       function getProgress() {
         try {
@@ -75,6 +91,17 @@
         try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(list)); } catch (err) { /* rien à faire */ }
       }
 
+      function getFavorites() {
+        try {
+          var raw = localStorage.getItem(FAVORITES_KEY);
+          return raw ? JSON.parse(raw) : [];
+        } catch (err) { return []; }
+      }
+
+      function setFavorites(list) {
+        try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(list)); } catch (err) { /* rien à faire */ }
+      }
+
       function niveauKey(modId, i) { return modId + '-' + i; }
 
       var totalNiveaux = RF_MODULES.reduce(function (sum, m) { return sum + m.niveaux.length; }, 0);
@@ -84,6 +111,9 @@
       var ringFill = document.getElementById('ring-fill');
       var ringPct = document.getElementById('ring-pct');
       var progressText = document.getElementById('dash-progress-text');
+      var tabsNav = document.getElementById('dash-tabs');
+      var searchInput = document.getElementById('dash-search-input');
+      var searchResults = document.getElementById('dash-search-results');
       var RING_CIRC = 226.2;
 
       function updateRing() {
@@ -92,6 +122,12 @@
         ringFill.style.strokeDashoffset = String(RING_CIRC * (1 - pct / 100));
         ringPct.textContent = pct + '%';
         progressText.textContent = pct + '% de ta formation Starter terminée (' + done + '/' + totalNiveaux + ' vidéos)';
+      }
+
+      function setActiveTab(view) {
+        tabsNav.querySelectorAll('.dash-tab').forEach(function (btn) {
+          btn.classList.toggle('is-active', btn.dataset.view === view);
+        });
       }
 
       function renderSidebar(activeMod, activeIdx) {
@@ -127,30 +163,52 @@
         });
       }
 
-      function renderNiveau(modId, idx) {
-        var mod = RF_MODULES.find(function (m) { return m.id === modId; });
-        var niveau = mod.niveaux[idx];
+      function niveauActionsHtml(modId, idx) {
         var key = niveauKey(modId, idx);
         var isDone = getProgress().indexOf(key) !== -1;
+        var isFav = getFavorites().indexOf(key) !== -1;
+        return (
+          '<div class="niveau-actions">' +
+          '<button type="button" id="validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Terminé' : 'Marquer comme terminé') + '</button>' +
+          '<button type="button" id="favorite-btn" class="favorite-btn' + (isFav ? ' is-fav' : '') + '">' + (isFav ? '★ Dans mes favoris' : '☆ Ajouter aux favoris') + '</button>' +
+          '</div>'
+        );
+      }
+
+      function bindNiveauActions(modId, idx) {
+        var key = niveauKey(modId, idx);
+
+        document.getElementById('validate-btn').addEventListener('click', function () {
+          var progress = getProgress();
+          var pos = progress.indexOf(key);
+          if (pos === -1) { progress.push(key); } else { progress.splice(pos, 1); }
+          setProgress(progress);
+          updateRing();
+          renderNiveau(modId, idx);
+        });
+
+        document.getElementById('favorite-btn').addEventListener('click', function () {
+          var favorites = getFavorites();
+          var pos = favorites.indexOf(key);
+          if (pos === -1) { favorites.push(key); } else { favorites.splice(pos, 1); }
+          setFavorites(favorites);
+          renderNiveau(modId, idx);
+        });
+      }
+
+      function renderNiveau(modId, idx) {
+        setActiveTab(null);
+        var mod = RF_MODULES.find(function (m) { return m.id === modId; });
+        var niveau = mod.niveaux[idx];
 
         var html = '<p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2>';
 
         if (niveau.special === 'nutrition-protocol') {
           html += '<div id="np-root"></div>';
-          html += '<button type="button" id="validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Terminé' : 'Marquer comme terminé') + '</button>';
+          html += niveauActionsHtml(modId, idx);
           main.innerHTML = html;
           rfRenderNutritionProtocol(document.getElementById('np-root'));
-
-          document.getElementById('validate-btn').addEventListener('click', function () {
-            var progress = getProgress();
-            var pos = progress.indexOf(key);
-            if (pos === -1) { progress.push(key); } else { progress.splice(pos, 1); }
-            setProgress(progress);
-            updateRing();
-            renderSidebar(modId, idx);
-            renderNiveau(modId, idx);
-          });
-
+          bindNiveauActions(modId, idx);
           renderSidebar(modId, idx);
           return;
         }
@@ -180,19 +238,9 @@
           var paragraphes = Array.isArray(niveau.texte) ? niveau.texte : [niveau.texte];
           html += '<div class="niveau__text">' + paragraphes.map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>';
         }
-        html += '<button type="button" id="validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Terminé' : 'Marquer comme terminé') + '</button>';
+        html += niveauActionsHtml(modId, idx);
         main.innerHTML = html;
-
-        document.getElementById('validate-btn').addEventListener('click', function () {
-          var progress = getProgress();
-          var pos = progress.indexOf(key);
-          if (pos === -1) { progress.push(key); } else { progress.splice(pos, 1); }
-          setProgress(progress);
-          updateRing();
-          renderSidebar(modId, idx);
-          renderNiveau(modId, idx);
-        });
-
+        bindNiveauActions(modId, idx);
         renderSidebar(modId, idx);
       }
 
@@ -207,14 +255,128 @@
         return { mod: RF_MODULES[0].id, idx: 0 };
       }
 
+      // ── Onglets Tableau de bord / Télégramme / Favoris / Annonces ──
+      function renderDashboardTab() {
+        setActiveTab('dashboard');
+        renderSidebar(null, null);
+        main.innerHTML =
+          '<p class="eyebrow">Tableau de bord</p>' +
+          '<h2 class="niveau__title">Bienvenue sur Rijal Fit</h2>' +
+          '<div class="video-embed"><span class="video-embed__placeholder">🎬 Vidéo de bienvenue à venir</span></div>';
+      }
+
+      function renderTelegramTab() {
+        setActiveTab('telegram');
+        renderSidebar(null, null);
+        main.innerHTML =
+          '<p class="eyebrow">Communauté</p>' +
+          '<h2 class="niveau__title">Rejoins la communauté Telegram</h2>' +
+          '<div class="niveau__text"><p>Échange avec les autres membres, pose tes questions et reste motivé au quotidien.</p></div>' +
+          '<a href="' + TELEGRAM_COMMUNAUTE_LIEN + '" target="_blank" rel="noopener" class="btn btn--primary">Rejoindre le groupe Telegram →</a>';
+      }
+
+      function renderFavorisTab() {
+        setActiveTab('favoris');
+        renderSidebar(null, null);
+        var favorites = getFavorites();
+        var html = '<p class="eyebrow">Mes favoris</p><h2 class="niveau__title">Vidéos et textes enregistrés</h2>';
+        if (!favorites.length) {
+          html += '<p class="programme-empty">Tu n\'as encore rien mis en favoris. Clique sur ☆ Ajouter aux favoris sous une vidéo ou un texte pour le retrouver ici.</p>';
+        } else {
+          html += '<div class="modules-grid">';
+          favorites.forEach(function (key) {
+            var sepIdx = key.lastIndexOf('-');
+            var modId = key.slice(0, sepIdx);
+            var idx = Number(key.slice(sepIdx + 1));
+            var mod = RF_MODULES.find(function (m) { return m.id === modId; });
+            if (!mod || !mod.niveaux[idx]) return;
+            html += '<button type="button" class="module-card favorite-card" data-mod="' + modId + '" data-idx="' + idx + '">' +
+              '<span class="module-card__body">' +
+              '<span class="module-card__name">' + mod.niveaux[idx].titre + '</span>' +
+              '<span class="module-card__desc">' + mod.nom + '</span>' +
+              '</span><span class="module-card__arrow">→</span></button>';
+          });
+          html += '</div>';
+        }
+        main.innerHTML = html;
+        main.querySelectorAll('.favorite-card').forEach(function (btn) {
+          btn.addEventListener('click', function () { renderNiveau(btn.dataset.mod, Number(btn.dataset.idx)); });
+        });
+      }
+
+      function renderAnnoncesTab() {
+        setActiveTab('annonces');
+        renderSidebar(null, null);
+        var html = '<p class="eyebrow">Annonces</p><h2 class="niveau__title">Les dernières nouvelles Rijal Fit</h2>';
+        if (!RF_ANNOUNCEMENTS.length) {
+          html += '<p class="programme-empty">Aucune annonce pour le moment.</p>';
+        } else {
+          html += RF_ANNOUNCEMENTS.map(function (a) {
+            return '<div class="niveau" style="padding:22px;margin-bottom:16px;">' +
+              '<p class="np-hint">' + a.date + '</p>' +
+              '<h3 class="niveau__title" style="font-size:1.1rem;margin-bottom:.6rem;">' + a.titre + '</h3>' +
+              '<div class="niveau__text"><p>' + a.texte + '</p></div>' +
+              '</div>';
+          }).join('');
+        }
+        main.innerHTML = html;
+      }
+
+      tabsNav.querySelectorAll('.dash-tab').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var view = btn.dataset.view;
+          if (view === 'dashboard') renderDashboardTab();
+          if (view === 'telegram') renderTelegramTab();
+          if (view === 'favoris') renderFavorisTab();
+          if (view === 'annonces') renderAnnoncesTab();
+        });
+      });
+
+      // ── Recherche ──
+      var searchIndex = [];
+      RF_MODULES.forEach(function (mod) {
+        mod.niveaux.forEach(function (niveau, i) {
+          searchIndex.push({ modId: mod.id, idx: i, modNom: mod.nom, titre: niveau.titre });
+        });
+      });
+
+      function runSearch(query) {
+        var q = query.trim().toLowerCase();
+        if (!q) { searchResults.hidden = true; searchResults.innerHTML = ''; return; }
+        var matches = searchIndex.filter(function (entry) {
+          return entry.titre.toLowerCase().indexOf(q) !== -1 || entry.modNom.toLowerCase().indexOf(q) !== -1;
+        }).slice(0, 8);
+
+        if (!matches.length) {
+          searchResults.innerHTML = '<p class="dash-search__empty">Aucun résultat pour « ' + query + ' ».</p>';
+        } else {
+          searchResults.innerHTML = matches.map(function (entry) {
+            return '<button type="button" class="dash-search__result" data-mod="' + entry.modId + '" data-idx="' + entry.idx + '"><strong>' + entry.titre + '</strong><span>' + entry.modNom + '</span></button>';
+          }).join('');
+        }
+        searchResults.hidden = false;
+
+        searchResults.querySelectorAll('.dash-search__result').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            renderNiveau(btn.dataset.mod, Number(btn.dataset.idx));
+            searchInput.value = '';
+            searchResults.hidden = true;
+          });
+        });
+      }
+
+      searchInput.addEventListener('input', function () { runSearch(searchInput.value); });
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.dash-search')) searchResults.hidden = true;
+      });
+
       document.getElementById('continue-btn').addEventListener('click', function () {
         var target = firstIncomplete();
         renderNiveau(target.mod, target.idx);
       });
 
       updateRing();
-      var start = firstIncomplete();
-      renderNiveau(start.mod, start.idx);
+      renderDashboardTab();
     })();
   </script>
 </body>
