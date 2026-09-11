@@ -35,6 +35,8 @@ const RF_MODULES = [
           { image: 'images/intro-salle-image.jpg' },
           { text: "<strong><u>Le programme en salle</u></strong> : <em>permet d'avoir accès à davantage de charges, de machines et de possibilités de progression. Il devient notamment plus simple de quantifier précisément la surcharge progressive, de travailler avec des pourcentages du 1RM et d'augmenter progressivement les charges. À mesure que le niveau du coaché augmente, la salle offre donc davantage de possibilités pour développer la force et la masse musculaire.</em>" },
           { image: 'images/intro-maison-image.jpg' },
+          { text: "<strong><u>Le programme maison</u></strong> : <em>répond à une autre priorité : rendre l'entraînement accessible et durable. Tu apprends à créer une stimulation efficace avec son poids de corps, du petit matériel ou des charges disponibles chez toi. La progression ne repose alors pas uniquement sur le poids utilisé. Tu peux jouer sur le niveau de difficulté des exercices, le nombre de répétitions, le volume, le tempo, l'amplitude ou encore la qualité d'exécution.</em>" },
+          { text: "<em>Il n'est donc pas nécessaire d'opposer les deux.</em>" },
         ],
       },
       { titre: 'Matériels à prévoir à la maison', videoId: null, images: [], texte: 'Texte à venir.' },
