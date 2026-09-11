@@ -25,6 +25,7 @@ const RF_MODULES = [
     niveaux: [
       { titre: 'Comment ça marche ?', videoId: null, texte: "Vidéo à venir — explique comment utiliser l'espace membre." },
       { titre: 'La vision Rijal Fit', videoId: null, texte: "Vidéo à venir (~5 min) — ce qu'est Rijal Fit." },
+      { titre: 'Quel est ton vrai pourquoi ?', videoId: null, images: [], texte: 'Texte à venir.' },
       {
         titre: 'Quoi choisir ? En salle ou à la maison ?',
         videoId: null,
