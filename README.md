@@ -13,10 +13,13 @@ pas d'usine à gaz.
    dans la Sheet, sans redéploiement.
 3. Une fois validé, l'accès est mémorisé dans le navigateur (`localStorage`)
    pour ne pas avoir à retaper le code à chaque visite — **`espace.html`**
-   affiche les 5 modules + la carte "Mon Programme".
-4. Chaque module (`module-*.html`) affiche ses niveaux : vidéo(s) YouTube non
-   listées intégrées + texte du niveau.
-5. **`programme.html`** — Programme jour par jour (730 jours = 2x 365),
+   est le tableau de bord : sidebar avec les 5 modules (dépliables en
+   niveaux, façon plateforme de formation classique), panneau principal avec
+   la vidéo + le texte du niveau sélectionné, cercle de progression global
+   en haut, et un bouton "Marquer comme terminé" par niveau (état mémorisé
+   en `localStorage`, pas de compte donc pas de suivi centralisé côté
+   Matthieu — chaque appareil a sa propre progression).
+4. **`programme.html`** — Programme jour par jour (730 jours = 2x 365),
    réservé à la formule Premium (1 980€). Les clients Starter voient les
    onglets mais verrouillés (effet incitatif à l'upgrade). Un bot Telegram
    envoie chaque jour le lien du jour qui vient de se débloquer.
@@ -44,12 +47,8 @@ pas de Stripe automatique pour l'instant.
 
 ```
 index.html                    → page d'entrée : code d'accès
-espace.html                   → dashboard : liste des 5 modules + carte Programme
-module-motive-forme.html      → module 1
-module-nutri-forme.html       → module 2
-module-depasse-forme.html     → module 3
-module-hygiene-forme.html     → module 4
-module-ramadan-forme.html     → module 5
+espace.html                   → tableau de bord : sidebar 5 modules + progression + validation
+modules-data.js               → contenu des 5 modules (RF_MODULES à remplir progressivement)
 programme.html                → Programme jour par jour (Premium), sidebar Semaines/Jours
 jours-data.js                 → contenu des jours (RF_JOURS_OVERRIDES à remplir progressivement)
 style.css                     → design Rijal Fit (kaki/or/beige/noir, Rajdhani/Inter)
@@ -123,10 +122,11 @@ vercel.json                   → configuration du Cron quotidien
 
 ## Ajouter le contenu des modules
 
-Chaque page `module-*.html` contient des sections `.niveau` prêtes à
-dupliquer : un titre, un bloc `.video-embed` (iframe YouTube, remplacer
-`ID_VIDEO_ICI` par l'ID de la vidéo non listée) et un bloc `.niveau__text`
-pour le texte. Pas de build, pas de CMS — édition directe du HTML.
+Édite `modules-data.js`, tableau `RF_MODULES` : chaque module a un tableau
+`niveaux`, chaque niveau a `titre`, `videoId` (l'ID de la vidéo YouTube non
+listée, ou `null` tant qu'il n'y en a pas) et `texte`. Pas de build, pas de
+CMS — édition directe du fichier. Le nombre de niveaux par module peut
+changer librement (ajoute/retire des entrées dans le tableau).
 
 ## Ajouter le contenu des jours (Programme Premium)
 

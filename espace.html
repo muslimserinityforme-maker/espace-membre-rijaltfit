@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="style.css" />
 
   <script src="auth.js"></script>
+  <script src="modules-data.js"></script>
   <script>rfRequireAccess();</script>
 </head>
 <body>
@@ -22,68 +23,28 @@
     <button type="button" id="logout-btn" class="topbar__action">Se déconnecter</button>
   </div>
 
-  <main class="container">
-    <section class="hero">
-      <p class="eyebrow">Offre Starter</p>
-      <h1 class="hero-title">Tes 5 modules</h1>
-      <p class="hero-sub">Avance à ton rythme. Chaque module contient les vidéos et le contenu pour progresser étape par étape.</p>
-    </section>
+  <main class="container container--wide">
 
-    <div class="modules-grid">
-      <a href="module-motive-forme.html" class="module-card">
-        <span class="module-card__num">1</span>
-        <span class="module-card__body">
-          <span class="module-card__name">Motive-Forme</span>
-          <span class="module-card__desc">Poser ton intention, comprendre ta motivation, sortir des excuses.</span>
-        </span>
-        <span class="module-card__arrow">→</span>
-      </a>
+    <header class="dash-header">
+      <div class="ring">
+        <svg width="84" height="84" viewBox="0 0 84 84">
+          <circle cx="42" cy="42" r="36" fill="none" stroke="rgba(245,240,232,.25)" stroke-width="7" />
+          <circle id="ring-fill" cx="42" cy="42" r="36" fill="none" stroke="#C9A84C" stroke-width="7" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="226.2" />
+        </svg>
+        <span class="ring__pct" id="ring-pct">0%</span>
+      </div>
+      <div class="dash-header__body">
+        <p class="dash-header__hello">Bienvenue sur ton espace membre</p>
+        <p class="dash-header__sub" id="dash-progress-text">0% de ta formation Starter terminée</p>
+      </div>
+      <button type="button" id="continue-btn" class="btn btn--primary">Continuer ma formation →</button>
+    </header>
 
-      <a href="module-nutri-forme.html" class="module-card">
-        <span class="module-card__num">2</span>
-        <span class="module-card__body">
-          <span class="module-card__name">Nutri-Forme</span>
-          <span class="module-card__desc">La méthode F.A.C.I.L.E pour manger juste, sans te compliquer la vie.</span>
-        </span>
-        <span class="module-card__arrow">→</span>
-      </a>
-
-      <a href="module-depasse-forme.html" class="module-card">
-        <span class="module-card__num">3</span>
-        <span class="module-card__body">
-          <span class="module-card__name">Dépasse-Forme</span>
-          <span class="module-card__desc">Les protocoles d'entraînement pour progresser concrètement.</span>
-        </span>
-        <span class="module-card__arrow">→</span>
-      </a>
-
-      <a href="module-hygiene-forme.html" class="module-card">
-        <span class="module-card__num">4</span>
-        <span class="module-card__body">
-          <span class="module-card__name">Hygiène-Forme</span>
-          <span class="module-card__desc">Hygiène de vie et médecine prophétique au quotidien.</span>
-        </span>
-        <span class="module-card__arrow">→</span>
-      </a>
-
-      <a href="module-ramadan-forme.html" class="module-card">
-        <span class="module-card__num">5</span>
-        <span class="module-card__body">
-          <span class="module-card__name">Ramadan-Forme</span>
-          <span class="module-card__desc">Garder ta forme et ta régularité pendant les 30 jours de Ramadan.</span>
-        </span>
-        <span class="module-card__arrow">→</span>
-      </a>
-
-      <a href="programme.html" class="module-card">
-        <span class="module-card__num">🔒</span>
-        <span class="module-card__body">
-          <span class="module-card__name">Mon Programme</span>
-          <span class="module-card__desc">Un nouveau jour débloqué chaque jour, avec rappel Telegram — réservé à la formule Premium.</span>
-        </span>
-        <span class="module-card__arrow">→</span>
-      </a>
+    <div class="dash-layout">
+      <aside class="dash-sidebar" id="dash-sidebar"></aside>
+      <section class="dash-main" id="dash-main"></section>
     </div>
+
   </main>
 
   <footer class="footer">
@@ -98,6 +59,119 @@
       rfClearAccess();
       window.location.href = 'index.html';
     });
+
+    (function () {
+      var PROGRESS_KEY = 'rf_module_progress';
+
+      function getProgress() {
+        try {
+          var raw = localStorage.getItem(PROGRESS_KEY);
+          return raw ? JSON.parse(raw) : [];
+        } catch (err) { return []; }
+      }
+
+      function setProgress(list) {
+        try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(list)); } catch (err) { /* rien à faire */ }
+      }
+
+      function niveauKey(modId, i) { return modId + '-' + i; }
+
+      var totalNiveaux = RF_MODULES.reduce(function (sum, m) { return sum + m.niveaux.length; }, 0);
+
+      var sidebar = document.getElementById('dash-sidebar');
+      var main = document.getElementById('dash-main');
+      var ringFill = document.getElementById('ring-fill');
+      var ringPct = document.getElementById('ring-pct');
+      var progressText = document.getElementById('dash-progress-text');
+      var RING_CIRC = 226.2;
+
+      function updateRing() {
+        var done = getProgress().length;
+        var pct = totalNiveaux ? Math.round((done / totalNiveaux) * 100) : 0;
+        ringFill.style.strokeDashoffset = String(RING_CIRC * (1 - pct / 100));
+        ringPct.textContent = pct + '%';
+        progressText.textContent = pct + '% de ta formation Starter terminée (' + done + '/' + totalNiveaux + ' vidéos)';
+      }
+
+      function renderSidebar(activeMod, activeIdx) {
+        var progress = getProgress();
+        var html = '';
+        RF_MODULES.forEach(function (mod, mi) {
+          var doneCount = mod.niveaux.filter(function (n, i) { return progress.indexOf(niveauKey(mod.id, i)) !== -1; }).length;
+          var isOpen = mod.id === activeMod;
+          html += '<div class="nav-group' + (isOpen ? ' is-open' : '') + '" data-mod="' + mod.id + '">';
+          html += '<button type="button" class="nav-group__header"><span class="nav-group__title">' + mod.num + '. ' + mod.nom + '</span><span class="nav-group__pct">' + doneCount + '/' + mod.niveaux.length + '</span><span class="nav-group__chevron">›</span></button>';
+          html += '<div class="nav-group__items">';
+          mod.niveaux.forEach(function (niveau, i) {
+            var isDone = progress.indexOf(niveauKey(mod.id, i)) !== -1;
+            var isActive = mod.id === activeMod && i === activeIdx;
+            html += '<button type="button" class="nav-item' + (isDone ? ' is-done' : '') + (isActive ? ' is-active' : '') + '" data-mod="' + mod.id + '" data-idx="' + i + '"><span class="nav-item__check">' + (isDone ? '✓' : '') + '</span>' + niveau.titre + '</button>';
+          });
+          html += '</div></div>';
+        });
+        html += '<a href="programme.html" class="nav-item nav-item--programme">🔒 Mon Programme</a>';
+        sidebar.innerHTML = html;
+
+        sidebar.querySelectorAll('.nav-group__header').forEach(function (header) {
+          header.addEventListener('click', function () {
+            header.closest('.nav-group').classList.toggle('is-open');
+          });
+        });
+
+        sidebar.querySelectorAll('.nav-item[data-mod]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            renderNiveau(btn.dataset.mod, Number(btn.dataset.idx));
+          });
+        });
+      }
+
+      function renderNiveau(modId, idx) {
+        var mod = RF_MODULES.find(function (m) { return m.id === modId; });
+        var niveau = mod.niveaux[idx];
+        var key = niveauKey(modId, idx);
+        var isDone = getProgress().indexOf(key) !== -1;
+
+        var html = '<p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2>';
+        if (niveau.videoId) {
+          html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + niveau.videoId + '" title="' + niveau.titre + '" allowfullscreen loading="lazy"></iframe></div>';
+        }
+        html += '<div class="niveau__text"><p>' + niveau.texte + '</p></div>';
+        html += '<button type="button" id="validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Terminé' : 'Marquer comme terminé') + '</button>';
+        main.innerHTML = html;
+
+        document.getElementById('validate-btn').addEventListener('click', function () {
+          var progress = getProgress();
+          var pos = progress.indexOf(key);
+          if (pos === -1) { progress.push(key); } else { progress.splice(pos, 1); }
+          setProgress(progress);
+          updateRing();
+          renderSidebar(modId, idx);
+          renderNiveau(modId, idx);
+        });
+
+        renderSidebar(modId, idx);
+      }
+
+      function firstIncomplete() {
+        var progress = getProgress();
+        for (var mi = 0; mi < RF_MODULES.length; mi++) {
+          var mod = RF_MODULES[mi];
+          for (var i = 0; i < mod.niveaux.length; i++) {
+            if (progress.indexOf(niveauKey(mod.id, i)) === -1) return { mod: mod.id, idx: i };
+          }
+        }
+        return { mod: RF_MODULES[0].id, idx: 0 };
+      }
+
+      document.getElementById('continue-btn').addEventListener('click', function () {
+        var target = firstIncomplete();
+        renderNiveau(target.mod, target.idx);
+      });
+
+      updateRing();
+      var start = firstIncomplete();
+      renderNiveau(start.mod, start.idx);
+    })();
   </script>
 </body>
 </html>
