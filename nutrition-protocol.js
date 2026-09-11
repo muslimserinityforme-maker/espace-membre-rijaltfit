@@ -76,7 +76,6 @@ const RF_PROTOCOLS = {
         'conserver suffisamment de lipides ;',
         'répartir les repas selon le quotidien du client.',
       ],
-      note: 'La méthode F.A.C.I.L.E. reste la base. Pour ce protocole, les portions de féculents sont augmentées par rapport au Protocole FIT, selon les besoins caloriques réels du client — pas une règle fixe universelle.',
     },
   },
   'muscle-maintenance': {
