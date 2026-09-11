@@ -45,6 +45,26 @@ const RF_MODULES = [
         ],
       },
       {
+        titre: 'Exercice : trouve ton Pourquoi en 7 questions',
+        videoId: null,
+        blocks: [
+          { image: 'images/intro-exercice-pourquoi.jpg' },
+          { text: '<strong><u>Exercice : trouve ton Pourquoi en 7 questions</u></strong>' },
+          { text: 'Prends quelques minutes et réponds honnêtement. Ne cherche pas la « bonne » réponse. Plus tu avances, plus je veux que tu dépasses le physique.' },
+          { text: "1. Quel est le changement physique que tu souhaites obtenir aujourd'hui ?<br>Exemple : perdre 10 kg, retrouver de l'énergie, devenir plus fort, améliorer ma santé…" },
+          { text: "2. Pourquoi est-ce important pour toi d'obtenir ce résultat ?<br>Qu'est-ce que cela changerait réellement dans ton quotidien ?" },
+          { text: "3. Quel est le changement intérieur que tu souhaites obtenir aujourd'hui ?" },
+          { text: "4. Si tu obtenais ce résultat demain, qu'est-ce que tu pourrais faire ou vivre que tu ne vis pas pleinement aujourd'hui ?<br>Pense à ta famille, ton travail, tes activités, ta santé, tes adorations…" },
+          { text: "5. Pourquoi ces choses sont-elles importantes pour toi ?<br>Qu'est-ce qu'elles représentent profondément dans ta vie ?" },
+          { text: "6. Quel homme veux-tu devenir à travers cette démarche ?<br>Ne parle plus de kilos ou de muscles. Parle de qualités : discipline, énergie, responsabilité, constance, autonomie, confiance, capacité à servir…" },
+          { text: "7. En quoi prendre soin de ton corps peut-il t'aider à mieux vivre ce qui compte réellement pour toi et à te rapprocher d'Allah ?<br>C'est ici que tu cherches à relier ta santé à quelque chose de plus grand que ton apparence." },
+          { text: 'À partir de tes réponses, termine cette phrase :' },
+          { text: '« Je ne veux pas seulement __________. Je veux prendre soin de mon corps pour __________, afin de pouvoir __________. Et lorsque ce sera difficile, je veux me rappeler que je fais tout cela pour __________. »' },
+          { text: 'Garde cette phrase. Ce sera ta boussole.' },
+          { text: "Ton programme te donnera les exercices, les habitudes et la méthode. Mais ton <strong>Pourquoi</strong> te rappellera pourquoi cela mérite de continuer lorsque l'envie d'abandonner reviendra." },
+        ],
+      },
+      {
         titre: 'Quoi choisir ? En salle ou à la maison ?',
         videoId: null,
         blocks: [
