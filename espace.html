@@ -133,20 +133,32 @@
         var isDone = getProgress().indexOf(key) !== -1;
 
         var html = '<p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2>';
-        if (niveau.videoId) {
-          html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + niveau.videoId + '" title="' + niveau.titre + '" allowfullscreen loading="lazy"></iframe></div>';
-        } else if (!niveau.images) {
-          html += '<div class="video-embed"><span class="video-embed__placeholder">🎬 Vidéo à venir</span></div>';
-        }
-        if (niveau.images) {
-          if (niveau.images.length) {
-            html += '<div class="niveau__images">' + niveau.images.map(function (src) { return '<img src="' + src + '" alt="" loading="lazy">'; }).join('') + '</div>';
-          } else {
-            html += '<p class="niveau__placeholder">Images d\'illustration à venir.</p>';
+
+        if (niveau.blocks) {
+          // Ordre exact contrôlé bloc par bloc (texte et images intercalés).
+          niveau.blocks.forEach(function (block) {
+            if (block.image) {
+              html += '<div class="niveau__images"><img src="' + block.image + '" alt="" loading="lazy"></div>';
+            } else if (block.text) {
+              html += '<div class="niveau__text"><p>' + block.text + '</p></div>';
+            }
+          });
+        } else {
+          if (niveau.videoId) {
+            html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + niveau.videoId + '" title="' + niveau.titre + '" allowfullscreen loading="lazy"></iframe></div>';
+          } else if (!niveau.images) {
+            html += '<div class="video-embed"><span class="video-embed__placeholder">🎬 Vidéo à venir</span></div>';
           }
+          if (niveau.images) {
+            if (niveau.images.length) {
+              html += '<div class="niveau__images">' + niveau.images.map(function (src) { return '<img src="' + src + '" alt="" loading="lazy">'; }).join('') + '</div>';
+            } else {
+              html += '<p class="niveau__placeholder">Images d\'illustration à venir.</p>';
+            }
+          }
+          var paragraphes = Array.isArray(niveau.texte) ? niveau.texte : [niveau.texte];
+          html += '<div class="niveau__text">' + paragraphes.map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>';
         }
-        var paragraphes = Array.isArray(niveau.texte) ? niveau.texte : [niveau.texte];
-        html += '<div class="niveau__text">' + paragraphes.map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>';
         html += '<button type="button" id="validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Terminé' : 'Marquer comme terminé') + '</button>';
         main.innerHTML = html;
 

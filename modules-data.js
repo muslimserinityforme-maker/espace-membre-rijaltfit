@@ -10,6 +10,11 @@
 // images d'illustration à la place ou en plus d'une vidéo — laisser le
 // tableau vide en attendant les vraies images :
 // { titre: '...', images: [], texte: '...' }
+//
+// Pour intercaler texte et images dans un ordre précis (ex: photo, puis
+// texte, puis une autre image), utiliser `blocks` à la place de
+// `images`/`texte` — rendu dans l'ordre exact du tableau :
+// { titre: '...', blocks: [{ image: '...' }, { text: '...' }, { image: '...' }] }
 
 const RF_MODULES = [
   {
@@ -23,10 +28,11 @@ const RF_MODULES = [
       {
         titre: 'Quoi choisir ? En salle ou à la maison ?',
         videoId: null,
-        images: ['images/intro-salle-ou-maison.jpg'],
-        texte: [
-          'Salle ou maison : que choisir ?',
-          "Dans Rijal Fit, le programme en salle et le programme à la maison ne sont pas deux chemins différents. Ils suivent la même logique de transformation, les mêmes phases et les mêmes intentions. Ce qui change principalement, ce sont les outils utilisés pour créer la stimulation musculaire et atteindre une transformation extérieure comme intérieure.",
+        blocks: [
+          { image: 'images/intro-salle-ou-maison.jpg' },
+          { text: 'Salle ou maison : que choisir ?' },
+          { text: "Dans Rijal Fit, le programme en salle et le programme à la maison ne sont pas deux chemins différents. Ils suivent la même logique de transformation, les mêmes phases et les mêmes intentions. Ce qui change principalement, ce sont les outils utilisés pour créer la stimulation musculaire et atteindre une transformation extérieure comme intérieure." },
+          { image: 'images/intro-salle-image.jpg' },
         ],
       },
       { titre: 'Matériels à prévoir à la maison', videoId: null, images: [], texte: 'Texte à venir.' },
