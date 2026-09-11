@@ -97,7 +97,15 @@ const RF_MODULES = [
           { text: '<strong><u>Retenir :</u></strong><br><strong><u>Salle = plus de possibilités.<br>Maison = plus de flexibilité.<br>Rijal Fit = les deux selon ta vie.</u></strong>' },
         ],
       },
-      { titre: 'Matériels à prévoir à la maison', videoId: null, images: [], texte: 'Texte à venir.' },
+      {
+        titre: 'Matériels à prévoir à la maison',
+        videoId: null,
+        blocks: [
+          { image: 'images/intro-materiels-maison.jpg' },
+          { text: '<strong><u>Le matériel à prévoir à la maison</u></strong>' },
+          { text: "Pour progresser à la maison, tu n'as pas besoin de transformer ton salon en salle de musculation. Quelques équipements bien choisis suffisent pour augmenter progressivement la difficulté de tes exercices et continuer à évoluer au fil des phases Rijal Fit." },
+        ],
+      },
     ],
   },
   {
