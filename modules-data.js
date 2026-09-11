@@ -20,7 +20,7 @@ const RF_MODULES = [
     niveaux: [
       { titre: 'Comment ça marche ?', videoId: null, texte: "Vidéo à venir — explique comment utiliser l'espace membre." },
       { titre: 'La vision Rijal Fit', videoId: null, texte: "Vidéo à venir (~5 min) — ce qu'est Rijal Fit." },
-      { titre: 'Quoi choisir ? En salle ou à la maison ?', videoId: null, images: [], texte: 'Texte à venir.' },
+      { titre: 'Quoi choisir ? En salle ou à la maison ?', videoId: null, images: ['images/intro-salle-ou-maison.jpg'], texte: 'Salle ou maison : que choisir ?' },
       { titre: 'Matériels à prévoir à la maison', videoId: null, images: [], texte: 'Texte à venir.' },
     ],
   },
