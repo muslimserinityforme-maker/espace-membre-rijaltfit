@@ -135,6 +135,8 @@
         var html = '<p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2>';
         if (niveau.videoId) {
           html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + niveau.videoId + '" title="' + niveau.titre + '" allowfullscreen loading="lazy"></iframe></div>';
+        } else if (!niveau.images) {
+          html += '<div class="video-embed"><span class="video-embed__placeholder">🎬 Vidéo à venir</span></div>';
         }
         if (niveau.images) {
           if (niveau.images.length) {

@@ -302,6 +302,19 @@ input:focus { outline: none; border-color: var(--or); }
   border: 0;
 }
 
+.video-embed__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gris);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: .95rem;
+  letter-spacing: .02em;
+}
+
 .niveau__images {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
