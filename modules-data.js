@@ -64,6 +64,7 @@ const RF_MODULES = [
           { text: "Ton programme te donnera les exercices, les habitudes et la méthode. Mais ton <strong>Pourquoi</strong> te rappellera pourquoi cela mérite de continuer lorsque l'envie d'abandonner reviendra." },
         ],
       },
+      { titre: 'Ton protocole nutrition', videoId: null, images: [], texte: 'Texte à venir.' },
       {
         titre: 'Quoi choisir ? En salle ou à la maison ?',
         videoId: null,
