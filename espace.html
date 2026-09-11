@@ -14,6 +14,7 @@
 
   <script src="auth.js"></script>
   <script src="modules-data.js"></script>
+  <script src="nutrition-protocol.js"></script>
   <script>rfRequireAccess();</script>
 </head>
 <body>
@@ -133,6 +134,26 @@
         var isDone = getProgress().indexOf(key) !== -1;
 
         var html = '<p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2>';
+
+        if (niveau.special === 'nutrition-protocol') {
+          html += '<div id="np-root"></div>';
+          html += '<button type="button" id="validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Terminé' : 'Marquer comme terminé') + '</button>';
+          main.innerHTML = html;
+          rfRenderNutritionProtocol(document.getElementById('np-root'));
+
+          document.getElementById('validate-btn').addEventListener('click', function () {
+            var progress = getProgress();
+            var pos = progress.indexOf(key);
+            if (pos === -1) { progress.push(key); } else { progress.splice(pos, 1); }
+            setProgress(progress);
+            updateRing();
+            renderSidebar(modId, idx);
+            renderNiveau(modId, idx);
+          });
+
+          renderSidebar(modId, idx);
+          return;
+        }
 
         if (niveau.blocks) {
           // Ordre exact contrôlé bloc par bloc (texte et images intercalés).
