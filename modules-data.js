@@ -65,6 +65,9 @@ const RF_MODULES = [
         ],
       },
       { titre: 'Ton protocole nutrition', special: 'nutrition-protocol' },
+      { titre: 'Limiter la casse au restaurant et en famille', videoId: null, texte: 'Texte à venir.' },
+      { titre: 'Les recettes Rijal Fit', videoId: null, texte: 'Texte à venir.' },
+      { titre: 'F.A.Q Nutrition', videoId: null, texte: 'Texte à venir.' },
       {
         titre: 'Quoi choisir ? En salle ou à la maison ?',
         videoId: null,
@@ -119,6 +122,11 @@ const RF_MODULES = [
           { text: "Tu n'es pas obligé de tout acheter dès le début. Ton matériel évoluera avec ton niveau et les besoins de ton programme." },
         ],
       },
+      { titre: 'Le Shop Rijal Fit', videoId: null, texte: 'Texte à venir.' },
+      { titre: 'F.A.Q Fitness', videoId: null, texte: 'Texte à venir.' },
+      { titre: 'Les livres conseillés', videoId: null, texte: 'Texte à venir.' },
+      { titre: 'Conditions générales de vente', videoId: null, texte: 'Texte à venir.' },
+      { titre: 'S.A.V', videoId: null, texte: 'Texte à venir.' },
     ],
   },
   {
