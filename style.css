@@ -328,7 +328,7 @@ input:focus { outline: none; border-color: var(--or); }
   display: block;
 }
 
-.niveau__text { color: #3a3a3a; }
+.niveau__text { color: #3a3a3a; margin-bottom: 1.2rem; }
 .niveau__text p { margin-bottom: .9rem; }
 .niveau__text p:last-child { margin-bottom: 0; }
 
