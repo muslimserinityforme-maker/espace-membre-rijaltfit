@@ -20,7 +20,15 @@ const RF_MODULES = [
     niveaux: [
       { titre: 'Comment ça marche ?', videoId: null, texte: "Vidéo à venir — explique comment utiliser l'espace membre." },
       { titre: 'La vision Rijal Fit', videoId: null, texte: "Vidéo à venir (~5 min) — ce qu'est Rijal Fit." },
-      { titre: 'Quoi choisir ? En salle ou à la maison ?', videoId: null, images: ['images/intro-salle-ou-maison.jpg'], texte: 'Salle ou maison : que choisir ?' },
+      {
+        titre: 'Quoi choisir ? En salle ou à la maison ?',
+        videoId: null,
+        images: ['images/intro-salle-ou-maison.jpg'],
+        texte: [
+          'Salle ou maison : que choisir ?',
+          "Dans Rijal Fit, le programme en salle et le programme à la maison ne sont pas deux chemins différents. Ils suivent la même logique de transformation, les mêmes phases et les mêmes intentions. Ce qui change principalement, ce sont les outils utilisés pour créer la stimulation musculaire et atteindre une transformation extérieure comme intérieure.",
+        ],
+      },
       { titre: 'Matériels à prévoir à la maison', videoId: null, images: [], texte: 'Texte à venir.' },
     ],
   },

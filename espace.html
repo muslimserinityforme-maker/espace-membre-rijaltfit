@@ -145,7 +145,8 @@
             html += '<p class="niveau__placeholder">Images d\'illustration à venir.</p>';
           }
         }
-        html += '<div class="niveau__text"><p>' + niveau.texte + '</p></div>';
+        var paragraphes = Array.isArray(niveau.texte) ? niveau.texte : [niveau.texte];
+        html += '<div class="niveau__text">' + paragraphes.map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>';
         html += '<button type="button" id="validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Terminé' : 'Marquer comme terminé') + '</button>';
         main.innerHTML = html;
 
