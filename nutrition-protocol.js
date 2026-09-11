@@ -26,14 +26,14 @@ const RF_PROTOCOLS = {
       note: 'Le jeûne intermittent est un outil facultatif, jamais une obligation.',
     },
     midiSoir: {
+      texte: 'Pour chacun de tes repas du midi et du soir, base-toi sur ces repères (méthode des poings vue plus haut) :',
       liste: [
-        'la méthode F.A.C.I.L.E. ;',
-        'des portions adaptées ;',
-        'une bonne consommation de protéines ;',
-        'des légumes et aliments rassasiants ;',
-        'une gestion adaptée des féculents ;',
-        'un déficit calorique raisonnable.',
+        'Protéines : 1 paume de main (poulet, poisson, viande maigre, œufs) ;',
+        'Féculents : 1 poing (riz, pâtes, pommes de terre, patate douce) ;',
+        'Légumes : à volonté, au minimum 1 poing ;',
+        'Matières grasses : 1 phalange (huile, beurre, oléagineux).',
       ],
+      note: 'Ce sont des repères de départ — ton coach les ajuste selon ton déficit calorique réel.',
     },
   },
   recomposition: {
@@ -48,7 +48,14 @@ const RF_PROTOCOLS = {
       note: 'Aucune obligation — choisis ce qui te permet de tenir sur la durée.',
     },
     midiSoir: {
-      texte: 'Utilise la méthode F.A.C.I.L.E., avec des portions adaptées à ton profil.',
+      texte: 'Pour chacun de tes repas du midi et du soir, base-toi sur ces repères (méthode des poings vue plus haut) :',
+      liste: [
+        'Protéines : 1 à 1,5 paume de main ;',
+        'Féculents : 1 à 1,5 poing ;',
+        'Légumes : à volonté, au minimum 1 poing ;',
+        'Matières grasses : 1 phalange.',
+      ],
+      note: 'Ce sont des repères de départ — ton coach les ajuste selon ton profil et ton entraînement.',
     },
   },
   muscle: {
@@ -69,13 +76,14 @@ const RF_PROTOCOLS = {
       note: 'Le petit-déjeuner salé est une option, jamais une obligation.',
     },
     midiSoir: {
+      texte: 'Pour chacun de tes repas du midi et du soir, base-toi sur ces repères (méthode des poings vue plus haut) :',
       liste: [
-        'conserver un apport suffisant en protéines ;',
-        'augmenter progressivement l’énergie disponible ;',
-        'augmenter principalement les glucides selon les besoins ;',
-        'conserver suffisamment de lipides ;',
-        'répartir les repas selon le quotidien du client.',
+        'Protéines : 1,5 à 2 paumes de main ;',
+        'Féculents : 2 poings ;',
+        'Légumes : à volonté, au minimum 1 poing ;',
+        'Matières grasses : 1 à 2 phalanges.',
       ],
+      note: 'Ce sont des repères de départ — ton coach les ajuste selon ton profil, ton entraînement et ta capacité à récupérer.',
     },
   },
   'muscle-maintenance': {
