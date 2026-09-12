@@ -1,0 +1,25 @@
+// Endpoint de diagnostic temporaire — à supprimer une fois le problème
+// Supabase résolu. Ne contient aucun secret dans sa réponse (juste des
+// booléens de présence + le message d'erreur technique).
+
+module.exports = async (req, res) => {
+  const report = {
+    hasSupabaseUrl: !!process.env.SUPABASE_URL,
+    hasSupabaseSecretKey: !!process.env.SUPABASE_SECRET_KEY,
+    supabaseUrlPrefix: (process.env.SUPABASE_URL || '').slice(0, 30),
+    secretKeyPrefix: (process.env.SUPABASE_SECRET_KEY || '').slice(0, 12),
+    hasGeminiKey: !!process.env.GEMINI_API_KEY,
+  };
+
+  try {
+    const { createClient } = require('@supabase/supabase-js');
+    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SECRET_KEY, { auth: { persistSession: false } });
+    const { data, error } = await supabase.from('nutrition_profiles').select('code').limit(1);
+    report.queryError = error ? { message: error.message, code: error.code, details: error.details, hint: error.hint } : null;
+    report.queryData = data;
+  } catch (err) {
+    report.thrownError = String(err && err.message);
+  }
+
+  res.status(200).json(report);
+};
