@@ -112,7 +112,74 @@ const RF_MODULES = [
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/recettes/rijal-fit-boost-testosterone.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
         ],
       },
-      { titre: 'F.A.Q Nutrition', videoId: null, texte: 'Texte à venir.' },
+      {
+        titre: 'F.A.Q Nutrition',
+        videoId: null,
+        blocks: [
+          { image: 'images/intro-faq-nutrition.png' },
+          { text: '<strong><u>FAQ — Méthode F.A.C.I.L.E.</u></strong>' },
+
+          { text: '<strong><u>1. Est-ce que je dois peser mes aliments pour avoir des résultats ?</u></strong>' },
+          { text: 'Non. La méthode F.A.C.I.L.E. est justement conçue pour t’apprendre à gérer tes portions avec des repères simples. Le grammage peut être utilisé ponctuellement si tu veux obtenir une estimation plus précise.' },
+
+          { text: '<strong><u>2. Est-ce que je dois compter mes calories tous les jours ?</u></strong>' },
+          { text: 'Non. Tes calories et tes macros servent à déterminer tes besoins et à personnaliser ton protocole. Ensuite, F.A.C.I.L.E. te permet de les traduire en portions faciles à appliquer au quotidien.' },
+
+          { text: '<strong><u>3. Que faire si j’ai encore faim après mon repas ?</u></strong>' },
+          { text: 'Commence par attendre quelques minutes et vérifie si tu as réellement faim. Si c’est le cas régulièrement, augmente en priorité les aliments rassasiants comme les légumes et vérifie que tes repas contiennent suffisamment de protéines.' },
+
+          { text: '<strong><u>4. Que faire si je n’ai pas faim le matin ?</u></strong>' },
+          { text: 'Tu n’es pas obligé de prendre un petit-déjeuner. Tu peux décaler ton premier repas si cela correspond naturellement à ton quotidien. Le jeûne intermittent reste un outil, pas une obligation.' },
+
+          { text: '<strong><u>5. Et si j’ai toujours pris un petit-déjeuner ?</u></strong>' },
+          { text: 'Tu peux le conserver. Choisis simplement un petit-déjeuner équilibré contenant notamment une bonne source de protéines et adapte les autres portions de ta journée à ton protocole.' },
+
+          { text: '<strong><u>6. Est-ce que je dois supprimer les féculents pour perdre du gras ?</u></strong>' },
+          { text: 'Non. Ton corps peut très bien perdre du gras en consommant des glucides. L’objectif est d’adapter leur quantité à tes besoins, à ton activité et à ton objectif.' },
+
+          { text: '<strong><u>7. Puis-je manger du riz, des pâtes, du pain ou des pommes de terre ?</u></strong>' },
+          { text: 'Oui. Aucun de ces aliments n’est responsable à lui seul d’une prise de gras. Ce sont principalement les quantités et ton équilibre énergétique global qui comptent.' },
+
+          { text: '<strong><u>8. Est-ce que je peux manger après 20 h ?</u></strong>' },
+          { text: 'Oui. Manger tard ne bloque pas automatiquement ta perte de gras. Ce qui compte principalement est ton alimentation globale et les quantités consommées sur la durée.' },
+
+          { text: '<strong><u>9. Que faire lorsque je mange au restaurant ?</u></strong>' },
+          { text: 'Utilise tes repères F.A.C.I.L.E. autant que possible : privilégie une source de protéines, maîtrise ta portion de féculents, ajoute des légumes et choisis consciemment les extras qui te font réellement plaisir.' },
+
+          { text: '<strong><u>10. Comment gérer un repas en famille plus copieux ?</u></strong>' },
+          { text: 'Tu peux anticiper en faisant un repas précédent plus léger, sans tomber dans la privation. Par exemple, si un gros repas est prévu le soir, ton déjeuner peut être composé principalement de protéines et de légumes.' },
+
+          { text: '<strong><u>11. Puis-je prendre un dessert au restaurant ?</u></strong>' },
+          { text: 'Oui. F.A.C.I.L.E. n’a pas pour objectif de t’interdire les aliments plaisir. Tu peux par exemple choisir plat + dessert plutôt que de cumuler entrée, pain, plat, dessert et boisson sucrée.' },
+
+          { text: '<strong><u>12. J’ai fait un gros écart. Est-ce que je dois compenser le lendemain ?</u></strong>' },
+          { text: 'Non. Évite les compensations extrêmes. Ne te prive pas toute la journée et ne fais pas une séance supplémentaire uniquement pour « brûler » ton repas. Reprends simplement ton protocole au repas suivant.' },
+
+          { text: '<strong><u>13. Un repas plaisir peut-il ruiner ma semaine ?</u></strong>' },
+          { text: 'Un repas isolé ne détermine pas tes résultats. C’est la répétition de tes habitudes sur plusieurs semaines qui compte. Profite de ton repas puis retrouve simplement tes repères habituels.' },
+
+          { text: '<strong><u>14. Pourquoi mon poids augmente-t-il après un gros repas ?</u></strong>' },
+          { text: 'Une augmentation rapide sur la balance n’est pas nécessairement du gras. Un repas riche en glucides ou en sel peut notamment augmenter temporairement ton glycogène, ton eau corporelle et le contenu de ton système digestif.' },
+
+          { text: '<strong><u>15. Puis-je reprendre une deuxième assiette ?</u></strong>' },
+          { text: 'Oui si tu as réellement faim, mais prends quelques minutes avant de te resservir. Commence par privilégier les protéines et les légumes plutôt que de reprendre automatiquement une assiette identique.' },
+
+          { text: '<strong><u>16. Comment savoir si mon assiette respecte F.A.C.I.L.E. ?</u></strong>' },
+          { text: 'Utilise d’abord tes repères avec la main. Tu peux également photographier ton assiette dans ton espace F.A.C.I.L.E. afin d’obtenir une estimation et une analyse adaptée à ton protocole.' },
+
+          { text: '<strong><u>17. L’analyse d’une photo peut-elle connaître exactement les calories de mon repas ?</u></strong>' },
+          { text: 'Non. Une photo permet seulement une estimation. L’IA ne peut pas toujours connaître la quantité exacte d’huile, de sauce ou les ingrédients cachés dans une préparation.' },
+
+          { text: '<strong><u>18. Comment rendre l’analyse de mon assiette plus précise ?</u></strong>' },
+          { text: 'Prends une photo claire avec toute ton assiette visible. Si tu connais certaines quantités, indique-les. Par exemple : « 150 g de poulet, 180 g de riz et 10 g d’huile d’olive ». L’estimation pourra être affinée.' },
+
+          { text: '<strong><u>19. Que faire si mes résultats stagnent ?</u></strong>' },
+          { text: 'Ne modifie pas ton alimentation après deux ou trois jours. Observe d’abord ta progression sur plusieurs semaines. Si la stagnation se confirme, ton protocole pourra être ajusté progressivement selon tes résultats.' },
+
+          { text: '<strong><u>20. Est-ce que je devrai suivre F.A.C.I.L.E. toute ma vie ?</u></strong>' },
+          { text: 'L’objectif est surtout que tu développes progressivement ton autonomie alimentaire. À force d’utiliser les mêmes repères, tu apprendras à reconnaître naturellement les portions qui correspondent à tes besoins, même au restaurant, en famille ou en voyage.' },
+        ],
+      },
       {
         titre: 'Quoi choisir ? En salle ou à la maison ?',
         videoId: null,
