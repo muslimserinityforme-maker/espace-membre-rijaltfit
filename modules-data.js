@@ -101,7 +101,7 @@ const RF_MODULES = [
           { image: 'images/intro-recettes.png' },
           { text: '<strong><u>Les meilleures recettes de Rijal Fit</u></strong>' },
           { text: 'Aucune excuse possible.' },
-          { text: 'Tu peux désormais respecter tes macros en te faisant plaisir.' },
+          { text: 'Tu peux désormais respecter tes macros en te faisant plaisir. Choisi les recettes qui te conviennent : classique, végan, sans gluten ou boost ta testostérone !' },
           { text: '👉🏼 Les Recettes Rijal Fit (classique) 👈🏼' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/recettes/rijal-fit-recettes-classique.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
           { text: '👉🏼 Les Recettes Rijal Fit (végan) 👈🏼' },
