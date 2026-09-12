@@ -109,6 +109,21 @@ const RF_OBJECTIFS = [
   { id: 'forme-generale', choix: 'Je veux améliorer ma forme générale', label: 'Améliorer ma forme générale', infinitif: 'améliorer ma forme générale' },
 ];
 
+const RF_NIVEAUX_ACTIVITE = [
+  { id: 'sedentaire', label: 'Sédentaire — bureau/écran, peu de mouvement', multiplicateur: 1.2 },
+  { id: 'modere', label: 'Modéré — je bouge un peu, sport occasionnel', multiplicateur: 1.375 },
+  { id: 'actif', label: 'Actif — métier physique ou sport régulier', multiplicateur: 1.55 },
+];
+
+// Ajustement du TDEE selon le protocole (déficit/surplus) — la stratégie
+// nutritionnelle reste pilotée par le protocole, pas par l'objectif seul.
+const RF_CALORIE_ADJUSTMENT = {
+  fit: 0.85,
+  recomposition: 0.95,
+  muscle: 1.10,
+  'muscle-maintenance': 1.0,
+};
+
 const RF_NUTRITION_STORAGE_KEY = 'rf_nutrition_profile';
 
 // ── Calcul (formule US Navy métrique, homme) ────────────────────────────
@@ -124,6 +139,25 @@ function rfDetermineProtocol(tauxMasseGrasse) {
     if (tauxMasseGrasse >= seuils.min && tauxMasseGrasse < seuils.max) return id;
   }
   return 'muscle-maintenance';
+}
+
+// Katch-McArdle (masse maigre) → BMR → TDEE → objectif calorique → macros.
+// Mêmes formules que l'ancien outil bilan-sens-rijalfit (2g/kg protéines,
+// 0.9g/kg lipides, reste en glucides, plancher 50g) pour rester cohérent.
+function rfComputeCaloriesEtMacros(poidsKg, tauxMasseGrasse, niveauActiviteId, protocolId) {
+  const masseGrasseKg = poidsKg * (tauxMasseGrasse / 100);
+  const masseMaigreKg = poidsKg - masseGrasseKg;
+  const bmr = 370 + 21.6 * masseMaigreKg;
+  const activite = RF_NIVEAUX_ACTIVITE.find(function (a) { return a.id === niveauActiviteId; }) || RF_NIVEAUX_ACTIVITE[0];
+  const tdee = bmr * activite.multiplicateur;
+  const ajustement = RF_CALORIE_ADJUSTMENT[protocolId] || 1.0;
+  const caloriesJour = Math.round(tdee * ajustement);
+
+  const proteinesG = Math.round(poidsKg * 2);
+  const lipidesG = Math.round(poidsKg * 0.9);
+  const glucidesG = Math.max(50, Math.round((caloriesJour - proteinesG * 4 - lipidesG * 9) / 4));
+
+  return { caloriesJour, proteinesG, glucidesG, lipidesG };
 }
 
 function rfPrioriteMessage(protocolId, objectifId) {
@@ -168,9 +202,14 @@ function rfRenderNutritionProtocol(root) {
     taille: (saved && saved.taille) || '',
     tourTaille: (saved && saved.tourTaille) || '',
     tourCou: (saved && saved.tourCou) || '',
+    niveauActivite: (saved && saved.niveauActivite) || 'sedentaire',
     tauxMasseGrasse: saved ? saved.tauxMasseGrasse : null,
     protocolId: saved ? saved.protocolId : null,
     objectifId: saved ? saved.objectifId : null,
+    caloriesJour: saved ? saved.caloriesJour : null,
+    proteinesG: saved ? saved.proteinesG : null,
+    glucidesG: saved ? saved.glucidesG : null,
+    lipidesG: saved ? saved.lipidesG : null,
     formError: '',
   };
 
@@ -220,6 +259,14 @@ function rfRenderNutritionProtocol(root) {
         '<p class="np-hint">Mesure ton tour de cou juste sous la pomme d’Adam.</p>' +
         '</div>' +
         '</div>' +
+        '<div class="np-field">' +
+        '<label for="np-activite">Ton niveau d\'activité</label>' +
+        '<select id="np-activite">' +
+        RF_NIVEAUX_ACTIVITE.map(function (a) {
+          return '<option value="' + a.id + '"' + (a.id === state.niveauActivite ? ' selected' : '') + '>' + a.label + '</option>';
+        }).join('') +
+        '</select>' +
+        '</div>' +
         (state.formError ? '<p class="form-error">' + state.formError + '</p>' : '') +
         '<button type="button" id="np-calc-btn" class="btn btn--primary">Calculer mon profil →</button>' +
         '</div>';
@@ -246,6 +293,8 @@ function rfRenderNutritionProtocol(root) {
         '<div class="np-result-row"><span>Ton objectif</span><strong>' + (objectif ? objectif.label : '—') + '</strong></div>' +
         '<div class="np-result-row"><span>Ton taux de masse grasse estimé</span><strong>' + Math.round(state.tauxMasseGrasse) + ' %</strong></div>' +
         '<div class="np-result-row"><span>Ta stratégie</span><strong>' + protocole.label + '</strong></div>' +
+        '<div class="np-result-row"><span>Objectif calorique</span><strong>≈ ' + state.caloriesJour + ' kcal/jour</strong></div>' +
+        '<div class="np-result-row"><span>Macros</span><strong>' + state.proteinesG + 'g P · ' + state.glucidesG + 'g G · ' + state.lipidesG + 'g L</strong></div>' +
         '<p class="np-result-card__note">Cette estimation permet de déterminer la stratégie nutritionnelle la plus cohérente pour commencer — ce n’est pas une mesure médicale exacte.</p>' +
         '<div class="np-result-card__priorite">' + paragraphes(rfPrioriteMessage(state.protocolId, state.objectifId)) + '</div>' +
         '<button type="button" id="np-discover-btn" class="btn btn--primary btn--large">Découvrir mon protocole →</button>' +
@@ -306,6 +355,7 @@ function rfRenderNutritionProtocol(root) {
         const taille = Number(root.querySelector('#np-taille').value);
         const tourTaille = Number(root.querySelector('#np-tour-taille').value);
         const tourCou = Number(root.querySelector('#np-tour-cou').value);
+        const niveauActivite = root.querySelector('#np-activite').value;
 
         const valeurs = [age, poids, taille, tourTaille, tourCou];
 
@@ -321,10 +371,15 @@ function rfRenderNutritionProtocol(root) {
         }
 
         state.age = age; state.poids = poids; state.taille = taille;
-        state.tourTaille = tourTaille; state.tourCou = tourCou;
+        state.tourTaille = tourTaille; state.tourCou = tourCou; state.niveauActivite = niveauActivite;
         state.formError = '';
         state.tauxMasseGrasse = rfComputeBodyFat(taille, tourTaille, tourCou);
         state.protocolId = rfDetermineProtocol(state.tauxMasseGrasse);
+        const macros = rfComputeCaloriesEtMacros(poids, state.tauxMasseGrasse, niveauActivite, state.protocolId);
+        state.caloriesJour = macros.caloriesJour;
+        state.proteinesG = macros.proteinesG;
+        state.glucidesG = macros.glucidesG;
+        state.lipidesG = macros.lipidesG;
         state.step = 'objectif';
         render();
       });
@@ -334,11 +389,24 @@ function rfRenderNutritionProtocol(root) {
       btn.addEventListener('click', function () {
         state.objectifId = btn.dataset.objectif;
         state.step = 'resultat';
-        rfSaveNutritionProfile({
+        const profile = {
           age: state.age, poids: state.poids, taille: state.taille,
-          tourTaille: state.tourTaille, tourCou: state.tourCou,
+          tourTaille: state.tourTaille, tourCou: state.tourCou, niveauActivite: state.niveauActivite,
           tauxMasseGrasse: state.tauxMasseGrasse, protocolId: state.protocolId, objectifId: state.objectifId,
-        });
+          caloriesJour: state.caloriesJour, proteinesG: state.proteinesG, glucidesG: state.glucidesG, lipidesG: state.lipidesG,
+        };
+        rfSaveNutritionProfile(profile);
+        // Enregistrement côté serveur (Supabase) pour que l'analyse photo
+        // F.A.C.I.L.E. puisse relire ce profil sans jamais faire confiance
+        // à des valeurs envoyées directement par le navigateur.
+        const access = (typeof rfGetAccess === 'function') ? rfGetAccess() : null;
+        if (access && access.code) {
+          fetch('/api/save-nutrition-profile', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.assign({ code: access.code }, profile)),
+          }).catch(function () { /* pas grave, non bloquant */ });
+        }
         render();
       });
     });
@@ -354,6 +422,7 @@ function rfRenderNutritionProtocol(root) {
       restartBtn.addEventListener('click', function () {
         state.step = 'intro';
         state.tauxMasseGrasse = null; state.protocolId = null; state.objectifId = null;
+        state.caloriesJour = null; state.proteinesG = null; state.glucidesG = null; state.lipidesG = null;
         render();
       });
     }

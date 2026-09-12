@@ -688,7 +688,8 @@ input:focus { outline: none; border-color: var(--or); }
   margin: 18px 0;
 }
 
-.np-field-grid input[type="number"] {
+.np-field-grid input[type="number"],
+.np-field select {
   width: 100%;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
@@ -699,7 +700,7 @@ input:focus { outline: none; border-color: var(--or); }
   padding: 10px 12px;
 }
 
-.np-field-grid input:focus { outline: none; border-color: var(--or); }
+.np-field-grid input:focus, .np-field select:focus { outline: none; border-color: var(--or); }
 
 .np-hint { font-size: .8rem; color: var(--gris); margin-top: 5px; }
 
@@ -820,4 +821,53 @@ input:focus { outline: none; border-color: var(--or); }
   .np-field-grid { grid-template-columns: 1fr; }
   .np-result-row { flex-direction: column; align-items: flex-start; gap: 2px; }
   .np-result-row strong { text-align: left; }
+}
+
+/* ── Ton application F.A.C.I.L.E. (analyse photo des repas) ── */
+.facile-photo-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0; }
+
+.facile-photo-btn { flex: 1; min-width: 200px; text-align: center; cursor: pointer; }
+.facile-photo-btn--secondary { background: var(--blanc); color: var(--kaki); border: 1.5px solid #ded8cc; }
+.facile-photo-btn--secondary:hover { border-color: var(--or); }
+
+.facile-analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 14px 0 20px;
+}
+
+.facile-analysis-grid > div {
+  background: var(--beige);
+  border-radius: var(--radius);
+  padding: 14px;
+  font-size: .88rem;
+  color: var(--gris);
+}
+
+.facile-analysis-grid strong { display: block; margin-top: 4px; color: var(--noir); font-size: .92rem; }
+
+.facile-meal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee6d8;
+  font-size: .9rem;
+}
+
+.facile-meal-row:last-child { border-bottom: none; }
+
+.facile-meal-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: .95rem;
+  opacity: .6;
+}
+
+.facile-meal-delete:hover { opacity: 1; }
+
+@media (max-width: 560px) {
+  .facile-analysis-grid { grid-template-columns: 1fr; }
 }

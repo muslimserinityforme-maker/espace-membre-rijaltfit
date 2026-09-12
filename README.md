@@ -43,6 +43,29 @@ pas de Stripe automatique pour l'instant.
   son compte au bot en lui envoyant `/start SON-CODE`, puis reçoit chaque
   jour un message avec le lien du nouveau jour débloqué.
 
+## Ton application F.A.C.I.L.E. (analyse photo des repas)
+
+Dans le module Introduction : le membre prend/importe une photo de son
+repas, l'IA (Gemini, gratuit) l'analyse selon la Méthode F.A.C.I.L.E. et son
+protocole nutritionnel personnel, puis il peut l'ajouter à sa journée.
+
+- Nécessite d'avoir complété **"Ton protocole nutrition"** au préalable
+  (c'est ce qui calcule et enregistre côté serveur le protocole, les
+  calories et macros journalières du membre).
+- Le **code d'accès sert d'identifiant** (pas de vrais comptes, cohérent
+  avec le reste du site) — un code partagé entre deux personnes partagerait
+  aussi le même historique de repas.
+- La Méthode F.A.C.I.L.E. complète (`api/_lib/facile-method.js`) et l'appel
+  à Gemini restent **entièrement côté serveur** — jamais envoyés au
+  navigateur, jamais falsifiables par le client.
+- Base de données + stockage des photos : **Supabase** (gratuit). Tables
+  `nutrition_profiles` et `repas`, RLS activé sans règle (= accessible
+  uniquement via la clé secrète serveur), bucket de stockage privé
+  `repas-photos`.
+- Coût : Supabase et Gemini ont un vrai tier gratuit, suffisant à l'échelle
+  du projet — aucun budget nécessaire pour démarrer. Si le volume grandit
+  un jour, surveiller les quotas dans les deux tableaux de bord.
+
 ## Structure
 
 ```
@@ -58,6 +81,13 @@ api/telegram-webhook.js       → reçoit les messages du bot Telegram, associe 
 api/send-daily-telegram.js    → tâche quotidienne (Vercel Cron) : envoie le lien du jour
 google-apps-script/Code.gs    → script à coller dans la Google Sheet (lecture + écriture)
 vercel.json                   → configuration du Cron quotidien
+nutrition-protocol.js         → bilan + calcul calories/macros + protocole (persisté côté serveur)
+facile-app.js                 → interface "Ton application F.A.C.I.L.E." (prise de photo, résultats, historique)
+api/_lib/facile-method.js     → base centrale de la Méthode F.A.C.I.L.E. (côté serveur uniquement)
+api/_lib/supabase.js          → client Supabase partagé (clé secrète, côté serveur uniquement)
+api/save-nutrition-profile.js → enregistre le profil nutritionnel calculé (Supabase)
+api/analyze-meal.js           → appelle Gemini pour analyser une photo de repas
+api/meals.js                  → historique des repas du jour (ajouter/lister/supprimer)
 ```
 
 ## Mise en route
@@ -91,7 +121,68 @@ vercel.json                   → configuration du Cron quotidien
    ouvrant cette URL dans un navigateur (remplace `<TOKEN>` et `<SITE>`) :
    `https://api.telegram.org/bot<TOKEN>/setWebhook?url=https://<SITE>.vercel.app/api/telegram-webhook`
 
-### 3. Déployer sur Vercel
+### 3. Créer le projet Supabase (F.A.C.I.L.E.)
+
+1. Va sur [supabase.com](https://supabase.com), connecte-toi (GitHub), crée
+   une organisation puis un nouveau projet (région Europe).
+2. Dans **SQL Editor**, exécute :
+
+```sql
+create table nutrition_profiles (
+  code text primary key,
+  age integer,
+  poids numeric,
+  taille numeric,
+  taux_masse_grasse numeric,
+  protocol_id text,
+  objectif_id text,
+  niveau_activite text,
+  calories_jour integer,
+  proteines_g integer,
+  glucides_g integer,
+  lipides_g integer,
+  updated_at timestamptz default now()
+);
+
+create table repas (
+  id uuid primary key default gen_random_uuid(),
+  code text not null,
+  created_at timestamptz default now(),
+  photo_path text,
+  aliments jsonb,
+  calories_min numeric,
+  calories_max numeric,
+  proteines_g numeric,
+  glucides_g numeric,
+  lipides_g numeric,
+  analyse_facile jsonb,
+  conseil text,
+  quantites_connues jsonb,
+  methode_version text,
+  note_contexte text
+);
+
+alter table nutrition_profiles enable row level security;
+alter table repas enable row level security;
+```
+
+3. Dans **Storage**, crée un bucket **`repas-photos`** en **Private**
+   (ne pas cocher "Public bucket").
+4. Dans **Project Settings → API Keys**, copie l'URL du projet et la
+   **Secret key** (`sb_secret_...`) — jamais la "Publishable key".
+
+### 4. Créer la clé Gemini (analyse photo, gratuit)
+
+1. Va sur [aistudio.google.com/apikey](https://aistudio.google.com/apikey).
+2. Crée une clé API (un projet Google Cloud est créé automatiquement si tu
+   n'en as pas). En cas d'erreur "suspicious request" au moment de la
+   création du projet ou de la clé, réessaie après quelques minutes, ou
+   passe par [console.cloud.google.com](https://console.cloud.google.com) →
+   active manuellement l'API "Generative Language API" → Identifiants →
+   Créer des identifiants → Clé API (compte de service créé automatiquement).
+3. Copie la clé générée.
+
+### 5. Déployer sur Vercel
 
 1. Crée un nouveau repo GitHub (ex : `espace-membre-rijalfit`) et pousse ce projet.
 2. Importe le repo dans Vercel.
@@ -102,10 +193,12 @@ vercel.json                   → configuration du Cron quotidien
      contre un déclenchement non désiré — Vercel l'envoie automatiquement).
    - `SITE_URL` = l'URL finale du site (ex : `https://espace-membre-rijalfit.vercel.app`),
      utilisée dans les liens envoyés par Telegram.
+   - `SUPABASE_URL` et `SUPABASE_SECRET_KEY` = les valeurs copiées à l'étape 3.
+   - `GEMINI_API_KEY` = la clé copiée à l'étape 4.
 4. Le fichier `vercel.json` déclenche automatiquement `api/send-daily-telegram`
    une fois par jour — rien à configurer en plus (disponible sur le plan Hobby).
 
-### 4. Tester
+### 6. Tester
 
 - Ouvre le site, entre un code présent dans la Sheet → doit débloquer l'espace membre.
 - Entre un code inexistant → message "Code invalide".
@@ -119,6 +212,10 @@ vercel.json                   → configuration du Cron quotidien
 - Attends le déclenchement du Cron (ou appelle `/api/send-daily-telegram`
   manuellement avec le bon header `Authorization: Bearer <CRON_SECRET>`) →
   doit recevoir le lien du jour sur Telegram.
+- Complète "Ton protocole nutrition" en entier (jusqu'au choix de
+  l'objectif) → va dans "Ton application F.A.C.I.L.E.", prends/importe une
+  photo de repas, clique "Analyser mon assiette" → doit renvoyer une
+  analyse. Clique "Ajouter à ma journée" → doit apparaître dans "Aujourd'hui".
 
 ## Ajouter le contenu des modules
 

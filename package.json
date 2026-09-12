@@ -2,5 +2,8 @@
   "name": "espace-membre-rijalfit",
   "version": "1.0.0",
   "private": true,
-  "description": "Rijal Fit — Espace Membre offre Starter (accès par code, 5 modules vidéo+texte)."
+  "description": "Rijal Fit — Espace Membre offre Starter (accès par code, 5 modules vidéo+texte) + Ton application F.A.C.I.L.E. (analyse photo des repas).",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4"
+  }
 }

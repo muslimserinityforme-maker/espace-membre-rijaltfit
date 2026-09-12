@@ -93,6 +93,7 @@ const RF_MODULES = [
           { text: 'Tu passeras peut-être pour un instagrameur, mais au moins tu éviteras les débordements.' },
         ],
       },
+      { titre: 'Ton application F.A.C.I.L.E.', special: 'facile-app' },
       { titre: 'Les recettes Rijal Fit', videoId: null, texte: 'Texte à venir.' },
       { titre: 'F.A.Q Nutrition', videoId: null, texte: 'Texte à venir.' },
       {
