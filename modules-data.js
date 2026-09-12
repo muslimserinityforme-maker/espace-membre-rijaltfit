@@ -98,6 +98,7 @@ const RF_MODULES = [
         titre: 'Les recettes Rijal Fit',
         videoId: null,
         blocks: [
+          { image: 'images/intro-recettes.png' },
           { text: '<strong><u>Les meilleures recettes de Rijal Fit</u></strong>' },
           { text: 'Aucune excuse possible.' },
           { text: 'Tu peux désormais respecter tes macros en te faisant plaisir.' },
