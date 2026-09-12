@@ -55,6 +55,7 @@ a { color: inherit; }
 .btn--primary:hover { background: #b8952f; transform: translateY(-2px); }
 .btn--large { font-size: 1.2rem; padding: 16px 40px; width: 100%; }
 .btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+.recette-pdf-btn { margin: 4px 0 20px; }
 
 /* ══ TOPBAR ══ */
 .topbar {
