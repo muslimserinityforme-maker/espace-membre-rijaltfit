@@ -16,8 +16,19 @@ module.exports = async (req, res) => {
     const dns = require('dns').promises;
     const host = (process.env.SUPABASE_URL || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
     report.dnsLookup = await dns.lookup(host).catch(function (e) { return { dnsError: String(e && e.message) }; });
+    report.dnsLookupGoogle = await dns.lookup('google.com').catch(function (e) { return { dnsError: String(e && e.message) }; });
+    report.dnsLookupSupabaseCo = await dns.lookup('supabase.co').catch(function (e) { return { dnsError: String(e && e.message) }; });
   } catch (e) {
     report.dnsCheckThrew = String(e && e.message);
+  }
+
+  try {
+    const fetchRes = await fetch('https://' + (process.env.SUPABASE_URL || '').replace(/^https?:\/\//, '') + '/rest/v1/', {
+      headers: { apikey: process.env.SUPABASE_SECRET_KEY || '' },
+    });
+    report.directFetchStatus = fetchRes.status;
+  } catch (e) {
+    report.directFetchError = String(e && e.message);
   }
 
   try {
