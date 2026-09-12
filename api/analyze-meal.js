@@ -95,18 +95,20 @@ const SYSTEM_INSTRUCTION =
   'champs du schéma JSON doivent transparaître dans ta réponse.';
 
 async function fetchProfile(supabase, code) {
-  const { data } = await supabase.from('nutrition_profiles').select('*').eq('code', code).maybeSingle();
+  const { data, error } = await supabase.from('nutrition_profiles').select('*').eq('code', code).maybeSingle();
+  if (error) throw error;
   return data;
 }
 
 async function fetchTodayMeals(supabase, code) {
   const startOfDay = new Date();
   startOfDay.setUTCHours(0, 0, 0, 0);
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from('repas')
     .select('calories_min, calories_max, proteines_g, glucides_g, lipides_g')
     .eq('code', code)
     .gte('created_at', startOfDay.toISOString());
+  if (error) throw error;
   return data || [];
 }
 
