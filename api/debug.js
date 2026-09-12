@@ -6,10 +6,19 @@ module.exports = async (req, res) => {
   const report = {
     hasSupabaseUrl: !!process.env.SUPABASE_URL,
     hasSupabaseSecretKey: !!process.env.SUPABASE_SECRET_KEY,
-    supabaseUrlPrefix: (process.env.SUPABASE_URL || '').slice(0, 30),
+    supabaseUrlFull: JSON.stringify(process.env.SUPABASE_URL || ''),
+    supabaseUrlLength: (process.env.SUPABASE_URL || '').length,
     secretKeyPrefix: (process.env.SUPABASE_SECRET_KEY || '').slice(0, 12),
     hasGeminiKey: !!process.env.GEMINI_API_KEY,
   };
+
+  try {
+    const dns = require('dns').promises;
+    const host = (process.env.SUPABASE_URL || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+    report.dnsLookup = await dns.lookup(host).catch(function (e) { return { dnsError: String(e && e.message) }; });
+  } catch (e) {
+    report.dnsCheckThrew = String(e && e.message);
+  }
 
   try {
     const { createClient } = require('@supabase/supabase-js');
