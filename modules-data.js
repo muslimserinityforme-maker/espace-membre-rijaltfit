@@ -246,10 +246,10 @@ const RF_MODULES = [
         ],
       },
       {
-        titre: 'Le Shop Rijal Fit',
+        titre: 'Rijal Shop',
         videoId: null,
         blocks: [
-          { text: '<strong><u>Le Shop Rijal Fit</u></strong>' },
+          { text: '<strong><u>Rijal Shop</u></strong>' },
 
           { text: '<strong><u>Matériel sport</u></strong>' },
           { text:
