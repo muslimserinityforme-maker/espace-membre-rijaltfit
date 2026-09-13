@@ -181,6 +181,17 @@ const RF_MODULES = [
         ],
       },
       {
+        titre: 'Ta formule RIJAL',
+        videoId: null,
+        blocks: [
+          { text: '<strong><u>Ta formule RIJAL — L’accompagnement en autonomie</u></strong>' },
+          { text: 'Avec la formule RIJAL, tes 3 premiers mois de Programme (les 90 premiers jours) sont débloqués directement, dès le premier jour — pas de déblocage au compte-gouttes comme sur les autres formules.' },
+          { text: 'Tu avances à ton propre rythme, sans attendre. C’est une formule pensée pour un homme autonome, capable de se structurer seul avec un accompagnement plus léger.' },
+          { text: 'Une fois les 90 jours terminés, si tu veux continuer ta progression (Jour 91 à Jour 730) avec un accompagnement suivi, tu pourras poursuivre au tarif de 200€/mois — sur simple demande, sans engagement automatique.' },
+          { text: 'À toi de voir jusqu’où tu veux aller seul, et quand tu veux qu’on continue ensemble.' },
+        ],
+      },
+      {
         titre: 'Quoi choisir ? En salle ou à la maison ?',
         videoId: null,
         blocks: [
@@ -336,7 +347,18 @@ const RF_MODULES = [
           { text: 'RIJAL FIT — Matthieu Tarley — SIRET 892 935 891 00010 — muslimserinityforme@gmail.com' },
         ],
       },
-      { titre: 'S.A.V', videoId: null, texte: 'Texte à venir.' },
+      {
+        titre: 'S.A.V',
+        videoId: null,
+        blocks: [
+          { text: '<strong><u>Afin d’obtenir une réponse administrative rapide, voici la méthode à suivre :</u></strong>' },
+          { text: '1. Clique sur le lien suivant : <a class="btn btn--primary" href="mailto:muslimserinityforme@gmail.com">✉️ Contacter le S.A.V</a>' },
+          { text: 'Cette action est à mettre en pratique dès lors que tu rencontres un problème nécessitant l’intervention du service administratif ou technique :' },
+          { text: '• Mail non reçu<br>• Erreur de facturation ou de prélèvement<br>• Demande de résiliation<br>• Etc.' },
+          { text: 'Il s’agit du moyen le plus rapide pour obtenir satisfaction à ta demande. Il n’y aura aucun intermédiaire entre toi et la résolution de ton problème.' },
+          { text: 'Ne passe pas par le groupe Telegram : aucune personne ne serait en mesure de résoudre ton souci à cet endroit.' },
+        ],
+      },
     ],
   },
   {

@@ -50,6 +50,7 @@
       const access = (await rfRefreshAccess()) || rfGetAccess();
       const formule = (access && access.formule) || 'QIYAM';
       const isPremium = rfHasFormule(formule, 'thabit');
+      const isRijal = rfHasFormule(formule, 'rijal');
 
       let jourCourant = 0;
       if (isPremium && access.dateDebut) {
@@ -60,8 +61,11 @@
         jourCourant = Math.floor((nowUTC - debutUTC) / 86400000) + 1;
       }
 
+      // RIJAL : les 90 premiers jours (3 mois) sont débloqués d'un coup, en
+      // autonomie — pas de déblocage au jour le jour comme pour THABIT.
       function isJourUnlocked(jour) {
         if (!isPremium) return false;
+        if (isRijal && jour <= 90) return true;
         if (jour > jourCourant) return false;
         if (jour > 90 && !access.accesEtendu) return false;
         return true;
