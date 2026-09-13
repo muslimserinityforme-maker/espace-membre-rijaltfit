@@ -250,6 +250,7 @@ const RF_MODULES = [
         titre: 'F.A.Q Dépasse-Forme',
         videoId: null,
         blocks: [
+          { image: 'images/intro-faq-depasse-forme.png' },
           { text: '<strong><u>FAQ — Dépasse-Forme</u></strong>' },
 
           { text: '<strong><u>1. Je dois choisir entre le programme salle et le programme maison ?</u></strong>' },
