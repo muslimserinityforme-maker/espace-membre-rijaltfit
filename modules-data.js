@@ -268,15 +268,15 @@ const RF_MODULES = [
           { text: '<strong><u>Vêtements</u></strong>' },
           { text:
             '<div class="shop-grid shop-grid--2col">' +
-            '<div class="shop-item"><img src="images/shop-tshirt.png" alt="T-shirt Rijal Fit" loading="lazy"><p class="shop-item__name">T-shirt Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-debardeur.png" alt="Débardeur Rijal Fit" loading="lazy"><p class="shop-item__name">Débardeur Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><div class="shop-item__img-wrap"><img src="images/shop-tshirt.png" alt="T-shirt Rijal Fit" loading="lazy"></div><p class="shop-item__name">T-shirt Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><div class="shop-item__img-wrap"><img class="is-smaller" src="images/shop-debardeur.png" alt="Débardeur Rijal Fit" loading="lazy"></div><p class="shop-item__name">Débardeur Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
             '</div>'
           },
           { text:
             '<div class="shop-grid shop-grid--3col">' +
-            '<div class="shop-item"><img src="images/shop-jogging-simple.png" alt="Jogging simple Rijal Fit" loading="lazy"><p class="shop-item__name">Jogging simple Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-jogging-allonge.png" alt="Jogging allongé Rijal Fit" loading="lazy"><p class="shop-item__name">Jogging allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-sarwel-allonge.png" alt="Sarwel allongé Rijal Fit" loading="lazy"><p class="shop-item__name">Sarwel allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><div class="shop-item__img-wrap"><img src="images/shop-jogging-simple.png" alt="Jogging simple Rijal Fit" loading="lazy"></div><p class="shop-item__name">Jogging simple Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><div class="shop-item__img-wrap"><img class="is-smaller" src="images/shop-jogging-allonge.png" alt="Jogging allongé Rijal Fit" loading="lazy"></div><p class="shop-item__name">Jogging allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><div class="shop-item__img-wrap"><img class="is-smaller" src="images/shop-sarwel-allonge.png" alt="Sarwel allongé Rijal Fit" loading="lazy"></div><p class="shop-item__name">Sarwel allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
             '</div>'
           },
         ],

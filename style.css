@@ -63,6 +63,9 @@ a { color: inherit; }
 .shop-grid--3col { grid-template-columns: repeat(3, 1fr); }
 .shop-item { text-align: center; }
 .shop-item img { width: 100%; height: auto; border-radius: var(--radius); display: block; }
+.shop-item__img-wrap { height: 160px; display: flex; align-items: center; justify-content: center; }
+.shop-item__img-wrap img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.shop-item__img-wrap img.is-smaller { max-width: 72%; max-height: 72%; }
 .shop-item__name { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: .75rem; margin: 8px 0 2px; }
 .shop-item__status { color: #999; font-style: italic; font-size: .8rem; margin: 0 0 8px; }
 .shop-item .btn { width: 100%; padding: 8px 12px; font-size: .8rem; }
