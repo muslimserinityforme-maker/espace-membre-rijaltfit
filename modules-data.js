@@ -291,6 +291,17 @@ const RF_MODULES = [
             '<div class="shop-item"><img src="images/shop-sarwel-allonge.png" alt="Sarwel allongé Rijal Fit" loading="lazy"><p class="shop-item__name">Sarwel allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
             '</div>'
           },
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Soins pour homme</u></strong>' },
+          { text:
+            '<div class="shop-grid">' +
+            '<div class="shop-item"><img src="images/shop-boite-soin.png" alt="Boîte soin homme Rijal Fit" loading="lazy"><p class="shop-item__name">Boîte soin homme Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-soin-visage.png" alt="Soin visage homme Rijal Fit" loading="lazy"><p class="shop-item__name">Soin visage homme Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-baume-barbe.png" alt="Baume à barbe Rijal Fit" loading="lazy"><p class="shop-item__name">Baume à barbe Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-brosse-barbe.png" alt="Brosse à barbe Rijal Fit" loading="lazy"><p class="shop-item__name">Brosse à barbe Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-parfum-mekka.png" alt="Parfum Mekka Rijal Fit" loading="lazy"><p class="shop-item__name">Parfum Mekka Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '</div>'
+          },
         ],
       },
       {
