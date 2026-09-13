@@ -109,7 +109,7 @@ const RF_MODULES = [
           { text: '👉🏼 Les Recettes Rijal Fit (sans gluten) 👈🏼' },
           { text: '<div class="recette-actions"><a class="btn btn--primary recette-pdf-btn" href="pdf/recettes/rijal-fit-recettes-sans-gluten.pdf" target="_blank" rel="noopener">📄 Le carnet de recettes</a><a class="btn btn--primary recette-pdf-btn" href="pdf/recettes/liste-courses-sans-gluten.pdf" target="_blank" rel="noopener">🛒 La liste de courses</a></div>' },
           { text: '👉🏼 BOOST TA TESTOSTÉRONE 👈🏼' },
-          { text: 'Bientôt disponible.' },
+          { text: '<div class="recette-actions"><a class="btn btn--primary recette-pdf-btn" href="pdf/recettes/rijal-fit-boost-testosterone.pdf" target="_blank" rel="noopener">📄 Le carnet de recettes</a><a class="btn btn--primary recette-pdf-btn" href="pdf/recettes/liste-courses-testo.pdf" target="_blank" rel="noopener">🛒 La liste de courses</a></div>' },
         ],
       },
       {
