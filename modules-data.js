@@ -113,7 +113,7 @@ const RF_MODULES = [
         ],
       },
       {
-        titre: 'Nutri-Forme',
+        titre: 'F.A.Q Nutri-Forme',
         videoId: null,
         blocks: [
           { image: 'images/intro-faq-nutrition.png' },
@@ -247,7 +247,7 @@ const RF_MODULES = [
       },
       { titre: 'Le Shop Rijal Fit', videoId: null, texte: 'Texte à venir.' },
       {
-        titre: 'Dépasse-Forme',
+        titre: 'F.A.Q Dépasse-Forme',
         videoId: null,
         blocks: [
           { text: '<strong><u>FAQ — Dépasse-Forme</u></strong>' },
