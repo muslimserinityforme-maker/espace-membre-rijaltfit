@@ -346,7 +346,7 @@ const RF_MODULES = [
     desc: 'Poser ton intention, comprendre ta motivation, sortir des excuses.',
     niveaux: [
       { titre: 'Niveau 1 — Ton intention', videoId: null, texte: 'Texte du niveau 1 à venir.' },
-      { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.' },
+      { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.', minFormule: 'thabit' },
     ],
   },
   {

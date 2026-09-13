@@ -622,6 +622,8 @@ input:focus { outline: none; border-color: var(--or); }
 }
 .nav-item.is-done .nav-item__check { background: var(--or); border-color: var(--or); color: var(--noir); }
 .nav-item.is-active .nav-item__check { border-color: var(--blanc); }
+.nav-item.is-locked { opacity: .55; }
+.nav-item.is-locked .nav-item__check { border-color: transparent; font-size: .8rem; }
 
 .nav-item--programme {
   margin: 10px 8px;

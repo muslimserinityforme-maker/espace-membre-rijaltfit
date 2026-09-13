@@ -105,6 +105,13 @@
 
       function niveauKey(modId, i) { return modId + '-' + i; }
 
+      var access = rfGetAccess();
+      var formule = (access && access.formule) || 'QIYAM';
+
+      function isNiveauLocked(niveau) {
+        return !!niveau.minFormule && !rfHasFormule(formule, niveau.minFormule);
+      }
+
       var totalNiveaux = RF_MODULES.reduce(function (sum, m) { return sum + m.niveaux.length; }, 0);
 
       var sidebar = document.getElementById('dash-sidebar');
@@ -122,7 +129,7 @@
         var pct = totalNiveaux ? Math.round((done / totalNiveaux) * 100) : 0;
         ringFill.style.strokeDashoffset = String(RING_CIRC * (1 - pct / 100));
         ringPct.textContent = pct + '%';
-        progressText.textContent = pct + '% de ta formation Starter terminée (' + done + '/' + totalNiveaux + ' vidéos)';
+        progressText.textContent = pct + '% de ta formation terminée (' + done + '/' + totalNiveaux + ' vidéos)';
       }
 
       function setActiveTab(view) {
@@ -144,7 +151,8 @@
           mod.niveaux.forEach(function (niveau, i) {
             var isDone = progress.indexOf(niveauKey(mod.id, i)) !== -1;
             var isActive = mod.id === activeMod && i === activeIdx;
-            html += '<button type="button" class="nav-item' + (isDone ? ' is-done' : '') + (isActive ? ' is-active' : '') + '" data-mod="' + mod.id + '" data-idx="' + i + '"><span class="nav-item__check">' + (isDone ? '✓' : '') + '</span>' + niveau.titre + '</button>';
+            var isLocked = isNiveauLocked(niveau);
+            html += '<button type="button" class="nav-item' + (isDone ? ' is-done' : '') + (isActive ? ' is-active' : '') + (isLocked ? ' is-locked' : '') + '" data-mod="' + mod.id + '" data-idx="' + i + '"><span class="nav-item__check">' + (isLocked ? '🔒' : (isDone ? '✓' : '')) + '</span>' + niveau.titre + '</button>';
           });
           html += '</div></div>';
         });
@@ -203,6 +211,18 @@
         var niveau = mod.niveaux[idx];
 
         var html = '<p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2>';
+
+        if (isNiveauLocked(niveau)) {
+          var formuleLabel = niveau.minFormule.toUpperCase();
+          html +=
+            '<div class="programme-locked-banner">' +
+            '<p class="programme-locked-banner__title">Réservé à la formule ' + formuleLabel + '</p>' +
+            '<p class="programme-locked-banner__text">Ce niveau se débloque à partir de la formule ' + formuleLabel + '. Contacte Matthieu pour passer au palier supérieur.</p>' +
+            '</div>';
+          main.innerHTML = html;
+          renderSidebar(modId, idx);
+          return;
+        }
 
         if (niveau.special === 'nutrition-protocol') {
           html += '<div id="np-root"></div>';

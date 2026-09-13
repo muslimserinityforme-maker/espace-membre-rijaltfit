@@ -6,8 +6,9 @@
 //   Colonne A : Code            — le code d'accès (texte)
 //   Colonne B : Origine         — "payant" ou "ancien client", libre, pour ton suivi
 //   Colonne C : Actif           — laisse vide ou VRAI/TRUE = actif ; FALSE = désactivé
-//   Colonne D : Formule         — "Starter" ou "Premium" (détermine l'accès au Programme jour par jour)
-//   Colonne E : DateDebut       — date de 1er paiement, au format AAAA-MM-JJ (Premium uniquement,
+//   Colonne D : Formule         — "QIYAM", "THABIT" ou "RIJAL" (THABIT et RIJAL débloquent le
+//                                 Programme jour par jour ; RIJAL ajoute l'accompagnement maison)
+//   Colonne E : DateDebut       — date de 1er paiement, au format AAAA-MM-JJ (THABIT/RIJAL uniquement,
 //                                 saisie manuelle par toi au moment où tu crées le code)
 //   Colonne F : AccesEtendu     — laisse vide/FALSE jusqu'au jour 90, coche VRAI/TRUE quand le
 //                                 client paie le palier 200€/mois pour continuer au-delà
@@ -37,6 +38,13 @@ function isChecked(v) {
   return v === true || String(v).toUpperCase() === 'TRUE' || String(v).toUpperCase() === 'VRAI';
 }
 
+// Paliers cumulatifs, doit rester cohérent avec RF_FORMULE_RANK dans auth.js.
+var FORMULE_RANK = { qiyam: 1, thabit: 2, rijal: 3 };
+function formuleGivesProgramme(formule) {
+  var key = (formule || 'qiyam').toString().trim().toLowerCase();
+  return (FORMULE_RANK[key] || 1) >= FORMULE_RANK.thabit;
+}
+
 function dateToIso(v) {
   if (!v) return null;
   if (v instanceof Date) {
@@ -61,10 +69,10 @@ function doGet(e) {
   if (action === 'list-active-premium') {
     var rows = [];
     for (var i = 1; i < data.length; i++) {
-      var formule = (data[i][COL_FORMULE] || '').toString().trim().toLowerCase();
+      var formule = (data[i][COL_FORMULE] || '').toString().trim();
       var chatId = (data[i][COL_TELEGRAM_CHAT_ID] || '').toString().trim();
       var dateDebut = dateToIso(data[i][COL_DATE_DEBUT]);
-      if (formule === 'premium' && chatId && dateDebut) {
+      if (formuleGivesProgramme(formule) && chatId && dateDebut) {
         rows.push({
           code: data[i][COL_CODE],
           chatId: chatId,
@@ -88,7 +96,7 @@ function doGet(e) {
           result = {
             valid: true,
             origin: data[j][COL_ORIGINE] || '',
-            formule: data[j][COL_FORMULE] || 'Starter',
+            formule: data[j][COL_FORMULE] || 'QIYAM',
             dateDebut: dateToIso(data[j][COL_DATE_DEBUT]),
             accesEtendu: isChecked(data[j][COL_ACCES_ETENDU]),
           };

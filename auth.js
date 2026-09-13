@@ -5,6 +5,21 @@
 
 const RF_STORAGE_KEY = 'rf_espace_membre_access';
 
+// Paliers cumulatifs : QIYAM < THABIT < RIJAL. THABIT et RIJAL debloquent le
+// Programme jour par jour ; RIJAL ajoute l'accompagnement maison en plus.
+const RF_FORMULE_RANK = { qiyam: 1, thabit: 2, rijal: 3 };
+
+function rfFormuleRank(formule) {
+  const key = (formule || 'qiyam').toString().trim().toLowerCase();
+  return RF_FORMULE_RANK[key] || 1;
+}
+
+// Vrai si `formule` (le palier du membre) donne acces a `required` (le
+// palier minimum demande par un niveau/une page).
+function rfHasFormule(formule, required) {
+  return rfFormuleRank(formule) >= rfFormuleRank(required);
+}
+
 function rfGetAccess() {
   try {
     const raw = localStorage.getItem(RF_STORAGE_KEY);
@@ -21,7 +36,7 @@ function rfGrantAccess(code, data) {
     localStorage.setItem(RF_STORAGE_KEY, JSON.stringify({
       code,
       origin: data.origin || null,
-      formule: data.formule || 'Starter',
+      formule: data.formule || 'QIYAM',
       dateDebut: data.dateDebut || null,
       accesEtendu: !!data.accesEtendu,
       grantedAt: new Date().toISOString(),

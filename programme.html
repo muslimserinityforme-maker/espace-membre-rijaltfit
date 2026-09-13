@@ -27,7 +27,7 @@
     <header class="module-header">
       <a href="espace.html" class="module-header__back">← Retour à mes modules</a>
       <h1 class="module-header__title">Mon Programme</h1>
-      <p class="module-header__desc">Un nouveau jour débloqué chaque jour — réservé à la formule Premium. Reçois le lien directement sur Telegram dès qu'il est disponible.</p>
+      <p class="module-header__desc">Un nouveau jour débloqué chaque jour — réservé aux formules THĀBIT et RIJAL. Reçois le lien directement sur Telegram dès qu'il est disponible.</p>
     </header>
 
     <div class="programme-layout">
@@ -48,8 +48,8 @@
   <script>
     (async function () {
       const access = (await rfRefreshAccess()) || rfGetAccess();
-      const formule = ((access && access.formule) || 'Starter').toLowerCase();
-      const isPremium = formule === 'premium';
+      const formule = (access && access.formule) || 'QIYAM';
+      const isPremium = rfHasFormule(formule, 'thabit');
 
       let jourCourant = 0;
       if (isPremium && access.dateDebut) {
@@ -98,8 +98,8 @@
         if (!isPremium) {
           main.innerHTML =
             '<div class="programme-locked-banner">' +
-            '<p class="programme-locked-banner__title">Réservé à la formule Premium</p>' +
-            '<p class="programme-locked-banner__text">Le Programme jour par jour (Jour ' + jour + ' et les suivants) est débloqué avec la formule Premium (1 980€). Contacte Matthieu pour en savoir plus.</p>' +
+            '<p class="programme-locked-banner__title">Réservé aux formules THĀBIT et RIJAL</p>' +
+            '<p class="programme-locked-banner__text">Le Programme jour par jour (Jour ' + jour + ' et les suivants) est débloqué à partir de la formule THĀBIT (1 980€). Contacte Matthieu pour en savoir plus.</p>' +
             '</div>';
           return;
         }

@@ -1,4 +1,4 @@
-# Espace Membre — Rijal Fit (offre Starter + Programme Premium)
+# Espace Membre — Rijal Fit (paliers QIYAM / THĀBIT / RIJAL)
 
 Site statique + fonctions serverless, sur le même modèle que
 `bilan-sens-rijalfit/` : pas de compte, pas de base de données classique,
@@ -13,27 +13,43 @@ pas d'usine à gaz.
    dans la Sheet, sans redéploiement.
 3. Une fois validé, l'accès est mémorisé dans le navigateur (`localStorage`)
    pour ne pas avoir à retaper le code à chaque visite — **`espace.html`**
-   est le tableau de bord : sidebar avec les 5 modules (dépliables en
+   est le tableau de bord : sidebar avec les 6 modules (dépliables en
    niveaux, façon plateforme de formation classique), panneau principal avec
    la vidéo + le texte du niveau sélectionné, cercle de progression global
    en haut, et un bouton "Marquer comme terminé" par niveau (état mémorisé
    en `localStorage`, pas de compte donc pas de suivi centralisé côté
    Matthieu — chaque appareil a sa propre progression).
 4. **`programme.html`** — Programme jour par jour (730 jours = 2x 365),
-   réservé à la formule Premium (1 980€). Les clients Starter voient les
-   onglets mais verrouillés (effet incitatif à l'upgrade). Un bot Telegram
-   envoie chaque jour le lien du jour qui vient de se débloquer.
+   réservé aux formules THĀBIT et RIJAL. Les clients QIYAM voient l'onglet
+   mais verrouillé (effet incitatif à l'upgrade). Un bot Telegram envoie
+   chaque jour le lien du jour qui vient de se débloquer.
 
-## Les deux types de codes (Starter)
+## Les 3 paliers (QIYAM / THĀBIT / RIJAL)
 
-Un seul et même type de code techniquement — juste une colonne "Origine"
-(`payant` / `ancien client`) dans la Sheet pour le suivi de Matthieu. Les
-codes sont distribués manuellement (après paiement, ou à un ancien client),
-pas de Stripe automatique pour l'instant.
+Un seul et même type de code techniquement — la colonne "Formule" dans la
+Sheet détermine le palier (`QIYAM`, `THABIT` ou `RIJAL`, cumulatifs), et une
+colonne "Origine" (`payant` / `ancien client`) sert juste au suivi de
+Matthieu. Les codes sont distribués manuellement (après paiement, ou à un
+ancien client), pas de Stripe automatique pour l'instant.
 
-## Le Programme jour par jour (Premium)
+- **QIYAM** (980€) : tous les modules dès le départ, mais certains
+  niveaux/vidéos à l'intérieur des modules (hors Introduction) sont
+  verrouillés — marqués `minFormule: 'thabit'` ou `'rijal'` dans
+  `modules-data.js`. Pas d'accès au Programme jour par jour.
+- **THĀBIT** (1980€) : tout QIYAM + les niveaux marqués `minFormule:
+  'thabit'` + le Programme jour par jour.
+- **RIJAL** (3000€) : tout THĀBIT + les niveaux marqués `minFormule:
+  'rijal'` + l'accompagnement maison (hors périmètre du site pour l'instant).
 
-- Réservé aux codes marqués `Formule = Premium` dans la Sheet.
+Un client QIYAM qui règle la différence pour passer à THĀBIT (ou THĀBIT →
+RIJAL) : Matthieu change simplement la valeur `Formule` sur sa ligne dans la
+Sheet, aucune action technique de plus — le site relit la formule à jour à
+chaque connexion.
+
+## Le Programme jour par jour (THĀBIT / RIJAL)
+
+- Réservé aux codes marqués `Formule = THABIT` ou `Formule = RIJAL` dans la
+  Sheet.
 - Le jour débloqué se calcule à partir de `DateDebut` (date du 1er paiement,
   saisie manuelle par Matthieu) : jour 1 le jour même, +1 jour chaque jour.
 - Les jours 1 à 90 sont inclus. Au-delà, il faut que Matthieu coche
@@ -97,10 +113,11 @@ api/meals.js                  → historique des repas du jour (ajouter/lister/s
 1. Crée une nouvelle Google Sheet (sheets.new).
 2. Ajoute une ligne d'en-tête : `Code | Origine | Actif | Formule | DateDebut | AccesEtendu | TelegramChatId | Notes`.
 3. Ajoute une ligne par code, par ex :
-   - Starter : `RIJAL-LOIC-980 | payant | | Starter | | | | Loïc, payé le 12/09`
-   - Premium : `RIJAL-ADEM-1980 | payant | | Premium | 2026-09-10 | | | Adem, démarré le 10/09`
+   - QIYAM : `RIJAL-LOIC-980 | payant | | QIYAM | | | | Loïc, payé le 12/09`
+   - THĀBIT : `RIJAL-ADEM-1980 | payant | | THABIT | 2026-09-10 | | | Adem, démarré le 10/09`
+   - RIJAL : `RIJAL-SAMI-3000 | payant | | RIJAL | 2026-09-10 | | | Sami, démarré le 10/09`
    - Laisse `Actif` vide (= actif) ou mets `FALSE` pour désactiver un code sans le supprimer.
-   - `DateDebut` au format `AAAA-MM-JJ` — uniquement pour les codes Premium.
+   - `DateDebut` au format `AAAA-MM-JJ` — uniquement pour les codes THĀBIT/RIJAL.
    - `AccesEtendu` : laisse vide jusqu'au palier 200€/mois, puis mets `TRUE`.
    - `TelegramChatId` : ne pas remplir à la main, le bot s'en charge.
 4. Menu **Extensions → Apps Script**.
@@ -205,8 +222,10 @@ alter table repas enable row level security;
 - Recharge la page → l'accès doit rester mémorisé (pas besoin de retaper le code).
 - Vérifie que chaque module s'ouvre et que les vidéos YouTube (non listées)
   se lisent correctement.
-- Avec un code Premium : ouvre `programme.html`, vérifie que les bons jours
-  sont débloqués selon `DateDebut`.
+- Avec un code THĀBIT ou RIJAL : ouvre `programme.html`, vérifie que les
+  bons jours sont débloqués selon `DateDebut`.
+- Avec un code QIYAM : vérifie qu'un niveau marqué `minFormule: 'thabit'`
+  (ex. Motive-Forme, niveau 2) s'affiche verrouillé avec un cadenas.
 - Envoie `/start TON-CODE` au bot Telegram → doit confirmer l'activation et
   remplir `TelegramChatId` dans la Sheet.
 - Attends le déclenchement du Cron (ou appelle `/api/send-daily-telegram`
@@ -225,7 +244,12 @@ listée, ou `null` tant qu'il n'y en a pas) et `texte`. Pas de build, pas de
 CMS — édition directe du fichier. Le nombre de niveaux par module peut
 changer librement (ajoute/retire des entrées dans le tableau).
 
-## Ajouter le contenu des jours (Programme Premium)
+Pour réserver un niveau à un palier supérieur (hors module Introduction, qui
+reste entièrement accessible dès QIYAM), ajoute `minFormule: 'thabit'` ou
+`minFormule: 'rijal'` sur ce niveau — il s'affichera verrouillé (cadenas)
+pour les membres qui n'ont pas ce palier ou un palier supérieur.
+
+## Ajouter le contenu des jours (Programme THĀBIT/RIJAL)
 
 Édite `jours-data.js`, objet `RF_JOURS_OVERRIDES` : une entrée par jour
 (`titre`, `videoId`, `texte`). Tout jour non renseigné affiche un
