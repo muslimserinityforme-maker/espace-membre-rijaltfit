@@ -113,7 +113,7 @@ const RF_MODULES = [
         ],
       },
       {
-        titre: 'F.A.Q Nutrition',
+        titre: 'Nutri-Forme',
         videoId: null,
         blocks: [
           { image: 'images/intro-faq-nutrition.png' },
@@ -246,7 +246,73 @@ const RF_MODULES = [
         ],
       },
       { titre: 'Le Shop Rijal Fit', videoId: null, texte: 'Texte à venir.' },
-      { titre: 'F.A.Q Fitness', videoId: null, texte: 'Texte à venir.' },
+      {
+        titre: 'Dépasse-Forme',
+        videoId: null,
+        blocks: [
+          { text: '<strong><u>FAQ — Dépasse-Forme</u></strong>' },
+
+          { text: '<strong><u>1. Je dois choisir entre le programme salle et le programme maison ?</u></strong>' },
+          { text: 'Non. Tu peux faire uniquement la salle, uniquement la maison ou combiner les deux. Les programmes avancent avec la même logique, phase par phase.' },
+
+          { text: '<strong><u>2. Est-ce que le programme maison est moins efficace que la salle ?</u></strong>' },
+          { text: 'Pas forcément. Pour perdre du gras, retrouver la forme et développer tes muscles, tu peux obtenir d’excellents résultats à la maison. La salle devient surtout intéressante pour aller plus loin dans la progression des charges et de la force.' },
+
+          { text: '<strong><u>3. Puis-je faire une séance salle et une séance maison dans la même semaine ?</u></strong>' },
+          { text: 'Oui. Reste simplement dans la même phase du programme. Ton coach pourra t’indiquer quelles séances associer pour éviter de faire trop de volume.' },
+
+          { text: '<strong><u>4. Je pars en vacances et je n’ai plus accès à ma salle, que faire ?</u></strong>' },
+          { text: 'Continue avec la version maison correspondant à ta phase. Tu n’as pas besoin d’arrêter ta progression simplement parce que ton environnement change.' },
+
+          { text: '<strong><u>5. De quel matériel ai-je besoin à la maison ?</u></strong>' },
+          { text: 'Tu peux progressivement t’équiper d’un kit d’haltères, d’une barre de traction ou chaise romaine, d’une veste lestée et de barres de dips. Tu n’as pas besoin de tout acheter immédiatement.' },
+
+          { text: '<strong><u>6. Je n’ai pas le matériel demandé pour un exercice, que faire ?</u></strong>' },
+          { text: 'Ne saute pas automatiquement l’exercice. Contacte ton coach afin qu’il te propose une variante adaptée avec le matériel dont tu disposes.' },
+
+          { text: '<strong><u>7. Comment choisir ma charge ?</u></strong>' },
+          { text: 'Respecte les indications de ta phase et privilégie toujours une charge avec laquelle tu peux réaliser toutes les répétitions demandées avec une exécution propre. La charge ne doit jamais détruire ton mouvement.' },
+
+          { text: '<strong><u>8. Comment savoir quand augmenter ma charge ?</u></strong>' },
+          { text: 'Lorsque tu maîtrises les répétitions demandées avec une bonne amplitude et un mouvement contrôlé, tu peux appliquer la méthode de progression prévue dans ta phase. Ne cherche pas à augmenter pour simplement soulever plus lourd.' },
+
+          { text: '<strong><u>9. Pourquoi mes charges changent-elles selon les phases ?</u></strong>' },
+          { text: 'Parce que chaque phase possède un objectif différent. Certaines développent la technique, d’autres le contrôle, la surcharge progressive, la force, l’endurance musculaire ou mettent l’accent sur un groupe musculaire particulier.' },
+
+          { text: '<strong><u>10. Pourquoi dois-je connaître mon 1RM ?</u></strong>' },
+          { text: 'À partir d’un certain niveau, ton 1RM permet de déterminer plus précisément certaines charges de travail. Tu peux le tester avec le protocole prévu ou utiliser le calculateur pour obtenir une estimation sans forcément réaliser une répétition maximale.' },
+
+          { text: '<strong><u>11. Est-ce que je dois aller jusqu’à l’échec à chaque série ?</u></strong>' },
+          { text: 'Non. L’échec n’est pas l’objectif permanent du programme. Lorsqu’un maximum de répétitions est demandé, cela sera clairement indiqué dans ta séance.' },
+
+          { text: '<strong><u>12. Je ne sens pas le muscle que je suis censé travailler, est-ce normal ?</u></strong>' },
+          { text: 'Cela peut arriver. Avant d’ajouter du poids, vérifie ton placement, ton amplitude et ton contrôle. Filme ton mouvement et transmets-le à ton coach si nécessaire.' },
+
+          { text: '<strong><u>13. Je n’arrive plus à respecter mon tempo, que faire ?</u></strong>' },
+          { text: 'Réduis ta charge. Si la charge t’oblige à accélérer, raccourcir ton amplitude ou tricher, elle est probablement trop importante pour le travail demandé.' },
+
+          { text: '<strong><u>14. Quelle différence entre une douleur musculaire et une douleur anormale ?</u></strong>' },
+          { text: 'Une sensation d’effort, de brûlure ou des courbatures peuvent accompagner l’entraînement. En revanche, une douleur vive, inhabituelle ou articulaire ne doit pas être ignorée. Arrête l’exercice concerné et informe ton coach ; si nécessaire, consulte un professionnel de santé.' },
+
+          { text: '<strong><u>15. J’ai encore des courbatures, dois-je quand même m’entraîner ?</u></strong>' },
+          { text: 'Des courbatures légères n’empêchent pas forcément de s’entraîner. Si elles sont importantes, limitent tes mouvements ou s’accompagnent d’une forte fatigue, préviens ton coach afin d’adapter la séance.' },
+
+          { text: '<strong><u>16. J’ai raté une séance, dois-je la rattraper ?</u></strong>' },
+          { text: 'Pas obligatoirement. Ne double pas tes séances simplement pour « rattraper ». Reprends ton organisation normalement ou demande à ton coach comment réorganiser ta semaine.' },
+
+          { text: '<strong><u>17. Pourquoi certaines phases comportent-elles une semaine de deload ?</u></strong>' },
+          { text: 'Le deload réduit volontairement la difficulté après plusieurs semaines de progression. Il permet de diminuer la fatigue accumulée avant de repartir sur un nouveau cycle de travail.' },
+
+          { text: '<strong><u>18. Pourquoi le programme change-t-il toutes les plusieurs semaines ?</u></strong>' },
+          { text: 'Parce que tu progresses. Le programme évolue avec toi : apprentissage des mouvements, contrôle, progression des charges, travail musculaire ciblé puis méthodes plus avancées. Chaque phase prépare la suivante.' },
+
+          { text: '<strong><u>19. Dois-je faire plus de séances pour avoir des résultats plus rapidement ?</u></strong>' },
+          { text: 'Non. Faire plus n’est pas automatiquement faire mieux. Respecte le nombre de séances prévu et les recommandations de ton coach. Ta récupération fait partie de ton programme.' },
+
+          { text: '<strong><u>20. Quelle est la règle la plus importante pendant tout mon parcours ?</u></strong>' },
+          { text: 'Ne cherche pas à impressionner avec tes charges. Maîtrise d’abord, progresse ensuite. Ton objectif n’est pas de réussir une séance spectaculaire, mais de construire un corps plus fort et fonctionnel grâce à des mois de régularité.' },
+        ],
+      },
       {
         titre: 'Les livres conseillés',
         videoId: null,
