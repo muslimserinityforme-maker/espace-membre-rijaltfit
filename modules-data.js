@@ -380,32 +380,39 @@ const RF_MODULES = [
           { text: 'Une sélection d’ouvrages pour aller plus loin, classés par module.' },
 
           { text: '<strong><u>Motive-Forme</u></strong>' },
-          { image: 'images/livre-vivre-plus-longtemps.jpg' },
-          { text: '<strong>Comment vivre plus longtemps</strong> — Muhammad Al-Nu’aym, éditions Al-Hadith.<br><a class="btn btn--primary" href="https://hadithshop.com/editions-al-hadith/93-comment-vivre-plus-longtemps-muhammad-al-nu-aym-editions-al-hadith-9782875450289.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
-          { image: 'images/livre-esprit-de-lame.jpg' },
-          { text: '<strong>L’esprit de l’âme</strong> — Al-Ghazali, Ibn al-Jawzi, Ibn Qudamah, éditions Tawbah.<br><a class="btn btn--primary" href="https://hadithshop.com/editions-tawbah/356-l-esprit-de-l-ame-al-ghazali-ibn-al-jawzi-ibn-qudamah-editions-tawbah-9782916457314.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
-          { image: 'images/livre-talbis-iblis.jpg' },
-          { text: '<strong>Talbis Iblis — Les ruses de Satan</strong> — Ibn al-Jawzi, éditions Sabil.<br><a class="btn btn--primary" href="https://hadithshop.com/editions-sabil/668-talbis-iblis-les-ruses-de-satan-ibn-al-jawzi-sabil.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { text:
+            '<div class="shop-grid shop-grid--3col">' +
+            '<div class="shop-item"><img src="images/livre-vivre-plus-longtemps.jpg" alt="Comment vivre plus longtemps" loading="lazy"><p class="shop-item__name">Comment vivre plus longtemps</p><p class="shop-item__meta">Muhammad Al-Nu’aym — éd. Al-Hadith</p><a class="btn btn--primary" href="https://hadithshop.com/editions-al-hadith/93-comment-vivre-plus-longtemps-muhammad-al-nu-aym-editions-al-hadith-9782875450289.html" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '<div class="shop-item"><img src="images/livre-esprit-de-lame.jpg" alt="L’esprit de l’âme" loading="lazy"><p class="shop-item__name">L’esprit de l’âme</p><p class="shop-item__meta">Al-Ghazali, Ibn al-Jawzi, Ibn Qudamah — éd. Tawbah</p><a class="btn btn--primary" href="https://hadithshop.com/editions-tawbah/356-l-esprit-de-l-ame-al-ghazali-ibn-al-jawzi-ibn-qudamah-editions-tawbah-9782916457314.html" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '<div class="shop-item"><img src="images/livre-talbis-iblis.jpg" alt="Talbis Iblis — Les ruses de Satan" loading="lazy"><p class="shop-item__name">Talbis Iblis — Les ruses de Satan</p><p class="shop-item__meta">Ibn al-Jawzi — éd. Sabil</p><a class="btn btn--primary" href="https://hadithshop.com/editions-sabil/668-talbis-iblis-les-ruses-de-satan-ibn-al-jawzi-sabil.html" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '<div class="shop-item"><img src="images/livre-sira-jeunes.jpg" alt="La Sîra du Prophète expliquée aux jeunes" loading="lazy"><p class="shop-item__name">La Sîra du Prophète expliquée aux jeunes</p><p class="shop-item__meta">Sofiane Meziani — éd. Maison d’Ennour</p><a class="btn btn--primary" href="https://hadithshop.com/le-prophete-sira/379-la-sira-du-prophete-expliquee-aux-jeunes-sofiane-meziani-maison-d-ennour-9782752400628.html" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '</div>'
+          },
 
           { text: '<strong><u>Hygiène-Forme</u></strong>' },
-          { image: 'images/livre-medecine-prophetique.jpg' },
-          { text: '<strong>L’authentique de la médecine prophétique</strong> — Ibn al-Qayyim, éditions Tawbah.<br><a class="btn btn--primary" href="https://hadithshop.com/editions-tawbah/366-l-authentique-de-la-medecine-prophetique-ibn-al-qayyim-editions-tawbah-9782916457246.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { text:
+            '<div class="shop-grid shop-grid--3col">' +
+            '<div class="shop-item"><img src="images/livre-medecine-prophetique.jpg" alt="L’authentique de la médecine prophétique" loading="lazy"><p class="shop-item__name">L’authentique de la médecine prophétique</p><p class="shop-item__meta">Ibn al-Qayyim — éd. Tawbah</p><a class="btn btn--primary" href="https://hadithshop.com/editions-tawbah/366-l-authentique-de-la-medecine-prophetique-ibn-al-qayyim-editions-tawbah-9782916457246.html" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '</div>'
+          },
 
           { text: '<strong><u>Nutri-Forme</u></strong>' },
-          { image: 'images/livre-nutrition-islam.jpg' },
-          { text: '<strong>La nutrition en Islam</strong> — Assata Doumbia, Fatima Oulhadj, Hassan Younes, éditions Maison d’Ennour.<br><a class="btn btn--primary" href="https://www.la-librairie-musulmane.com/produit/la-nutrition-en-islam/" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
-          { image: 'images/livre-maigrir-islam.jpg' },
-          { text: '<strong>Maigrir avec l’Islam</strong> — Tariq Mogahed.<br><a class="btn btn--primary" href="https://www.amazon.fr/Maigrir-avec-lIslam-Physique-Spirituelle/dp/B0CCCNLVQC" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { text:
+            '<div class="shop-grid shop-grid--3col">' +
+            '<div class="shop-item"><img src="images/livre-nutrition-islam.jpg" alt="La nutrition en Islam" loading="lazy"><p class="shop-item__name">La nutrition en Islam</p><p class="shop-item__meta">Doumbia, Oulhadj, Younes — éd. Maison d’Ennour</p><a class="btn btn--primary" href="https://www.la-librairie-musulmane.com/produit/la-nutrition-en-islam/" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '<div class="shop-item"><img src="images/livre-maigrir-islam.jpg" alt="Maigrir avec l’Islam" loading="lazy"><p class="shop-item__name">Maigrir avec l’Islam</p><p class="shop-item__meta">Tariq Mogahed</p><a class="btn btn--primary" href="https://www.amazon.fr/Maigrir-avec-lIslam-Physique-Spirituelle/dp/B0CCCNLVQC" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '</div>'
+          },
 
           { text: '<strong><u>Dépasse-Forme</u></strong>' },
-          { image: 'images/livre-guide-mouvements-musculation.jpg' },
-          { text: '<strong>Guide des mouvements de musculation</strong> — Frédéric Delavier, éditions Vigot.<br><a class="btn btn--primary" href="https://www.amazon.fr/Guide-mouvements-musculation-Fr%C3%A9d%C3%A9ric-Delavier/dp/2711424103" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
-          { image: 'images/livre-methode-delavier-tome3.jpg' },
-          { text: '<strong>La méthode Delavier de musculation — Tome 3</strong> — Frédéric Delavier, Michael Gundill, éditions Vigot.<br><a class="btn btn--primary" href="https://www.cultura.com/p-la-methode-delavier-de-musculation-t-3-9782711425143.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
-          { image: 'images/livre-musculation-au-naturel.jpg' },
-          { text: '<strong>Le guide de la musculation au naturel</strong> — Rudy Coia, Julien Venesson, Thierry Souccar Éditions.<br><a class="btn btn--primary" href="https://thierrysouccar.com/products/le-guide-de-la-musculation-au-naturel-julien-venesson" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
-          { image: 'images/livre-abdos-gainage.jpg' },
-          { text: '<strong>Abdos — Musculation et gainage</strong> — Frédéric Delavier, Michael Gundill, éditions Vigot.<br><a class="btn btn--primary" href="https://www.cultura.com/p-abdos-musculation-et-gainage-9782711422333.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { text:
+            '<div class="shop-grid shop-grid--3col">' +
+            '<div class="shop-item"><img src="images/livre-guide-mouvements-musculation.jpg" alt="Guide des mouvements de musculation" loading="lazy"><p class="shop-item__name">Guide des mouvements de musculation</p><p class="shop-item__meta">Frédéric Delavier — éd. Vigot</p><a class="btn btn--primary" href="https://www.amazon.fr/Guide-mouvements-musculation-Fr%C3%A9d%C3%A9ric-Delavier/dp/2711424103" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '<div class="shop-item"><img src="images/livre-methode-delavier-tome3.jpg" alt="La méthode Delavier de musculation — Tome 3" loading="lazy"><p class="shop-item__name">La méthode Delavier de musculation — Tome 3</p><p class="shop-item__meta">Delavier, Gundill — éd. Vigot</p><a class="btn btn--primary" href="https://www.cultura.com/p-la-methode-delavier-de-musculation-t-3-9782711425143.html" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '<div class="shop-item"><img src="images/livre-musculation-au-naturel.jpg" alt="Le guide de la musculation au naturel" loading="lazy"><p class="shop-item__name">Le guide de la musculation au naturel</p><p class="shop-item__meta">Coia, Venesson — Thierry Souccar Éd.</p><a class="btn btn--primary" href="https://thierrysouccar.com/products/le-guide-de-la-musculation-au-naturel-julien-venesson" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '<div class="shop-item"><img src="images/livre-abdos-gainage.jpg" alt="Abdos — Musculation et gainage" loading="lazy"><p class="shop-item__name">Abdos — Musculation et gainage</p><p class="shop-item__meta">Delavier, Gundill — éd. Vigot</p><a class="btn btn--primary" href="https://www.cultura.com/p-abdos-musculation-et-gainage-9782711422333.html" target="_blank" rel="noopener">🛒 Acheter</a></div>' +
+            '</div>'
+          },
         ],
       },
       {
