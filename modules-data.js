@@ -247,7 +247,42 @@ const RF_MODULES = [
       },
       { titre: 'Le Shop Rijal Fit', videoId: null, texte: 'Texte à venir.' },
       { titre: 'F.A.Q Fitness', videoId: null, texte: 'Texte à venir.' },
-      { titre: 'Les livres conseillés', videoId: null, texte: 'Texte à venir.' },
+      {
+        titre: 'Les livres conseillés',
+        videoId: null,
+        blocks: [
+          { text: '<strong><u>Les livres conseillés</u></strong>' },
+          { text: 'Une sélection d’ouvrages pour aller plus loin, classés par module.' },
+
+          { text: '<strong><u>Motive-Forme</u></strong>' },
+          { image: 'images/livre-vivre-plus-longtemps.jpg' },
+          { text: '<strong>Comment vivre plus longtemps</strong> — Muhammad Al-Nu’aym, éditions Al-Hadith.<br><a class="btn btn--primary" href="https://hadithshop.com/editions-al-hadith/93-comment-vivre-plus-longtemps-muhammad-al-nu-aym-editions-al-hadith-9782875450289.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { image: 'images/livre-esprit-de-lame.jpg' },
+          { text: '<strong>L’esprit de l’âme</strong> — Al-Ghazali, Ibn al-Jawzi, Ibn Qudamah, éditions Tawbah.<br><a class="btn btn--primary" href="https://hadithshop.com/editions-tawbah/356-l-esprit-de-l-ame-al-ghazali-ibn-al-jawzi-ibn-qudamah-editions-tawbah-9782916457314.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { image: 'images/livre-talbis-iblis.jpg' },
+          { text: '<strong>Talbis Iblis — Les ruses de Satan</strong> — Ibn al-Jawzi, éditions Sabil.<br><a class="btn btn--primary" href="https://hadithshop.com/editions-sabil/668-talbis-iblis-les-ruses-de-satan-ibn-al-jawzi-sabil.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+
+          { text: '<strong><u>Hygiène-Forme</u></strong>' },
+          { image: 'images/livre-medecine-prophetique.jpg' },
+          { text: '<strong>L’authentique de la médecine prophétique</strong> — Ibn al-Qayyim, éditions Tawbah.<br><a class="btn btn--primary" href="https://hadithshop.com/editions-tawbah/366-l-authentique-de-la-medecine-prophetique-ibn-al-qayyim-editions-tawbah-9782916457246.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+
+          { text: '<strong><u>Nutri-Forme</u></strong>' },
+          { image: 'images/livre-nutrition-islam.jpg' },
+          { text: '<strong>La nutrition en Islam</strong> — Assata Doumbia, Fatima Oulhadj, Hassan Younes, éditions Maison d’Ennour.<br><a class="btn btn--primary" href="https://www.la-librairie-musulmane.com/produit/la-nutrition-en-islam/" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { image: 'images/livre-maigrir-islam.jpg' },
+          { text: '<strong>Maigrir avec l’Islam</strong> — Tariq Mogahed.<br><a class="btn btn--primary" href="https://www.amazon.fr/Maigrir-avec-lIslam-Physique-Spirituelle/dp/B0CCCNLVQC" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+
+          { text: '<strong><u>Dépasse-Forme</u></strong>' },
+          { image: 'images/livre-guide-mouvements-musculation.jpg' },
+          { text: '<strong>Guide des mouvements de musculation</strong> — Frédéric Delavier, éditions Vigot.<br><a class="btn btn--primary" href="https://www.amazon.fr/Guide-mouvements-musculation-Fr%C3%A9d%C3%A9ric-Delavier/dp/2711424103" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { image: 'images/livre-methode-delavier-tome3.jpg' },
+          { text: '<strong>La méthode Delavier de musculation — Tome 3</strong> — Frédéric Delavier, Michael Gundill, éditions Vigot.<br><a class="btn btn--primary" href="https://www.cultura.com/p-la-methode-delavier-de-musculation-t-3-9782711425143.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { image: 'images/livre-musculation-au-naturel.jpg' },
+          { text: '<strong>Le guide de la musculation au naturel</strong> — Rudy Coia, Julien Venesson, Thierry Souccar Éditions.<br><a class="btn btn--primary" href="https://thierrysouccar.com/products/le-guide-de-la-musculation-au-naturel-julien-venesson" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+          { image: 'images/livre-abdos-gainage.jpg' },
+          { text: '<strong>Abdos — Musculation et gainage</strong> — Frédéric Delavier, Michael Gundill, éditions Vigot.<br><a class="btn btn--primary" href="https://www.cultura.com/p-abdos-musculation-et-gainage-9782711422333.html" target="_blank" rel="noopener">🛒 Acheter le livre</a>' },
+        ],
+      },
       {
         titre: 'Conditions générales de vente',
         videoId: null,
