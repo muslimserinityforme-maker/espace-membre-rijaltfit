@@ -252,22 +252,21 @@ const RF_MODULES = [
           { text: '<strong><u>Le Shop Rijal Fit</u></strong>' },
 
           { text: '<strong><u>Matériel sport</u></strong>' },
-          { image: 'images/shop-kit-halteres.png' },
-          { text: '<strong>Kit haltères Rijal Fit</strong><br><em>Non disponible</em>' },
-          { image: 'images/shop-barre-tractions.png' },
-          { text: '<strong>Barre de tractions Rijal Fit</strong><br><em>Non disponible</em>' },
-          { image: 'images/shop-chaise-romaine.png' },
-          { text: '<strong>Chaise romaine Rijal Fit</strong><br><em>Non disponible</em>' },
-          { image: 'images/shop-veste-lestee.png' },
-          { text: '<strong>Veste lestée Rijal Fit</strong><br><em>Non disponible</em>' },
-          { image: 'images/shop-chevilliere.png' },
-          { text: '<strong>Chevillère Rijal Fit</strong><br><em>Non disponible</em>' },
-          { image: 'images/shop-tapis.png' },
-          { text: '<strong>Tapis Rijal Fit</strong><br><em>Non disponible</em>' },
-          { image: 'images/shop-serviette.png' },
-          { text: '<strong>Serviette Rijal Fit</strong><br><em>Non disponible</em>' },
-          { image: 'images/shop-shaker.png' },
-          { text: '<strong>Shaker Rijal Fit</strong><br><em>Non disponible</em>' },
+          { text:
+            '<div class="shop-grid">' +
+            '<div class="shop-item"><img src="images/shop-kit-halteres.png" alt="Kit haltères Rijal Fit" loading="lazy"><p class="shop-item__name">Kit haltères Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-barre-tractions.png" alt="Barre de tractions Rijal Fit" loading="lazy"><p class="shop-item__name">Barre de tractions Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-chaise-romaine.png" alt="Chaise romaine Rijal Fit" loading="lazy"><p class="shop-item__name">Chaise romaine Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-veste-lestee.png" alt="Veste lestée Rijal Fit" loading="lazy"><p class="shop-item__name">Veste lestée Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-chevilliere.png" alt="Chevillère Rijal Fit" loading="lazy"><p class="shop-item__name">Chevillère Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-tapis.png" alt="Tapis Rijal Fit" loading="lazy"><p class="shop-item__name">Tapis Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-serviette.png" alt="Serviette Rijal Fit" loading="lazy"><p class="shop-item__name">Serviette Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-shaker.png" alt="Shaker Rijal Fit" loading="lazy"><p class="shop-item__name">Shaker Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '</div>'
+          },
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Vêtements</u></strong>' },
+          { text: 'Bientôt disponible.' },
         ],
       },
       {

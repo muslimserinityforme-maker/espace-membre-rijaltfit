@@ -58,6 +58,17 @@ a { color: inherit; }
 .recette-pdf-btn { margin: 4px 0 20px; }
 .recette-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
+.shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 12px 0 20px; }
+.shop-item { text-align: center; }
+.shop-item img { width: 100%; height: auto; border-radius: var(--radius); display: block; }
+.shop-item__name { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: .9rem; margin: 8px 0 2px; }
+.shop-item__status { color: #999; font-style: italic; font-size: .8rem; margin: 0 0 8px; }
+.shop-item .btn { width: 100%; padding: 8px 12px; font-size: .8rem; }
+.shop-divider { border: none; border-top: 1px solid #eee6d8; margin: 24px 0; }
+@media (max-width: 640px) {
+  .shop-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ══ TOPBAR ══ */
 .topbar {
   display: flex;
