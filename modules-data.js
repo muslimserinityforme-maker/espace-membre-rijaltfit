@@ -237,7 +237,105 @@ const RF_MODULES = [
       { titre: 'Le Shop Rijal Fit', videoId: null, texte: 'Texte à venir.' },
       { titre: 'F.A.Q Fitness', videoId: null, texte: 'Texte à venir.' },
       { titre: 'Les livres conseillés', videoId: null, texte: 'Texte à venir.' },
-      { titre: 'Conditions générales de vente', videoId: null, texte: 'Texte à venir.' },
+      {
+        titre: 'Conditions générales de vente',
+        videoId: null,
+        blocks: [
+          { text: '<strong><u>RIJAL FIT — CONDITIONS GÉNÉRALES DE VENTE</u></strong>' },
+          { text: 'Coaching sportif, nutritionnel et accompagnement numérique.' },
+          { text: 'Exploitant : Matthieu Tarley — Rijal Fit<br>Statut : Micro-entreprise<br>SIRET : 892 935 891 00010<br>Adresse professionnelle : 37 rue Saint Savournin, 13005 Marseille<br>E-mail : muslimserinityforme@gmail.com<br>Version du 13 septembre 2026' },
+
+          { text: '<strong><u>1. Objet et champ d’application</u></strong>' },
+          { text: 'Les présentes Conditions Générales de Vente (« CGV ») régissent les ventes des prestations proposées sous le nom commercial Rijal Fit par Matthieu Tarley (« le Prestataire ») à des clients consommateurs (« le Client »).' },
+          { text: 'Rijal Fit propose des accompagnements à distance portant notamment sur l’activité physique, la remise en forme, la perte de poids, l’éducation nutritionnelle, l’hygiène de vie et l’utilisation d’outils numériques d’accompagnement. Toute commande implique l’acceptation pleine et entière des présentes CGV dans leur version communiquée au Client avant la conclusion du contrat.' },
+
+          { text: '<strong><u>2. Nature des prestations</u></strong>' },
+          { text: 'Selon la formule souscrite, l’accompagnement peut comprendre : des vidéos et contenus pédagogiques, des documents PDF, un programme sportif personnalisé, un accompagnement nutritionnel à visée éducative, des échanges via Telegram, des appels téléphoniques ou en visioconférence, des ajustements personnalisés, des outils numériques et/ou utilisant l’intelligence artificielle, l’accès à un espace membre et l’accès à une communauté.' },
+          { text: 'Le suivi humain est proposé cinq jours sur sept, dans une amplitude indicative pouvant aller jusqu’à dix heures par jour. Cette disponibilité ne constitue pas un service d’urgence ni une obligation de réponse immédiate. Les modalités pratiques et horaires peuvent être précisées dans l’offre ou lors de l’entrée en accompagnement.' },
+          { text: 'Les prestations Rijal Fit ne constituent pas un diagnostic médical, un traitement médical, une consultation médicale ni un suivi diététique médical. En présence d’une pathologie, d’un traitement, d’une douleur inhabituelle, d’une grossesse, d’une contre-indication ou de toute situation nécessitant un avis médical, le Client doit consulter un professionnel de santé compétent avant ou pendant la pratique.' },
+
+          { text: '<strong><u>3. Formules, prix et durée</u></strong>' },
+          { text: 'L’accompagnement initial est conclu pour une durée minimale de trois (3) mois.' },
+          { text: 'À la date de rédaction des présentes CGV, les principales formules sont proposées au prix total de 980 € TTC ou 1 980 € TTC pour trois mois, selon la formule choisie. Le contenu précis de la formule et son prix sont communiqués au Client avant la commande et figurent sur le bon de commande, le devis, la facture ou tout autre support durable remis au Client.' },
+          { text: 'À l’issue des trois mois, le Client peut demander la poursuite de l’accompagnement au tarif indicatif de 200 € TTC par mois. Cette poursuite n’est jamais automatique : elle suppose une demande ou un accord exprès du Client. Il n’existe donc pas de reconduction tacite de l’accompagnement mensuel.' },
+
+          { text: '<strong><u>4. Commande et formation du contrat</u></strong>' },
+          { text: 'La commande peut être conclue à distance, notamment à la suite d’un échange téléphonique, d’une visioconférence, d’une messagerie ou de tout autre moyen convenu entre les parties.' },
+          { text: 'Avant la conclusion du contrat, le Client reçoit les informations essentielles relatives à la prestation, à sa durée, à son prix, aux modalités de paiement et, lorsque la loi l’exige, à son droit de rétractation.' },
+          { text: 'La commande devient ferme après acceptation de l’offre ou du devis, acceptation des présentes CGV et validation du paiement ou de l’échéancier convenu. Une confirmation de commande ou une facture est adressée au Client sur un support durable.' },
+
+          { text: '<strong><u>5. Modalités de paiement</u></strong>' },
+          { text: 'Le prix peut être réglé en une (1), deux (2), trois (3) ou quatre (4) échéances lorsque cette possibilité est proposée au moment de la commande.' },
+          { text: 'Le paiement fractionné constitue une facilité de paiement et non un abonnement mensuel résiliable à tout moment. Sauf exercice valable d’un droit légal de rétractation ou accord écrit contraire, le Client reste redevable du prix total de la formule souscrite.' },
+          { text: 'En cas d’échec d’une échéance, le Client s’engage à régulariser sa situation dans les meilleurs délais. Après relance restée sans effet, le Prestataire peut suspendre l’accès aux prestations personnalisées jusqu’à régularisation, sans préjudice des droits impératifs du consommateur.' },
+
+          { text: '<strong><u>6. Démarrage et exécution de l’accompagnement</u></strong>' },
+          { text: 'L’accompagnement débute à la date convenue entre les parties ou, à défaut, lors de l’ouverture effective des accès et du démarrage des premières prestations.' },
+          { text: 'Le Client s’engage à fournir des informations exactes et suffisamment complètes pour permettre la personnalisation du programme, à signaler toute contre-indication connue et à adopter une pratique adaptée à ses capacités.' },
+          { text: 'Le Prestataire est tenu à une obligation de moyens : il met en œuvre les moyens convenus pour accompagner le Client, mais ne garantit pas une perte de poids déterminée, une transformation physique précise ni un résultat chiffré. Les résultats dépendent notamment de la situation individuelle, de l’assiduité, de l’alimentation, de l’activité, du sommeil, de la santé et du respect des recommandations.' },
+
+          { text: '<strong><u>7. Accès à l’espace membre et accès à vie</u></strong>' },
+          { text: 'Pendant l’accompagnement, le Client bénéficie de l’accès aux contenus correspondant à sa formule et aux modules débloqués.' },
+          { text: 'À l’issue de l’accompagnement initial, les modules et contenus déjà débloqués sont annoncés comme accessibles à vie au Client, sous réserve du maintien raisonnable de la plateforme et des contraintes techniques, légales ou liées aux prestataires numériques. La notion « à vie » désigne ici un accès sans échéance contractuelle fixe aux contenus débloqués ; elle ne garantit pas le maintien éternel d’un logiciel, d’un hébergeur ou d’une technologie déterminée.' },
+          { text: 'Le suivi personnalisé, les réponses cinq jours sur sept, les appels, les ajustements et les services communautaires actifs ne sont pas compris dans cet accès à vie après la fin de la période payée, sauf nouvelle souscription ou indication expresse contraire dans l’offre.' },
+
+          { text: '<strong><u>8. Droit de rétractation</u></strong>' },
+          { text: 'Pour un contrat conclu à distance avec un consommateur, le Client dispose en principe d’un délai légal de quatorze (14) jours à compter de la conclusion du contrat pour exercer son droit de rétractation, conformément au Code de la consommation.' },
+          { text: 'Si le Client demande expressément que la prestation de services commence avant la fin de ce délai, l’exécution peut débuter. En cas de rétractation avant l’exécution complète du service, le Client peut être redevable d’un montant proportionnel aux prestations effectivement fournies, lorsque les conditions légales sont réunies.' },
+          { text: 'Pour les contenus numériques fournis sans support matériel, la perte du droit de rétractation avant l’expiration des quatorze jours n’est possible que dans les conditions prévues par la loi, notamment après consentement exprès du Client au commencement immédiat de l’exécution et reconnaissance expresse de la perte de son droit de rétractation, avec confirmation de cet accord sur un support durable.' },
+          { text: 'Le Prestataire ne considère donc pas le simple accès à une vidéo ou à l’espace membre comme supprimant automatiquement tout droit de rétractation.' },
+          { text: 'Pour exercer son droit, le Client peut envoyer avant l’expiration du délai une déclaration dénuée d’ambiguïté à : muslimserinityforme@gmail.com. Un modèle de formulaire figure en annexe.' },
+
+          { text: '<strong><u>9. Absence de garantie commerciale « satisfait ou remboursé »</u></strong>' },
+          { text: 'Rijal Fit ne propose pas de garantie commerciale « satisfait ou remboursé » ou de garantie de résultat, sauf mention écrite exceptionnelle figurant expressément dans l’offre souscrite.' },
+          { text: 'Cette absence de garantie commerciale ne prive pas le Client des garanties et droits impératifs qui lui sont reconnus par la loi.' },
+
+          { text: '<strong><u>10. Report, rendez-vous et disponibilité du Client</u></strong>' },
+          { text: 'Les appels et rendez-vous sont organisés selon les disponibilités convenues. En cas d’empêchement, le Client est invité à prévenir le Prestataire le plus tôt possible.' },
+          { text: 'Un rendez-vous manqué ou annulé tardivement peut être reprogrammé selon les disponibilités du Prestataire. Les absences répétées du Client, son défaut de réponse ou son manque d’assiduité n’entraînent pas automatiquement le remboursement de la prestation.' },
+
+          { text: '<strong><u>11. Intelligence artificielle et outils numériques</u></strong>' },
+          { text: 'Certains outils mis à disposition peuvent intégrer des fonctionnalités d’intelligence artificielle. Ces outils ont une finalité pédagogique, organisationnelle ou d’aide à la personnalisation. Leurs réponses peuvent comporter des erreurs et ne doivent pas être utilisées comme un diagnostic médical ou comme le remplacement d’un professionnel de santé.' },
+          { text: 'Le Client demeure responsable des informations qu’il saisit dans les outils tiers. Il est invité à ne pas y transmettre de données de santé ou informations sensibles qui ne seraient pas nécessaires au service.' },
+
+          { text: '<strong><u>12. Propriété intellectuelle</u></strong>' },
+          { text: 'Les vidéos, PDF, programmes, méthodes, textes, supports, modèles, outils, contenus pédagogiques et autres ressources Rijal Fit sont protégés par les règles applicables à la propriété intellectuelle.' },
+          { text: 'L’achat confère au Client un droit d’utilisation personnel et privé. Sauf autorisation écrite préalable, il est interdit de reproduire, revendre, partager publiquement, mettre à disposition de tiers, enregistrer pour redistribution, modifier à des fins commerciales ou exploiter les contenus Rijal Fit en dehors de l’usage personnel prévu.' },
+
+          { text: '<strong><u>13. Communauté et comportement</u></strong>' },
+          { text: 'L’accès à une communauté Rijal Fit est personnel. Le Client s’engage à respecter les autres membres, leur confidentialité et les règles communiquées par le Prestataire.' },
+          { text: 'Les propos injurieux, menaçants, discriminatoires, le harcèlement, la diffusion non autorisée d’informations privées ou le partage illicite de contenus peuvent entraîner une exclusion de la communauté, sans remettre en cause les droits impératifs du consommateur ni, à eux seuls, effacer les obligations contractuelles déjà nées.' },
+
+          { text: '<strong><u>14. Données personnelles</u></strong>' },
+          { text: 'Les données personnelles collectées sont utilisées dans la mesure nécessaire à la gestion de la relation client, au paiement, à l’exécution et à la personnalisation des prestations, à la communication avec le Client et au respect des obligations légales.' },
+          { text: 'Le Client peut exercer les droits qui lui sont reconnus par la réglementation applicable en écrivant à muslimserinityforme@gmail.com. Les données traitées par des services tiers (plateforme membre, paiement, messagerie, visioconférence ou outils numériques) peuvent également être soumises aux politiques de confidentialité de ces prestataires.' },
+
+          { text: '<strong><u>15. Responsabilité</u></strong>' },
+          { text: 'Le Prestataire ne saurait être tenu responsable des conséquences résultant d’une utilisation des programmes contraire aux consignes, d’informations importantes non communiquées par le Client, d’une pratique malgré une contre-indication connue ou du recours aux contenus en remplacement d’un suivi médical nécessaire.' },
+          { text: 'Aucune clause des présentes CGV ne peut avoir pour effet d’exclure ou de limiter une responsabilité lorsque la loi interdit une telle exclusion ou limitation.' },
+
+          { text: '<strong><u>16. Force majeure</u></strong>' },
+          { text: 'Aucune partie ne pourra être tenue responsable d’un manquement directement causé par un événement de force majeure au sens du droit français. L’exécution des obligations affectées est suspendue pendant la durée de l’événement dans les conditions prévues par la loi.' },
+
+          { text: '<strong><u>17. Réclamations et médiation de la consommation</u></strong>' },
+          { text: 'En cas de difficulté, le Client est invité à adresser d’abord sa réclamation à Rijal Fit à l’adresse : muslimserinityforme@gmail.com.' },
+          { text: 'Après réclamation écrite préalable auprès du Prestataire et en l’absence de solution amiable, le consommateur peut recourir gratuitement au médiateur de la consommation dont relève Rijal Fit. Le Prestataire s’engage à publier sur cette page les coordonnées de ce médiateur dès son inscription effective auprès d’un médiateur agréé.' },
+
+          { text: '<strong><u>18. Droit applicable et règlement des litiges</u></strong>' },
+          { text: 'Les présentes CGV sont soumises au droit français.' },
+          { text: 'En cas de litige, les parties chercheront prioritairement une solution amiable. Le consommateur conserve le droit de saisir les juridictions compétentes selon les règles impératives applicables. Aucune clause des présentes CGV n’impose au consommateur une juridiction territorialement incompétente au regard des règles protectrices qui lui sont applicables.' },
+
+          { text: '<strong><u>19. Modification des CGV</u></strong>' },
+          { text: 'Le Prestataire peut faire évoluer les présentes CGV pour les commandes futures. La version applicable à une commande est celle communiquée et acceptée au moment de sa conclusion. Une modification ultérieure ne modifie pas rétroactivement les conditions d’une commande déjà conclue, sauf accord des parties ou exigence légale.' },
+
+          { text: '<strong><u>ANNEXE — Modèle de formulaire de rétractation</u></strong>' },
+          { text: 'À compléter et envoyer uniquement si vous souhaitez vous rétracter du contrat dans les conditions prévues par la loi.' },
+          { text: 'À l’attention de :<br>Rijal Fit — Matthieu Tarley<br>Adresse : 37 rue Saint Savournin, 13005 Marseille<br>E-mail : muslimserinityforme@gmail.com' },
+          { text: 'Je vous notifie par la présente ma rétractation du contrat portant sur la prestation suivante :<br><br>Prestation / formule : ……………………………………………<br>Commande conclue le : ……………………………………………<br>Nom du consommateur : ……………………………………………<br>Adresse du consommateur : ……………………………………………<br><br>Date : ……………………………<br>Signature du consommateur (uniquement en cas d’envoi papier) : ……………………………' },
+
+          { text: 'RIJAL FIT — Matthieu Tarley — SIRET 892 935 891 00010 — muslimserinityforme@gmail.com' },
+        ],
+      },
       { titre: 'S.A.V', videoId: null, texte: 'Texte à venir.' },
     ],
   },
