@@ -593,6 +593,16 @@ const RF_MODULES = [
           { text: '<strong>Important :</strong> chacune de tes réponses doit être centralisée dans un support unique, car on devra toutes les réutiliser pour découvrir ton grand domino.' },
         ],
       },
+      {
+        titre: 'Niveau 1 — Ta motivation',
+        videoId: null,
+        blocks: [
+          { text: 'À la fin de ce module, tu verras l’exemple de mon propre livret, pas un simple cadeau, un vrai outil qui t’inspirera pour construire le tien.' },
+          { text: 'Question à te poser : si tu pouvais atteindre ton objectif, perdre du gras, prendre du muscle ou retrouver de l’énergie, comment tu te sentirais ? Qu’est-ce que ça changerait dans ta vie sur le plan familial, de ta santé, de ton travail, de tes études et de tes amis ?' },
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/isP9MoH9mGw" title="Les mécanismes de la motivation & ses bienfaits" allowfullscreen loading="lazy"></iframe></div>' },
+          { text: '<strong>Important :</strong> chacune de tes réponses doit être centralisée dans un support unique, ton livret (si tu as plus de 5 pages, ce n’est pas grave). Plus tu apporteras des informations et plus facilement on trouvera ton grand domino.' },
+        ],
+      },
       { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.', minFormule: 'thabit' },
     ],
   },
