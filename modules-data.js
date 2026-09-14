@@ -604,6 +604,7 @@ const RF_MODULES = [
           { text: 'À la fin de ce module, tu verras l’exemple de mon propre livret, pas un simple cadeau, un vrai outil qui t’inspirera pour construire le tien.' },
           { text: 'Question à te poser : si tu pouvais atteindre ton objectif, perdre du gras, prendre du muscle ou retrouver de l’énergie, comment tu te sentirais ? Qu’est-ce que ça changerait dans ta vie sur le plan familial, de ta santé, de ton travail, de tes études et de tes amis ?' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/isP9MoH9mGw" title="Les mécanismes de la motivation & ses bienfaits" allowfullscreen loading="lazy"></iframe></div>' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/ton-type-de-motivation.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
           { text: 'Ce PDF « Se rappeler de l’objectif ultime » t’aide à garder en tête pourquoi tu fais tout ça, même les jours où la motivation est plus basse.' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/objectif-ultime.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
           { text: '<strong>Important :</strong> chacune de tes réponses doit être centralisée dans un support unique, ton livret (si tu as plus de 5 pages, ce n’est pas grave). Plus tu apporteras des informations et plus facilement on trouvera ton grand domino.' },
