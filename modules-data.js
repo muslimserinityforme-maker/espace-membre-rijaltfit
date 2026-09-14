@@ -638,6 +638,7 @@ const RF_MODULES = [
         titre: 'Niveau 1 — Les 5 clés perte de masse grasse',
         videoId: null,
         blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/REG_orJsO-U" title="Les 5 clés pour perdre ta masse grasse" allowfullscreen loading="lazy"></iframe></div>' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/5-cles-perte-masse-grasse.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
 
           { text: '<strong><u>Clé 1 : Arrête de te trouver des excuses</u></strong>' },
