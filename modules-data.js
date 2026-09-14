@@ -577,6 +577,8 @@ const RF_MODULES = [
         videoId: null,
         blocks: [
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/05wGQ1en-vE" title="Pas d’effet YOYO !" allowfullscreen loading="lazy"></iframe></div>' },
+          { text: 'Un outil simple pour muscler ton mental sur la durée : tenir un journal de gratitude. Ce PDF t’explique comment t’y mettre, en lien direct avec ce que tu viens de voir dans la vidéo.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/journal-gratitude.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
         ],
       },
       {
@@ -588,6 +590,8 @@ const RF_MODULES = [
           { text: 'Alors avant d’aller plus loin : quelle était ton intention quand tu as choisi de rejoindre Rijal Fit ? Si c’était juste par curiosité, tu en repartiras avec de la curiosité satisfaite. Si c’était pour trouver de vraies réponses à mettre en pratique, c’est ce que tu en retireras.' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/juEJfakH8qk" title="Les actes ne valent que par leurs intentions !" allowfullscreen loading="lazy"></iframe></div>' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/ton-intention.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+          { text: 'Pour t’aider à ancrer cette intention dans la durée, voici un PDF qui reprend l’essentiel : commence chaque effort avec une bonne intention. Garde-le sous la main et relis-le dès que tu as besoin de te reconnecter à ton vrai pourquoi.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/commence-bonne-intention.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
           { text: '<strong><u>Premier travail (obligatoire)</u></strong>' },
           { text: 'Quelle a été ton intention en t’engageant dans cet accompagnement ? Prends le temps d’y répondre honnêtement, par écrit dans ton cahier ou ton Word, avant de continuer.' },
           { text: '<strong>Important :</strong> chacune de tes réponses doit être centralisée dans un support unique, car on devra toutes les réutiliser pour découvrir ton grand domino.' },
@@ -600,6 +604,8 @@ const RF_MODULES = [
           { text: 'À la fin de ce module, tu verras l’exemple de mon propre livret, pas un simple cadeau, un vrai outil qui t’inspirera pour construire le tien.' },
           { text: 'Question à te poser : si tu pouvais atteindre ton objectif, perdre du gras, prendre du muscle ou retrouver de l’énergie, comment tu te sentirais ? Qu’est-ce que ça changerait dans ta vie sur le plan familial, de ta santé, de ton travail, de tes études et de tes amis ?' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/isP9MoH9mGw" title="Les mécanismes de la motivation & ses bienfaits" allowfullscreen loading="lazy"></iframe></div>' },
+          { text: 'Ce PDF « Se rappeler de l’objectif ultime » t’aide à garder en tête pourquoi tu fais tout ça, même les jours où la motivation est plus basse.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/objectif-ultime.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
           { text: '<strong>Important :</strong> chacune de tes réponses doit être centralisée dans un support unique, ton livret (si tu as plus de 5 pages, ce n’est pas grave). Plus tu apporteras des informations et plus facilement on trouvera ton grand domino.' },
         ],
       },
@@ -613,6 +619,8 @@ const RF_MODULES = [
 
           { text: '<strong><u>Pilier 1 : Placer ta confiance en Allah</u></strong>' },
           { text: 'Ton objectif physique est une épreuve, comme n’importe quelle autre épreuve de la vie. Face à une épreuve, on se tourne vers Allah : cherche les invocations liées aux épreuves et mets-les en pratique.' },
+          { text: 'Comme tu l’as vu dans la vidéo, ce premier pilier passe par les invocations face à l’épreuve. Ce PDF te donne des invocations concrètes pour la force et la persévérance, à mettre en pratique dès aujourd’hui.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/invocations-force-perseverance.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
           { text: 'Vas-tu mettre en place ce premier pilier ?<br>Réponse : ……………………………………………………………' },
 
           { text: '<strong><u>Pilier 2 : Ton pourquoi</u></strong>' },
@@ -621,6 +629,8 @@ const RF_MODULES = [
 
           { text: '<strong><u>Pilier 3 : Tes habitudes</u></strong>' },
           { text: 'Les bonnes habitudes, répétées, deviennent une routine naturelle : comme se brosser les dents, tu ne t’en rends même plus compte.' },
+          { text: 'Une habitude simple à installer dès maintenant : se lever tôt. Ce PDF t’explique pourquoi ce petit changement peut transformer ta régularité.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/se-lever-tot.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
           { text: 'Qu’est-ce que tu vas faire pour améliorer tes habitudes ? Comment vas-tu faire pour que ça devienne régulier ?<br>Réponse : ……………………………………………………………' },
 
           { text: '<strong><u>Pilier 4 : Ton entourage</u></strong>' },
