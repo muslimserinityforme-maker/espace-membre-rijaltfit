@@ -609,6 +609,7 @@ const RF_MODULES = [
         blocks: [
           { text: 'Dans cette vidéo, Matthieu dit souvent « perte de masse grasse » ou « perdre du poids ». Remplace mentalement par ton propre objectif (perte de gras, prise de muscle ou énergie) à chaque fois que tu l’entends : les 5 piliers s’appliquent pareil.' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/LpIBjY89YQY" title="Les 5 piliers de l’assiduité" allowfullscreen loading="lazy"></iframe></div>' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/5-piliers-assiduite.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
 
           { text: '<strong><u>Pilier 1 : Placer ta confiance en Allah</u></strong>' },
           { text: 'Ton objectif physique est une épreuve, comme n’importe quelle autre épreuve de la vie. Face à une épreuve, on se tourne vers Allah : cherche les invocations liées aux épreuves et mets-les en pratique.' },
