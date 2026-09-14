@@ -572,6 +572,13 @@ const RF_MODULES = [
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/4n4-Jk0uwAc" title="Bienvenue à toi !" allowfullscreen loading="lazy"></iframe></div>' },
         ],
       },
+      {
+        titre: 'Ton état d’esprit',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/05wGQ1en-vE" title="Pas d’effet YOYO !" allowfullscreen loading="lazy"></iframe></div>' },
+        ],
+      },
       { titre: 'Niveau 1 — Ton intention', videoId: null, texte: 'Texte du niveau 1 à venir.' },
       { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.', minFormule: 'thabit' },
     ],
