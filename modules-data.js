@@ -634,6 +634,33 @@ const RF_MODULES = [
           { text: 'Garde cette fiche dans ton livret unique, elle fera partie des réponses utilisées pour découvrir ton grand domino.' },
         ],
       },
+      {
+        titre: 'Niveau 1 — Les 5 clés perte de masse grasse',
+        videoId: null,
+        blocks: [
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/5-cles-perte-masse-grasse.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+
+          { text: '<strong><u>Clé 1 : Arrête de te trouver des excuses</u></strong>' },
+          { text: 'Ça fait combien de fois que tu te sors ce genre d’excuse ? Est-ce que ta situation s’améliore avec ce type de pensée ? Pourquoi, selon toi, tu manques de détermination ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Clé 2 : Fais preuve de détermination (un pourquoi fort)</u></strong>' },
+          { text: 'Pourquoi aujourd’hui tu cherches à changer ? Et pourquoi maintenant, plutôt que demain ou dans un mois ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Clé 3 : Organise-toi</u></strong>' },
+          { text: 'Combien de temps te laisses-tu pour atteindre ton objectif ? À combien te sens-tu motivé aujourd’hui, de 1 à 10 ? Qu’est-ce qui t’empêche d’être à 100 % ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Clé 4 : Améliore tes habitudes</u></strong>' },
+          { text: 'Depuis que tu as tes habitudes actuelles, ta situation s’est-elle améliorée ou dégradée ? Ça fait combien de temps que tu répètes le même schéma ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Clé 5 : Ne reviens pas en arrière</u></strong>' },
+          { text: 'Une fois ton objectif atteint, quelle nouvelle habitude ou quel nouvel objectif vas-tu te fixer pour continuer à progresser ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Bonus, Clé 6 : un programme adapté à ta situation</u></strong>' },
+          { text: 'Ton programme actuel est-il vraiment adapté à toi, à ta situation, ou copié d’ailleurs sans être personnalisé ?<br>Réponse : ……………………………………………………………' },
+
+          { text: 'Garde cette fiche dans ton livret unique, elle fera partie des réponses utilisées pour découvrir ton grand domino.' },
+        ],
+      },
       { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.', minFormule: 'thabit' },
     ],
   },
