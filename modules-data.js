@@ -603,6 +603,36 @@ const RF_MODULES = [
           { text: '<strong>Important :</strong> chacune de tes réponses doit être centralisée dans un support unique, ton livret (si tu as plus de 5 pages, ce n’est pas grave). Plus tu apporteras des informations et plus facilement on trouvera ton grand domino.' },
         ],
       },
+      {
+        titre: 'Niveau 1 — Les 5 piliers de l’assiduité',
+        videoId: null,
+        blocks: [
+          { text: 'Dans cette vidéo, Matthieu dit souvent « perte de masse grasse » ou « perdre du poids ». Remplace mentalement par ton propre objectif (perte de gras, prise de muscle ou énergie) à chaque fois que tu l’entends : les 5 piliers s’appliquent pareil.' },
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/LpIBjY89YQY" title="Les 5 piliers de l’assiduité" allowfullscreen loading="lazy"></iframe></div>' },
+
+          { text: '<strong><u>Pilier 1 : Placer ta confiance en Allah</u></strong>' },
+          { text: 'Ton objectif physique est une épreuve, comme n’importe quelle autre épreuve de la vie. Face à une épreuve, on se tourne vers Allah : cherche les invocations liées aux épreuves et mets-les en pratique.' },
+          { text: 'Vas-tu mettre en place ce premier pilier ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Pilier 2 : Ton pourquoi</u></strong>' },
+          { text: 'Tout à l’heure, c’était pourquoi tu as décidé de rejoindre Rijal Fit. Maintenant, va plus loin : pourquoi toi, précisément, tu veux atteindre cet objectif ?' },
+          { text: 'Quelle est ta motivation ? Quel est l’enjeu derrière ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Pilier 3 : Tes habitudes</u></strong>' },
+          { text: 'Les bonnes habitudes, répétées, deviennent une routine naturelle : comme se brosser les dents, tu ne t’en rends même plus compte.' },
+          { text: 'Qu’est-ce que tu vas faire pour améliorer tes habitudes ? Comment vas-tu faire pour que ça devienne régulier ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Pilier 4 : Ton entourage</u></strong>' },
+          { text: 'L’entourage t’entraîne vers le haut ou vers le bas, comme le sportif de haut niveau qui reste athlétique grâce à son équipe, ou qui décline une fois isolé.' },
+          { text: 'Quel type d’entourage as-tu aujourd’hui ? T’aide-t-il à avancer ou à reculer ? Qu’est-ce que tu vas faire pour être mieux entouré ?<br>Réponse : ……………………………………………………………' },
+
+          { text: '<strong><u>Pilier 5 : Rendre des comptes</u></strong>' },
+          { text: 'Seul dans son coin, la motivation finit toujours par redescendre. Rendre des comptes à quelqu’un, un coach, t’engage à aller au bout.' },
+          { text: 'À qui vas-tu rendre des comptes pour rester engagé ?<br>Réponse : ……………………………………………………………' },
+
+          { text: 'Garde cette fiche dans ton livret unique, elle fera partie des réponses utilisées pour découvrir ton grand domino.' },
+        ],
+      },
       { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.', minFormule: 'thabit' },
     ],
   },
