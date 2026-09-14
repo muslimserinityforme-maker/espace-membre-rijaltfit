@@ -592,6 +592,7 @@ const RF_MODULES = [
           { text: 'En clair : tu vas ouvrir les yeux sur tes vrais blocages et trouver une ou deux raisons profondes, ancrées dans ta foi, qui te donneront envie d’avancer sans attendre.' },
           { text: 'Tu passeras de « je sais que je devrais... » à « je ne peux plus attendre pour passer à l’action », avec une motivation ancrée dans tes valeurs et ta foi, prêt à te propulser vers la suite.' },
           { text: 'Fais de ton corps un empire et sois un Muslim en forme.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/ton-intention.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
         ],
       },
       { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.', minFormule: 'thabit' },
