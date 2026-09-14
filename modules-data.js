@@ -594,7 +594,7 @@ const RF_MODULES = [
         ],
       },
       {
-        titre: 'Niveau 1 — Ta motivation',
+        titre: 'Niveau 1 — Ton type de motivation',
         videoId: null,
         blocks: [
           { text: 'À la fin de ce module, tu verras l’exemple de mon propre livret, pas un simple cadeau, un vrai outil qui t’inspirera pour construire le tien.' },
