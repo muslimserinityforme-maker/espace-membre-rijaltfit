@@ -534,6 +534,20 @@ const RF_MODULES = [
     nom: 'Motive-Forme',
     desc: 'Poser ton intention, comprendre ta motivation, sortir des excuses.',
     niveaux: [
+      {
+        titre: 'C’est quoi Rijal Fit ?',
+        videoId: null,
+        blocks: [
+          { text: 'Que tu sois là pour perdre du gras, prendre du muscle ou simplement retrouver de l’énergie, une chose ne change pas : ta transformation physique n’est jamais à côté de ta foi. Elle en fait partie.' },
+          { text: 'Ce n’est pas : tu progresses physiquement, et en plus tu te rapproches d’Allah. C’est cette transformation qui devient la façon dont tu te rapproches de Lui.' },
+          { text: 'Chaque effort que tu fais aujourd’hui pour ton corps — perdre du gras, gagner en force, retrouver de l’énergie — c’est prendre soin de ta amānah, le dépôt qu’Allah t’a confié.' },
+          { text: 'Tu ne cherches pas à devenir un homme au mental d’acier. Tu cherches à devenir un mou’min qawi — un croyant fort, capable de tenir, de porter sa famille, de se tenir droit devant Allah.' },
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/QouRodRMKkU" title="C’est quoi le pilier Motive-Forme ?" allowfullscreen loading="lazy"></iframe></div>' },
+          { text: '<strong><u>Exercice complémentaire (optionnel)</u></strong>' },
+          { text: 'Prends 2 minutes. Écris (sur ton cahier ou ton fichier Word) 3 choses qu’Allah t’a données dans ta vie pour que tu sois l’homme que tu es aujourd’hui.' },
+          { text: 'Relis-les à chaque fois que la motivation faiblit. C’est ton ancrage — pas un discours qu’on t’a fait une fois.' },
+        ],
+      },
       { titre: 'Niveau 1 — Ton intention', videoId: null, texte: 'Texte du niveau 1 à venir.' },
       { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.', minFormule: 'thabit' },
     ],
