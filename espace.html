@@ -130,7 +130,7 @@
         var pct = totalNiveaux ? Math.round((done / totalNiveaux) * 100) : 0;
         ringFill.style.strokeDashoffset = String(RING_CIRC * (1 - pct / 100));
         ringPct.textContent = pct + '%';
-        progressText.textContent = pct + '% de ta formation terminée (' + done + '/' + totalNiveaux + ' vidéos)';
+        progressText.textContent = pct + '% de ta formation terminée';
       }
 
       function setActiveTab(view) {
