@@ -672,7 +672,106 @@ const RF_MODULES = [
           },
         ],
       },
-      { titre: 'Niveau 2 — Ton type de motivation', videoId: null, texte: 'Texte du niveau 2 à venir.', minFormule: 'thabit' },
+      {
+        titre: 'Niveau 2',
+        videoId: null,
+        minFormule: 'thabit',
+        sousNiveaux: [
+          {
+            titre: 'Ouverture niveau 2',
+            blocks: [
+              { text: 'Salam aleykoum wa rahmatullahi wa barakatuh.' },
+              { text: 'Ce deuxième niveau du pilier Motive-Forme va te faire passer à un stade supérieur : travailler en profondeur sur toi-même pour construire un mental stable, solide et reconnaissant envers Allah.' },
+              { text: 'Aujourd’hui, tu es peut-être dans un état de « je sais que je ne sais pas » : tu as conscience de certaines failles ou blocages, mais tu ne sais pas encore comment les dépasser.' },
+              { text: 'L’objectif de ce niveau, in sha Allah, est que tu passes à « je sais que je sais » : tu connaîtras tes qualités, tes défauts, tes blocages, et tu sauras comment t’appuyer sur tes forces pour avancer malgré les épreuves.' },
+              { text: 'En clair : tu vas apprendre à noter tes bénédictions, à comprendre ce que tes épreuves t’ont enseigné, et à identifier clairement tes points forts et tes points faibles.' },
+              { text: 'Tu développeras la gratitude (shukr), la patience (sabr) et l’état d’esprit d’un gagnant capable de garder le cap, peu importe les obstacles.' },
+              { text: 'Aujourd’hui, tu laisses parfois tes émotions ou un obstacle te freiner. Après ce niveau, in sha Allah, tu seras ancré dans un état d’esprit fort et stable, capable de rester constant dans l’effort, peu importe les difficultés.' },
+              { text: 'Tu passeras de « je tiens seulement quand tout va bien » à « je tiens ferme même dans les tempêtes », avec une force intérieure qui te permettra de persévérer jusqu’au bout, dans le sport comme dans ta religion.' },
+              { text: 'Fais de ton corps un empire et sois un Muslim en forme.' },
+            ],
+          },
+          {
+            titre: 'Intro niveau 2',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/y3diwD7ojLE" title="Intro niveau 2" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+          {
+            titre: 'C’est quoi SERINITY ?',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/zXLSK8Hkk9k" title="C’est quoi SERINITY ?" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/serinity-forme.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+              { text: 'Un rappel pour ancrer tout ça : prendre soin de ton corps, c’est prendre soin d’une amānah, un dépôt qu’Allah t’a confié. Ce PDF revient sur cette idée centrale.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/corps-amanah.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Trouve ton hyper objectif',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/Zm3i175bjEw" title="Trouve ton hyper objectif" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/ton-hyper-objectif.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+              { text: 'Un grand objectif peut vite paraître trop loin ou intimidant. Ce PDF t’aide à le fractionner en étapes plus petites et atteignables, pour avancer sans te décourager.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/fractionner-objectifs.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'La méthodologie',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/5tPpqy76Bts" title="La méthodologie" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/methodologie.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+              { text: 'Une habitude simple à intégrer dans ta méthode au quotidien : lire et méditer le Coran chaque jour. Ce PDF t’explique comment t’y mettre concrètement.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/lire-mediter-coran.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Trouve ta sérénité',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/FWjen2NV01w" title="Trouve ta sérénité" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: 'Avant de commencer : revivre ces moments d’introspection, c’est un acte de lucidité envers toi-même, pas un tribunal intérieur.' },
+              { text: 'Tu n’es pas en train de te juger, tu es en train de comprendre.' },
+              { text: 'Fais cet exercice avec la même douceur qu’Allah a envers Ses serviteurs.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/trouve-ta-serenite.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'L’état d’esprit du gagnant',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/F0J9NDUYkNE" title="L’état d’esprit du gagnant" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/etat-esprit-gagnant.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+              { text: 'Un gagnant ne s’entoure pas de n’importe qui. Ce PDF t’aide à faire le point sur les compagnies qui t’élèvent, et celles qui te tirent vers le bas.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/bonnes-compagnies.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Challenge toi',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/hp_k0retLT8" title="Challenge toi" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: 'Se challenger, c’est aussi savoir écarter ce qui vient saboter ta motivation sans même que tu t’en rendes compte. Ce PDF t’aide à repérer ces freins invisibles.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/limiter-nuisances-motivation.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Visualise-toi dans 14 semaines',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/57JP5ZKXie0" title="Visualise-toi dans 14 semaines" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+          {
+            titre: 'Bravo à toi',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/O2tM5ES_8oI" title="Bravo à toi" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+          {
+            titre: 'Ton Book — L’état d’esprit du gagnant',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/FQcHQ_Gyytk" title="Ton Book — L’état d’esprit du gagnant" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n2/book-etat-esprit-gagnant.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+        ],
+      },
     ],
   },
   {
