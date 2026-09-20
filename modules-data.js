@@ -797,14 +797,14 @@ const RF_MODULES = [
             ],
           },
           {
-            titre: 'Récompenses des actes obligatoires — La Shahada',
+            titre: 'La Shahada',
             blocks: [
               { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/JCNvOYzG5WA" title="Récompenses des actes obligatoires — La Shahada" allowfullscreen loading="lazy"></iframe></div>' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/1-shahada.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
             ],
           },
           {
-            titre: 'Récompenses des actes obligatoires — La prière',
+            titre: 'La prière',
             blocks: [
               { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/PIRX7NSG2GI" title="Récompenses des actes obligatoires — La prière" allowfullscreen loading="lazy"></iframe></div>' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/2-priere.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
@@ -817,21 +817,21 @@ const RF_MODULES = [
             ],
           },
           {
-            titre: 'Récompenses des actes obligatoires — Le Ramadan',
+            titre: 'Le Ramadan',
             blocks: [
               { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/5GCJvgyDn8k" title="Récompenses des actes obligatoires — Le Ramadan" allowfullscreen loading="lazy"></iframe></div>' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/3-ramadan.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
             ],
           },
           {
-            titre: 'Récompenses des actes obligatoires — La zakat',
+            titre: 'La zakat',
             blocks: [
               { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/ueJtAQ2uT5c" title="Récompenses des actes obligatoires — La zakat" allowfullscreen loading="lazy"></iframe></div>' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/4-zakat.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
             ],
           },
           {
-            titre: 'Récompenses des actes obligatoires — Le pèlerinage',
+            titre: 'Le pèlerinage',
             blocks: [
               { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/PbeFEX_wcdA" title="Récompenses des actes obligatoires — Le pèlerinage" allowfullscreen loading="lazy"></iframe></div>' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/5-pelerinage.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
@@ -847,7 +847,7 @@ const RF_MODULES = [
             ],
           },
           {
-            titre: 'Clôture Niveau 3 — Les bonnes actions du Coran',
+            titre: 'Clôture Niveau 3',
             blocks: [
               { text: 'Il est temps de transformer tes actions, pour que chaque jour de ta vie soit guidé par la lumière des bonnes actions enseignées par Allah.' },
               { text: 'Concrètement, tu vas améliorer dans ta vie :<br>• La prière régulière et sincère (physique et cœur)<br>• La charité et l’aide aux nécessiteux<br>• La patience face aux épreuves et le pardon<br>• Le rappel d’Allah (dhikr) matin et soir<br>• Le respect de tes parents et des autres croyants<br>• La sincérité dans toutes tes paroles et tes actes<br>• L’étude et la méditation du Coran pour guider tes décisions' },
