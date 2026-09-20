@@ -675,7 +675,6 @@ const RF_MODULES = [
       {
         titre: 'Niveau 2',
         videoId: null,
-        minFormule: 'thabit',
         sousNiveaux: [
           {
             titre: 'Ouverture niveau 2',
