@@ -779,6 +779,15 @@ input:focus { outline: none; border-color: var(--or); }
 .np-result-row span { color: #d1cfc9; }
 .np-result-row strong { font-family: 'Rajdhani', sans-serif; font-weight: 700; color: var(--blanc); text-align: right; }
 
+/* Sur fond clair (.np-card), le texte du résultat doit rester sombre. */
+.np-card .np-result-row { border-bottom-color: #e2dbcb; }
+.np-card .np-result-row span { color: var(--gris); }
+.np-card .np-result-row strong { color: var(--noir); }
+
+.facile-progress-bar { background: #e2dbcb; border-radius: 999px; height: 8px; overflow: hidden; margin: 2px 0 12px; }
+.facile-progress-bar__fill { height: 100%; background: var(--or); border-radius: 999px; transition: width .3s; }
+.facile-progress-bar__fill.is-over { background: var(--rouge); }
+
 .np-result-card__note { font-size: .82rem; color: #a0a89a; margin: 1rem 0 1.4rem; }
 
 .np-result-card__priorite {

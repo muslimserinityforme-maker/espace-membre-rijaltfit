@@ -155,15 +155,30 @@ function rfRenderFacileApp(root) {
     bind();
   }
 
+  function progressBarHtml(consumedValue, targetValue) {
+    const target = Number(targetValue) || 0;
+    const pct = target ? Math.min(100, Math.round((consumedValue / target) * 100)) : 0;
+    const over = target && consumedValue > target;
+    return '<div class="facile-progress-bar"><div class="facile-progress-bar__fill' + (over ? ' is-over' : '') + '" style="width:' + pct + '%;"></div></div>';
+  }
+
   function renderTodaySummary() {
     const targets = state.dailyTargets || nutritionProfile;
     const consumed = state.consumedToday;
     let html = '<div class="np-card" style="margin-top:16px;"><p class="np-subtitle">Aujourd\'hui</p>';
     if (consumed) {
-      html += '<div class="np-result-row"><span>Calories</span><strong>' + consumed.calories + ' / ' + (targets.caloriesJour || targets.calories_jour || '?') + ' kcal</strong></div>';
-      html += '<div class="np-result-row"><span>Protéines</span><strong>' + consumed.proteines + ' / ' + (targets.proteinesG || targets.proteines_g || '?') + ' g</strong></div>';
-      html += '<div class="np-result-row"><span>Glucides</span><strong>' + consumed.glucides + ' / ' + (targets.glucidesG || targets.glucides_g || '?') + ' g</strong></div>';
-      html += '<div class="np-result-row"><span>Lipides</span><strong>' + consumed.lipides + ' / ' + (targets.lipidesG || targets.lipides_g || '?') + ' g</strong></div>';
+      const caloriesTarget = targets.caloriesJour || targets.calories_jour || 0;
+      const proteinesTarget = targets.proteinesG || targets.proteines_g || 0;
+      const glucidesTarget = targets.glucidesG || targets.glucides_g || 0;
+      const lipidesTarget = targets.lipidesG || targets.lipides_g || 0;
+      html += '<div class="np-result-row"><span>Calories</span><strong>' + consumed.calories + ' / ' + (caloriesTarget || '?') + ' kcal</strong></div>';
+      html += progressBarHtml(consumed.calories, caloriesTarget);
+      html += '<div class="np-result-row"><span>Protéines</span><strong>' + consumed.proteines + ' / ' + (proteinesTarget || '?') + ' g</strong></div>';
+      html += progressBarHtml(consumed.proteines, proteinesTarget);
+      html += '<div class="np-result-row"><span>Glucides</span><strong>' + consumed.glucides + ' / ' + (glucidesTarget || '?') + ' g</strong></div>';
+      html += progressBarHtml(consumed.glucides, glucidesTarget);
+      html += '<div class="np-result-row"><span>Lipides</span><strong>' + consumed.lipides + ' / ' + (lipidesTarget || '?') + ' g</strong></div>';
+      html += progressBarHtml(consumed.lipides, lipidesTarget);
     } else {
       html += '<p class="programme-empty">Aucun repas enregistré aujourd\'hui.</p>';
     }
