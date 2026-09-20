@@ -771,6 +771,121 @@ const RF_MODULES = [
           },
         ],
       },
+      {
+        titre: 'Niveau 3',
+        videoId: null,
+        sousNiveaux: [
+          {
+            titre: 'Ouverture niveau 3',
+            blocks: [
+              { text: 'Salam aleykoum wa rahmatullahi wa barakatuh.' },
+              { text: 'Ce troisième niveau du pilier Motive-Forme marque un tournant : il est temps de passer à l’action concrète et d’ancrer tes efforts dans des habitudes solides, par les enseignements prophétiques.' },
+              { text: 'Aujourd’hui, tu es peut-être dans un état de « je sais que je sais » : tu connais déjà tes forces et tes faiblesses, mais tu n’as pas encore mis en place un plan d’action régulier et structuré pour avancer.' },
+              { text: 'L’objectif de ce niveau, in sha Allah, est que tu passes à « je fais ce que je sais » : tes connaissances se transforment en actions quotidiennes qui renforcent ta foi, ta discipline et ta santé.' },
+              { text: 'En clair : tu vas commencer à appliquer, autant que tu peux et en fonction de tes capacités, des pratiques comme la fréquentation régulière de la mosquée, la lecture du Coran, le dhikr, et la préparation d’un voyage à La Mecque si possible.' },
+              { text: 'Chaque effort physique sera accompagné d’un effort spirituel, et chaque bonne habitude religieuse viendra soutenir ta régularité dans le sport, ton sommeil et ton alimentation.' },
+              { text: 'Aujourd’hui, tu fais peut-être les choses par phases ou par à-coups. Après ce niveau, in sha Allah, tu seras structuré, constant et aligné, avec une discipline qui façonne autant ton corps que ton cœur.' },
+              { text: 'Tu passeras de « je sais ce qu’il faut faire, mais je ne le fais pas toujours » à « je mets en pratique chaque jour, peu importe les circonstances », en liant effort physique et effort spirituel.' },
+              { text: 'Ce niveau te prépare directement au Niveau 4, où tu aligneras ta vie entière sur l’exemple du Prophète ﷺ. Souviens-toi : tous les niveaux sont complémentaires et se renforcent mutuellement.' },
+              { text: 'Fais de ton corps un empire et sois un Muslim en forme.' },
+            ],
+          },
+          {
+            titre: 'Intro niveau 3',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/GC6YskssBnw" title="Intro niveau 3" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+          {
+            titre: 'Récompenses des actes obligatoires — La Shahada',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/JCNvOYzG5WA" title="Récompenses des actes obligatoires — La Shahada" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/1-shahada.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Récompenses des actes obligatoires — La prière',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/PIRX7NSG2GI" title="Récompenses des actes obligatoires — La prière" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/2-priere.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+              { text: 'Pour aller plus loin, une fiche par prière obligatoire :' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-fajr.pdf" target="_blank" rel="noopener">📄 Fajr</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-dohr.pdf" target="_blank" rel="noopener">📄 Dohr</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-asr.pdf" target="_blank" rel="noopener">📄 ’Asr</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-maghreb.pdf" target="_blank" rel="noopener">📄 Maghreb</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-icha.pdf" target="_blank" rel="noopener">📄 ’Icha</a>' },
+            ],
+          },
+          {
+            titre: 'Récompenses des actes obligatoires — Le Ramadan',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/5GCJvgyDn8k" title="Récompenses des actes obligatoires — Le Ramadan" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/3-ramadan.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Récompenses des actes obligatoires — La zakat',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/ueJtAQ2uT5c" title="Récompenses des actes obligatoires — La zakat" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/4-zakat.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Récompenses des actes obligatoires — Le pèlerinage',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/PbeFEX_wcdA" title="Récompenses des actes obligatoires — Le pèlerinage" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/5-pelerinage.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+              { text: 'D’ailleurs, le hajj demande une vraie endurance physique : la marche entre Safa et Marwa, le tawaf répété autour de la Kaaba. Prendre soin de ton corps aujourd’hui, c’est aussi te préparer à pouvoir accomplir ce voyage le jour où Allah t’y invitera.' },
+            ],
+          },
+          {
+            titre: 'Les bonnes actions & prolonger ton existence',
+            blocks: [
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/6-bonnes-actions-coran.pdf" target="_blank" rel="noopener">📄 Les bonnes actions dans le Coran</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/7-prolonger-existence.pdf" target="_blank" rel="noopener">📄 Comment prolonger son existence</a>' },
+              { text: 'Cette même discipline que tu mets à choisir une action surérogatoire chaque jour, c’est celle qui te permet de tenir ta régularité sportive et alimentaire. Un cœur engagé dans le nafl est un cœur qui sait rester constant, y compris dans l’effort physique.' },
+            ],
+          },
+          {
+            titre: 'Clôture Niveau 3 — Les bonnes actions du Coran',
+            blocks: [
+              { text: 'Il est temps de transformer tes actions, pour que chaque jour de ta vie soit guidé par la lumière des bonnes actions enseignées par Allah.' },
+              { text: 'Concrètement, tu vas améliorer dans ta vie :<br>• La prière régulière et sincère (physique et cœur)<br>• La charité et l’aide aux nécessiteux<br>• La patience face aux épreuves et le pardon<br>• Le rappel d’Allah (dhikr) matin et soir<br>• Le respect de tes parents et des autres croyants<br>• La sincérité dans toutes tes paroles et tes actes<br>• L’étude et la méditation du Coran pour guider tes décisions' },
+              { text: 'Chaque action spirituelle que tu pratiques viendra soutenir ta discipline dans tous les aspects de ta vie : santé, alimentation, sommeil et sport.' },
+              { text: 'Cette dernière étape du Niveau 3 te prépare à vivre pleinement le Coran, à intégrer ses enseignements dans ta vie quotidienne et à devenir un Muslim complet, discipliné et conscient.' },
+              { text: 'Pour t’aider à mettre tout cela en pratique, j’ai préparé plusieurs tableaux complets dans lesquels sont classées toutes les bonnes actions du Coran, de la première à la dernière sourate.' },
+              { text: 'L’idée est simple : tu peux maintenant voir clairement ce que le Coran te demande de faire, sourate par sourate. L’objectif de ces tableaux est de te permettre de t’organiser concrètement pour mettre en pratique un maximum de bonnes actions dans ta vie quotidienne.' },
+              { text: '• Chaque tableau te montre les actions par bloc de sourates, pour que tu puisses avancer étape par étape<br>• Tu sais exactement ce que tu dois faire, où le trouver dans le Coran, et comment l’appliquer dans ta vie<br>• Tu peux cocher, planifier et suivre tes progrès pour t’assurer que tes efforts deviennent constants et réguliers' },
+              { text: 'En résumé, ces tableaux ne sont pas là juste pour les lire : ils sont là pour t’inspirer à transformer la connaissance en pratique, à renforcer ta foi, ta discipline et ton bien-être physique et spirituel.' },
+              { text: 'Le PDF complet te donne toutes les bonnes actions classées, pour que tu puisses t’organiser et les mettre en pratique chaque jour, in sha Allah.' },
+              { text: 'Fais de ton corps un empire et sois un Muslim en forme.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/8-bonnes-actions-coran-tableaux.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Les péchés dévoreurs de bonnes actions',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/dFp4PMSTvzA" title="Les péchés dévoreurs de bonnes actions" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: 'Il en va de même pour ton corps : tu peux t’entraîner dur, mais un mauvais sommeil, une mauvaise alimentation ou un excès qui te blesse peuvent vider tous ces efforts, comme un seau percé.' },
+              { text: 'Protège ton corps comme tu protèges tes bonnes actions.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/9-peches-devoreurs.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+          {
+            titre: 'Vidéo complémentaire',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/mqkyzYPM0rM" title="Niveau 3" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+          {
+            titre: 'Vidéo finale',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/lR_-I1vmdvw" title="Vidéo finale" allowfullscreen loading="lazy"></iframe></div>' },
+              { image: 'images/motive-forme-n3-photo-profils.jpg' },
+            ],
+          },
+        ],
+      },
     ],
   },
   {
