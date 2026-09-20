@@ -885,6 +885,43 @@ const RF_MODULES = [
           },
         ],
       },
+      {
+        titre: 'Niveau 4',
+        videoId: null,
+        sousNiveaux: [
+          {
+            titre: 'Ouverture niveau 4',
+            blocks: [
+              { text: 'Salam aleykoum wa rahmatullahi wa barakatuh.' },
+              { text: 'Ce quatrième et dernier niveau du pilier Motive-Forme est un niveau de synthèse et de basculement. Il ne s’agit plus d’ajouter des efforts, ni d’augmenter la pression, mais d’unifier ce que tu vis déjà.' },
+              { text: 'À ce stade, tu as traversé les niveaux précédents : tu as appris à te connaître, à identifier tes schémas, à poser des bases religieuses et physiques plus stables.' },
+              { text: 'Mais aujourd’hui, tu peux encore être dans un état intérieur de « je fais des efforts... mais je sens une tension intérieure » ou « je sais quoi faire, mais tout ne s’aligne pas encore naturellement ».' },
+              { text: 'L’objectif de ce niveau, in shā’Allāh, est que tu passes à « je comprends le sens de mon chemin, et j’avance avec confiance ».' },
+              { text: '<strong><u>Le cœur de ce niveau : le sens avant la performance</u></strong>' },
+              { text: 'Dans ce niveau, tu vas apprendre à relire ton histoire de vie, tes épreuves, tes réussites, tes rechutes, à la lumière de la Sîra du Prophète ﷺ. Non pas pour te comparer. Non pas pour chercher la perfection. Mais pour comprendre une chose essentielle :' },
+              { text: 'Allah n’a jamais demandé une vie sans contraintes, mais une direction claire.' },
+              { text: 'Tu découvriras que ta vie n’est pas en retard, que tes difficultés ne sont pas des fautes, et que ton chemin peut être aligné avec l’exemple prophétique sans nier ta réalité.' },
+              { text: '<strong><u>Découvrir ton grand domino</u></strong>' },
+              { text: 'C’est ici que ton grand domino devient visible : le point central qui influence ta foi, ton corps, ton rapport à l’action, au travail et à la responsabilité. Une fois identifié, il te permettra de libérer les blocages récurrents, de donner du sens à ton effort, d’aligner toutes tes sphères de vie sur la voie prophétique, et d’éviter le yoyo émotionnel et la tension paralysante.' },
+              { text: '<strong><u>Ce que tu vas mettre en pratique</u></strong>' },
+              { text: 'Re-lire tes expériences passées avec conscience et bienveillance. Identifier les points clés où tes efforts ont été bloqués ou ralentis. Observer comment tes habitudes physiques, émotionnelles et spirituelles interagissent. Trouver le lien entre tes choix de vie et les enseignements prophétiques pour avancer avec clarté et sérénité.' },
+              { text: '<strong><u>Résultat attendu</u></strong>' },
+              { text: 'Après ce niveau, in shā’Allāh : tu avanceras avec confiance et alignement, tes actions quotidiennes auront un sens clair, ton corps, ton cœur et ton esprit fonctionneront en harmonie, et ton grand domino sera affaibli, rendant ton effort naturel et durable.' },
+              { text: '<strong><u>Complémentarité avec les niveaux précédents</u></strong>' },
+              { text: 'Comme pour les autres niveaux : le Niveau 1 t’a fait prendre conscience, le Niveau 2 t’a structuré, le Niveau 3 t’a mis en action, le Niveau 4 te permet d’unifier tout ton parcours avec la méthodologie du Prophète ﷺ.' },
+              { text: 'Fais de ton corps un empire et sois un Muslim en forme.' },
+            ],
+          },
+          {
+            titre: 'Clôture du module — Le grand domino',
+            blocks: [
+              { text: 'Précision sur le grand domino : ce qu’on appelle ici « ta perte de poids », c’est en réalité ta transformation physique dans son ensemble, que ton objectif soit de perdre du gras, de prendre du muscle ou de retrouver de l’énergie. Le grand domino sabote cette transformation, quelle qu’elle soit, pas seulement la perte de poids.' },
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/yLvimne4cwI" title="Clôture du module — Le grand domino" allowfullscreen loading="lazy"></iframe></div>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n4/biographie-prophete.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+            ],
+          },
+        ],
+      },
     ],
   },
   {
