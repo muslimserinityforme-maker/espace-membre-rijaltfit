@@ -882,6 +882,11 @@ const RF_MODULES = [
             blocks: [
               { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/lR_-I1vmdvw" title="Vidéo finale" allowfullscreen loading="lazy"></iframe></div>' },
               { image: 'images/motive-forme-n3-photo-profils.jpg' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-fajr.pdf" target="_blank" rel="noopener">📄 Fajr</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-dohr.pdf" target="_blank" rel="noopener">📄 Dohr</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-asr.pdf" target="_blank" rel="noopener">📄 ’Asr</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-maghreb.pdf" target="_blank" rel="noopener">📄 Maghreb</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme-n3/priere-icha.pdf" target="_blank" rel="noopener">📄 ’Icha</a>' },
             ],
           },
         ],
