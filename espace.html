@@ -113,6 +113,7 @@
       }
 
       var totalNiveaux = RF_MODULES.reduce(function (sum, m) { return sum + m.niveaux.length; }, 0);
+      var currentSousIdx = 0;
 
       var sidebar = document.getElementById('dash-sidebar');
       var main = document.getElementById('dash-main');
@@ -193,7 +194,7 @@
           if (pos === -1) { progress.push(key); } else { progress.splice(pos, 1); }
           setProgress(progress);
           updateRing();
-          renderNiveau(modId, idx);
+          renderNiveau(modId, idx, currentSousIdx);
         });
 
         document.getElementById('favorite-btn').addEventListener('click', function () {
@@ -201,11 +202,11 @@
           var pos = favorites.indexOf(key);
           if (pos === -1) { favorites.push(key); } else { favorites.splice(pos, 1); }
           setFavorites(favorites);
-          renderNiveau(modId, idx);
+          renderNiveau(modId, idx, currentSousIdx);
         });
       }
 
-      function renderNiveau(modId, idx) {
+      function renderNiveau(modId, idx, sousIdx) {
         setActiveTab(null);
         var mod = RF_MODULES.find(function (m) { return m.id === modId; });
         var niveau = mod.niveaux[idx];
@@ -239,6 +240,31 @@
           html += niveauActionsHtml(modId, idx);
           main.innerHTML = html;
           rfRenderFacileApp(document.getElementById('facile-app-root'));
+          bindNiveauActions(modId, idx);
+          renderSidebar(modId, idx);
+          return;
+        }
+
+        if (niveau.sousNiveaux) {
+          currentSousIdx = sousIdx || 0;
+          var activeSous = niveau.sousNiveaux[currentSousIdx] || niveau.sousNiveaux[0];
+          html += '<div class="sous-tabs">' + niveau.sousNiveaux.map(function (sn, si) {
+            return '<button type="button" class="sous-tab' + (si === currentSousIdx ? ' is-active' : '') + '" data-sous="' + si + '">' + sn.titre + '</button>';
+          }).join('') + '</div>';
+          (activeSous.blocks || []).forEach(function (block) {
+            if (block.image) {
+              html += '<div class="niveau__images"><img src="' + block.image + '" alt="" loading="lazy"></div>';
+            } else if (block.text) {
+              html += '<div class="niveau__text"><p>' + block.text + '</p></div>';
+            }
+          });
+          html += niveauActionsHtml(modId, idx);
+          main.innerHTML = html;
+          main.querySelectorAll('.sous-tab').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              renderNiveau(modId, idx, Number(btn.dataset.sous));
+            });
+          });
           bindNiveauActions(modId, idx);
           renderSidebar(modId, idx);
           return;

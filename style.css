@@ -607,6 +607,32 @@ input:focus { outline: none; border-color: var(--or); }
 .dash-tab:hover { color: var(--kaki); }
 .dash-tab.is-active { color: var(--kaki); border-bottom-color: var(--or); font-weight: 700; }
 
+.sous-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid #eee6d8;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+}
+
+.sous-tab {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .02em;
+  color: var(--kaki);
+  background: var(--kaki-soft);
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.sous-tab:hover { background: #d8dccb; }
+.sous-tab.is-active { background: var(--kaki); color: var(--blanc); }
+
 .dash-layout { display: flex; gap: 24px; align-items: flex-start; }
 
 .dash-sidebar {
