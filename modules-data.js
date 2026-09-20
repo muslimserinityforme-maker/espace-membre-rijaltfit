@@ -535,9 +535,10 @@ const RF_MODULES = [
     desc: 'Poser ton intention, comprendre ta motivation, sortir des excuses.',
     niveaux: [
       {
-        titre: 'C’est quoi Motive Forme ?',
+        titre: 'Niveau 1',
         videoId: null,
         blocks: [
+          { text: '<strong><u>C’est quoi Motive Forme ?</u></strong>' },
           { text: 'Que tu sois là pour perdre du gras, prendre du muscle ou simplement retrouver de l’énergie, une chose ne change pas : ta transformation physique n’est jamais à côté de ta foi. Elle en fait partie.' },
           { text: 'Ce n’est pas : tu progresses physiquement, et en plus tu te rapproches d’Allah. C’est cette transformation qui devient la façon dont tu te rapproches de Lui.' },
           { text: 'Chaque effort que tu fais aujourd’hui pour ton corps, perdre du gras, gagner en force, retrouver de l’énergie, c’est prendre soin de ta amānah, le dépôt qu’Allah t’a confié.' },
@@ -546,12 +547,9 @@ const RF_MODULES = [
           { text: '<strong><u>Exercice complémentaire (optionnel)</u></strong>' },
           { text: 'Prends 2 minutes. Écris (sur ton cahier ou ton fichier Word) 3 choses qu’Allah t’a données dans ta vie pour que tu sois l’homme que tu es aujourd’hui.' },
           { text: 'Relis-les à chaque fois que la motivation faiblit. C’est ton ancrage, pas un discours qu’on t’a fait une fois.' },
-        ],
-      },
-      {
-        titre: 'Ouverture niveau 1',
-        videoId: null,
-        blocks: [
+
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Ouverture niveau 1</u></strong>' },
           { text: 'Salam aleykoum wa rahmatullahi wa barakatuh.' },
           { text: 'Le pilier Motive-Forme, c’est la base de tout ton suivi.' },
           { text: 'Avant même de parler de sport ou de nutrition, on va construire ton mental et ton cœur pour que tes efforts soient solides et durables, le tout aligné avec les valeurs de l’Islam.' },
@@ -561,30 +559,21 @@ const RF_MODULES = [
           { text: 'En clair : tu vas ouvrir les yeux sur tes vrais blocages et trouver une ou deux raisons profondes, ancrées dans ta foi, qui te donneront envie d’avancer sans attendre.' },
           { text: 'Tu passeras de « je sais que je devrais... » à « je ne peux plus attendre pour passer à l’action », avec une motivation ancrée dans tes valeurs et ta foi, prêt à te propulser vers la suite.' },
           { text: 'Fais de ton corps un empire et sois un Muslim en forme.' },
-        ],
-      },
-      {
-        titre: 'Bienvenue à toi !',
-        videoId: null,
-        blocks: [
+
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Bienvenue à toi !</u></strong>' },
           { text: 'Merci d’avoir rejoint Rijal Fit. Ce que tu vas découvrir ici, c’est le fruit de ton choix et de ton engagement, pas un simple cadeau.' },
           { text: 'Un mot sur M-T Coaching Empire, mentionné dans cette vidéo : c’est mon entreprise de coaching sportif, toujours active aujourd’hui. C’est là que j’ai construit toute l’expérience (STAPS, certifications en nutrition, des dizaines de clients accompagnés) que je mets maintenant au service de Rijal Fit.' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/4n4-Jk0uwAc" title="Bienvenue à toi !" allowfullscreen loading="lazy"></iframe></div>' },
-        ],
-      },
-      {
-        titre: 'Ton état d’esprit',
-        videoId: null,
-        blocks: [
+
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Ton état d’esprit</u></strong>' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/05wGQ1en-vE" title="Pas d’effet YOYO !" allowfullscreen loading="lazy"></iframe></div>' },
           { text: 'Un outil simple pour muscler ton mental sur la durée : tenir un journal de gratitude. Ce PDF t’explique comment t’y mettre, en lien direct avec ce que tu viens de voir dans la vidéo.' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/journal-gratitude.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
-        ],
-      },
-      {
-        titre: 'Niveau 1 — Ton intention',
-        videoId: null,
-        blocks: [
+
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Ton intention</u></strong>' },
           { text: 'Le Prophète ﷺ nous a appris que les actes ne valent que par leurs intentions, et que chacun reçoit selon ce qu’il a eu en intention.' },
           { text: 'Ce qui va te motiver ici, c’est cette intention-là qui va déterminer ton résultat.' },
           { text: 'Alors avant d’aller plus loin : quelle était ton intention quand tu as choisi de rejoindre Rijal Fit ? Si c’était juste par curiosité, tu en repartiras avec de la curiosité satisfaite. Si c’était pour trouver de vraies réponses à mettre en pratique, c’est ce que tu en retireras.' },
@@ -595,12 +584,9 @@ const RF_MODULES = [
           { text: '<strong><u>Premier travail (obligatoire)</u></strong>' },
           { text: 'Quelle a été ton intention en t’engageant dans cet accompagnement ? Prends le temps d’y répondre honnêtement, par écrit dans ton cahier ou ton Word, avant de continuer.' },
           { text: '<strong>Important :</strong> chacune de tes réponses doit être centralisée dans un support unique, car on devra toutes les réutiliser pour découvrir ton grand domino.' },
-        ],
-      },
-      {
-        titre: 'Niveau 1 — Ton type de motivation',
-        videoId: null,
-        blocks: [
+
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Ton type de motivation</u></strong>' },
           { text: 'À la fin de ce module, tu verras l’exemple de mon propre livret, pas un simple cadeau, un vrai outil qui t’inspirera pour construire le tien.' },
           { text: 'Question à te poser : si tu pouvais atteindre ton objectif, perdre du gras, prendre du muscle ou retrouver de l’énergie, comment tu te sentirais ? Qu’est-ce que ça changerait dans ta vie sur le plan familial, de ta santé, de ton travail, de tes études et de tes amis ?' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/isP9MoH9mGw" title="Les mécanismes de la motivation & ses bienfaits" allowfullscreen loading="lazy"></iframe></div>' },
@@ -609,12 +595,9 @@ const RF_MODULES = [
           { text: '<strong>Important :</strong> chacune de tes réponses doit être centralisée dans un support unique, ton livret (si tu as plus de 5 pages, ce n’est pas grave). Plus tu apporteras des informations et plus facilement on trouvera ton grand domino.' },
           { text: 'Ce PDF « Se rappeler de l’objectif ultime » t’aide à garder en tête pourquoi tu fais tout ça, même les jours où la motivation est plus basse.' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/objectif-ultime.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
-        ],
-      },
-      {
-        titre: 'Niveau 1 — Les 5 piliers de l’assiduité',
-        videoId: null,
-        blocks: [
+
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Les 5 piliers de l’assiduité</u></strong>' },
           { text: 'Dans cette vidéo, Matthieu dit souvent « perte de masse grasse » ou « perdre du poids ». Remplace mentalement par ton propre objectif (perte de gras, prise de muscle ou énergie) à chaque fois que tu l’entends : les 5 piliers s’appliquent pareil.' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/LpIBjY89YQY" title="Les 5 piliers de l’assiduité" allowfullscreen loading="lazy"></iframe></div>' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/5-piliers-assiduite.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
@@ -644,12 +627,9 @@ const RF_MODULES = [
           { text: 'À qui vas-tu rendre des comptes pour rester engagé ?<br>Réponse : ……………………………………………………………' },
 
           { text: 'Garde cette fiche dans ton livret unique, elle fera partie des réponses utilisées pour découvrir ton grand domino.' },
-        ],
-      },
-      {
-        titre: 'Niveau 1 — Les 5 clés perte de masse grasse',
-        videoId: null,
-        blocks: [
+
+          { text: '<hr class="shop-divider">' },
+          { text: '<strong><u>Les 5 clés perte de masse grasse</u></strong>' },
           { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/REG_orJsO-U" title="Les 5 clés pour perdre ta masse grasse" allowfullscreen loading="lazy"></iframe></div>' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/motive-forme/5-cles-perte-masse-grasse.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
 
