@@ -968,7 +968,7 @@ const RF_MODULES = [
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/temoignage-feedback.pdf" target="_blank" rel="noopener">📄 Télécharger la certification</a>' },
               { text: 'Je te partage le résumé :' },
               { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/GqlQzS-Lc78" title="La psychologie islamique" allowfullscreen loading="lazy"></iframe></div>' },
-              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/00-devoir-n1.pdf" target="_blank" rel="noopener">📄 Devoir N°1</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/00-devoir-n1-matt.pdf" target="_blank" rel="noopener">📄 Devoir N°1</a>' },
             ],
           },
           {

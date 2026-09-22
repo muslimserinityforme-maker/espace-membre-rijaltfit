@@ -103,7 +103,9 @@
         try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(list)); } catch (err) { /* rien à faire */ }
       }
 
-      function niveauKey(modId, i) { return modId + '-' + i; }
+      function niveauKey(modId, i, sousIdx) {
+        return modId + '-' + i + (sousIdx === undefined || sousIdx === null ? '' : '-s' + sousIdx);
+      }
 
       var access = rfGetAccess();
       var formule = (access && access.formule) || 'QIYAM';
@@ -173,8 +175,8 @@
         });
       }
 
-      function niveauActionsHtml(modId, idx) {
-        var key = niveauKey(modId, idx);
+      function niveauActionsHtml(modId, idx, sousIdx) {
+        var key = niveauKey(modId, idx, sousIdx);
         var isDone = getProgress().indexOf(key) !== -1;
         var isFav = getFavorites().indexOf(key) !== -1;
         return (
@@ -185,8 +187,8 @@
         );
       }
 
-      function bindNiveauActions(modId, idx) {
-        var key = niveauKey(modId, idx);
+      function bindNiveauActions(modId, idx, sousIdx) {
+        var key = niveauKey(modId, idx, sousIdx);
 
         document.getElementById('validate-btn').addEventListener('click', function () {
           var progress = getProgress();
@@ -258,14 +260,14 @@
               html += '<div class="niveau__text"><p>' + block.text + '</p></div>';
             }
           });
-          html += niveauActionsHtml(modId, idx);
+          html += niveauActionsHtml(modId, idx, currentSousIdx);
           main.innerHTML = html;
           main.querySelectorAll('.sous-tab').forEach(function (btn) {
             btn.addEventListener('click', function () {
               renderNiveau(modId, idx, Number(btn.dataset.sous));
             });
           });
-          bindNiveauActions(modId, idx);
+          bindNiveauActions(modId, idx, currentSousIdx);
           renderSidebar(modId, idx);
           return;
         }
