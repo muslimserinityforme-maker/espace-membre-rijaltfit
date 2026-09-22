@@ -107,6 +107,19 @@
         return modId + '-' + i + (sousIdx === undefined || sousIdx === null ? '' : '-s' + sousIdx);
       }
 
+      // Un niveau avec sousNiveaux compte pour autant d'unités que de
+      // sous-onglets (chacun avec sa propre progression) ; sinon 1 unité.
+      function niveauUnitKeys(modId, i, niveau) {
+        if (niveau.sousNiveaux) {
+          return niveau.sousNiveaux.map(function (sn, si) { return niveauKey(modId, i, si); });
+        }
+        return [niveauKey(modId, i)];
+      }
+
+      function niveauDoneCount(progress, modId, i, niveau) {
+        return niveauUnitKeys(modId, i, niveau).filter(function (k) { return progress.indexOf(k) !== -1; }).length;
+      }
+
       var access = rfGetAccess();
       var formule = (access && access.formule) || 'QIYAM';
 
@@ -114,7 +127,13 @@
         return !!niveau.minFormule && !rfHasFormule(formule, niveau.minFormule);
       }
 
-      var totalNiveaux = RF_MODULES.reduce(function (sum, m) { return sum + m.niveaux.length; }, 0);
+      var ALL_UNIT_KEYS = [];
+      RF_MODULES.forEach(function (mod) {
+        mod.niveaux.forEach(function (niveau, i) {
+          ALL_UNIT_KEYS = ALL_UNIT_KEYS.concat(niveauUnitKeys(mod.id, i, niveau));
+        });
+      });
+      var totalNiveaux = ALL_UNIT_KEYS.length;
       var currentSousIdx = 0;
 
       var sidebar = document.getElementById('dash-sidebar');
@@ -128,7 +147,8 @@
       var RING_CIRC = 226.2;
 
       function updateRing() {
-        var done = getProgress().length;
+        var progress = getProgress();
+        var done = ALL_UNIT_KEYS.filter(function (k) { return progress.indexOf(k) !== -1; }).length;
         var pct = totalNiveaux ? Math.round((done / totalNiveaux) * 100) : 0;
         ringFill.style.strokeDashoffset = String(RING_CIRC * (1 - pct / 100));
         ringPct.textContent = pct + '%';
@@ -145,14 +165,19 @@
         var progress = getProgress();
         var html = '';
         RF_MODULES.forEach(function (mod, mi) {
-          var doneCount = mod.niveaux.filter(function (n, i) { return progress.indexOf(niveauKey(mod.id, i)) !== -1; }).length;
+          var moduleTotal = 0;
+          var doneCount = mod.niveaux.reduce(function (sum, niveau, i) {
+            moduleTotal += niveauUnitKeys(mod.id, i, niveau).length;
+            return sum + niveauDoneCount(progress, mod.id, i, niveau);
+          }, 0);
           var isOpen = mod.id === activeMod;
           html += '<div class="nav-group' + (isOpen ? ' is-open' : '') + '" data-mod="' + mod.id + '">';
           var label = (mod.num ? mod.num + '. ' : '') + mod.nom;
-          html += '<button type="button" class="nav-group__header"><span class="nav-group__title">' + label + '</span><span class="nav-group__pct">' + doneCount + '/' + mod.niveaux.length + '</span><span class="nav-group__chevron">›</span></button>';
+          html += '<button type="button" class="nav-group__header"><span class="nav-group__title">' + label + '</span><span class="nav-group__pct">' + doneCount + '/' + moduleTotal + '</span><span class="nav-group__chevron">›</span></button>';
           html += '<div class="nav-group__items">';
           mod.niveaux.forEach(function (niveau, i) {
-            var isDone = progress.indexOf(niveauKey(mod.id, i)) !== -1;
+            var unitKeys = niveauUnitKeys(mod.id, i, niveau);
+            var isDone = unitKeys.every(function (k) { return progress.indexOf(k) !== -1; });
             var isActive = mod.id === activeMod && i === activeIdx;
             var isLocked = isNiveauLocked(niveau);
             html += '<button type="button" class="nav-item' + (isDone ? ' is-done' : '') + (isActive ? ' is-active' : '') + (isLocked ? ' is-locked' : '') + '" data-mod="' + mod.id + '" data-idx="' + i + '"><span class="nav-item__check">' + (isLocked ? '🔒' : (isDone ? '✓' : '')) + '</span>' + niveau.titre + '</button>';
@@ -308,7 +333,10 @@
         for (var mi = 0; mi < RF_MODULES.length; mi++) {
           var mod = RF_MODULES[mi];
           for (var i = 0; i < mod.niveaux.length; i++) {
-            if (progress.indexOf(niveauKey(mod.id, i)) === -1) return { mod: mod.id, idx: i };
+            var niveau = mod.niveaux[i];
+            var unitKeys = niveauUnitKeys(mod.id, i, niveau);
+            var isDone = unitKeys.every(function (k) { return progress.indexOf(k) !== -1; });
+            if (!isDone) return { mod: mod.id, idx: i };
           }
         }
         return { mod: RF_MODULES[0].id, idx: 0 };
