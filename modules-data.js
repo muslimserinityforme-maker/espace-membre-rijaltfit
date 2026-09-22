@@ -925,8 +925,96 @@ const RF_MODULES = [
     ],
   },
   {
-    id: 'nutri-forme',
+    id: 'hygiene-forme',
     num: 2,
+    nom: 'Hygiène-Forme',
+    desc: 'Hygiène de vie et médecine prophétique au quotidien.',
+    niveaux: [
+      {
+        titre: 'Niveau 1',
+        videoId: null,
+        sousNiveaux: [
+          {
+            titre: 'Ouverture du pilier',
+            blocks: [
+              { text: 'Salam aleykoum wa rahmatullahi wa barakatuh,' },
+              { text: 'Le pilier Hygiène-Forme, c’est la fondation de tout ton suivi !' },
+              { text: 'On va reconstruire ton mental, ton cœur et ton mode de vie pour que tes efforts soient solides, équilibrés et durables, le tout en harmonie avec les valeurs de l’Islam.' },
+              { text: 'Aujourd’hui, tu es peut-être dans un état de « je ne sais pas que je ne sais pas » : tu ignores encore les mécanismes profonds qui te freinent dans ta perte de gras, ta vitalité et ton équilibre intérieur.' },
+              { text: 'L’intention, in sha Allah, est de te faire passer à « je sais que je ne sais pas » : tu commenceras à identifier clairement ce qui, dans ton hygiène de vie, doit changer : ton alimentation, ton sommeil, ta gestion du stress, ton rapport au temps, à ton corps, et à Allah.' },
+              { text: 'En clair : tu vas ouvrir les yeux sur tes vrais blocages, comprendre pourquoi tu manques d’énergie ou de constance, et trouver une ou deux raisons profondes, enracinées dans ta foi, qui te donneront l’élan d’avancer sans attendre.' },
+              { text: 'Aujourd’hui, tu avances peut-être avec des freins invisibles, tu repousses les changements essentiels, tu t’éparpilles, et tu laisses filer le temps. Ce pilier t’apportera, in sha Allah, une clarté totale sur pourquoi tu dois agir maintenant, et pour qui tu le fais vraiment.' },
+              { text: 'Tu passeras de « je sais que je devrais... » à « je ne peux plus attendre pour passer à l’action ! », avec une motivation ancrée dans ta foi, prêt à te propulser vers un mode de vie sain, apaisé et aligné.' },
+              { text: 'Le pilier Hygiène-Forme, c’est bien plus qu’une question de gras : c’est une démarche spirituelle et physique, fondée sur la médecine prophétique : manger avec équilibre, dormir avec sagesse, bouger avec gratitude, purifier son cœur et soigner son âme.' },
+              { text: 'Fais de ton corps un empire, sois un Muslim en forme !' },
+            ],
+          },
+          {
+            titre: 'Introduction au module',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/g8z1O5VWXTw" title="Introduction au module" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+          {
+            titre: 'Tes travaux — La psychologie islamique',
+            blocks: [
+              { text: 'Le socle écrit de ce module, pour approfondir chaque point à ton rythme.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/00-devoir-n1.pdf" target="_blank" rel="noopener">📄 Devoir N°1</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/01-la-psychologie-islamique.pdf" target="_blank" rel="noopener">📄 La psychologie islamique</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/02-quest-ce-que.pdf" target="_blank" rel="noopener">📄 Qu’est-ce que la psychologie islamique</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/03-quest-ce-que-bis.pdf" target="_blank" rel="noopener">📄 Psychologie islamique — thérapie par le Coran</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/04-therapie-coran.pdf" target="_blank" rel="noopener">📄 Thérapie par le Coran</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/05-therapie-invocation.pdf" target="_blank" rel="noopener">📄 Thérapie par l’invocation</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/06-therapie-tawhid.pdf" target="_blank" rel="noopener">📄 Thérapie par le tawhid</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/07-bonne-opinion-allah.pdf" target="_blank" rel="noopener">📄 La bonne opinion envers Allah</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/08-therapie-pardon.pdf" target="_blank" rel="noopener">📄 La thérapie du pardon</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/09-mauvaise-comprehension.pdf" target="_blank" rel="noopener">📄 La mauvaise compréhension</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/10-therapie-espoir-crainte.pdf" target="_blank" rel="noopener">📄 La thérapie de l’espoir et la crainte</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/11-meditation-compagnons.pdf" target="_blank" rel="noopener">📄 La méditation sur le comportement des compagnons</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/12-peches-desobeissance.pdf" target="_blank" rel="noopener">📄 Les péchés et la désobéissance</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/13-consequences-peches.pdf" target="_blank" rel="noopener">📄 Les conséquences des péchés</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/14-importance-du-coeur.pdf" target="_blank" rel="noopener">📄 L’importance du cœur dans la psychologie islamique</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/16-fiche-revision-13.pdf" target="_blank" rel="noopener">📄 Fiche révision 13</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/17-fiche-revision-14.pdf" target="_blank" rel="noopener">📄 Fiche révision 14</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/18-perfection-plaisir-bonheur.pdf" target="_blank" rel="noopener">📄 La perfection du plaisir et du bonheur</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/19-effets-adoration.pdf" target="_blank" rel="noopener">📄 Les effets de l’adoration sur la psychologie islamique</a>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/20-effets-adoration-part2.pdf" target="_blank" rel="noopener">📄 Les effets de l’adoration — Partie II</a>' },
+            ],
+          },
+          {
+            titre: 'Certification',
+            blocks: [
+              { image: 'images/hygiene-forme-m1-temoignage.jpg' },
+              { text: 'Cette note valide ma formation en psychologie islamique : c’est la base de ce module que tu vas suivre.' },
+              { text: '<audio controls style="width:100%;"><source src="pdf/hygiene-forme-m1/temoignage-audio.ogg" type="audio/ogg"></audio>' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/hygiene-forme-m1/temoignage-feedback.pdf" target="_blank" rel="noopener">📄 Télécharger le retour écrit</a>' },
+            ],
+          },
+          {
+            titre: 'Vidéo complémentaire 1',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/GqlQzS-Lc78" title="Vidéo complémentaire 1" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+          {
+            titre: 'Vidéo complémentaire 2',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/uF9wb3YWRGo" title="Vidéo complémentaire 2" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+          {
+            titre: 'Vidéo complémentaire 3',
+            blocks: [
+              { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/9ZOwVOpBYtU" title="Vidéo complémentaire 3" allowfullscreen loading="lazy"></iframe></div>' },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'nutri-forme',
+    num: 3,
     nom: 'Nutri-Forme',
     desc: "La méthode F.A.C.I.L.E pour manger juste, sans te compliquer la vie.",
     niveaux: [
@@ -935,20 +1023,11 @@ const RF_MODULES = [
   },
   {
     id: 'depasse-forme',
-    num: 3,
+    num: 4,
     nom: 'Dépasse-Forme',
     desc: "Les protocoles d'entraînement pour progresser concrètement.",
     niveaux: [
       { titre: 'Niveau 1 — Philosophie des protocoles', videoId: null, texte: 'Texte du niveau 1 à venir.' },
-    ],
-  },
-  {
-    id: 'hygiene-forme',
-    num: 4,
-    nom: 'Hygiène-Forme',
-    desc: 'Hygiène de vie et médecine prophétique au quotidien.',
-    niveaux: [
-      { titre: 'Niveau 1 — Hygiène-Forme', videoId: null, texte: 'Texte du niveau 1 à venir.' },
     ],
   },
   {
