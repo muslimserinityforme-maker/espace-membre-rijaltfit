@@ -124,6 +124,9 @@ const RF_CALORIE_ADJUSTMENT = {
   'muscle-maintenance': 1.0,
 };
 
+// Plancher calorique du calculateur : jamais moins de 1500 kcal/jour.
+const RF_CALORIE_FLOOR = 1500;
+
 const RF_NUTRITION_STORAGE_KEY = 'rf_nutrition_profile';
 
 // ── Calcul (formule US Navy métrique, homme) ────────────────────────────
@@ -151,7 +154,7 @@ function rfComputeCaloriesEtMacros(poidsKg, tauxMasseGrasse, niveauActiviteId, p
   const activite = RF_NIVEAUX_ACTIVITE.find(function (a) { return a.id === niveauActiviteId; }) || RF_NIVEAUX_ACTIVITE[0];
   const tdee = bmr * activite.multiplicateur;
   const ajustement = RF_CALORIE_ADJUSTMENT[protocolId] || 1.0;
-  const caloriesJour = Math.round(tdee * ajustement);
+  const caloriesJour = Math.max(RF_CALORIE_FLOOR, Math.round(tdee * ajustement));
 
   const proteinesG = Math.round(poidsKg * 2);
   const lipidesG = Math.round(poidsKg * 0.9);
