@@ -24,7 +24,7 @@ function rfPlanBlocks(orient, orientLabel, levels) {
     { text: 'Choisis ton type d’alimentation, puis le plan qui correspond à tes calories. Chaque PDF contient la liste de courses, les 7 jours de repas avec les grammages et les repères F.A.C.I.L.E., et les calories et macros de chaque repas.' }];
   cats.forEach(function (c, i) {
     var btns = levels.map(function (k) {
-      return '<a class="btn btn--primary recette-pdf-btn" href="pdf/plans-nutrition/' + c[0] + '/' + orient + '/Rijal-Fit_' + c[1] + '_' + orient.replace('seche', 'Seche').replace('perte-de-masse-grasse', 'Perte-de-masse-grasse').replace('prise-de-muscle', 'Prise-de-muscle') + '_' + k + '-kcal.pdf" target="_blank" rel="noopener">📄 ' + k + ' kcal</a>';
+      return '<a class="btn btn--primary recette-pdf-btn" href="pdf/plans-nutrition/' + c[0] + '/' + orient + '/Rijal-Fit_' + c[1] + '_' + ({ 'seche': 'Seche', 'perte-de-masse-grasse': 'Perte-de-masse-grasse', 'prise-de-muscle': 'Prise-de-muscle', 'maintenance': 'Maintenance', 'energie-vitalite': 'Energie-Vitalite' })[orient] + '_' + k + '-kcal.pdf" target="_blank" rel="noopener">📄 ' + k + ' kcal</a>';
     }).join('');
     blocks.push({ text: (i > 0 ? '<hr class="plan-sep">' : '') + '<strong class="plan-cat-title">' + c[2] + '</strong><div class="plan-grid">' + btns + '</div>' });
   });
@@ -1303,6 +1303,8 @@ const RF_MODULES = [
           { titre: 'Sèche', blocks: rfPlanBlocks('seche', 'sèche', [1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700]) },
           { titre: 'Perte de gras', blocks: rfPlanBlocks('perte-de-masse-grasse', 'perte de masse grasse', [1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700]) },
           { titre: 'Prise de muscle', blocks: rfPlanBlocks('prise-de-muscle', 'prise de muscle', [2300, 2500, 2700]) },
+          { titre: 'Maintenance', blocks: rfPlanBlocks('maintenance', 'maintenance', [1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700]) },
+          { titre: 'Énergie / Vitalité', blocks: rfPlanBlocks('energie-vitalite', 'énergie / vitalité', [1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700]) },
         ],
       },
     ],
