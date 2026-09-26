@@ -19,8 +19,8 @@
 // Plans nutrition Rijal Fit : 159 PDF (pdf/plans-nutrition/<categorie>/<orientation>/...).
 // Générés depuis la base centrale (voir dossier PLANS NUTRITION RIJAL FIT/_SOURCE).
 var RF_PLAN_ORIENTS = [
-  { id: 'seche', label: 'Sèche', file: 'Seche', levels: [1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] },
-  { id: 'perte-de-masse-grasse', label: 'Perte de gras', file: 'Perte-de-masse-grasse', levels: [1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] },
+  { id: 'seche', label: 'Sèche', file: 'Seche', levels: [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] },
+  { id: 'perte-de-masse-grasse', label: 'Perte de gras', file: 'Perte-de-masse-grasse', levels: [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] },
   { id: 'prise-de-muscle', label: 'Prise de muscle', file: 'Prise-de-muscle', levels: [2300, 2500, 2700] },
   { id: 'maintenance', label: 'Maintenance', file: 'Maintenance', levels: [1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] },
   { id: 'energie-vitalite', label: 'Énergie / Vitalité', file: 'Energie-Vitalite', levels: [1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] }
