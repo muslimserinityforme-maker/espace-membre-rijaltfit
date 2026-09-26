@@ -23,7 +23,7 @@
 
   <div class="topbar">
     <span class="topbar__brand">Rijal Fit · <em>Espace Membre</em></span>
-    <button type="button" id="logout-btn" class="topbar__action">Se déconnecter</button>
+    <span id="topbar-module" class="topbar__module"></span><div class="avatar-menu"><button type="button" class="avatar-btn" id="avatar-btn" aria-label="Mon compte">R</button><div class="avatar-drop" id="avatar-drop"><button type="button" id="logout-btn" class="topbar__action">Se déconnecter</button></div></div>
   </div>
 
   <main class="container container--wide">
@@ -71,6 +71,8 @@
   </footer>
 
   <script>
+    document.getElementById('avatar-btn').addEventListener('click', function (e) { e.stopPropagation(); document.getElementById('avatar-drop').classList.toggle('is-open'); });
+    document.addEventListener('click', function () { document.getElementById('avatar-drop').classList.remove('is-open'); });
     document.getElementById('logout-btn').addEventListener('click', function () {
       rfClearAccess();
       window.location.href = 'index.html';
@@ -238,7 +240,8 @@
         var mod = RF_MODULES.find(function (m) { return m.id === modId; });
         var niveau = mod.niveaux[idx];
 
-        var html = '<p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2>';
+        var tm = document.getElementById('topbar-module'); if (tm) tm.textContent = mod.nom;
+        var html = '<div class="niveau-hero"><p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2></div>';
 
         if (isNiveauLocked(niveau)) {
           var formuleLabel = niveau.minFormule.toUpperCase();
