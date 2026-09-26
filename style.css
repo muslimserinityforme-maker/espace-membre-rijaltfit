@@ -1008,3 +1008,9 @@ body { background-color: var(--creme); background-image: radial-gradient(rgba(20
 .niveau-hero .eyebrow { color: var(--or); margin-bottom: 4px; }
 .niveau-hero .niveau__title { color: var(--blanc); margin: 0; }
 .footer { background: var(--forest-dark); }
+
+/* Plans nutrition : grille de PDF par catégorie alimentaire */
+.plan-cat-title { display: block; font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; letter-spacing: .08em; color: var(--forest); margin: 4px 0 10px; }
+.plan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.plan-grid .btn { width: auto; text-align: center; padding-left: 8px; padding-right: 8px; }
+.plan-sep { border: none; height: 2px; background: linear-gradient(90deg, var(--or), transparent); margin: 22px 0 18px; }
