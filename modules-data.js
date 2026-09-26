@@ -16,19 +16,35 @@
 // `images`/`texte` — rendu dans l'ordre exact du tableau :
 // { titre: '...', blocks: [{ image: '...' }, { text: '...' }, { image: '...' }] }
 
-// Plans nutrition Rijal Fit : 93 PDF (pdf/plans-nutrition/<categorie>/<orientation>/...).
+// Plans nutrition Rijal Fit : 159 PDF (pdf/plans-nutrition/<categorie>/<orientation>/...).
 // Générés depuis la base centrale (voir dossier PLANS NUTRITION RIJAL FIT/_SOURCE).
-function rfPlanBlocks(orient, orientLabel, levels) {
+var RF_PLAN_ORIENTS = [
+  { id: 'seche', label: 'Sèche', file: 'Seche', levels: [1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] },
+  { id: 'perte-de-masse-grasse', label: 'Perte de gras', file: 'Perte-de-masse-grasse', levels: [1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] },
+  { id: 'prise-de-muscle', label: 'Prise de muscle', file: 'Prise-de-muscle', levels: [2300, 2500, 2700] },
+  { id: 'maintenance', label: 'Maintenance', file: 'Maintenance', levels: [1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] },
+  { id: 'energie-vitalite', label: 'Énergie / Vitalité', file: 'Energie-Vitalite', levels: [1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700] }
+];
+function rfPlanPickerHtml() {
   var cats = [['classique', 'Classique', 'CLASSIQUE'], ['sans-gluten', 'Sans-gluten', 'SANS GLUTEN'], ['vegan', 'Vegan', 'VEGAN']];
-  var blocks = [{ text: '<strong><u>Plans ' + orientLabel + '</u></strong>' },
-    { text: 'Choisis ton type d’alimentation, puis le plan qui correspond à tes calories. Chaque PDF contient la liste de courses, les 7 jours de repas avec les grammages et les repères F.A.C.I.L.E., et les calories et macros de chaque repas.' }];
-  cats.forEach(function (c, i) {
-    var btns = levels.map(function (k) {
-      return '<a class="btn btn--primary recette-pdf-btn" href="pdf/plans-nutrition/' + c[0] + '/' + orient + '/Rijal-Fit_' + c[1] + '_' + ({ 'seche': 'Seche', 'perte-de-masse-grasse': 'Perte-de-masse-grasse', 'prise-de-muscle': 'Prise-de-muscle', 'maintenance': 'Maintenance', 'energie-vitalite': 'Energie-Vitalite' })[orient] + '_' + k + '-kcal.pdf" target="_blank" rel="noopener">📄 ' + k + ' kcal</a>';
+  var btns = RF_PLAN_ORIENTS.map(function (o) {
+    return '<button type="button" class="btn plan-orient-btn" data-plan-orient="' + o.id + '" onclick="rfPlanShow(this)">' + o.label + '</button>';
+  }).join('');
+  var panels = RF_PLAN_ORIENTS.map(function (o) {
+    var inner = cats.map(function (c, i) {
+      var links = o.levels.map(function (k) {
+        return '<a class="btn btn--primary recette-pdf-btn" href="pdf/plans-nutrition/' + c[0] + '/' + o.id + '/Rijal-Fit_' + c[1] + '_' + o.file + '_' + k + '-kcal.pdf" target="_blank" rel="noopener">📄 ' + k + ' kcal</a>';
+      }).join('');
+      return (i > 0 ? '<hr class="plan-sep">' : '') + '<strong class="plan-cat-title">' + c[2] + '</strong><div class="plan-grid">' + links + '</div>';
     }).join('');
-    blocks.push({ text: (i > 0 ? '<hr class="plan-sep">' : '') + '<strong class="plan-cat-title">' + c[2] + '</strong><div class="plan-grid">' + btns + '</div>' });
-  });
-  return blocks;
+    return '<div class="plan-orient-panel" id="plan-panel-' + o.id + '" hidden><p class="plan-panel-title">Plans ' + o.label + '</p>' + inner + '</div>';
+  }).join('');
+  return '<div class="plan-picker"><div class="plan-orient-btns">' + btns + '</div>' + panels + '</div>';
+}
+function rfPlanShow(btn) {
+  var root = btn.closest('.plan-picker');
+  root.querySelectorAll('.plan-orient-btn').forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+  root.querySelectorAll('.plan-orient-panel').forEach(function (p) { p.hidden = p.id !== 'plan-panel-' + btn.getAttribute('data-plan-orient'); });
 }
 
 const RF_MODULES = [
@@ -1298,13 +1314,12 @@ const RF_MODULES = [
               { text: '<strong><u>Avant de te lancer</u></strong>' },
               { text: 'Ce plan est un repère pour t’aider à démarrer. Ajuste-le à ton quotidien, et si tu as une allergie, une intolérance, une maladie ou un traitement, demande l’avis de ton médecin avant de modifier ton alimentation.' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n1/12-plan-nutrition.pdf" target="_blank" rel="noopener">📄 Télécharger le PDF</a>' },
+              { text: '<hr class="plan-sep">' },
+              { text: '<strong><u>Choisis le plan nutrition qui te correspond</u></strong>' },
+              { text: 'Sélectionne la catégorie qui correspond à ton objectif : sèche, perte de gras, prise de muscle, maintenance ou énergie / vitalité. Tu ne sais pas laquelle choisir ? Va d’abord faire <a href="#" class="plan-goto" data-goto-title="Ton protocole nutrition">Ton protocole nutrition</a> : il t’indique la catégorie adaptée à ton profil.' },
+              { text: rfPlanPickerHtml() },
             ],
           },
-          { titre: 'Sèche', blocks: rfPlanBlocks('seche', 'sèche', [1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700]) },
-          { titre: 'Perte de gras', blocks: rfPlanBlocks('perte-de-masse-grasse', 'perte de masse grasse', [1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700]) },
-          { titre: 'Prise de muscle', blocks: rfPlanBlocks('prise-de-muscle', 'prise de muscle', [2300, 2500, 2700]) },
-          { titre: 'Maintenance', blocks: rfPlanBlocks('maintenance', 'maintenance', [1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700]) },
-          { titre: 'Énergie / Vitalité', blocks: rfPlanBlocks('energie-vitalite', 'énergie / vitalité', [1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700]) },
         ],
       },
     ],

@@ -16,13 +16,13 @@
 const RF_PROTOCOLS = {
   fit: {
     id: 'fit',
-    label: 'PROTOCOLE FIT',
+    label: 'PERTE DE GRAS',
     seuils: { min: 20, max: Infinity },
-    prioriteDefaut: "Ta priorité est de réduire progressivement ta masse grasse tout en préservant ton muscle, ton énergie et tes performances.\nTu vas commencer par le Protocole FIT.",
+    prioriteDefaut: "Ta priorité est de réduire progressivement ta masse grasse tout en préservant ton muscle, ton énergie et tes performances.\nTu vas commencer par la catégorie Perte de gras.",
     titrePage: 'TON PROTOCOLE FIT',
     intro: "Ton objectif n'est pas simplement de voir ton poids descendre sur la balance.\nNous voulons principalement réduire ta masse grasse tout en conservant ton muscle, ton énergie et une alimentation que tu peux tenir sur la durée.",
     petitDejeuner: {
-      texte: "Le jeûne intermittent est un outil facultatif : tu peux choisir de sauter le petit-déjeuner (jeûne le matin) ou de sauter le dîner (jeûne le soir), selon ce qui correspond le mieux à ton rythme de vie — aucun des deux n'est une obligation.\nSi tu préfères garder un petit-déjeuner, voici 4 exemples sains et rassasiants, adaptés au Protocole FIT. Ce sont des propositions séparées, pas une liste à combiner : choisis celle qui te convient le mieux.",
+      texte: "Le jeûne intermittent est un outil facultatif : tu peux choisir de sauter le petit-déjeuner (jeûne le matin) ou de sauter le dîner (jeûne le soir), selon ce qui correspond le mieux à ton rythme de vie — aucun des deux n'est une obligation.\nSi tu préfères garder un petit-déjeuner, voici 4 exemples sains et rassasiants, adaptés à la catégorie Perte de gras. Ce sont des propositions séparées, pas une liste à combiner : choisis celle qui te convient le mieux.",
       exemples: [
         'skyr ou yaourt grec + fruits rouges + une cuillère de granola ;',
         'œufs + une tranche de pain complet + tomates ou concombre ;',
@@ -43,9 +43,9 @@ const RF_PROTOCOLS = {
   },
   recomposition: {
     id: 'recomposition',
-    label: 'PROTOCOLE RECOMPOSITION',
+    label: 'SÈCHE',
     seuils: { min: 15, max: 20 },
-    prioriteDefaut: "Ton objectif sera de réduire progressivement ta masse grasse tout en développant ou en préservant ta masse musculaire.\nTu vas commencer par le Protocole Recomposition.",
+    prioriteDefaut: "Ton objectif sera de réduire progressivement ta masse grasse tout en développant ou en préservant ta masse musculaire.\nTu vas commencer par la catégorie Sèche.",
     titrePage: 'TON PROTOCOLE RECOMPOSITION',
     intro: 'Ton objectif est double : diminuer progressivement ton taux de masse grasse tout en donnant à ton corps les nutriments nécessaires pour construire ou préserver du muscle.\nTu vas donc chercher l’équilibre entre alimentation, protéines, entraînement et récupération.',
     petitDejeuner: {
@@ -65,7 +65,7 @@ const RF_PROTOCOLS = {
   },
   muscle: {
     id: 'muscle',
-    label: 'PROTOCOLE MUSCLE',
+    label: 'PRISE DE MUSCLE',
     seuils: { min: 12, max: 15 },
     prioriteDefaut: "Ton niveau de masse grasse te permet de t’orienter vers une construction musculaire contrôlée.\nL’objectif sera de développer du muscle sans augmenter inutilement ton taux de gras.",
     titrePage: 'TON PROTOCOLE MUSCLE',
@@ -93,7 +93,7 @@ const RF_PROTOCOLS = {
   },
   'muscle-maintenance': {
     id: 'muscle-maintenance',
-    label: 'PROTOCOLE MUSCLE / MAINTENANCE',
+    label: 'MAINTENANCE',
     seuils: { min: -Infinity, max: 12 },
     prioriteDefaut: "Ton taux de masse grasse est relativement bas.\nSelon ton objectif, tu vas pouvoir augmenter progressivement tes apports pour développer ta masse musculaire ou maintenir ta composition corporelle.",
     // Pas de section dédiée dans le brief — partage la page du Protocole Muscle.
@@ -292,7 +292,7 @@ function rfRenderNutritionProtocol(root) {
         '<p class="np-result-card__label">Ton profil</p>' +
         '<div class="np-result-row"><span>Ton objectif</span><strong>' + (objectif ? objectif.label : '—') + '</strong></div>' +
         '<div class="np-result-row"><span>Ton taux de masse grasse estimé</span><strong>' + Math.round(state.tauxMasseGrasse) + ' %</strong></div>' +
-        '<div class="np-result-row"><span>Ta stratégie</span><strong>' + protocole.label + '</strong></div>' +
+        '<div class="np-result-row"><span>Ta catégorie</span><strong>' + protocole.label + '</strong></div>' +
         '<div class="np-result-row"><span>Objectif calorique</span><strong>≈ ' + state.caloriesJour + ' kcal/jour</strong></div>' +
         '<div class="np-result-row"><span>Macros</span><strong>' + state.proteinesG + 'g P · ' + state.glucidesG + 'g G · ' + state.lipidesG + 'g L</strong></div>' +
         '<p class="np-result-card__note">Cette estimation permet de déterminer la stratégie nutritionnelle la plus cohérente pour commencer — ce n’est pas une mesure médicale exacte.</p>' +

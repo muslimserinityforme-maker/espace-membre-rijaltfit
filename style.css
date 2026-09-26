@@ -1014,3 +1014,13 @@ body { background-color: var(--creme); background-image: radial-gradient(rgba(20
 .plan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 14px; }
 .plan-grid .btn { width: auto; text-align: center; padding-left: 8px; padding-right: 8px; }
 .plan-sep { border: none; height: 2px; background: linear-gradient(90deg, var(--or), transparent); margin: 22px 0 18px; }
+
+/* Sélecteur des 5 catégories de plans nutrition */
+.plan-orient-btns { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 18px; }
+.plan-orient-btn { width: auto; background: var(--blanc); color: var(--forest); border: 2px solid var(--forest); box-shadow: none; padding: 10px 18px; }
+.plan-orient-btn::after { display: none; }
+.plan-orient-btn:hover { background: #efe6cc; }
+.plan-orient-btn.is-active { background: linear-gradient(135deg, var(--forest), var(--forest-mid)); color: var(--blanc); border-color: var(--or); }
+.plan-orient-panel { background: #faf6ea; border: 1px solid #ece3cd; border-radius: 12px; padding: 16px 18px; }
+.plan-panel-title { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--forest); margin-bottom: 12px; }
+.plan-goto { color: var(--forest); font-weight: 700; text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 3px; }

@@ -235,6 +235,15 @@
         });
       }
 
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest ? e.target.closest('[data-goto-title]') : null;
+        if (!a) return;
+        e.preventDefault();
+        var target = null;
+        RF_MODULES.forEach(function (m) { m.niveaux.forEach(function (n, i) { if (n.titre === a.getAttribute('data-goto-title')) target = { m: m.id, i: i }; }); });
+        if (target) { renderNiveau(target.m, target.i); window.scrollTo(0, 0); }
+      });
+
       function renderNiveau(modId, idx, sousIdx) {
         setActiveTab(null);
         var mod = RF_MODULES.find(function (m) { return m.id === modId; });
