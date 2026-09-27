@@ -1327,6 +1327,30 @@ const RF_MODULES = [
         videoId: null,
         sousNiveaux: [
           {
+            titre: 'Rééquilibre tes assiettes',
+            verrouille: true,
+            verrouilleTexte: 'Cette vidéo t’explique comment rééquilibrer concrètement tes assiettes. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+          {
+            titre: 'Partage tes assiettes',
+            verrouille: true,
+            verrouilleTexte: 'Cette vidéo te montre comment partager tes assiettes au quotidien, notamment en famille ou en société. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+          {
+            titre: 'Le jeûne intermittent',
+            verrouille: true,
+            verrouilleTexte: 'Cette vidéo t’explique comment mettre en place le jeûne intermittent si tu veux l’essayer. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+          {
+            titre: 'Ton plan nutrition arrive',
+            verrouille: true,
+            verrouilleTexte: 'Cette vidéo t’annonce ce qui arrive juste après ce niveau : ton plan nutrition personnalisé. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+          {
             titre: 'Pyramide de la nutrition',
             verrouille: true,
             verrouilleTexte: 'Cette vidéo pose les fondations : la pyramide alimentaire, et l’ordre dans lequel on construit une alimentation saine, de l’eau jusqu’aux aliments plaisir. Elle sera débloquée prochainement.',
@@ -1355,6 +1379,8 @@ const RF_MODULES = [
           },
           {
             titre: 'L’index glycémique',
+            verrouille: true,
+            verrouilleTexte: 'Cette vidéo t’explique l’index glycémique : la vitesse à laquelle le sucre d’un aliment passe dans ton sang. Elle sera débloquée prochainement.',
             blocks: [
               { video: 'WKqevMTsUZQ' },
               { text: 'Toujours dans l’étage des féculents, cette vidéo t’explique l’index glycémique : la vitesse à laquelle le sucre d’un aliment passe dans ton sang. Comprendre cette notion t’aide à choisir tes féculents plutôt qu’à les subir, et prépare les vidéos suivantes sur le petit déjeuner et le soir.' },
@@ -1362,6 +1388,8 @@ const RF_MODULES = [
           },
           {
             titre: 'Le petit déjeuner et la glycémie',
+            verrouille: true,
+            verrouilleTexte: 'Cette vidéo applique l’index glycémique à un repas précis : le petit déjeuner. Elle sera débloquée prochainement.',
             blocks: [
               { video: 'dvVneoYFngY' },
               { text: 'On applique maintenant l’index glycémique à un repas précis : le petit déjeuner. Tu vas voir comment il influence ta glycémie dès le matin, et donc ton énergie et ta faim pour le reste de la journée.' },
@@ -1369,6 +1397,8 @@ const RF_MODULES = [
           },
           {
             titre: 'Quelle méthode pour le petit déjeuner ?',
+            verrouille: true,
+            verrouilleTexte: 'Cette vidéo te donne une méthode concrète pour construire ton petit déjeuner. Elle sera débloquée prochainement.',
             blocks: [
               { video: 'ExstKGLYaw4' },
               { text: 'Après la théorie, place à la méthode : comment construire concrètement un petit déjeuner qui te correspond, dans l’esprit F.A.C.I.L.E. Toujours dans l’étage des féculents, cette vidéo te donne un exemple d’application pratique du repas du matin.' },
@@ -1452,35 +1482,11 @@ const RF_MODULES = [
             ],
           },
           {
-            titre: 'Rééquilibre tes assiettes',
-            verrouille: true,
-            verrouilleTexte: 'Tu as maintenant vu chaque étage de la pyramide, de l’eau aux aliments plaisir. Cette vidéo t’explique comment rééquilibrer concrètement tes assiettes à partir de tout ce que tu as appris. Elle sera débloquée prochainement.',
-            blocks: [],
-          },
-          {
-            titre: 'Partage tes assiettes',
-            verrouille: true,
-            verrouilleTexte: 'Dans la continuité de la vidéo précédente, celle-ci te montre comment partager tes assiettes au quotidien, notamment en famille ou en société, sans t’écarter de ce que tu as appris. Elle sera débloquée prochainement.',
-            blocks: [],
-          },
-          {
             titre: '5 aliments pour la perte de gras',
             blocks: [
               { video: 'xd2MLIzsD-M' },
               { text: 'Pour conclure cette série, voici 5 aliments qui t’aident concrètement en perte de gras. C’est la synthèse pratique de tout ce que tu viens de voir, étage par étage de la pyramide.' },
             ],
-          },
-          {
-            titre: 'Le jeûne intermittent',
-            verrouille: true,
-            verrouilleTexte: 'Une fois la pyramide bien comprise, tu peux aller plus loin avec des outils comme le jeûne intermittent. Cette vidéo t’explique comment le mettre en place si tu veux l’essayer. Elle sera débloquée prochainement.',
-            blocks: [],
-          },
-          {
-            titre: 'Ton plan nutrition arrive',
-            verrouille: true,
-            verrouilleTexte: 'Dernière étape avant de passer à la pratique : ton plan nutrition personnalisé arrive. Cette vidéo t’explique ce qui t’attend juste après ce niveau. Elle sera débloquée prochainement.',
-            blocks: [],
           },
         ],
       },
