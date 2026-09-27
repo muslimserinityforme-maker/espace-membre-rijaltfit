@@ -288,11 +288,28 @@
           currentSousIdx = sousIdx || 0;
           var activeSous = niveau.sousNiveaux[currentSousIdx] || niveau.sousNiveaux[0];
           html += '<div class="sous-tabs">' + niveau.sousNiveaux.map(function (sn, si) {
-            return '<button type="button" class="sous-tab' + (si === currentSousIdx ? ' is-active' : '') + '" data-sous="' + si + '">' + sn.titre + '</button>';
+            return '<button type="button" class="sous-tab' + (si === currentSousIdx ? ' is-active' : '') + (sn.verrouille ? ' is-locked' : '') + '" data-sous="' + si + '">' + (sn.verrouille ? '🔒 ' : '') + sn.titre + '</button>';
           }).join('') + '</div>';
+          if (activeSous.verrouille) {
+            html +=
+              '<div class="programme-locked-banner">' +
+              '<p class="programme-locked-banner__title">🔒 Vidéo pas encore disponible</p>' +
+              '<p class="programme-locked-banner__text">' + (activeSous.verrouilleTexte || 'Cette vidéo sera débloquée prochainement. Continue avec les sous-onglets accessibles en attendant.') + '</p>' +
+              '</div>';
+            main.innerHTML = html;
+            main.querySelectorAll('.sous-tab').forEach(function (btn) {
+              btn.addEventListener('click', function () {
+                renderNiveau(modId, idx, Number(btn.dataset.sous));
+              });
+            });
+            renderSidebar(modId, idx);
+            return;
+          }
           (activeSous.blocks || []).forEach(function (block) {
             if (block.image) {
               html += '<div class="niveau__images"><img src="' + block.image + '" alt="" loading="lazy"></div>';
+            } else if (block.video) {
+              html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + block.video + '" title="' + activeSous.titre + '" allowfullscreen loading="lazy"></iframe></div>';
             } else if (block.text) {
               html += '<div class="niveau__text"><p>' + block.text + '</p></div>';
             }

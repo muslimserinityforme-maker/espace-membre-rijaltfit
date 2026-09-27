@@ -1004,6 +1004,8 @@ body { background-color: var(--creme); background-image: radial-gradient(rgba(20
 .sous-tab { background: #efe6cc; color: var(--forest); border-radius: 999px; }
 .sous-tab:hover { background: #e6d9b3; }
 .sous-tab.is-active { background: linear-gradient(135deg, var(--forest), var(--forest-mid)); color: var(--blanc); box-shadow: 0 2px 8px rgba(20,42,32,.25); }
+.sous-tab.is-locked { opacity: .65; }
+.sous-tab.is-locked.is-active { opacity: 1; background: var(--gris); }
 .niveau-hero { background: linear-gradient(135deg, var(--forest-dark), var(--forest) 60%, var(--forest-mid)); border: 1px solid rgba(201,168,76,.5); border-radius: 14px; padding: 22px 26px; margin-bottom: 22px; box-shadow: 0 6px 18px rgba(20,42,32,.2); }
 .niveau-hero .eyebrow { color: var(--or); margin-bottom: 4px; }
 .niveau-hero .niveau__title { color: var(--blanc); margin: 0; }

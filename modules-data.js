@@ -1322,6 +1322,168 @@ const RF_MODULES = [
           },
         ],
       },
+      {
+        titre: 'Niveau 2',
+        videoId: null,
+        sousNiveaux: [
+          {
+            titre: 'Pyramide de la nutrition',
+            verrouille: true,
+            verrouilleTexte: 'Cette vidéo pose les fondations : la pyramide alimentaire, et l’ordre dans lequel on construit une alimentation saine, de l’eau jusqu’aux aliments plaisir. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+          {
+            titre: 'L’importance de l’hydratation',
+            blocks: [
+              { video: 'XM0PUOTBB94' },
+              { text: 'On commence par la base de la pyramide : l’eau. Avant même de parler calories ou macronutriments, ton corps a besoin d’être hydraté pour que la digestion, le transport des nutriments et la récupération fonctionnent correctement. C’est le socle sur lequel tout le reste s’appuie : sans une bonne hydratation, même la meilleure alimentation reste moins efficace.' },
+            ],
+          },
+          {
+            titre: 'L’importance des fruits et légumes',
+            blocks: [
+              { video: 'Z1m0BkHQYvo' },
+              { text: 'Juste après l’eau, la pyramide place les fruits et les légumes : la base de ton alimentation, à volonté ou presque. Ils apportent des fibres, des vitamines et des minéraux, et occupent la moitié de ton assiette selon la méthode F.A.C.I.L.E. C’est l’étape qui prépare le terrain avant de parler des féculents et des protéines.' },
+            ],
+          },
+          {
+            titre: 'Comprendre les féculents',
+            blocks: [
+              { video: 'DhPrsZiS_tQ' },
+              { text: 'On monte d’un étage dans la pyramide avec les féculents, ta principale source d’énergie. Cette vidéo pose les bases : quels féculents choisir, en quelle quantité, et pourquoi ils ne sont pas à éviter, contrairement à une idée reçue. C’est la première d’une série de vidéos consacrées aux féculents, une étape que beaucoup de personnes gèrent mal.' },
+            ],
+          },
+          {
+            titre: 'L’index glycémique',
+            blocks: [
+              { video: 'WKqevMTsUZQ' },
+              { text: 'Toujours dans l’étage des féculents, cette vidéo t’explique l’index glycémique : la vitesse à laquelle le sucre d’un aliment passe dans ton sang. Comprendre cette notion t’aide à choisir tes féculents plutôt qu’à les subir, et prépare les vidéos suivantes sur le petit déjeuner et le soir.' },
+            ],
+          },
+          {
+            titre: 'Le petit déjeuner et la glycémie',
+            blocks: [
+              { video: 'dvVneoYFngY' },
+              { text: 'On applique maintenant l’index glycémique à un repas précis : le petit déjeuner. Tu vas voir comment il influence ta glycémie dès le matin, et donc ton énergie et ta faim pour le reste de la journée.' },
+            ],
+          },
+          {
+            titre: 'Quelle méthode pour le petit déjeuner ?',
+            blocks: [
+              { video: 'ExstKGLYaw4' },
+              { text: 'Après la théorie, place à la méthode : comment construire concrètement un petit déjeuner qui te correspond, dans l’esprit F.A.C.I.L.E. Toujours dans l’étage des féculents, cette vidéo te donne un exemple d’application pratique du repas du matin.' },
+            ],
+          },
+          {
+            titre: 'Peut-on manger des féculents le soir ?',
+            blocks: [
+              { video: '7NId2OF_N48' },
+              { text: 'Une question qui revient souvent : peut-on manger des féculents le soir ? Cette vidéo répond avec les vraies raisons, sans les idées reçues, et te montre comment gérer cet étage de la pyramide sur toute la journée, pas seulement le matin.' },
+            ],
+          },
+          {
+            titre: 'Ne plus manger de féculents ?',
+            blocks: [
+              { video: 'vXljDZj9wY8' },
+              { text: 'À l’inverse, certains choisissent de supprimer totalement les féculents. Cette vidéo t’explique ce que ça change vraiment, et pourquoi ce n’est ni indispensable ni forcément une bonne idée. Elle ferme l’étage des féculents avant de passer aux protéines.' },
+            ],
+          },
+          {
+            titre: 'Le pack de collation',
+            blocks: [
+              { video: 'BcHWdVf_G5Q' },
+              { text: 'Avant de passer aux protéines, un point d’organisation : la collation. Elle vient souvent compléter deux étages de la pyramide à la fois, féculents et protéines, pour tenir entre deux repas sans casser ton équilibre.' },
+            ],
+          },
+          {
+            titre: 'Comprendre les protéines',
+            blocks: [
+              { video: 'SbDsDVNiShY' },
+              { text: 'On monte encore d’un étage avec les protéines, indispensables pour construire et réparer ton corps. Cette vidéo t’explique leur rôle et leurs sources, l’étape suivante après les féculents dans la pyramide alimentaire.' },
+            ],
+          },
+          {
+            titre: 'Comprendre les lipides et les produits laitiers',
+            blocks: [
+              { video: '0sPzOkrpWz8' },
+              { text: 'Dernier étage avant les aliments plaisir : les matières grasses et les produits laitiers. Cette vidéo réunit les deux, car ils occupent une place proche dans la pyramide, en quantité plus modérée que les féculents et les protéines, mais toujours nécessaire.' },
+            ],
+          },
+          {
+            titre: 'Réduire sa consommation de sucre',
+            blocks: [
+              { video: 'gS8YvCjpyig' },
+              { text: 'On entame maintenant la transition vers le sommet de la pyramide : les aliments plaisir et industriels. Avant d’en parler, cette vidéo te donne des méthodes concrètes pour réduire ta consommation de sucre, souvent la première source de calories inutiles dans une journée.' },
+            ],
+          },
+          {
+            titre: 'Les pièges de la société de consommation',
+            blocks: [
+              { video: '2AkzBhchFXs' },
+              { text: 'Cette vidéo t’ouvre les yeux sur les pièges de la société de consommation : marketing, emballages, promotions, tout ce qui te pousse à manger plus d’aliments industriels que tu ne le penses. C’est la porte d’entrée du dernier étage de la pyramide.' },
+            ],
+          },
+          {
+            titre: 'Comprendre les aliments plaisir',
+            blocks: [
+              { video: 'Xi63DejmsGM' },
+              { text: 'Au sommet de la pyramide se trouvent les aliments plaisir : la plus petite part de ton alimentation, mais pas une part interdite. Cette vidéo t’explique comment les comprendre et les intégrer sans qu’ils prennent toute la place.' },
+            ],
+          },
+          {
+            titre: 'Le cheat meal',
+            blocks: [
+              { video: 'rocQrekCsXs' },
+              { text: 'Toujours au sommet de la pyramide, le cheat meal : un repas plaisir assumé. Cette vidéo t’explique ce que c’est vraiment, et comment il s’intègre dans une alimentation équilibrée sans tout faire dérailler.' },
+            ],
+          },
+          {
+            titre: 'Une journée type avec un cheat meal',
+            blocks: [
+              { video: 'jg8UfVPOUG8' },
+              { text: 'Après la théorie du cheat meal, un exemple concret : à quoi ressemble une journée type qui en inclut un, pour que tu voies comment l’organiser autour du reste de tes repas.' },
+            ],
+          },
+          {
+            titre: 'Aliments plaisir contre aliments naturels',
+            blocks: [
+              { video: '_9_1Fi6Hmj4' },
+              { text: 'On referme l’étage des aliments plaisir avec une comparaison directe entre aliments plaisir et aliments naturels. Cette vidéo résume tout le sommet de la pyramide, et te prépare à repasser en revue l’ensemble de ton assiette.' },
+            ],
+          },
+          {
+            titre: 'Rééquilibre tes assiettes',
+            verrouille: true,
+            verrouilleTexte: 'Tu as maintenant vu chaque étage de la pyramide, de l’eau aux aliments plaisir. Cette vidéo t’explique comment rééquilibrer concrètement tes assiettes à partir de tout ce que tu as appris. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+          {
+            titre: 'Partage tes assiettes',
+            verrouille: true,
+            verrouilleTexte: 'Dans la continuité de la vidéo précédente, celle-ci te montre comment partager tes assiettes au quotidien, notamment en famille ou en société, sans t’écarter de ce que tu as appris. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+          {
+            titre: '5 aliments pour la perte de gras',
+            blocks: [
+              { video: 'xd2MLIzsD-M' },
+              { text: 'Pour conclure cette série, voici 5 aliments qui t’aident concrètement en perte de gras. C’est la synthèse pratique de tout ce que tu viens de voir, étage par étage de la pyramide.' },
+            ],
+          },
+          {
+            titre: 'Le jeûne intermittent',
+            verrouille: true,
+            verrouilleTexte: 'Une fois la pyramide bien comprise, tu peux aller plus loin avec des outils comme le jeûne intermittent. Cette vidéo t’explique comment le mettre en place si tu veux l’essayer. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+          {
+            titre: 'Ton plan nutrition arrive',
+            verrouille: true,
+            verrouilleTexte: 'Dernière étape avant de passer à la pratique : ton plan nutrition personnalisé arrive. Cette vidéo t’explique ce qui t’attend juste après ce niveau. Elle sera débloquée prochainement.',
+            blocks: [],
+          },
+        ],
+      },
     ],
   },
   {
