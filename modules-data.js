@@ -1372,7 +1372,7 @@ const RF_MODULES = [
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/pyramide/02_Fruits-et-legumes.pdf" target="_blank" rel="noopener">📄 Fiche : Fruits & légumes</a>' },
               { text: '<strong><u>Les aliments du Coran</u></strong>' },
               { text: 'Certains fruits sont explicitement cités dans le Coran. Voici leurs fiches, avec le mot arabe, les versets et ce que la science en dit aujourd’hui.' },
-              { text: '<div class="recette-actions"><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Datte.pdf" target="_blank" rel="noopener">📄 La datte</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Raisin.pdf" target="_blank" rel="noopener">📄 Le raisin</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Grenade.pdf" target="_blank" rel="noopener">📄 La grenade</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Figue.pdf" target="_blank" rel="noopener">📄 La figue</a></div>' },
+              { text: '<div class="recette-actions"><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Datte.pdf" target="_blank" rel="noopener">📄 La datte</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Raisin.pdf" target="_blank" rel="noopener">📄 Le raisin</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Grenade.pdf" target="_blank" rel="noopener">📄 La grenade</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Figue.pdf" target="_blank" rel="noopener">📄 La figue</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Concombre.pdf" target="_blank" rel="noopener">📄 Le concombre</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Courge.pdf" target="_blank" rel="noopener">📄 La courge</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Oignon.pdf" target="_blank" rel="noopener">📄 L’oignon</a></div>' },
             ],
           },
           {
@@ -1381,6 +1381,9 @@ const RF_MODULES = [
               { video: 'DhPrsZiS_tQ' },
               { text: 'On monte d’un étage dans la pyramide avec les féculents, ta principale source d’énergie. Cette vidéo pose les bases : quels féculents choisir, en quelle quantité, et pourquoi ils ne sont pas à éviter, contrairement à une idée reçue. C’est la première d’une série de vidéos consacrées aux féculents, une étape que beaucoup de personnes gèrent mal.' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/pyramide/03_Feculents.pdf" target="_blank" rel="noopener">📄 Fiche : Les féculents</a>' },
+              { text: '<strong><u>Les aliments du Coran</u></strong>' },
+              { text: 'Le pain et les grains, ainsi que les lentilles, font partie des aliments cités dans le Coran. Voici leurs fiches.' },
+              { text: '<div class="recette-actions"><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Grains-et-pain.pdf" target="_blank" rel="noopener">📄 Grains & pain</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Lentilles.pdf" target="_blank" rel="noopener">📄 Les lentilles</a></div>' },
             ],
           },
           {
@@ -1437,6 +1440,9 @@ const RF_MODULES = [
               { video: 'SbDsDVNiShY' },
               { text: 'On monte encore d’un étage avec les protéines, indispensables pour construire et réparer ton corps. Cette vidéo t’explique leur rôle et leurs sources, l’étape suivante après les féculents dans la pyramide alimentaire.' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/pyramide/04_Proteines.pdf" target="_blank" rel="noopener">📄 Fiche : Les protéines</a>' },
+              { text: '<strong><u>Les aliments du Coran</u></strong>' },
+              { text: 'Le bétail, les cailles, le poisson et la viande font partie des sources de protéines citées dans le Coran. Voici leurs fiches.' },
+              { text: '<div class="recette-actions"><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Betail.pdf" target="_blank" rel="noopener">📄 Le bétail</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Cailles.pdf" target="_blank" rel="noopener">📄 Les cailles</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Poisson.pdf" target="_blank" rel="noopener">📄 Le poisson</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Viande.pdf" target="_blank" rel="noopener">📄 La viande</a></div>' },
             ],
           },
           {
@@ -1445,6 +1451,9 @@ const RF_MODULES = [
               { video: '0sPzOkrpWz8' },
               { text: 'Dernier étage avant les aliments plaisir : les matières grasses et les produits laitiers. Cette vidéo réunit les deux, car ils occupent une place proche dans la pyramide, en quantité plus modérée que les féculents et les protéines, mais toujours nécessaire.' },
               { text: '<div class="recette-actions"><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/pyramide/05_Produits-laitiers.pdf" target="_blank" rel="noopener">📄 Fiche : Produits laitiers</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/pyramide/06_Matieres-grasses.pdf" target="_blank" rel="noopener">📄 Fiche : Matières grasses</a></div>' },
+              { text: '<strong><u>Les aliments du Coran</u></strong>' },
+              { text: 'Le lait et l’huile d’olive font partie des aliments cités dans le Coran, dans cette même famille. Voici leurs fiches.' },
+              { text: '<div class="recette-actions"><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Lait.pdf" target="_blank" rel="noopener">📄 Le lait</a><a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Olive.pdf" target="_blank" rel="noopener">📄 L’olive</a></div>' },
             ],
           },
           {
@@ -1467,6 +1476,9 @@ const RF_MODULES = [
               { video: 'Xi63DejmsGM' },
               { text: 'Au sommet de la pyramide se trouvent les aliments plaisir : la plus petite part de ton alimentation, mais pas une part interdite. Cette vidéo t’explique comment les comprendre et les intégrer sans qu’ils prennent toute la place.' },
               { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/pyramide/07_Aliments-plaisir.pdf" target="_blank" rel="noopener">📄 Fiche : Aliments plaisir</a>' },
+              { text: '<strong><u>Les aliments du Coran</u></strong>' },
+              { text: 'Le miel fait partie des aliments cités dans le Coran, à consommer avec la même modération que les autres aliments sucrés. Voici sa fiche.' },
+              { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/nutri-n2/coran/Miel.pdf" target="_blank" rel="noopener">📄 Le miel</a>' },
             ],
           },
           {
