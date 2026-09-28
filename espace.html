@@ -14,6 +14,7 @@
 
   <script src="auth.js"></script>
   <script src="modules-data.js"></script>
+  <script src="quiz.js"></script>
   <script src="nutrition-protocol.js"></script>
   <script src="facile-app.js"></script>
   <script src="announcements-data.js"></script>
@@ -310,12 +311,17 @@
               html += '<div class="niveau__images"><img src="' + block.image + '" alt="" loading="lazy"></div>';
             } else if (block.video) {
               html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + block.video + '" title="' + activeSous.titre + '" allowfullscreen loading="lazy"></iframe></div>';
+            } else if (block.quiz) {
+              html += rfQuizHtml(block.quiz);
+            } else if (block.quizScore) {
+              html += rfQuizScoreHtml();
             } else if (block.text) {
               html += '<div class="niveau__text"><p>' + block.text + '</p></div>';
             }
           });
           html += niveauActionsHtml(modId, idx, currentSousIdx);
           main.innerHTML = html;
+          rfQuizBind(main);
           main.querySelectorAll('.sous-tab').forEach(function (btn) {
             btn.addEventListener('click', function () {
               renderNiveau(modId, idx, Number(btn.dataset.sous));
