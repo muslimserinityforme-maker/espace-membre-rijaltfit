@@ -1327,6 +1327,21 @@ const RF_MODULES = [
         videoId: null,
         sousNiveaux: [
           {
+            titre: 'Introduction',
+            blocks: [
+              { image: 'images/nutri-n2/intro.jpg' },
+              { text: '<strong><u>Bienvenue dans le Niveau 2 de Nutri-Forme</u></strong>' },
+              { text: 'Dans le Niveau 1, tu as appris à comprendre les bases de ton alimentation, à mieux organiser tes repas et à utiliser des repères simples pour commencer à devenir autonome.' },
+              { text: 'Maintenant, nous allons aller un peu plus loin.' },
+              { text: 'L’objectif de ce niveau est de t’apprendre à adapter ton alimentation à ton véritable objectif : sèche, perte de masse grasse, prise de muscle, maintien ou recherche d’énergie au quotidien.' },
+              { text: 'Tu vas notamment apprendre à mieux comprendre les différents groupes alimentaires, leur rôle sur ta santé et comment ajuster tes portions avec la méthode F.A.C.I.L.E., sans devenir dépendant d’une balance ou du comptage permanent des calories.' },
+              { text: 'Nous allons également faire le lien entre nutrition, santé et foi, en découvrant certains enseignements du Coran et de la Sunnah autour de l’alimentation.' },
+              { text: 'L’objectif n’est plus seulement de suivre un plan.' },
+              { text: 'C’est de comprendre ce que tu fais, pourquoi tu le fais et, progressivement, de devenir capable de faire les bons choix par toi-même.' },
+              { text: '<strong>Bienvenue dans Nutri-Forme, Niveau 2.</strong>' },
+            ],
+          },
+          {
             titre: 'Rééquilibre tes assiettes',
             verrouille: true,
             verrouilleTexte: 'Cette vidéo t’explique comment rééquilibrer concrètement tes assiettes. Elle sera débloquée prochainement.',
