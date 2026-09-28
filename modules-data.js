@@ -1533,6 +1533,7 @@ const RF_MODULES = [
           {
             titre: 'Introduction',
             blocks: [
+              { image: 'images/nutri-n3/intro.jpg' },
               { text: '<strong><u>Le but de ce niveau</u></strong>' },
               { text: 'Dans ce niveau, on parle uniquement de nutrition. Mon objectif est double : t’apporter des connaissances solides, et te les présenter à la lumière de notre noble religion, in cha Allah.' },
               { text: 'Tu vas découvrir les fondements de la nutrition : de quoi ton corps a besoin, comment il transforme ce que tu manges, comment organiser tes repas. Ces bases te permettent de soutenir ton énergie, ta concentration, ta digestion, ton sommeil et la gestion de ton poids, que ton objectif soit de perdre du gras, de prendre du muscle ou simplement d’avoir plus d’énergie au quotidien. Ce module n’est pas un traitement médical : ce sont des connaissances à appliquer pour optimiser ta santé de façon générale, et pour que tu sois un musulman en forme, un mou’min qawi.' },
