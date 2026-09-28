@@ -267,8 +267,8 @@
           var formuleLabel = niveau.minFormule.toUpperCase();
           html +=
             '<div class="programme-locked-banner">' +
-            '<p class="programme-locked-banner__title">Réservé à la formule ' + formuleLabel + '</p>' +
-            '<p class="programme-locked-banner__text">Ce niveau se débloque à partir de la formule ' + formuleLabel + '. Contacte Matthieu pour passer au palier supérieur.</p>' +
+            '<p class="programme-locked-banner__title">🔒 Verrouillé</p>' +
+            '<p class="programme-locked-banner__text">' + (niveau.minFormule === 'rijal' ? 'Réservé à la formule RIJAL.' : 'Réservé aux formules THĀBIT et RIJAL.') + '</p>' +
             '</div>';
           main.innerHTML = html;
           renderSidebar(modId, idx);

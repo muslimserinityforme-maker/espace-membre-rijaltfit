@@ -2072,12 +2072,57 @@ const RF_MODULES = [
     ],
   },
   {
-    id: 'ramadan-forme',
+    id: 'follow-forme',
     num: 5,
+    nom: 'Follow-Forme',
+    desc: 'Bientôt disponible.',
+    niveaux: [
+      { titre: 'Introduction', videoId: null, minFormule: 'thabit', texte: 'Contenu à venir.' },
+    ],
+  },
+  {
+    id: 'ramadan-forme',
+    num: 6,
     nom: 'Ramadan-Forme',
     desc: 'Garder ta forme et ta régularité pendant les 30 jours de Ramadan.',
     niveaux: [
       { titre: 'Philosophie Ramadan-Forme', videoId: null, texte: "Texte d'introduction à venir." },
+    ],
+  },
+  {
+    id: 'body-abs-empire',
+    num: 7,
+    nom: 'Body Abs Empire',
+    desc: 'Bientôt disponible.',
+    niveaux: [
+      { titre: 'Introduction', videoId: null, minFormule: 'thabit', texte: 'Contenu à venir.' },
+    ],
+  },
+  {
+    id: 'protocoles-forme',
+    num: 8,
+    nom: 'Protocoles-Forme',
+    desc: 'Bientôt disponible.',
+    niveaux: [
+      { titre: 'Introduction', videoId: null, minFormule: 'thabit', texte: 'Contenu à venir.' },
+    ],
+  },
+  {
+    id: 'resume-forme',
+    num: 9,
+    nom: 'Résumé-Forme',
+    desc: 'Bientôt disponible.',
+    niveaux: [
+      { titre: 'Introduction', videoId: null, minFormule: 'thabit', texte: 'Contenu à venir.' },
+    ],
+  },
+  {
+    id: 'replay-forme',
+    num: 10,
+    nom: 'Replay-Forme',
+    desc: 'Bientôt disponible.',
+    niveaux: [
+      { titre: 'Introduction', videoId: null, minFormule: 'thabit', texte: 'Contenu à venir.' },
     ],
   },
 ];
