@@ -289,13 +289,13 @@
           currentSousIdx = sousIdx || 0;
           var activeSous = niveau.sousNiveaux[currentSousIdx] || niveau.sousNiveaux[0];
           html += '<div class="sous-tabs">' + niveau.sousNiveaux.map(function (sn, si) {
-            return '<button type="button" class="sous-tab' + (si === currentSousIdx ? ' is-active' : '') + (sn.verrouille ? ' is-locked' : '') + '" data-sous="' + si + '">' + (sn.verrouille ? '🔒 ' : '') + sn.titre + '</button>';
+            return '<button type="button" class="sous-tab' + (si === currentSousIdx ? ' is-active' : '') + ((sn.verrouille || niveau.verrouilleTout) ? ' is-locked' : '') + '" data-sous="' + si + '">' + ((sn.verrouille || niveau.verrouilleTout) ? '🔒 ' : '') + sn.titre + '</button>';
           }).join('') + '</div>';
-          if (activeSous.verrouille) {
+          if (activeSous.verrouille || niveau.verrouilleTout) {
             html +=
               '<div class="programme-locked-banner">' +
-              '<p class="programme-locked-banner__title">🔒 Vidéo pas encore disponible</p>' +
-              '<p class="programme-locked-banner__text">' + (activeSous.verrouilleTexte || 'Cette vidéo sera débloquée prochainement. Continue avec les sous-onglets accessibles en attendant.') + '</p>' +
+              '<p class="programme-locked-banner__title">🔒 Pas encore disponible</p>' +
+              '<p class="programme-locked-banner__text">' + (activeSous.verrouilleTexte || niveau.verrouilleTexte || 'Ce contenu sera débloqué prochainement. Continue avec les sous-onglets accessibles en attendant.') + '</p>' +
               '</div>';
             main.innerHTML = html;
             main.querySelectorAll('.sous-tab').forEach(function (btn) {

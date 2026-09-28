@@ -1529,6 +1529,8 @@ const RF_MODULES = [
       {
         titre: 'Niveau 3',
         videoId: null,
+        verrouilleTout: true,
+        verrouilleTexte: 'Ce chapitre sera débloqué prochainement.',
         sousNiveaux: [
           {
             titre: 'Introduction',
@@ -1738,6 +1740,8 @@ const RF_MODULES = [
       {
         titre: 'Niveau 4',
         videoId: null,
+        verrouilleTout: true,
+        verrouilleTexte: 'Ce chapitre sera débloqué prochainement.',
         sousNiveaux: [
           {
             titre: 'Introduction',
