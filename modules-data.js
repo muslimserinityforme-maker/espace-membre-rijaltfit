@@ -1779,6 +1779,7 @@ const RF_MODULES = [
           {
             titre: '1. Ce que mangeait le Prophète ﷺ',
             blocks: [
+              { image: 'images/nutri-n4/c1.jpg' },
               { text: '<strong><u>Ce que dit la Sunnah</u></strong>' },
               { text: 'Voici ce que les hadiths authentiques nous rapportent.' },
               { text: 'Sur la simplicité de sa table, ʿAïcha, qu’Allah l’agrée, dit : « La famille de Muhammad n’a pas mangé à satiété du pain de blé trois jours de suite, depuis son arrivée à Médine jusqu’à sa mort. » (Boukhari 5416, sens rapproché)' },
@@ -1835,7 +1836,7 @@ const RF_MODULES = [
                 { q: 'Sur les quatre photos de frigo, lequel est le mieux rempli pour une alimentation équilibrée ?', img: 'images/nutri-n4/q-frigos.jpg', options: ['Frigo A', 'Frigo B', 'Frigo C', 'Frigo D'], noLetters: true, correct: 1, expl: 'Il réunit des protéines, des fruits et des légumes variés.' },
                 { q: 'Quels aliments faut-il toujours avoir en priorité dans le frigo ?', options: ['Légumes frais, fruits, laitages nature ou alternatives végétales non sucrées', 'Charcuterie, sauces industrielles, pâtisseries', 'Boissons sucrées, sodas, jus de fruits industriels'], correct: 0, expl: 'Ce sont des produits simples et polyvalents pour composer des repas rapides.' },
                 { q: 'Pour préparer rapidement un repas équilibré, que peux-tu garder au congélateur ?', options: ['Légumes surgelés, poissons, herbes aromatiques', 'Pizzas, frites surgelées, desserts glacés', 'Snacks salés, plats tout prêts très transformés'], correct: 0, expl: 'Ce sont des produits bruts ou peu transformés, prêts à cuire.' },
-                { q: 'Pour un repas rapide avec un minimum de préparation et de cuisson, quel légume choisir ?', img: 'images/nutri-n4/q-legumes.jpg', options: ['Un mélange de légumes surgelés avec des carottes', 'Un bol de légumes surgelés', 'Une boîte de légumes', 'Des carottes crues entières'], correct: 1, expl: 'Les légumes surgelés nature sont déjà lavés, coupés et prêts à cuire. Les légumes en boîte sont aussi une option rapide : rince-les pour enlever une partie du sel.' },
+                { q: 'Pour un repas rapide avec un minimum de préparation et de cuisson, quel légume choisir ?', img: 'images/nutri-n4/q-legumes.jpg', upper: true, options: ['Un mélange de légumes surgelés avec des carottes', 'Un bol de légumes surgelés', 'Une boîte de légumes', 'Des carottes crues entières'], correct: 1, expl: 'Les légumes surgelés nature sont déjà lavés, coupés et prêts à cuire. Les légumes en boîte sont aussi une option rapide : rince-les pour enlever une partie du sel.' },
                 { q: 'Les desserts au chocolat industriels sont surtout riches en...', options: ['Fibres et protéines', 'Sucres et graisses, et pauvres en fibres', 'Eau et vitamines', 'Probiotiques'], correct: 1, expl: 'Ils sont très appétissants, se mangent vite et rassasient peu.' },
                 { q: 'Que faire pour éviter de craquer sur un dessert au chocolat le soir ?', options: ['Ne plus jamais en manger', 'Prévoir une portion, ou le remplacer par une alternative plus simple ou faite maison, comme un yaourt nature avec du cacao', 'Le cacher au fond du frigo', 'Manger des chips à la place'], correct: 1, expl: 'Se priver totalement entretient l’envie, et les chips ne résolvent rien. Une portion prévue, sans culpabilité, reste la meilleure stratégie.' },
               ] } },
@@ -1907,6 +1908,7 @@ const RF_MODULES = [
           {
             titre: '7. Avant de manger',
             blocks: [
+              { image: 'images/nutri-n4/c7.jpg' },
               { text: '<strong><u>Ce que dit la Sunnah</u></strong>' },
               { text: 'Le Prophète ﷺ dit au jeune ʿUmar ibn Abi Salama : « Ô garçon ! Prononce le nom d’Allah, mange de ta main droite et mange de ce qui est devant toi. » (Boukhari 5376, sens rapproché)' },
               { text: 'Abou Djouhayfa rapporte que le Prophète ﷺ dit : « Je ne mange pas en étant accoudé. » (Boukhari 5399, sens rapproché)' },
@@ -1925,6 +1927,7 @@ const RF_MODULES = [
           {
             titre: '8. Pendant le repas',
             blocks: [
+              { image: 'images/nutri-n4/c8.jpg' },
               { text: '<strong><u>Ce que dit la Sunnah</u></strong>' },
               { text: 'Sur la retenue dans le jugement : « Le Prophète ﷺ n’a jamais critiqué un aliment. S’il lui plaisait, il le mangeait ; sinon il le laissait. » (Boukhari 5409, sens rapproché)' },
               { text: 'Sur le partage : « La nourriture de deux suffit pour trois, et la nourriture de trois suffit pour quatre. » (Boukhari 5392 ; Mouslim 2058, sens rapproché)' },
@@ -1944,6 +1947,7 @@ const RF_MODULES = [
           {
             titre: '9. Après le repas',
             blocks: [
+              { image: 'images/nutri-n4/c9.jpg' },
               { text: '<strong><u>Ce que dit la Sunnah</u></strong>' },
               { text: 'ʿAnas rapporte que le Prophète ﷺ a dit : « Allah est satisfait de Son serviteur qui dit “al-hamdu lillah” en prenant une bouchée de nourriture et en buvant une gorgée. » (Mouslim 2734, sens rapproché)' },
               { text: 'Abou Oumama rapporte que, lorsque la nappe du Prophète ﷺ était retirée, il disait : « Al-hamdu lillahi hamdan kathiran tayyiban moubarakan fihi, ghayra makfiyyin wa la mouwaddaʿin wa la moustaghnan ʿanhou Rabbana. » (Boukhari 5458)' },
@@ -2010,6 +2014,7 @@ const RF_MODULES = [
           {
             titre: '12. Pendant le Ramadan',
             blocks: [
+              { image: 'images/nutri-n4/c12.jpg' },
               { text: '<strong><u>Ce que dit la Sunnah</u></strong>' },
               { text: 'Le Prophète ﷺ a dit : « Prenez le sahour, car il y a une bénédiction dans le sahour. » (Boukhari 1923, sens rapproché)' },
               { text: 'Il a dit aussi : « Les gens resteront dans le bien tant qu’ils se hâteront de rompre le jeûne. » (Boukhari 1957, sens rapproché)' },

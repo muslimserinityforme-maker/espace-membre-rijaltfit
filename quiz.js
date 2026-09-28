@@ -43,7 +43,8 @@ function rfQuizTotals() {
 }
 
 function rfQuizLetter(q, j) {
-  return q.noLetters ? '' : String.fromCharCode(97 + j) + ') ';
+  if (q.noLetters) return '';
+  return String.fromCharCode((q.upper ? 65 : 97) + j) + ') ';
 }
 
 function rfQuizHtml(quiz) {
