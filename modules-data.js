@@ -1511,6 +1511,21 @@ const RF_MODULES = [
           },
         ],
       },
+      {
+        titre: 'Niveau 3',
+        videoId: null,
+        sousNiveaux: [
+          { titre: 'Introduction', blocks: [{ video: 'RA_-fp6Xe38' }] },
+          { titre: 'Comprendre ton métabolisme', blocks: [{ video: 'rkiNIFBKG_s' }] },
+          { titre: 'La pyramide des priorités', blocks: [{ video: 'L7GlSwXhKRk' }] },
+          { titre: 'Comprendre les calories pour perdre du gras', blocks: [{ video: 'RsDBg9_yI80' }] },
+          { titre: 'Comprendre la digestion', blocks: [{ video: 'vQ6ChKWWzdw' }] },
+          { titre: 'Les préliminaires de la digestion', blocks: [{ video: 'RYo6hw9r0OY' }] },
+          { titre: 'La mastication', blocks: [{ video: 'sbE3VK0TipQ' }] },
+          { titre: 'L’œsophage et l’estomac', blocks: [{ video: 'aH3M7Pt-XpI' }] },
+          { titre: 'Conclusion', blocks: [{ video: 'ounWPjQ57wU' }] },
+        ],
+      },
     ],
   },
   {
