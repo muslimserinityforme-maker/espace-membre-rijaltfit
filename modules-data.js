@@ -1574,6 +1574,7 @@ const RF_MODULES = [
           {
             titre: 'Les besoins de l’organisme',
             blocks: [
+              { image: 'images/nutri-n3/besoins.jpg' },
               { text: '<strong><u>Un bienfait à comprendre</u></strong>' },
               { text: 'Allah Ta’ala dit : « Et Il vous a assujetti tout ce qui est dans les cieux et sur la terre, le tout venant de Lui. Il y a là des signes pour des gens qui réfléchissent » (sourate 45, verset 13). Dans ce verset, Allah rappelle à Ses serviteurs les bienfaits qu’Il leur accorde et nous invite à réfléchir. D’une part pour Lui être reconnaissants, d’autre part pour L’adorer en connaissance de cause. Parmi ces bienfaits, il y a la nutrition.' },
               { text: 'Adorer Allah en connaissance de cause, c’est un principe de la croyance : je n’adore pas mon Seigneur aveuglément. Quand je prie, je sais pourquoi : parce que la prière me rapproche de Lui. Chaque adoration se vit avec de la connaissance. Si tu sens que tu as besoin de retravailler les bases de ta croyance, je t’invite à le faire : c’est une priorité, avant toute chose.' },
@@ -1605,6 +1606,7 @@ const RF_MODULES = [
           {
             titre: 'La pyramide des priorités',
             blocks: [
+              { image: 'images/nutri-n3/pyramide.jpg' },
               { text: '<strong><u>Pourquoi une pyramide</u></strong>' },
               { text: 'Dans cette pyramide, il y a cinq éléments. La plupart des gens ne savent pas où placer leurs priorités et font tout dans le désordre. Ils pensent que le plus important, ce sont les compléments alimentaires. Ensuite, ils se demandent à quelle heure manger. Les micronutriments, ils ne savent pas trop ce que c’est, donc ils les mettent de côté. Les macronutriments, ils en ont entendu parler mais sans plus. Et les calories, ils savent ce que c’est, mais n’y font pas attention.' },
               { text: 'Il faut faire exactement l’inverse. Voici l’ordre dans lequel je te conseille de réfléchir, du plus important au moins important.' },
@@ -1629,6 +1631,7 @@ const RF_MODULES = [
           {
             titre: 'Les calories',
             blocks: [
+              { image: 'images/nutri-n3/calories.jpg' },
               { text: '<strong><u>Toute chose avec mesure</u></strong>' },
               { text: 'Allah Ta’ala dit : « Nous avons créé toute chose avec mesure » (sourate 54, verset 49). Cela inclut notre alimentation. Avec mesure, c’est-à-dire avec un poids, une taille, une proportion. Chaque être humain est différent : selon sa taille, son poids, son sexe et d’autres paramètres, ses besoins ne sont pas les mêmes.' },
               { text: 'Dans son explication du Coran, Ibn Kathir rappelle qu’Allah a créé toute chose selon une proportion déterminée, car rien n’est laissé au hasard : tout a des règles et une finalité. Allah dit aussi : « [Il] a créé toute chose en lui donnant ses justes proportions » (sourate 25, verset 2), et : « [Celui] qui a décrété et guidé » (sourate 87, verset 3). L’alimentation n’a donc pas été créée sans but. Chaque chose a un rôle : que nous puissions continuer à vaquer à nos occupations et utiliser ces bienfaits pour adorer Allah de la meilleure façon.' },
@@ -1683,6 +1686,7 @@ const RF_MODULES = [
           {
             titre: 'La digestion étape par étape',
             blocks: [
+              { image: 'images/nutri-n3/digestion.jpg' },
               { text: '<strong><u>Pourquoi comprendre la digestion</u></strong>' },
               { text: 'Ce chapitre est très important. Une fois que tu auras compris les mécanismes de la digestion, tout le reste de la nutrition sera beaucoup plus fluide et compréhensible. Tu pourras plus facilement composer tes propres repas, parce que tu comprendras le rôle de chaque organe, et quels aliments l’aident à bien fonctionner. Faire des repas équilibrés et gourmands devient alors beaucoup plus simple.' },
               { text: '<strong><u>Le système digestif en un coup d’œil</u></strong>' },
