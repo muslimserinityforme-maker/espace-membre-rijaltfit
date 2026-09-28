@@ -1343,33 +1343,43 @@ const RF_MODULES = [
           },
           {
             titre: 'Rééquilibre tes assiettes',
-            verrouille: true,
-            verrouilleTexte: 'Cette vidéo t’explique comment rééquilibrer concrètement tes assiettes. Elle sera débloquée prochainement.',
-            blocks: [],
+            minFormule: 'thabit',
+            blocks: [
+              { video: 'Szp6cOgAdTU' },
+              { text: 'Cette vidéo t’explique comment rééquilibrer concrètement tes assiettes.' },
+            ],
           },
           {
             titre: 'Partage tes assiettes',
-            verrouille: true,
-            verrouilleTexte: 'Cette vidéo te montre comment partager tes assiettes au quotidien, notamment en famille ou en société. Elle sera débloquée prochainement.',
-            blocks: [],
+            minFormule: 'thabit',
+            blocks: [
+              { video: 'ABFTgCVLibU' },
+              { text: 'Cette vidéo te montre comment partager tes assiettes au quotidien, notamment en famille ou en société.' },
+            ],
           },
           {
             titre: 'Le jeûne intermittent',
-            verrouille: true,
-            verrouilleTexte: 'Cette vidéo t’explique comment mettre en place le jeûne intermittent si tu veux l’essayer. Elle sera débloquée prochainement.',
-            blocks: [],
+            minFormule: 'thabit',
+            blocks: [
+              { video: '-zQIV8NErcw' },
+              { text: 'Cette vidéo t’explique comment mettre en place le jeûne intermittent si tu veux l’essayer.' },
+            ],
           },
           {
             titre: 'Ton plan nutrition arrive',
-            verrouille: true,
-            verrouilleTexte: 'Cette vidéo t’annonce ce qui arrive juste après ce niveau : ton plan nutrition personnalisé. Elle sera débloquée prochainement.',
-            blocks: [],
+            minFormule: 'thabit',
+            blocks: [
+              { video: 'RwzDRKjVGlc' },
+              { text: 'Cette vidéo t’annonce ce qui arrive juste après ce niveau : ton plan nutrition personnalisé.' },
+            ],
           },
           {
             titre: 'Pyramide de la nutrition',
-            verrouille: true,
-            verrouilleTexte: 'Cette vidéo pose les fondations : la pyramide alimentaire, et l’ordre dans lequel on construit une alimentation saine, de l’eau jusqu’aux aliments plaisir. Elle sera débloquée prochainement.',
-            blocks: [],
+            minFormule: 'thabit',
+            blocks: [
+              { video: 'UHbNJLl7W-w' },
+              { text: 'Cette vidéo pose les fondations : la pyramide alimentaire, et l’ordre dans lequel on construit une alimentation saine, de l’eau jusqu’aux aliments plaisir.' },
+            ],
           },
           {
             titre: 'L’importance de l’hydratation',
@@ -1403,8 +1413,7 @@ const RF_MODULES = [
           },
           {
             titre: 'L’index glycémique',
-            verrouille: true,
-            verrouilleTexte: 'Cette vidéo t’explique l’index glycémique : la vitesse à laquelle le sucre d’un aliment passe dans ton sang. Elle sera débloquée prochainement.',
+            minFormule: 'thabit',
             blocks: [
               { video: 'WKqevMTsUZQ' },
               { text: 'Toujours dans l’étage des féculents, cette vidéo t’explique l’index glycémique : la vitesse à laquelle le sucre d’un aliment passe dans ton sang. Comprendre cette notion t’aide à choisir tes féculents plutôt qu’à les subir, et prépare les vidéos suivantes sur le petit déjeuner et le soir.' },
@@ -1412,8 +1421,7 @@ const RF_MODULES = [
           },
           {
             titre: 'Le petit déjeuner et la glycémie',
-            verrouille: true,
-            verrouilleTexte: 'Cette vidéo applique l’index glycémique à un repas précis : le petit déjeuner. Elle sera débloquée prochainement.',
+            minFormule: 'thabit',
             blocks: [
               { video: 'dvVneoYFngY' },
               { text: 'On applique maintenant l’index glycémique à un repas précis : le petit déjeuner. Tu vas voir comment il influence ta glycémie dès le matin, et donc ton énergie et ta faim pour le reste de la journée.' },
@@ -1421,8 +1429,7 @@ const RF_MODULES = [
           },
           {
             titre: 'Quelle méthode pour le petit déjeuner ?',
-            verrouille: true,
-            verrouilleTexte: 'Cette vidéo te donne une méthode concrète pour construire ton petit déjeuner. Elle sera débloquée prochainement.',
+            minFormule: 'thabit',
             blocks: [
               { video: 'ExstKGLYaw4' },
               { text: 'Après la théorie, place à la méthode : comment construire concrètement un petit déjeuner qui te correspond, dans l’esprit F.A.C.I.L.E. Toujours dans l’étage des féculents, cette vidéo te donne un exemple d’application pratique du repas du matin.' },
@@ -1529,8 +1536,7 @@ const RF_MODULES = [
       {
         titre: 'Niveau 3',
         videoId: null,
-        verrouilleTout: true,
-        verrouilleTexte: 'Ce chapitre sera débloqué prochainement.',
+        sousMinFormule: 'thabit',
         sousNiveaux: [
           {
             titre: 'Introduction',
@@ -1740,8 +1746,7 @@ const RF_MODULES = [
       {
         titre: 'Niveau 4',
         videoId: null,
-        verrouilleTout: true,
-        verrouilleTexte: 'Ce chapitre sera débloqué prochainement.',
+        sousMinFormule: 'thabit',
         sousNiveaux: [
           {
             titre: 'Introduction',

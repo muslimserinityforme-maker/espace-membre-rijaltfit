@@ -114,7 +114,7 @@
       // sous-onglets (chacun avec sa propre progression) ; sinon 1 unité.
       function niveauUnitKeys(modId, i, niveau) {
         if (niveau.sousNiveaux) {
-          return niveau.sousNiveaux.map(function (sn, si) { return niveauKey(modId, i, si); });
+          return niveau.sousNiveaux.map(function (sn, si) { return isSousLocked(niveau, sn) ? null : niveauKey(modId, i, si); }).filter(function (k) { return k !== null; });
         }
         return [niveauKey(modId, i)];
       }
@@ -128,6 +128,16 @@
 
       function isNiveauLocked(niveau) {
         return !!niveau.minFormule && !rfHasFormule(formule, niveau.minFormule);
+      }
+
+      // Verrou par formule au niveau d'un sous-onglet (minFormule) ou de tous les sous-onglets d'un niveau (sousMinFormule).
+      function isSousLocked(niveau, sn) {
+        var req = sn.minFormule || niveau.sousMinFormule;
+        return !!req && !rfHasFormule(formule, req);
+      }
+      function sousLockText(niveau, sn) {
+        var req = sn.minFormule || niveau.sousMinFormule;
+        return req === 'rijal' ? 'Réservé à la formule RIJAL.' : 'Réservé aux formules THĀBIT et RIJAL.';
       }
 
       var ALL_UNIT_KEYS = [];
@@ -180,9 +190,9 @@
           html += '<div class="nav-group__items">';
           mod.niveaux.forEach(function (niveau, i) {
             var unitKeys = niveauUnitKeys(mod.id, i, niveau);
-            var isDone = unitKeys.every(function (k) { return progress.indexOf(k) !== -1; });
+            var isDone = unitKeys.length > 0 && unitKeys.every(function (k) { return progress.indexOf(k) !== -1; });
             var isActive = mod.id === activeMod && i === activeIdx;
-            var isLocked = isNiveauLocked(niveau);
+            var isLocked = isNiveauLocked(niveau) || (!!niveau.sousNiveaux && unitKeys.length === 0);
             html += '<button type="button" class="nav-item' + (isDone ? ' is-done' : '') + (isActive ? ' is-active' : '') + (isLocked ? ' is-locked' : '') + '" data-mod="' + mod.id + '" data-idx="' + i + '"><span class="nav-item__check">' + (isLocked ? '🔒' : (isDone ? '✓' : '')) + '</span>' + niveau.titre + '</button>';
           });
           html += '</div></div>';
@@ -289,13 +299,13 @@
           currentSousIdx = sousIdx || 0;
           var activeSous = niveau.sousNiveaux[currentSousIdx] || niveau.sousNiveaux[0];
           html += '<div class="sous-tabs">' + niveau.sousNiveaux.map(function (sn, si) {
-            return '<button type="button" class="sous-tab' + (si === currentSousIdx ? ' is-active' : '') + ((sn.verrouille || niveau.verrouilleTout) ? ' is-locked' : '') + '" data-sous="' + si + '">' + ((sn.verrouille || niveau.verrouilleTout) ? '🔒 ' : '') + sn.titre + '</button>';
+            return '<button type="button" class="sous-tab' + (si === currentSousIdx ? ' is-active' : '') + (isSousLocked(niveau, sn) ? ' is-locked' : '') + '" data-sous="' + si + '">' + (isSousLocked(niveau, sn) ? '🔒 ' : '') + sn.titre + '</button>';
           }).join('') + '</div>';
-          if (activeSous.verrouille || niveau.verrouilleTout) {
+          if (isSousLocked(niveau, activeSous)) {
             html +=
               '<div class="programme-locked-banner">' +
-              '<p class="programme-locked-banner__title">🔒 Pas encore disponible</p>' +
-              '<p class="programme-locked-banner__text">' + (activeSous.verrouilleTexte || niveau.verrouilleTexte || 'Ce contenu sera débloqué prochainement. Continue avec les sous-onglets accessibles en attendant.') + '</p>' +
+              '<p class="programme-locked-banner__title">🔒 Verrouillé</p>' +
+              '<p class="programme-locked-banner__text">' + sousLockText(niveau, activeSous) + '</p>' +
               '</div>';
             main.innerHTML = html;
             main.querySelectorAll('.sous-tab').forEach(function (btn) {
