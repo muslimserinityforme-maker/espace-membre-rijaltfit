@@ -24,7 +24,7 @@
 
   <div class="topbar">
     <span class="topbar__brand">Rijal Fit · <em>Espace Membre</em></span>
-    <span id="topbar-module" class="topbar__module"></span><div class="avatar-menu"><button type="button" class="avatar-btn" id="avatar-btn" aria-label="Mon compte"><img src="images/logo-rf.png" alt="Rijal Fit"></button><div class="avatar-drop" id="avatar-drop"><button type="button" id="logout-btn" class="topbar__action">Se déconnecter</button></div></div>
+    <span id="topbar-module" class="topbar__module"></span><div class="avatar-menu"><button type="button" class="avatar-btn" id="avatar-btn" aria-label="Mon compte"><img src="images/logo-rf.png" alt="Rijal Fit"></button><div class="avatar-drop" id="avatar-drop"><span class="avatar-formule" id="avatar-formule"></span><button type="button" id="logout-btn" class="topbar__action">Se déconnecter</button></div></div>
   </div>
 
   <main class="container container--wide">
@@ -72,6 +72,7 @@
   </footer>
 
   <script>
+    (function () { var a = rfGetAccess(); var el = document.getElementById('avatar-formule'); if (el) el.textContent = 'Ta formule : ' + String((a && a.formule) || 'QIYAM').toUpperCase(); })();
     document.getElementById('avatar-btn').addEventListener('click', function (e) { e.stopPropagation(); document.getElementById('avatar-drop').classList.toggle('is-open'); });
     document.addEventListener('click', function () { document.getElementById('avatar-drop').classList.remove('is-open'); });
     document.getElementById('logout-btn').addEventListener('click', function () {

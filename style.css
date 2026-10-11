@@ -1064,3 +1064,5 @@ body { background-color: var(--creme); background-image: radial-gradient(rgba(20
 .quiz-score__list { list-style: none; margin: 14px auto 0; padding: 0; max-width: 460px; text-align: left; font-size: .9rem; }
 .quiz-score__list li { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-top: 1px solid rgba(255,255,255,.15); }
 .quiz-score__list strong { color: var(--or); white-space: nowrap; }
+
+.avatar-formule { display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: .06em; color: var(--forest); padding: 4px 2px 8px; border-bottom: 1px solid #ece3cd; margin-bottom: 6px; white-space: nowrap; }
