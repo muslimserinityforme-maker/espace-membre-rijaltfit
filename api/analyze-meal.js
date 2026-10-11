@@ -14,7 +14,7 @@ const { getSupabase } = require('./_lib/supabase');
 const { buildFacileMethodPrompt, FACILE_METHOD_VERSION } = require('./_lib/facile-method');
 
 // Ordre de priorité : le premier modèle disponible répond.
-const GEMINI_MODELS = ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-2.5-flash', 'gemini-flash-latest', 'gemini-3.7-flash'];
+const GEMINI_MODELS = ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3.1-flash-lite', 'gemini-3.5-flash-lite', 'gemini-flash-latest'];
 
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const RATE_LIMIT_MAX = 30;
