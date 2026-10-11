@@ -205,35 +205,49 @@ module.exports = async (req, res) => {
       },
     };
 
-    const callGemini = (model) => fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/' + model + ':generateContent?key=' + process.env.GEMINI_API_KEY,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(geminiBody),
-      }
-    );
-
-    // Si un modèle est surchargé, retiré ou indisponible, on bascule aussitôt sur
-    // le suivant. On ne s'arrête que sur un succès ou une erreur de requête
-    // (400/401/403) qui serait identique quel que soit le modèle.
-    let geminiRes;
+    // Gemini (palier gratuit) est parfois très lent ou surchargé : on interroge
+    // tous les modèles en parallèle et on garde la première réponse valide.
+    // Les autres requêtes sont annulées dès qu'on a un gagnant.
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 55000);
     const attempts = [];
-    for (const model of GEMINI_MODELS) {
-      geminiRes = await callGemini(model);
-      attempts.push(geminiRes.status);
-      if (geminiRes.ok || [400, 401, 403].includes(geminiRes.status)) break;
-      console.error('analyze-meal: modèle indisponible', model, geminiRes.status);
-    }
+    const geminiData = await new Promise((resolve) => {
+      let pending = GEMINI_MODELS.length;
+      const lose = (code) => {
+        attempts.push(code);
+        pending -= 1;
+        if (pending === 0) resolve(null);
+      };
+      GEMINI_MODELS.forEach((model) => {
+        fetch(
+          'https://generativelanguage.googleapis.com/v1beta/models/' + model + ':generateContent?key=' + process.env.GEMINI_API_KEY,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(geminiBody),
+            signal: controller.signal,
+          }
+        )
+          .then(async (r) => {
+            if (!r.ok) {
+              console.error('analyze-meal: modèle en échec', model, r.status);
+              lose(r.status);
+              return;
+            }
+            resolve(await r.json());
+          })
+          .catch(() => lose('T'));
+      });
+    });
+    clearTimeout(timer);
+    controller.abort();
 
-    if (!geminiRes.ok) {
-      const errText = await geminiRes.text();
-      console.error('analyze-meal: erreur Gemini', attempts.join(','), errText);
+    if (!geminiData) {
+      console.error('analyze-meal: aucun modèle disponible', attempts.join(','));
       res.status(502).json({ error: 'Analyse impossible pour le moment. (code G' + attempts.join(',') + ')' });
       return;
     }
 
-    const geminiData = await geminiRes.json();
     const candidate = geminiData && geminiData.candidates && geminiData.candidates[0];
     const finishReason = (candidate && candidate.finishReason) || 'NONE';
     // Ignore les parties "réflexion" du modèle : seule la partie texte finale est le JSON.

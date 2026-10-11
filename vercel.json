@@ -3,6 +3,6 @@
     { "path": "/api/send-daily-telegram", "schedule": "0 7 * * *" }
   ],
   "functions": {
-    "api/analyze-meal.js": { "maxDuration": 30 }
+    "api/analyze-meal.js": { "maxDuration": 60 }
   }
 }
