@@ -114,6 +114,8 @@
       // Un niveau avec sousNiveaux compte pour autant d'unités que de
       // sous-onglets (chacun avec sa propre progression) ; sinon 1 unité.
       function niveauUnitKeys(modId, i, niveau) {
+        // Un niveau réservé à une formule supérieure ne compte pas dans la progression.
+        if (isNiveauLocked(niveau)) return [];
         if (niveau.sousNiveaux) {
           return niveau.sousNiveaux.map(function (sn, si) { return isSousLocked(niveau, sn) ? null : niveauKey(modId, i, si); }).filter(function (k) { return k !== null; });
         }
