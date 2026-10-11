@@ -2117,6 +2117,7 @@ const RF_MODULES = [
           {
             titre: 'Bienvenue',
             blocks: [
+              { image: 'images/follow-forme/follow-forme1.jpg' },
               { text: '<strong><u>Bienvenue dans ton suivi Follow-Forme</u></strong>' },
               { text: 'Ce qui t’attend, comment on avance ensemble, et ta première action.' },
               { text: 'Salam aleykoum, et bienvenue.' },
