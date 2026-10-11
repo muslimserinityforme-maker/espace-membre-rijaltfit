@@ -2172,7 +2172,6 @@ const RF_MODULES = [
           {
             titre: 'Ton nouveau bilan Forme',
             blocks: [
-              { image: 'images/follow-forme/follow-forme1.jpg' },
               { video: 'ftP2RD7dUlk' },
             ],
           },
@@ -2180,7 +2179,7 @@ const RF_MODULES = [
             titre: 'Ton corps est une amanah',
             blocks: [
               { video: 'WRG6YssnLOQ' },
-              { text: '<strong><u>Texte complémentaire : Ton corps est une amanah</u></strong>' },
+              { text: '<strong><u>Ton corps est une amanah</u></strong>' },
               { text: 'Dans la vidéo, je parle une fois de perdre ses kilos en trop. Ce n’est qu’un exemple. Tout ce que tu viens d’entendre vaut pour chaque objectif.' },
               { text: '<strong><u>Pas seulement perdre du gras</u></strong>' },
               { text: 'Tu peux vouloir perdre du gras, prendre du muscle, retrouver de l’énergie, mieux dormir ou tenir ta prière sans être épuisé. Le point de départ change d’un homme à l’autre. La direction, elle, est la même : devenir un croyant fort, un mou’min qawi, qui prend soin de ce qu’Allah lui a confié.' },
@@ -2224,7 +2223,7 @@ const RF_MODULES = [
             titre: 'Le danger des solutions rapides : éviter l’effet yoyo',
             blocks: [
               { video: 'tH5whHdgXGk' },
-              { text: '<strong><u>Texte complémentaire : Les solutions rapides</u></strong>' },
+              { text: '<strong><u>Les solutions rapides</u></strong>' },
               { text: 'Une précision : ce qui compte, ce n’est pas le chiffre sur la balance. C’est de perdre du gras en gardant ton muscle et ton énergie. C’est exactement ce qu’une solution rapide ne permet pas.' },
               { text: 'Et ça vaut aussi pour toi qui veux prendre du muscle ou retrouver de l’énergie : les raccourcis ne marchent pas non plus.' },
               { text: '<strong><u>La référence solide pour ce principe</u></strong>' },
@@ -2255,7 +2254,7 @@ const RF_MODULES = [
             titre: 'Surmonter les périodes de stagnation',
             blocks: [
               { video: 'LJ_-tXu_7yg' },
-              { text: '<strong><u>Texte complémentaire : Quand ça stagne</u></strong>' },
+              { text: '<strong><u>Quand ça stagne</u></strong>' },
               { text: 'Un plateau, c’est quand ta balance, tes mesures ou tes performances n’avancent plus alors que tu continues tes efforts. Ça arrive à celui qui cherche à perdre du gras, comme à celui qui veut prendre du muscle ou gagner en force. Ce texte te donne une méthode simple pour y répondre.' },
               { text: '<strong><u>Une nuance importante</u></strong>' },
               { text: 'Dans la vidéo, je dis que la stagnation est naturelle. C’est vrai : le corps s’adapte. Mais attention : un plateau ne prouve pas à lui seul que « ton corps réagit bien ». Parfois, c’est de l’adaptation. Parfois, c’est simplement que les efforts ont relâché sans que tu t’en rendes compte, ou que la mesure est trompeuse.' },
@@ -2282,7 +2281,7 @@ const RF_MODULES = [
             titre: 'Santé mentale et transformation',
             blocks: [
               { video: '6CVnXQdzme0' },
-              { text: '<strong><u>Texte complémentaire : Santé mentale et transformation</u></strong>' },
+              { text: '<strong><u>Santé mentale et transformation</u></strong>' },
               { text: 'Dans la vidéo, je parle de perdre du poids, de perdre des kilos en trop. Ce n’est qu’un exemple. Ce que tu viens d’entendre vaut pour tous les objectifs : perdre du gras, prendre du muscle, retrouver de l’énergie, tenir ta régularité. Ton état d’esprit joue dans chacun d’eux.' },
               { text: '<strong><u>Quelques nuances </u></strong>' },
               { text: '• <strong>Ce n’est pas un manque de volonté.</strong> Quand le stress ou le découragement s’installent, c’est une charge à porter. Ce n’est pas un défaut de caractère.<br>• <strong>Les causes de la prise de poids sont multiples.</strong> L’état d’esprit et les émotions en font souvent partie, mais d’autres facteurs entrent en jeu : le sommeil, l’alimentation, la sédentarité, certains traitements, certaines situations de santé comme un trouble hormonal. Si ton poids change sans raison claire, parle-en à ton médecin.<br>• Comprendre la source aide à tenir, sans promettre que tout ne reviendra jamais. L’objectif est de réduire fortement le risque de rechute, pas de supprimer toute possibilité de reprise. Si tu reprends une partie de ce que tu avais perdu, ce n’est pas un échec : c’est une information, et on repart.' },
@@ -2306,7 +2305,7 @@ const RF_MODULES = [
             titre: 'L’importance de la constance',
             blocks: [
               { video: '8Sjngr0wzy8' },
-              { text: '<strong><u>Texte complémentaire : La constance</u></strong>' },
+              { text: '<strong><u>La constance</u></strong>' },
               { text: 'Dans la vidéo, je parle de ton parcours de perte de poids. C’est un exemple. La constance vaut pour tous les objectifs : perdre du gras, prendre du muscle, gagner en énergie, tenir ta pratique. Suis ce texte en regardant la vidéo : il reprend ses points dans le même ordre.' },
               { text: '• 1. La constance, dans ta santé comme dans ta foi' },
               { text: 'Le Prophète ﷺ a dit : « Accomplissez de bonnes œuvres avec justesse, sincérité et modération, et sachez que l’œuvre la plus aimée d’Allah est la plus régulière, même si elle est peu importante » (Boukhari 6464, sens rapproché).' },
@@ -2333,7 +2332,7 @@ const RF_MODULES = [
             titre: 'Réévaluer tes objectifs : un voyage, pas une destination',
             blocks: [
               { video: 'iGgwlSE3bDk' },
-              { text: '<strong><u>Texte complémentaire : Réévaluer tes objectifs</u></strong>' },
+              { text: '<strong><u>Réévaluer tes objectifs</u></strong>' },
               { text: 'Dans la vidéo, je parle de ta perte de poids comme d’un voyage et non d’une destination. C’est une façon de dire quelque chose de plus large : ton objectif, quel qu’il soit, n’est pas la ligne d’arrivée. C’est une étape. Que tu cherches à perdre du gras, à prendre du muscle, à gagner en énergie ou en régularité, la logique est la même.' },
               { text: '<strong><u>Atteindre un objectif ne veut pas dire « perdre encore »</u></strong>' },
               { text: 'Quand tu atteins un objectif, la tentation est de chercher le suivant dans la même direction : perdre encore un peu, encore un kilo. Ce n’est pas ce que je te propose.' },
@@ -2359,7 +2358,7 @@ const RF_MODULES = [
             titre: 'Renouveler ta motivation',
             blocks: [
               { video: 'mOPzNvn6Zc0' },
-              { text: '<strong><u>Texte complémentaire : Renouveler ta motivation</u></strong>' },
+              { text: '<strong><u>Renouveler ta motivation</u></strong>' },
               { text: 'Dans la vidéo, je dis que la motivation fluctue après plusieurs semaines d’efforts. C’est vrai, et c’est normal. Ce texte te donne trois nuances et des outils concrets pour que ton parcours reste vivant.' },
               { text: '<strong><u>Trois nuances</u></strong>' },
               { text: '• 1. La motivation va et vient. Ce n’est pas un signe que tu fais mal. Ne construis pas ton parcours sur elle : construis-le sur un cadre, une intention et des gestes simples. Quand la motivation baisse, ce sont eux qui te font tenir.<br>• 2. Une fatigue normale n’est pas une fatigue qui s’installe. Après plusieurs semaines de déficit calorique, une fatigue légère peut arriver. Mais si elle devient lourde (énergie en baisse à l’entraînement, sommeil perturbé, faim intense, irritabilité), c’est un signal. On ajuste : souvent par une phase de stabilisation (voir Nutri-Forme, niveau 3). Et si ça persiste, on consulte un médecin.<br>• 3. Le défi doit rester à ta taille. Se challenger oui, sortir de sa zone de confort oui, mais un défi à la fois et à un niveau que tu peux tenir. Un défi trop grand épuise, et c’est l’inverse de l’effet recherché.' },
@@ -2381,7 +2380,7 @@ const RF_MODULES = [
             titre: 'Le poste du sommeil',
             blocks: [
               { video: '6YnQMFn9YIo' },
-              { text: '<strong><u>Texte complémentaire : Le poste du sommeil</u></strong>' },
+              { text: '<strong><u>Le poste du sommeil</u></strong>' },
               { text: 'Dans la vidéo, je parle du sommeil dans ta perte de poids. C’est un exemple. Le sommeil joue dans chacun de tes objectifs : perdre du gras, prendre du muscle, gagner en énergie. Ce texte te donne le modèle de suivi à remplir, quelques nuances, et ce que ça change selon ton objectif.' },
               { text: '<strong><u>Ton poste du sommeil : ce que tu notes</u></strong>' },
               { text: 'Chaque soir, quelques minutes avant de dormir, et chaque matin au réveil. Sur ton téléphone, dans un tableur ou dans un cahier :' },
@@ -2420,7 +2419,7 @@ const RF_MODULES = [
             titre: 'As-tu fait tes exercices ? Les bases de ta discipline',
             blocks: [
               { video: 'NltM7Fem82o' },
-              { text: '<strong><u>Texte complémentaire : Les bases de ta discipline</u></strong>' },
+              { text: '<strong><u>Les bases de ta discipline</u></strong>' },
               { text: 'Dans la vidéo, je parle de tes kilos en trop. C’est un exemple. Ce que tu y entends vaut pour tous les objectifs : perdre du gras, prendre du muscle, gagner en énergie. Ce texte précise comment utiliser ton bilan et ta vidéo de présentation, sans te mettre de pression inutile.' },
               { text: '<strong><u>Une nuance sur le ton de la vidéo</u></strong>' },
               { text: 'Dans la vidéo, je parle d’« électrochoc » et de « claque ». Je veux être clair : le but de ton bilan de départ n’était pas de te faire honte. C’était de te montrer où tu en étais, avec des repères mesurables, pour que tu voies par où commencer.' },
@@ -2478,7 +2477,7 @@ const RF_MODULES = [
             titre: 'Comment maintenir tes résultats après ton suivi',
             blocks: [
               { video: 'fPfzLU9r0-w' },
-              { text: '<strong><u>Texte complémentaire : Maintenir ta transformation</u></strong>' },
+              { text: '<strong><u>Maintenir ta transformation</u></strong>' },
               { text: 'Dans la vidéo, je parle de tes kilos en trop et de ta perte de poids. C’est un exemple. Ce que tu y entends vaut pour tous les objectifs : perdre du gras, prendre du muscle, gagner en énergie. Dans ce texte, tu trouves les précisions utiles et un plan simple pour la suite.' },
               { text: '<strong><u>Ce qui reste vrai</u></strong>' },
               { text: '• La fin du suivi n’est pas la fin du chemin. C’est la fin de la phase de fondation.<br>• <strong>Ce qui tient dans le temps n’est pas un chiffre :</strong> ce sont des habitudes, une méthode et un état d’esprit que tu sais adapter à ta vie.<br>• Une transformation se consolide par une phase de stabilisation, avec un retour progressif à tes besoins.' },
@@ -2520,7 +2519,7 @@ const RF_MODULES = [
             titre: 'Comment prolonger ta transformation après ton suivi',
             blocks: [
               { video: '5fDeWlgfqlI' },
-              { text: '<strong><u>Texte complémentaire : Après ton suivi</u></strong>' },
+              { text: '<strong><u>Après ton suivi</u></strong>' },
               { text: 'Dans la vidéo, je parle de tes kilos perdus. C’est un exemple. Selon ton objectif, tu as peut-être surtout gagné en muscle, en force ou en énergie. Ce texte t’aide à décider de la suite, en pleine conscience et sans pression.' },
               { text: '<strong><u>Ce qui reste vrai</u></strong>' },
               { text: '• <strong>Ton suivi t’a donné des fondations.</strong> Ce n’est que le niveau 1 : il reste de la profondeur à acquérir.<br>• <strong>Ton programme doit évoluer.</strong> Le corps s’adapte à ce qu’on lui demande : ce qui était juste il y a quelques semaines ne l’est plus tout à fait aujourd’hui.<br>• Ce qui compte, c’est la durée, comme pour la prière.' },
