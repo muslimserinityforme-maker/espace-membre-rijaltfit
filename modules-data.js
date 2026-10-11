@@ -2571,7 +2571,246 @@ const RF_MODULES = [
     nom: 'Ramadan-Forme',
     desc: 'Garder ta forme et ta régularité pendant les 30 jours de Ramadan.',
     niveaux: [
-      { titre: 'Philosophie Ramadan-Forme', videoId: null, texte: "Texte d'introduction à venir." },
+      {
+        titre: 'Jour 1 : L’intention',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/_KFC6RCLpug" title="Ramadan Jour 1" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-01.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 2 : De quoi Allah veut-il te libérer ?',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/5qtkxQViAUs" title="Ramadan Jour 2" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-02.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 3 : Organise ton Ramadan pour atteindre la piété',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/4nV9_ySOIHo" title="Ramadan Jour 3" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-03.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 4 : L’épreuve de l’Iftar : dompter le lion',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/Z1O3CTAgCnI" title="Ramadan Jour 4" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-04.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 5 : Le sommeil et l’énergie pendant le Ramadan',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/Jc-YDz8OHos" title="Ramadan Jour 5" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-05.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 6 : Créer de nouvelles habitudes et clarifier l’esprit',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/Axrhssi3wL4" title="Ramadan Jour 6" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-06.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 7 : Recentrer son intention : le pourquoi du jeûne',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/O6x_ng_xKJA" title="Ramadan Jour 7" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-07.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 8 : La qualité des aliments : énergie, esprit et foi',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/TElKA5Q-P0w" title="Ramadan Jour 8" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-08.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 9 : La qualité de ton jeûne',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/V4iXCZtfOts" title="Ramadan Jour 9" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-09.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 10 : Bilan de la première décade : as-tu vraiment avancé ?',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/9N7U-KVAP6Q" title="Ramadan Jour 10" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-10.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 11 : Passer de la discipline à l’excellence intérieure (Ihsân)',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/sW-v9FaH5yk" title="Ramadan Jour 11" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-11.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 12 : Alléger ton cœur avant de monter',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/hR7ACg-t54w" title="Ramadan Jour 12" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-12.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 13 : Réparer avant d’élever',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/HH41Jq3DUlo" title="Ramadan Jour 13" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-13.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 14 : Se détacher du regard des gens',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/StE5gseq2Sk" title="Ramadan Jour 14" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-14.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 15 : Te prépares-tu vraiment aux 10 dernières nuits ?',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/noZKmQmVVAE" title="Ramadan Jour 15" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-15.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 16 : Organiser tes 10 dernières nuits avant qu’elles commencent',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/Q5kEcAVlSKY" title="Ramadan Jour 16" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-16.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 17 : Préserver ton énergie pour aller jusqu’au bout',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/nfh2U4TUpqQ" title="Ramadan Jour 17" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-17.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 18 : Entrer dans la recherche de Laylat al-Qadr',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/JDp3n_ePU9I" title="Ramadan Jour 18" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-18.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 19 : Comment invoquer stratégiquement pendant Laylat al-Qadr',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/KAVXDAhu8AI" title="Ramadan Jour 19" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-19.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 20 : Entrer dans les 10 dernières nuits avec une mentalité de combattant spirituel',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/WNARUigvJ3Q" title="Ramadan Jour 20" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-20.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 21 : Vis cette nuit comme si c’était Laylat al-Qadr',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/Y-c_wn4qkQ0" title="Ramadan Jour 21" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-21.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 22 : Maintenir l’intensité malgré la fatigue',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/rMEnUR8-oWw" title="Ramadan Jour 22" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-22.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 23 : Invoquer avec un cœur humble et brisé',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/QHkLSXHqbmg" title="Ramadan Jour 23" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-23.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 24 : Protéger Laylat al-Qadr des distractions invisibles',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/W_63ZFxfLX8" title="Ramadan Jour 24" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-24.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 25 : Agir comme si c’était ta dernière Laylat al-Qadr',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/6elulxXTrks" title="Ramadan Jour 25" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-25.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 26 : Nettoyer son cœur avant la descente du décret',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/lMh-Aa0ilzA" title="Ramadan Jour 26" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-26.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 27 : La nuit du décret : vivre un vrai tournant',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/9RunDG16VLQ" title="Ramadan Jour 27" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-27.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 28 : Rester constant quand la fatigue explose',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/g5Axzk6VO2o" title="Ramadan Jour 28" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-28.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 29 : Ne pas perdre ce que tu as construit',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/K5f1q1Cly24" title="Ramadan Jour 29" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-29.jpg' },
+        ],
+      },
+      {
+        titre: 'Jour 30 : Ramadan est parti… mais que reste-t-il dans ton cœur ?',
+        videoId: null,
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/ZVh3ywIxNyQ" title="Ramadan Jour 30" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/ramadan-forme/jour-30.jpg' },
+        ],
+      },
     ],
   },
   {
