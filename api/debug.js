@@ -1,6 +1,6 @@
 // TEMPORAIRE — diagnostic des modèles Gemini. À supprimer juste après usage.
 const { buildFacileMethodPrompt } = require('./_lib/facile-method');
-const MODELS = ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-2.5-flash', 'gemini-flash-latest', 'gemini-3.7-flash'];
+const MODELS = ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.1-flash-lite', 'gemini-3.5-flash-lite'];
 module.exports = async (req, res) => {
   const tiny = '/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=';
   const schema = { type: 'object', properties: { analyzable: { type: 'boolean' }, unclearReason: { type: 'string' }, foods: { type: 'array', items: { type: 'object', properties: { name: { type: 'string' }, confidence: { type: 'string', enum: ['low', 'medium', 'high'] } }, required: ['name'] } } }, required: ['analyzable'] };
