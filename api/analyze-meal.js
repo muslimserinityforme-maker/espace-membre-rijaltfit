@@ -13,6 +13,9 @@
 const { getSupabase } = require('./_lib/supabase');
 const { buildFacileMethodPrompt, FACILE_METHOD_VERSION } = require('./_lib/facile-method');
 
+// Ordre de priorité : le premier modèle disponible répond.
+const GEMINI_MODELS = ['gemini-3.6-flash', 'gemini-2.5-flash', 'gemini-flash-latest'];
+
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const RATE_LIMIT_MAX = 30;
 const rateLimitStore = new Map();
@@ -202,8 +205,8 @@ module.exports = async (req, res) => {
       },
     };
 
-    const callGemini = () => fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=' + process.env.GEMINI_API_KEY,
+    const callGemini = (model) => fetch(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + model + ':generateContent?key=' + process.env.GEMINI_API_KEY,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -211,11 +214,13 @@ module.exports = async (req, res) => {
       }
     );
 
-    let geminiRes = await callGemini();
-    // Gemini renvoie parfois une erreur passagère (surcharge) : une seule relance.
-    if ([429, 500, 503].includes(geminiRes.status)) {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      geminiRes = await callGemini();
+    // Si un modèle est surchargé ou indisponible (429/500/503), on bascule
+    // aussitôt sur le suivant plutôt que de renvoyer une erreur au membre.
+    let geminiRes;
+    for (const model of GEMINI_MODELS) {
+      geminiRes = await callGemini(model);
+      if (![429, 500, 503].includes(geminiRes.status)) break;
+      console.error('analyze-meal: modèle indisponible', model, geminiRes.status);
     }
 
     if (!geminiRes.ok) {
