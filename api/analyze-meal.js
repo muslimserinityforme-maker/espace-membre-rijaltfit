@@ -14,7 +14,7 @@ const { getSupabase } = require('./_lib/supabase');
 const { buildFacileMethodPrompt, FACILE_METHOD_VERSION } = require('./_lib/facile-method');
 
 // Ordre de priorité : le premier modèle disponible répond.
-const GEMINI_MODELS = ['gemini-3.6-flash', 'gemini-2.5-flash', 'gemini-flash-latest'];
+const GEMINI_MODELS = ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-2.5-flash', 'gemini-flash-latest', 'gemini-3.7-flash'];
 
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const RATE_LIMIT_MAX = 30;
@@ -214,19 +214,22 @@ module.exports = async (req, res) => {
       }
     );
 
-    // Si un modèle est surchargé ou indisponible (429/500/503), on bascule
-    // aussitôt sur le suivant plutôt que de renvoyer une erreur au membre.
+    // Si un modèle est surchargé, retiré ou indisponible, on bascule aussitôt sur
+    // le suivant. On ne s'arrête que sur un succès ou une erreur de requête
+    // (400/401/403) qui serait identique quel que soit le modèle.
     let geminiRes;
+    const attempts = [];
     for (const model of GEMINI_MODELS) {
       geminiRes = await callGemini(model);
-      if (![429, 500, 503].includes(geminiRes.status)) break;
+      attempts.push(geminiRes.status);
+      if (geminiRes.ok || [400, 401, 403].includes(geminiRes.status)) break;
       console.error('analyze-meal: modèle indisponible', model, geminiRes.status);
     }
 
     if (!geminiRes.ok) {
       const errText = await geminiRes.text();
-      console.error('analyze-meal: erreur Gemini', geminiRes.status, errText);
-      res.status(502).json({ error: 'Analyse impossible pour le moment. (code G' + geminiRes.status + ')' });
+      console.error('analyze-meal: erreur Gemini', attempts.join(','), errText);
+      res.status(502).json({ error: 'Analyse impossible pour le moment. (code G' + attempts.join(',') + ')' });
       return;
     }
 
