@@ -3161,9 +3161,31 @@ const RF_MODULES = [
     id: 'protocoles-forme',
     num: 8,
     nom: 'Protocoles-Forme',
-    desc: 'Bientôt disponible.',
+    desc: 'Les protocoles à suivre pas à pas, selon ton objectif.',
     niveaux: [
-      { titre: 'Introduction', videoId: null, minFormule: 'thabit', texte: 'Contenu à venir.' },
+      {
+        titre: '1. Protocole perte de masse grasse : semaines 1 à 7',
+        videoId: null,
+        minFormule: 'thabit',
+        blocks: [
+          { text: '<strong><u>Protocole de perte de masse grasse : semaines 1 à 7</u></strong>' },
+          { text: 'Dans ce PDF, tu trouves le cadre complet pour perdre du gras en gardant ton muscle, sans te mettre en danger.' },
+          { text: 'Tu y découvres comment calculer ton déficit, quoi manger, comment t’entraîner, comment suivre ta progression, et à quel moment ralentir ou demander conseil.' },
+          { text: 'C’est un protocole de sept semaines, à lire avant de commencer et à garder sous la main pendant ton suivi.' },
+          { text: 'Il s’adresse à un adulte en bonne santé. En cas de maladie, de traitement ou de doute, demande d’abord l’avis de ton médecin.' },
+          { text: 'Si ton objectif est de prendre du muscle ou de gagner en énergie, une section du PDF te dit ce qui change pour toi.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/protocoles-forme/perte-de-masse-grasse-semaines-1-a-7.pdf" target="_blank" rel="noopener">📄 Protocole perte de masse grasse : semaines 1 à 7</a>' },
+        ],
+      },
+      {
+        titre: '2. Protocole perte de masse grasse : semaines 8 et 9 (semaines blanches)',
+        videoId: null,
+        minFormule: 'thabit',
+        blocks: [
+          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/KTHeQe32K-4" title="Semaines 8 à 9 : semaines blanches" allowfullscreen loading="lazy"></iframe></div>' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/protocoles-forme/perte-de-masse-grasse-semaines-8-et-9.pdf" target="_blank" rel="noopener">📄 Protocole perte de masse grasse : semaines 8 et 9 (semaines blanches)</a>' },
+        ],
+      },
     ],
   },
   {
