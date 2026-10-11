@@ -3168,6 +3168,7 @@ const RF_MODULES = [
         videoId: null,
         minFormule: 'thabit',
         blocks: [
+          { image: 'images/protocoles-forme/perte-de-masse-grasse.jpg' },
           { text: '<strong><u>Protocole de perte de masse grasse : semaines 1 à 7</u></strong>' },
           { text: 'Dans ce PDF, tu trouves le cadre complet pour perdre du gras en gardant ton muscle, sans te mettre en danger.' },
           { text: 'Tu y découvres comment calculer ton déficit, quoi manger, comment t’entraîner, comment suivre ta progression, et à quel moment ralentir ou demander conseil.' },
