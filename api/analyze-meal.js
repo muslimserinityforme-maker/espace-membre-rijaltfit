@@ -202,7 +202,7 @@ module.exports = async (req, res) => {
       },
     };
 
-    const geminiRes = await fetch(
+    const callGemini = () => fetch(
       'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=' + process.env.GEMINI_API_KEY,
       {
         method: 'POST',
@@ -211,25 +211,30 @@ module.exports = async (req, res) => {
       }
     );
 
+    let geminiRes = await callGemini();
+    // Gemini renvoie parfois une erreur passagère (surcharge) : une seule relance.
+    if ([429, 500, 503].includes(geminiRes.status)) {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      geminiRes = await callGemini();
+    }
+
     if (!geminiRes.ok) {
       const errText = await geminiRes.text();
       console.error('analyze-meal: erreur Gemini', geminiRes.status, errText);
-      res.status(502).json({ error: 'Analyse impossible pour le moment.' });
+      res.status(502).json({ error: 'Analyse impossible pour le moment. (code G' + geminiRes.status + ')' });
       return;
     }
 
     const geminiData = await geminiRes.json();
-    const rawText = geminiData &&
-      geminiData.candidates &&
-      geminiData.candidates[0] &&
-      geminiData.candidates[0].content &&
-      geminiData.candidates[0].content.parts &&
-      geminiData.candidates[0].content.parts[0] &&
-      geminiData.candidates[0].content.parts[0].text;
+    const candidate = geminiData && geminiData.candidates && geminiData.candidates[0];
+    const finishReason = (candidate && candidate.finishReason) || 'NONE';
+    // Ignore les parties "réflexion" du modèle : seule la partie texte finale est le JSON.
+    const parts = (candidate && candidate.content && candidate.content.parts) || [];
+    const rawText = parts.filter((p) => p.text && !p.thought).map((p) => p.text).join('');
 
     if (!rawText) {
-      console.error('analyze-meal: réponse Gemini vide', JSON.stringify(geminiData).slice(0, 500));
-      res.status(502).json({ error: 'Analyse impossible pour le moment.' });
+      console.error('analyze-meal: réponse Gemini vide', finishReason, JSON.stringify(geminiData).slice(0, 500));
+      res.status(502).json({ error: 'Analyse impossible pour le moment. (code V-' + finishReason + ')' });
       return;
     }
 
@@ -237,8 +242,8 @@ module.exports = async (req, res) => {
     try {
       analysis = JSON.parse(rawText);
     } catch (parseErr) {
-      console.error('analyze-meal: JSON invalide', rawText.slice(0, 500));
-      res.status(502).json({ error: 'Analyse impossible pour le moment.' });
+      console.error('analyze-meal: JSON invalide', finishReason, rawText.slice(0, 500));
+      res.status(502).json({ error: 'Analyse impossible pour le moment. (code J-' + finishReason + ')' });
       return;
     }
 
