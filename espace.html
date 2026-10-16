@@ -153,7 +153,22 @@
         });
       });
 
+      // Un récap de semaine (niveau.semaine = N) s'ouvre quand la semaine N de l'accompagnement est terminée,
+      // jour 1 = date de début du membre. Après les 90 jours, seul RIJAL (ou l'accès étendu) continue.
+      function jourCourantAccompagnement() {
+        if (!rfHasCoaching(formule) || !access || !access.dateDebut) return 0;
+        var debut = new Date(access.dateDebut + 'T00:00:00');
+        var now = new Date();
+        return Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(debut.getFullYear(), debut.getMonth(), debut.getDate())) / 86400000) + 1;
+      }
+      function semaineTerminee(n) {
+        if (jourCourantAccompagnement() <= n * 7) return false;
+        if (n * 7 > 90 && !rfHasFormule(formule, 'rijal') && !(access && access.accesEtendu)) return false;
+        return true;
+      }
+
       function isNiveauLocked(niveau) {
+        if (niveau.semaine) return !semaineTerminee(niveau.semaine);
         return !!niveau.minFormule && !rfHasFormule(formule, niveau.minFormule);
       }
 
@@ -309,11 +324,13 @@
         var html = '<div class="niveau-hero"><p class="eyebrow">' + mod.nom + '</p><h2 class="niveau__title">' + niveau.titre + '</h2></div>';
 
         if (isNiveauLocked(niveau)) {
-          var formuleLabel = niveau.minFormule.toUpperCase();
+          var lockText = niveau.semaine
+            ? 'Ce récap s\'ouvre quand ta semaine ' + niveau.semaine + ' est terminée.'
+            : (niveau.minFormule === 'rijal' ? 'Réservé à la formule RIJAL.' : 'Réservé aux formules THĀBIT et RIJAL.');
           html +=
             '<div class="programme-locked-banner">' +
             '<p class="programme-locked-banner__title">🔒 Verrouillé</p>' +
-            '<p class="programme-locked-banner__text">' + (niveau.minFormule === 'rijal' ? 'Réservé à la formule RIJAL.' : 'Réservé aux formules THĀBIT et RIJAL.') + '</p>' +
+            '<p class="programme-locked-banner__text">' + lockText + '</p>' +
             '</div>';
           main.innerHTML = html;
           renderSidebar(modId, idx);
@@ -566,6 +583,13 @@
         var target = firstIncomplete();
         renderNiveau(target.mod, target.idx);
       });
+
+      // Relit la formule et la date de début dans la Sheet ; recharge une seule fois si elles ont changé.
+      rfRefreshAccess().then(function (fresh) {
+        if (fresh && access && (fresh.formule !== access.formule || fresh.dateDebut !== access.dateDebut || !!fresh.accesEtendu !== !!access.accesEtendu)) {
+          window.location.reload();
+        }
+      }).catch(function () { /* hors ligne : on garde la version en cache */ });
 
       updateRing();
       // Lien direct vers un chapitre (ex. depuis un jour du coaching) : espace.html?mod=…&idx=…&sous=…
