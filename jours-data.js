@@ -55,7 +55,7 @@ RF_JOURS_OVERRIDES[2] = {
   blocks: [
     { text: '<strong>Bienvenu mon frère à ton JOUR 2 🌿</strong>' },
     { text: 'Salam aleykoum wa ramatoulhai wa barakatouh !' },
-    { text: 'Bienvenue à toi dans ton accompagnement Muslim Serenity Forme !' },
+    { text: 'Bienvenue à toi dans ton accompagnement Rijal Fit !' },
     { text: 'Dans cette vidéo, je t’explique comment va se dérouler ton suivi :' },
     { video: 'BYNIRBaGlpE' },
   ],
