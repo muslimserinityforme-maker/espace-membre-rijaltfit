@@ -54,14 +54,14 @@
       const formule = (access && access.formule) || 'QIYAM';
       const isRijal = rfHasFormule(formule, 'rijal');
 
-      // Lien de prise de rendez-vous (Calendly). Tant qu'il est vide, le bouton n'apparaît pas.
-      const RF_CALENDLY_LIEN = '';
+      // Lien Calendly pour prendre un appel.
+      const RF_CALENDLY_LIEN = 'https://calendly.com/muslimserinityforme/programme-ton-bilan-intermediaire';
 
       function noAccessHtml() {
         return '<div class="programme-locked-banner">' +
           '<p class="programme-locked-banner__title">Pas encore accès à cet accompagnement</p>' +
-          '<p class="programme-locked-banner__text">Désolé, tu n\'as pas encore accès à cet accompagnement. Si tu souhaites aller plus loin, tu peux prendre rendez-vous avec ton coach.</p>' +
-          (RF_CALENDLY_LIEN ? '<p><a class="btn btn--primary" href="' + RF_CALENDLY_LIEN + '" target="_blank" rel="noopener">Prendre rendez-vous</a></p>' : '') +
+          '<p class="programme-locked-banner__text">Désolé, tu n\'as pas encore accès à cet accompagnement. Si tu souhaites aller plus loin, tu peux prendre un appel.</p>' +
+          (RF_CALENDLY_LIEN ? '<p><a class="btn btn--primary" href="' + RF_CALENDLY_LIEN + '" target="_blank" rel="noopener">Prendre un appel</a></p>' : '') +
           '</div>';
       }
 
