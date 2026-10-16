@@ -1094,3 +1094,12 @@ body { background-color: var(--creme); background-image: radial-gradient(rgba(20
 .formules-table thead th.f-rijal { background: #1f4d3a; color: #fff; }
 .formules-table thead th.f-rijal span { color: #d7e8de; }
 .formules-table td.is-no { color: #b9b2a2; }
+
+/* Pourcentage de l'accompagnement (Démarre ton coaching) */
+.coaching-progress { margin: 0 0 22px; padding: 16px 20px; background: var(--blanc); border: 1px solid #ece3cd; border-radius: 12px; }
+.coaching-progress[hidden] { display: none; }
+.coaching-progress__top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.coaching-progress__top strong { font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; color: var(--forest); }
+.coaching-progress__top span { font-size: .85rem; color: var(--gris); }
+.coaching-progress__bar { height: 10px; background: #efe7d2; border-radius: 999px; overflow: hidden; }
+.coaching-progress__bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--or), var(--forest)); border-radius: 999px; transition: width .3s; }

@@ -31,6 +31,8 @@
       <p class="module-header__desc">Ce que contient ton accompagnement, puis ton suivi pas à pas.</p>
     </header>
 
+    <div class="coaching-progress" id="coaching-progress" hidden></div>
+
     <div class="programme-layout">
       <aside class="programme-sidebar" id="programme-sidebar"></aside>
       <section class="programme-main" id="programme-main">
@@ -115,6 +117,32 @@
         return '';
       }
 
+      // ── Jours terminés → pourcentage de l'accompagnement ──
+      const JOURS_DONE_KEY = 'rf_jours_done';
+      function getJoursDone() {
+        try { const raw = localStorage.getItem(JOURS_DONE_KEY); return raw ? JSON.parse(raw) : []; } catch (err) { return []; }
+      }
+      function setJoursDone(list) {
+        try { localStorage.setItem(JOURS_DONE_KEY, JSON.stringify(list)); } catch (err) { /* rien à faire */ }
+      }
+      // 90 jours pour QIYAM et THABIT, 730 pour RIJAL (ou accès étendu).
+      const joursTotalAccompagnement = (isRijal || (access && access.accesEtendu)) ? RF_JOURS_TOTAL : 90;
+      const progressBox = document.getElementById('coaching-progress');
+      function updateCoachingProgress() {
+        if (!rfHasCoaching(formule) || !access || !access.dateDebut) return;
+        const done = getJoursDone().filter(function (j) { return j >= 1 && j <= joursTotalAccompagnement; }).length;
+        const pct = Math.round((done / joursTotalAccompagnement) * 100);
+        progressBox.hidden = false;
+        progressBox.innerHTML =
+          '<div class="coaching-progress__top"><strong>' + pct + ' % de ton accompagnement terminé</strong><span>' + done + ' / ' + joursTotalAccompagnement + ' jours</span></div>' +
+          '<div class="coaching-progress__bar"><span style="width:' + pct + '%"></span></div>';
+        const doneList = getJoursDone();
+        document.querySelectorAll('.jour-item:not(.is-locked)').forEach(function (btn) {
+          const icon = btn.querySelector('.jour-item__icon');
+          if (icon) icon.textContent = doneList.indexOf(Number(btn.dataset.jour)) !== -1 ? '✅' : '🔓';
+        });
+      }
+
       function renderJour(jour) {
         const content = rfGetJourContent(jour);
         let html = '<p class="eyebrow">Jour ' + jour + '</p><h2 class="niveau__title">' + content.titre + '</h2>';
@@ -126,12 +154,28 @@
           }
           html += '<div class="niveau__text"><p>' + content.texte + '</p></div>';
         }
+        if (RF_JOURS_OVERRIDES[jour]) {
+          const isDone = getJoursDone().indexOf(jour) !== -1;
+          html += '<div class="niveau-actions"><button type="button" id="jour-validate-btn" class="btn ' + (isDone ? 'validate-btn is-done' : 'btn--primary validate-btn') + '">' + (isDone ? '✓ Jour terminé' : 'Marquer ce jour comme terminé') + '</button></div>';
+        }
         main.innerHTML = html;
         window.scrollTo(0, 0);
+        const validateBtn = document.getElementById('jour-validate-btn');
+        if (validateBtn) {
+          validateBtn.addEventListener('click', function () {
+            const list = getJoursDone();
+            const pos = list.indexOf(jour);
+            if (pos === -1) { list.push(jour); } else { list.splice(pos, 1); }
+            setJoursDone(list);
+            renderJour(jour);
+          });
+        }
+
 
         sidebar.querySelectorAll('.jour-item').forEach(function (btn) {
           btn.classList.toggle('is-active', Number(btn.dataset.jour) === jour);
         });
+        updateCoachingProgress();
       }
 
       function showLockedMessage(jour) {
@@ -187,6 +231,8 @@
           renderJour(jour);
         });
       });
+
+      updateCoachingProgress();
 
       // Ouvre directement le jour demandé si le lien vient d'un message
       // Telegram (?jour=N) ou, par défaut, le jour courant.
