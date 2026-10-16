@@ -177,35 +177,53 @@
         });
       }
 
+      var formationOpen = true;
+
+      // Barre latérale : Introduction, Mon programme, puis Formation (tous les modules dedans).
       function renderSidebar(activeMod, activeIdx) {
         var progress = getProgress();
-        var html = '';
-        RF_MODULES.forEach(function (mod, mi) {
+        var formationDone = 0;
+        var formationTotal = 0;
+
+        function moduleGroupHtml(mod, count) {
           var moduleTotal = 0;
           var doneCount = mod.niveaux.reduce(function (sum, niveau, i) {
             moduleTotal += niveauUnitKeys(mod.id, i, niveau).length;
             return sum + niveauDoneCount(progress, mod.id, i, niveau);
           }, 0);
+          if (count) { formationDone += doneCount; formationTotal += moduleTotal; }
           var isOpen = mod.id === activeMod;
-          html += '<div class="nav-group' + (isOpen ? ' is-open' : '') + '" data-mod="' + mod.id + '">';
+          var g = '<div class="nav-group' + (isOpen ? ' is-open' : '') + '" data-mod="' + mod.id + '">';
           var label = (mod.num ? mod.num + '. ' : '') + mod.nom;
-          html += '<button type="button" class="nav-group__header"><span class="nav-group__title">' + label + '</span><span class="nav-group__pct">' + doneCount + '/' + moduleTotal + '</span><span class="nav-group__chevron">›</span></button>';
-          html += '<div class="nav-group__items">';
+          g += '<button type="button" class="nav-group__header"><span class="nav-group__title">' + label + '</span><span class="nav-group__pct">' + doneCount + '/' + moduleTotal + '</span><span class="nav-group__chevron">›</span></button>';
+          g += '<div class="nav-group__items">';
           mod.niveaux.forEach(function (niveau, i) {
             var unitKeys = niveauUnitKeys(mod.id, i, niveau);
             var isDone = unitKeys.length > 0 && unitKeys.every(function (k) { return progress.indexOf(k) !== -1; });
             var isActive = mod.id === activeMod && i === activeIdx;
             var isLocked = isNiveauLocked(niveau) || (!!niveau.sousNiveaux && unitKeys.length === 0);
-            html += '<button type="button" class="nav-item' + (isDone ? ' is-done' : '') + (isActive ? ' is-active' : '') + (isLocked ? ' is-locked' : '') + '" data-mod="' + mod.id + '" data-idx="' + i + '"><span class="nav-item__check">' + (isLocked ? '🔒' : (isDone ? '✓' : '')) + '</span>' + niveau.titre + '</button>';
+            g += '<button type="button" class="nav-item' + (isDone ? ' is-done' : '') + (isActive ? ' is-active' : '') + (isLocked ? ' is-locked' : '') + '" data-mod="' + mod.id + '" data-idx="' + i + '"><span class="nav-item__check">' + (isLocked ? '🔒' : (isDone ? '✓' : '')) + '</span>' + niveau.titre + '</button>';
           });
-          html += '</div></div>';
-        });
-        html += '<a href="programme.html" class="nav-item nav-item--programme">🔒 Mon Programme</a>';
+          g += '</div></div>';
+          return g;
+        }
+
+        var intro = RF_MODULES.filter(function (m) { return m.id === 'introduction'; })[0];
+        var formationMods = RF_MODULES.filter(function (m) { return m.id !== 'introduction'; });
+        var formationHtml = formationMods.map(function (m) { return moduleGroupHtml(m, true); }).join('');
+        var html = '';
+        if (intro) html += moduleGroupHtml(intro, false);
+        html += '<a href="programme.html" class="nav-item nav-item--programme">🔒 Mon programme</a>';
+        html += '<div class="nav-group nav-group--formation' + (formationOpen ? ' is-open' : '') + '" data-formation="1">';
+        html += '<button type="button" class="nav-group__header"><span class="nav-group__title">Formation</span><span class="nav-group__pct">' + formationDone + '/' + formationTotal + '</span><span class="nav-group__chevron">›</span></button>';
+        html += '<div class="nav-group__items">' + formationHtml + '</div></div>';
         sidebar.innerHTML = html;
 
         sidebar.querySelectorAll('.nav-group__header').forEach(function (header) {
           header.addEventListener('click', function () {
-            header.closest('.nav-group').classList.toggle('is-open');
+            var group = header.closest('.nav-group');
+            group.classList.toggle('is-open');
+            if (group.dataset.formation) formationOpen = group.classList.contains('is-open');
           });
         });
 
