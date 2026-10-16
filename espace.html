@@ -17,6 +17,7 @@
   <script src="quiz.js"></script>
   <script src="nutrition-protocol.js"></script>
   <script src="facile-app.js"></script>
+  <script src="formule-compare.js"></script>
   <script src="announcements-data.js"></script>
   <script>rfRequireAccess();</script>
 </head>
@@ -144,6 +145,13 @@
 
       var access = rfGetAccess();
       var formule = (access && access.formule) || 'QIYAM';
+
+      // Le chapitre « Ta formule » porte le nom de la formule du membre (ex. « Ta formule RIJAL »).
+      RF_MODULES.forEach(function (m) {
+        m.niveaux.forEach(function (n) {
+          if (n.special === 'ta-formule') n.titre = 'Ta formule' + (rfFormuleNom(formule) ? ' ' + rfFormuleNom(formule) : '');
+        });
+      });
 
       function isNiveauLocked(niveau) {
         return !!niveau.minFormule && !rfHasFormule(formule, niveau.minFormule);
@@ -317,6 +325,16 @@
           html += niveauActionsHtml(modId, idx);
           main.innerHTML = html;
           rfRenderNutritionProtocol(document.getElementById('np-root'));
+          bindNiveauActions(modId, idx);
+          renderSidebar(modId, idx);
+          return;
+        }
+
+        if (niveau.special === 'ta-formule') {
+          html += '<div class="niveau__text"><p>Voici ce que contient ta formule, et ce que contiennent les autres. Ta colonne est en couleur.</p></div>';
+          html += rfFormuleCompareHtml(formule);
+          html += niveauActionsHtml(modId, idx);
+          main.innerHTML = html;
           bindNiveauActions(modId, idx);
           renderSidebar(modId, idx);
           return;

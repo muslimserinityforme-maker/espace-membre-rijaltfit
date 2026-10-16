@@ -1085,5 +1085,12 @@ body { background-color: var(--creme); background-image: radial-gradient(rgba(20
 .formules-table thead th span { display: block; font-size: .85rem; font-weight: 500; color: var(--gris); }
 .formules-table thead th em { display: inline-block; margin-top: 4px; font-style: normal; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--or); color: var(--noir); border-radius: 999px; padding: 2px 8px; }
 .formules-table tbody th { text-align: left; font-weight: 500; color: var(--noir); width: 42%; }
-.formules-table td.is-current, .formules-table thead th.is-current { background: #f6efd9; }
+/* Une couleur par formule pour repérer la colonne du membre */
+.formules-table td.f-qiyam { background: #e3f0e6; }
+.formules-table thead th.f-qiyam { background: #bfdcc6; }
+.formules-table td.f-thabit { background: #f7ecc6; }
+.formules-table thead th.f-thabit { background: #ecd58a; }
+.formules-table td.f-rijal { background: #d3e5dc; }
+.formules-table thead th.f-rijal { background: #1f4d3a; color: #fff; }
+.formules-table thead th.f-rijal span { color: #d7e8de; }
 .formules-table td.is-no { color: #b9b2a2; }

@@ -31,8 +31,6 @@
       <p class="module-header__desc">Ce que contient ton accompagnement, puis ton suivi pas à pas.</p>
     </header>
 
-    <section class="formules-compare" id="formules-compare"></section>
-
     <div class="programme-layout">
       <aside class="programme-sidebar" id="programme-sidebar"></aside>
       <section class="programme-main" id="programme-main">
@@ -54,44 +52,17 @@
       const formule = (access && access.formule) || 'QIYAM';
       const isRijal = rfHasFormule(formule, 'rijal');
 
-      // Tableau « Ce que contient ta formule »
-      (function () {
-        const FORMULES = [
-          { id: 'qiyam', nom: 'QIYAM', prix: '980 €' },
-          { id: 'thabit', nom: 'THĀBIT', prix: '1 680 €' },
-          { id: 'rijal', nom: 'RIJAL', prix: '3 000 €' }
-        ];
-        const OUI = '✓';
-        const NON = '–';
-        const ROWS = [
-          ['Bibliothèque de formation', 'Modules essentiels', 'Tous les modules', 'Tous les modules'],
-          ['Durée de l\u2019accompagnement', '3 mois', '3 mois', '2 ans'],
-          ['Ton poste de la semaine, avec un retour complet de ton coach', OUI, OUI, OUI],
-          ['Relance du coach si tu ne postes pas', OUI, OUI, OUI],
-          ['Message de motivation en début de semaine et rappel de ton poste la veille', OUI, OUI, OUI],
-          ['Coach disponible pour tes questions et tes changements d\u2019exercices', OUI, OUI, OUI],
-          ['Appel toutes les 2 semaines : mindset, séances, nutrition, coaching de vie', NON, OUI, OUI],
-          ['Une semaine en physique avec ton coach', NON, NON, OUI],
-          ['Après les 3 mois', '200 €/mois pour continuer', '200 €/mois pour continuer', 'Inclus']
-        ];
-        const current = String(formule || 'QIYAM').toLowerCase();
-        let html = '<h2 class="formules-compare__title">Ce que contient ta formule</h2>';
-        html += '<div class="formules-compare__scroll"><table class="formules-table"><thead><tr><th></th>';
-        FORMULES.forEach(function (f) {
-          html += '<th class="' + (f.id === current ? 'is-current' : '') + '">' + f.nom + '<span>' + f.prix + '</span>' + (f.id === current ? '<em>Ta formule</em>' : '') + '</th>';
-        });
-        html += '</tr></thead><tbody>';
-        ROWS.forEach(function (r) {
-          html += '<tr><th scope="row">' + r[0] + '</th>';
-          FORMULES.forEach(function (f, i) {
-            const v = r[i + 1];
-            html += '<td class="' + (f.id === current ? 'is-current' : '') + (v === NON ? ' is-no' : '') + '">' + v + '</td>';
-          });
-          html += '</tr>';
-        });
-        html += '</tbody></table></div>';
-        document.getElementById('formules-compare').innerHTML = html;
-      })();
+      // Lien de prise de rendez-vous (Calendly). Tant qu'il est vide, le bouton n'apparaît pas.
+      const RF_CALENDLY_LIEN = '';
+
+      function noAccessHtml() {
+        return '<div class="programme-locked-banner">' +
+          '<p class="programme-locked-banner__title">Pas encore accès à cet accompagnement</p>' +
+          '<p class="programme-locked-banner__text">Désolé, tu n\'as pas encore accès à cet accompagnement. Si tu souhaites aller plus loin, tu peux prendre rendez-vous avec ton coach.</p>' +
+          (RF_CALENDLY_LIEN ? '<p><a class="btn btn--primary" href="' + RF_CALENDLY_LIEN + '" target="_blank" rel="noopener">Prendre rendez-vous</a></p>' : '') +
+          '</div>';
+      }
+
 
       let jourCourant = 0;
       if (access && access.dateDebut) {
@@ -122,6 +93,10 @@
 
       const sidebar = document.getElementById('programme-sidebar');
       const main = document.getElementById('programme-main');
+      if (!rfHasCoaching(formule)) {
+        main.innerHTML = noAccessHtml();
+        return;
+      }
       const totalSemaines = Math.ceil(RF_JOURS_TOTAL / 7);
       const semaineCourante = jourCourant > 0 ? Math.ceil(Math.min(jourCourant, RF_JOURS_TOTAL) / 7) : 1;
 
@@ -169,11 +144,7 @@
           return;
         }
         if (jour > 90 && !isRijal && !access.accesEtendu) {
-          main.innerHTML =
-            '<div class="programme-locked-banner">' +
-            '<p class="programme-locked-banner__title">Accès à prolonger</p>' +
-            '<p class="programme-locked-banner__text">Tu as terminé les 90 premiers jours. Contacte Matthieu pour activer la suite de l\'accompagnement (200€/mois) et débloquer le Jour ' + jour + '.</p>' +
-            '</div>';
+          main.innerHTML = noAccessHtml();
           return;
         }
         main.innerHTML = '<p class="programme-empty">Le Jour ' + jour + ' se débloquera le ' + formatDateJour(jour) + '.</p>';

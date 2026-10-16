@@ -211,17 +211,7 @@ const RF_MODULES = [
           { text: 'L’objectif est surtout que tu développes progressivement ton autonomie alimentaire. À force d’utiliser les mêmes repères, tu apprendras à reconnaître naturellement les portions qui correspondent à tes besoins, même au restaurant, en famille ou en voyage.' },
         ],
       },
-      {
-        titre: 'Ta formule RIJAL',
-        videoId: null,
-        blocks: [
-          { text: '<strong><u>Ta formule RIJAL — L’accompagnement en autonomie</u></strong>' },
-          { text: 'Avec la formule RIJAL, tes 3 premiers mois de Programme (les 90 premiers jours) sont débloqués directement, dès le premier jour — pas de déblocage au compte-gouttes comme sur les autres formules.' },
-          { text: 'Tu avances à ton propre rythme, sans attendre. C’est une formule pensée pour un homme autonome, capable de se structurer seul avec un accompagnement plus léger.' },
-          { text: 'Une fois les 90 jours terminés, si tu veux continuer ta progression (Jour 91 à Jour 730) avec un accompagnement suivi, tu pourras poursuivre au tarif de 200€/mois — sur simple demande, sans engagement automatique.' },
-          { text: 'À toi de voir jusqu’où tu veux aller seul, et quand tu veux qu’on continue ensemble.' },
-        ],
-      },
+      { titre: 'Ta formule', special: 'ta-formule' },
       {
         titre: 'Quoi choisir ? En salle ou à la maison ?',
         videoId: null,

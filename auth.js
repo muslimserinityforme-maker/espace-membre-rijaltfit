@@ -89,3 +89,11 @@ async function rfRefreshAccess() {
   }
   return access;
 }
+
+// Formules « découverte » (lead magnet) : pas d'accompagnement jour par jour.
+// Toute autre valeur (QIYAM, THABIT, RIJAL, ou l'ancien « Starter ») en a un.
+const RF_FORMULES_SANS_COACHING = ['decouverte', 'découverte', 'gratuit', 'lead', 'leadmagnet', 'lead magnet'];
+function rfHasCoaching(formule) {
+  const key = (formule || 'qiyam').toString().trim().toLowerCase();
+  return RF_FORMULES_SANS_COACHING.indexOf(key) === -1;
+}
