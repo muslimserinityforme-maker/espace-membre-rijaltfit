@@ -2095,6 +2095,7 @@ const RF_MODULES = [
         titre: 'Phase 1 : Fondation',
         videoId: null,
         blocks: [
+          { image: 'images/depasse-forme/phase-1-fondation-du-corps.jpg' },
           { text: '<strong><u>Phase 1 : Fondation</u></strong>' },
           { text: 'Bienvenue dans la Phase 1 : la Fondation.' },
           { text: 'Avant d’entrer dans le vif du sujet, une chose importante à comprendre : dans Rijal Fit, on sait que vous n’êtes pas tous dans la même situation. Certains ont accès à une salle de sport. D’autres s’entraînent à la maison. C’est pour ça que chaque phase existe en deux versions : une version <strong>Salle</strong>, une version <strong>Maison</strong>.' },
@@ -2110,6 +2111,10 @@ const RF_MODULES = [
           { text: 'Pas juste physique : fonctionnelle. Tu apprends à utiliser ton corps, à te mouvoir avec intention, à poser les bases sur lesquelles tout le reste va s’appuyer.' },
           { text: 'Parce qu’une transformation durable, ça commence toujours par là.' },
           { text: 'Bienvenue dans la Phase 1. C’est parti.' },
+          { text: '<strong><u>Tes programmes de la Phase 1</u></strong>' },
+          { text: 'Choisis la version qui correspond à ton lieu d’entraînement. Dans le PDF, clique sur le nom d’un exercice pour voir la vidéo d’exécution.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/phase-1-programme-salle.pdf" target="_blank" rel="noopener">📄 Programme Phase 1 : salle</a>' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/phase-1-programme-maison.pdf" target="_blank" rel="noopener">📄 Programme Phase 1 : maison</a>' },
         ],
       },
     ],

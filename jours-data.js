@@ -86,6 +86,13 @@ RF_JOURS_OVERRIDES[4] = {
   titre: 'Les actes ne valent que par leurs intentions',
   blocks: [
     { image: 'images/semaines/jour-04-ton-programme.jpg' },
+    { text: '<strong>📋 Ton programme des 6 prochaines semaines</strong>' },
+    { text: 'Pendant les 6 prochaines semaines, tu suis la <strong>Phase 1 : Fondation</strong>. Tu t’entraînes soit en salle, soit à la maison : la logique est la même, seuls les exercices changent.' },
+    { text: '• Un programme <strong>full-body</strong> : 3 séances par semaine, avec un jour de repos entre chaque séance.<br>• Environ 4 exercices par séance, avec 1 min 30 de repos entre chaque série.<br>• Du <strong>cardio</strong> 3 fois par semaine (20 à 30 minutes, intensité modérée). C’est ton coach qui décide de le mettre en pratique ou non.<br>• Tu recommences le même programme chaque semaine pendant 6 semaines.' },
+    { text: '<strong>Ton objectif : ne rate AUCUNE séance pendant 6 semaines.</strong>' },
+    { text: 'Dans le PDF, clique sur le nom d’un exercice pour voir la vidéo d’exécution. Si un exercice est trop difficile ou trop facile, demande à ton coach de le changer.' },
+    { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/phase-1-programme-salle.pdf" target="_blank" rel="noopener">📄 Programme Phase 1 : salle</a>' },
+    { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/phase-1-programme-maison.pdf" target="_blank" rel="noopener">📄 Programme Phase 1 : maison</a>' },
     { text: '<strong>⚠️ JOUR 4 : obligatoire / IMPORTANT ⚠️</strong>' },
     { text: 'C’est parti pour ton jour 4 !' },
     { text: 'Aujourd’hui, c’est le jour le plus IMPORTANT de ton suivi !!!' },
