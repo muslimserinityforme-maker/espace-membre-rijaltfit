@@ -1103,3 +1103,10 @@ body { background-color: var(--creme); background-image: radial-gradient(rgba(20
 .coaching-progress__top span { font-size: .85rem; color: var(--gris); }
 .coaching-progress__bar { height: 10px; background: #efe7d2; border-radius: 999px; overflow: hidden; }
 .coaching-progress__bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--or), var(--forest)); border-radius: 999px; transition: width .3s; }
+
+/* « Je redémarre » (Démarre ton coaching) */
+.coaching-restart { margin: 0 0 22px; padding: 18px 22px; background: linear-gradient(135deg, #f6efd9, #e9f1ea); border: 1px solid #e3d6ab; border-radius: 12px; }
+.coaching-restart[hidden] { display: none; }
+.coaching-restart__title { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--forest); margin: 0 0 6px; }
+.coaching-restart__text { margin: 0 0 12px; color: var(--noir); }
+.coaching-restart__error { margin: 8px 0 0; color: #a33; font-size: .9rem; }

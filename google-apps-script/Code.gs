@@ -25,6 +25,12 @@ var COL_FORMULE = 3;
 var COL_DATE_DEBUT = 4;
 var COL_ACCES_ETENDU = 5;
 var COL_TELEGRAM_CHAT_ID = 6;
+var COL_NOTES = 7;
+
+// « Je redémarre » : possible à partir du jour 183 (6 mois écoulés), pour RIJAL
+// ou un membre dont l'accès est prolongé (AccesEtendu). Doit rester cohérent
+// avec RESTART_JOUR dans programme.html.
+var RESTART_JOUR = 182;
 
 // "Actif" : une case vide compte comme active (pour ne pas avoir à cocher
 // chaque ligne manuellement) — seul un FALSE explicite désactive.
@@ -128,6 +134,38 @@ function doPost(e) {
         sheet.getRange(i + 1, COL_TELEGRAM_CHAT_ID + 1).setValue(chatId);
         return jsonOut({ ok: true });
       }
+    }
+    return jsonOut({ ok: false, error: 'code introuvable' });
+  }
+
+  // Utilisé par api/restart-coaching.js : le membre relance son accompagnement
+  // à zéro (la date de début devient aujourd'hui). Éligibilité revérifiée ici.
+  if (body.action === 'restart-coaching') {
+    var sheetR = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var dataR = sheetR.getDataRange().getValues();
+    var codeR = (body.code || '').toString().trim().toLowerCase();
+    var tz = Session.getScriptTimeZone();
+
+    for (var r = 1; r < dataR.length; r++) {
+      var rc = (dataR[r][COL_CODE] || '').toString().trim().toLowerCase();
+      if (!rc || rc !== codeR) continue;
+      if (!isActiveDefaultTrue(dataR[r][COL_ACTIF])) return jsonOut({ ok: false, error: 'code inactif' });
+
+      var debutIso = dateToIso(dataR[r][COL_DATE_DEBUT]);
+      if (!debutIso) return jsonOut({ ok: false, error: 'pas de date de début' });
+
+      var isRijal = (dataR[r][COL_FORMULE] || '').toString().trim().toLowerCase() === 'rijal';
+      if (!isRijal && !isChecked(dataR[r][COL_ACCES_ETENDU])) return jsonOut({ ok: false, error: 'accès non prolongé' });
+
+      var debut = new Date(debutIso + 'T00:00:00');
+      var jour = Math.floor((new Date().getTime() - debut.getTime()) / 86400000) + 1;
+      if (jour <= RESTART_JOUR) return jsonOut({ ok: false, error: 'trop tôt' });
+
+      var today = Utilities.formatDate(new Date(), tz, 'yyyy-MM-dd');
+      sheetR.getRange(r + 1, COL_DATE_DEBUT + 1).setValue(today);
+      var oldNote = (dataR[r][COL_NOTES] || '').toString();
+      sheetR.getRange(r + 1, COL_NOTES + 1).setValue((oldNote ? oldNote + ' | ' : '') + 'Redémarrage le ' + today + ' (début précédent : ' + debutIso + ')');
+      return jsonOut({ ok: true, dateDebut: today });
     }
     return jsonOut({ ok: false, error: 'code introuvable' });
   }
