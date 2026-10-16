@@ -2091,6 +2091,27 @@ const RF_MODULES = [
     desc: "Les protocoles d'entraînement pour progresser concrètement.",
     niveaux: [
       { titre: 'Niveau 1 — Philosophie des protocoles', videoId: null, texte: 'Texte du niveau 1 à venir.' },
+      {
+        titre: 'Phase 1 : Fondation',
+        videoId: null,
+        blocks: [
+          { text: '<strong><u>Phase 1 : Fondation</u></strong>' },
+          { text: 'Bienvenue dans la Phase 1 : la Fondation.' },
+          { text: 'Avant d’entrer dans le vif du sujet, une chose importante à comprendre : dans Rijal Fit, on sait que vous n’êtes pas tous dans la même situation. Certains ont accès à une salle de sport. D’autres s’entraînent à la maison. C’est pour ça que chaque phase existe en deux versions : une version <strong>Salle</strong>, une version <strong>Maison</strong>.' },
+          { text: 'Les exercices changent. La logique, elle, reste identique.' },
+          { text: 'Même méthode. Même philosophie. Même niveau d’exigence.' },
+          { text: '<strong><u>Alors, concrètement, c’est quoi la Phase 1 ?</u></strong>' },
+          { text: 'C’est un programme <strong>full-body</strong>, pensé pour les débutants, organisé autour de <strong>4 exercices par séance</strong>. Pas pour faire simple, mais pour faire efficace. Chaque minute de ton entraînement a une raison d’être.' },
+          { text: 'Dans cette phase, on intègre des <strong>méthodes d’intensification</strong> et du <strong>cardio ciblé</strong>. Pas pour te vider, mais pour déclencher la perte de masse grasse tout en protégeant ton muscle. C’est la différence entre maigrir et se transformer.' },
+          { text: 'Pour ceux en salle, on travaille principalement aux machines. Pourquoi ? Parce que les machines t’apprennent les bons patterns de mouvement, en sécurité, sans risque de blessure quand la technique n’est pas encore maîtrisée.' },
+          { text: '<strong><u>Et le coach dans tout ça ?</u></strong>' },
+          { text: 'Son rôle, c’est de lire ton niveau réel et d’ajuster. Si un exercice est trop simple, on monte la difficulté. Si c’est trop compliqué, on adapte. L’objectif, c’est que tu progresses, pas que tu te décourages à la deuxième séance.' },
+          { text: 'Ce que tu construis ici, c’est ta <strong>fondation</strong>.' },
+          { text: 'Pas juste physique : fonctionnelle. Tu apprends à utiliser ton corps, à te mouvoir avec intention, à poser les bases sur lesquelles tout le reste va s’appuyer.' },
+          { text: 'Parce qu’une transformation durable, ça commence toujours par là.' },
+          { text: 'Bienvenue dans la Phase 1. C’est parti.' },
+        ],
+      },
     ],
   },
   {
