@@ -1073,3 +1073,17 @@ body { background-color: var(--creme); background-image: radial-gradient(rgba(20
 .nav-group--formation > .nav-group__items { padding: 0 0 6px 10px; }
 .nav-group--formation .nav-group .nav-group__header { padding: 11px 12px; }
 .nav-group--formation .nav-group .nav-group__title { font-size: .92rem; }
+
+/* Tableau « Ce que contient ta formule » (Démarre ton coaching) */
+.formules-compare { margin: 0 0 28px; }
+.formules-compare__title { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; color: var(--forest); margin: 0 0 12px; }
+.formules-compare__scroll { overflow-x: auto; background: var(--blanc); border-radius: 12px; border: 1px solid #ece3cd; }
+.formules-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: .92rem; }
+.formules-table th, .formules-table td { padding: 11px 14px; text-align: center; border-bottom: 1px solid #f1e9d6; vertical-align: middle; }
+.formules-table tbody tr:last-child th, .formules-table tbody tr:last-child td { border-bottom: none; }
+.formules-table thead th { font-family: 'Rajdhani', sans-serif; font-size: 1.05rem; color: var(--forest); background: #faf5e6; }
+.formules-table thead th span { display: block; font-size: .85rem; font-weight: 500; color: var(--gris); }
+.formules-table thead th em { display: inline-block; margin-top: 4px; font-style: normal; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--or); color: var(--noir); border-radius: 999px; padding: 2px 8px; }
+.formules-table tbody th { text-align: left; font-weight: 500; color: var(--noir); width: 42%; }
+.formules-table td.is-current, .formules-table thead th.is-current { background: #f6efd9; }
+.formules-table td.is-no { color: #b9b2a2; }

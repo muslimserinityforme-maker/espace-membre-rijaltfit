@@ -27,8 +27,10 @@
     <header class="module-header">
       <a href="espace.html" class="module-header__back">← Retour à mes modules</a>
       <h1 class="module-header__title">Démarre ton coaching</h1>
-      <p class="module-header__desc">Un nouveau jour débloqué chaque jour — réservé aux formules THĀBIT et RIJAL. Reçois le lien directement sur Telegram dès qu'il est disponible.</p>
+      <p class="module-header__desc">Ce que contient ton accompagnement, puis ton suivi pas à pas.</p>
     </header>
+
+    <section class="formules-compare" id="formules-compare"></section>
 
     <div class="programme-layout">
       <aside class="programme-sidebar" id="programme-sidebar"></aside>
@@ -51,6 +53,45 @@
       const formule = (access && access.formule) || 'QIYAM';
       const isPremium = rfHasFormule(formule, 'thabit');
       const isRijal = rfHasFormule(formule, 'rijal');
+
+      // Tableau « Ce que contient ta formule »
+      (function () {
+        const FORMULES = [
+          { id: 'qiyam', nom: 'QIYAM', prix: '980 €' },
+          { id: 'thabit', nom: 'THĀBIT', prix: '1 680 €' },
+          { id: 'rijal', nom: 'RIJAL', prix: '3 000 €' }
+        ];
+        const OUI = '✓';
+        const NON = '–';
+        const ROWS = [
+          ['Bibliothèque de formation', 'Modules essentiels', 'Tous les modules', 'Tous les modules'],
+          ['Durée de l\u2019accompagnement', '3 mois', '3 mois', '2 ans'],
+          ['Ton poste de la semaine, avec un retour complet de ton coach', OUI, OUI, OUI],
+          ['Relance du coach si tu ne postes pas', OUI, OUI, OUI],
+          ['Message de motivation en début de semaine et rappel de ton poste la veille', OUI, OUI, OUI],
+          ['Coach disponible pour tes questions et tes changements d\u2019exercices', OUI, OUI, OUI],
+          ['Appel toutes les 2 semaines : mindset, séances, nutrition, coaching de vie', NON, OUI, OUI],
+          ['Une semaine en physique avec ton coach', NON, NON, OUI],
+          ['Après les 3 mois', '200 €/mois pour continuer', '200 €/mois pour continuer', 'Inclus']
+        ];
+        const current = String(formule || 'QIYAM').toLowerCase();
+        let html = '<h2 class="formules-compare__title">Ce que contient ta formule</h2>';
+        html += '<div class="formules-compare__scroll"><table class="formules-table"><thead><tr><th></th>';
+        FORMULES.forEach(function (f) {
+          html += '<th class="' + (f.id === current ? 'is-current' : '') + '">' + f.nom + '<span>' + f.prix + '</span>' + (f.id === current ? '<em>Ta formule</em>' : '') + '</th>';
+        });
+        html += '</tr></thead><tbody>';
+        ROWS.forEach(function (r) {
+          html += '<tr><th scope="row">' + r[0] + '</th>';
+          FORMULES.forEach(function (f, i) {
+            const v = r[i + 1];
+            html += '<td class="' + (f.id === current ? 'is-current' : '') + (v === NON ? ' is-no' : '') + '">' + v + '</td>';
+          });
+          html += '</tr>';
+        });
+        html += '</tbody></table></div>';
+        document.getElementById('formules-compare').innerHTML = html;
+      })();
 
       let jourCourant = 0;
       if (isPremium && access.dateDebut) {
@@ -103,7 +144,7 @@
           main.innerHTML =
             '<div class="programme-locked-banner">' +
             '<p class="programme-locked-banner__title">Réservé aux formules THĀBIT et RIJAL</p>' +
-            '<p class="programme-locked-banner__text">Le Programme jour par jour (Jour ' + jour + ' et les suivants) est débloqué à partir de la formule THĀBIT (1 980€). Contacte Matthieu pour en savoir plus.</p>' +
+            '<p class="programme-locked-banner__text">Le Programme jour par jour (Jour ' + jour + ' et les suivants) est débloqué à partir de la formule THĀBIT (1 680€). Contacte Matthieu pour en savoir plus.</p>' +
             '</div>';
           return;
         }
