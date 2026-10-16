@@ -92,6 +92,7 @@ RF_JOURS_OVERRIDES[4] = {
     { text: '<strong>Ton objectif : ne rate AUCUNE séance pendant 6 semaines.</strong>' },
     { text: 'Dans le PDF, clique sur le nom d’un exercice pour voir la vidéo d’exécution. Si un exercice est trop difficile ou trop facile, demande à ton coach de le changer.' },
     { text: '<span class="btn-row"><a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/phase-1-programme-salle.pdf" target="_blank" rel="noopener">📄 Programme salle</a> <a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/phase-1-programme-maison.pdf" target="_blank" rel="noopener">📄 Programme maison</a></span>' },
+    { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/choisir-ses-poids-salle.pdf" target="_blank" rel="noopener">📄 Choisir ses poids pour la salle</a>' },
     { text: '<strong>⚠️ JOUR 4 : obligatoire / IMPORTANT ⚠️</strong>' },
     { text: 'C’est parti pour ton jour 4 !' },
     { text: 'Aujourd’hui, c’est le jour le plus IMPORTANT de ton suivi !!!' },

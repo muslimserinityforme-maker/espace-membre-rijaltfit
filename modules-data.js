@@ -2116,6 +2116,7 @@ const RF_MODULES = [
           { text: '<strong><u>Tes programmes de la Phase 1</u></strong>' },
           { text: 'Choisis la version qui correspond à ton lieu d’entraînement. Dans le PDF, clique sur le nom d’un exercice pour voir la vidéo d’exécution.' },
           { text: '<span class="btn-row"><a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/phase-1-programme-salle.pdf" target="_blank" rel="noopener">📄 Programme salle</a> <a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/phase-1-programme-maison.pdf" target="_blank" rel="noopener">📄 Programme maison</a></span>' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/depasse-forme/choisir-ses-poids-salle.pdf" target="_blank" rel="noopener">📄 Choisir ses poids pour la salle</a>' },
         ],
       },
     ],
