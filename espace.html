@@ -195,7 +195,7 @@
 
       var formationOpen = true;
 
-      // Barre latérale : Introduction, Mon programme, puis Formation (tous les modules dedans).
+      // Barre latérale : Introduction, Démarre ton coaching, puis Formation (tous les modules dedans).
       function renderSidebar(activeMod, activeIdx) {
         var progress = getProgress();
         var formationDone = 0;
@@ -229,7 +229,7 @@
         var formationHtml = formationMods.map(function (m) { return moduleGroupHtml(m, true); }).join('');
         var html = '';
         if (intro) html += moduleGroupHtml(intro, false);
-        html += '<a href="programme.html" class="nav-item nav-item--programme">🔒 Mon programme</a>';
+        html += '<a href="programme.html" class="nav-item nav-item--programme">🔒 Démarre ton coaching</a>';
         html += '<div class="nav-group nav-group--formation' + (formationOpen ? ' is-open' : '') + '" data-formation="1">';
         html += '<button type="button" class="nav-group__header"><span class="nav-group__title">Formation</span><span class="nav-group__pct">' + formationDone + '/' + formationTotal + '</span><span class="nav-group__chevron">›</span></button>';
         html += '<div class="nav-group__items">' + formationHtml + '</div></div>';
