@@ -138,7 +138,7 @@ RF_JOURS_OVERRIDES[6] = {
     { text: 'Si tu as des questions ou des doutes, n’hésite pas à en parler à ton coach.' },
     { text: '<a class="btn btn--primary recette-pdf-btn" href="espace.html?mod=introduction&idx=4">Ton protocole nutrition</a>' },
     { text: '<strong><u>😴 Mission sommeil : partie 2</u></strong>' },
-    { text: '<img src="images/semaines/mission-sommeil-partie-2.png" alt="Mission sommeil optimal, partie 2" style="max-width:160px;height:auto">' },
+    { image: 'images/semaines/mission-sommeil-partie-2.jpg' },
     { text: '<strong>🔬 Science : 🥼</strong>' },
     { text: 'Le sommeil ne commence pas au coucher : il se construit dès le réveil, via le cortisol.' },
     { text: 'Pic de cortisol naturel le matin → s’il est bien géré toute la journée → la mélatonine monte correctement le soir.' },
