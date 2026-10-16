@@ -14,6 +14,7 @@
 
   <script src="auth.js"></script>
   <script src="jours-data.js"></script>
+  <script src="modules-data.js"></script>
   <script>rfRequireAccess();</script>
 </head>
 <body>
@@ -51,7 +52,6 @@
     (async function () {
       const access = (await rfRefreshAccess()) || rfGetAccess();
       const formule = (access && access.formule) || 'QIYAM';
-      const isPremium = rfHasFormule(formule, 'thabit');
       const isRijal = rfHasFormule(formule, 'rijal');
 
       // Tableau « Ce que contient ta formule »
@@ -94,7 +94,7 @@
       })();
 
       let jourCourant = 0;
-      if (isPremium && access.dateDebut) {
+      if (access && access.dateDebut) {
         const debut = new Date(access.dateDebut + 'T00:00:00');
         const debutUTC = Date.UTC(debut.getFullYear(), debut.getMonth(), debut.getDate());
         const now = new Date();
@@ -102,13 +102,13 @@
         jourCourant = Math.floor((nowUTC - debutUTC) / 86400000) + 1;
       }
 
-      // RIJAL : les 90 premiers jours (3 mois) sont débloqués d'un coup, en
-      // autonomie — pas de déblocage au jour le jour comme pour THABIT.
+      // Pour les 3 formules, un jour se débloque chaque jour à partir de la
+      // date de début. QIYAM et THABIT : 90 jours (3 mois), puis il faut
+      // l'accès étendu (200 €/mois). RIJAL : les 2 ans sont inclus.
       function isJourUnlocked(jour) {
-        if (!isPremium) return false;
-        if (isRijal && jour <= 90) return true;
+        if (!access || !access.dateDebut) return false;
         if (jour > jourCourant) return false;
-        if (jour > 90 && !access.accesEtendu) return false;
+        if (jour > 90 && !isRijal && !access.accesEtendu) return false;
         return true;
       }
 
@@ -125,14 +125,34 @@
       const totalSemaines = Math.ceil(RF_JOURS_TOTAL / 7);
       const semaineCourante = jourCourant > 0 ? Math.ceil(Math.min(jourCourant, RF_JOURS_TOTAL) / 7) : 1;
 
+      // Rendu d'un bloc de jour (même logique que les chapitres des modules).
+      // { chapter: { mod, niveau, sous } } reprend les blocs d'un chapitre.
+      function blockHtml(block, title) {
+        if (block.image) return '<div class="niveau__images"><img src="' + block.image + '" alt="" loading="lazy"></div>';
+        if (block.video) return '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + block.video + '" title="' + title + '" allowfullscreen loading="lazy"></iframe></div>';
+        if (block.text) return '<div class="niveau__text"><p>' + block.text + '</p></div>';
+        if (block.chapter && typeof RF_MODULES !== 'undefined') {
+          const mod = RF_MODULES.filter(function (m) { return m.id === block.chapter.mod; })[0];
+          const niveau = mod && mod.niveaux[block.chapter.niveau];
+          const chap = niveau && (niveau.sousNiveaux ? niveau.sousNiveaux[block.chapter.sous] : niveau);
+          if (chap && chap.blocks) return chap.blocks.map(function (b) { return blockHtml(b, title); }).join('');
+        }
+        return '';
+      }
+
       function renderJour(jour) {
         const content = rfGetJourContent(jour);
         let html = '<p class="eyebrow">Jour ' + jour + '</p><h2 class="niveau__title">' + content.titre + '</h2>';
-        if (content.videoId) {
-          html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + content.videoId + '" title="Jour ' + jour + '" allowfullscreen loading="lazy"></iframe></div>';
+        if (content.blocks) {
+          html += content.blocks.map(function (b) { return blockHtml(b, content.titre); }).join('');
+        } else {
+          if (content.videoId) {
+            html += '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + content.videoId + '" title="Jour ' + jour + '" allowfullscreen loading="lazy"></iframe></div>';
+          }
+          html += '<div class="niveau__text"><p>' + content.texte + '</p></div>';
         }
-        html += '<div class="niveau__text"><p>' + content.texte + '</p></div>';
         main.innerHTML = html;
+        window.scrollTo(0, 0);
 
         sidebar.querySelectorAll('.jour-item').forEach(function (btn) {
           btn.classList.toggle('is-active', Number(btn.dataset.jour) === jour);
@@ -140,15 +160,15 @@
       }
 
       function showLockedMessage(jour) {
-        if (!isPremium) {
+        if (!access || !access.dateDebut) {
           main.innerHTML =
             '<div class="programme-locked-banner">' +
-            '<p class="programme-locked-banner__title">Réservé aux formules THĀBIT et RIJAL</p>' +
-            '<p class="programme-locked-banner__text">Le Programme jour par jour (Jour ' + jour + ' et les suivants) est débloqué à partir de la formule THĀBIT (1 680€). Contacte Matthieu pour en savoir plus.</p>' +
+            '<p class="programme-locked-banner__title">Ton coaching démarre bientôt</p>' +
+            '<p class="programme-locked-banner__text">Ta date de début n\'est pas encore enregistrée. Contacte ton coach pour lancer ton accompagnement.</p>' +
             '</div>';
           return;
         }
-        if (jour > 90 && !access.accesEtendu) {
+        if (jour > 90 && !isRijal && !access.accesEtendu) {
           main.innerHTML =
             '<div class="programme-locked-banner">' +
             '<p class="programme-locked-banner__title">Accès à prolonger</p>' +

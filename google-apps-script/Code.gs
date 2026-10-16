@@ -6,8 +6,8 @@
 //   Colonne A : Code            — le code d'accès (texte)
 //   Colonne B : Origine         — "payant" ou "ancien client", libre, pour ton suivi
 //   Colonne C : Actif           — laisse vide ou VRAI/TRUE = actif ; FALSE = désactivé
-//   Colonne D : Formule         — "QIYAM", "THABIT" ou "RIJAL" (THABIT et RIJAL débloquent le
-//                                 Programme jour par jour ; RIJAL ajoute l'accompagnement maison)
+//   Colonne D : Formule         — "QIYAM", "THABIT" ou "RIJAL" (les 3 ont l'accompagnement jour par jour ;
+//                                 RIJAL : 2 ans inclus ; QIYAM et THABIT : 3 mois, puis AccesEtendu)
 //   Colonne E : DateDebut       — date de 1er paiement, au format AAAA-MM-JJ (THABIT/RIJAL uniquement,
 //                                 saisie manuelle par toi au moment où tu crées le code)
 //   Colonne F : AccesEtendu     — laisse vide/FALSE jusqu'au jour 90, coche VRAI/TRUE quand le
@@ -41,8 +41,8 @@ function isChecked(v) {
 // Paliers cumulatifs, doit rester cohérent avec RF_FORMULE_RANK dans auth.js.
 var FORMULE_RANK = { qiyam: 1, thabit: 2, rijal: 3 };
 function formuleGivesProgramme(formule) {
-  var key = (formule || 'qiyam').toString().trim().toLowerCase();
-  return (FORMULE_RANK[key] || 1) >= FORMULE_RANK.thabit;
+  // Les 3 formules (QIYAM, THABIT, RIJAL) ont l'accompagnement jour par jour.
+  return true;
 }
 
 function dateToIso(v) {
@@ -78,6 +78,7 @@ function doGet(e) {
           chatId: chatId,
           dateDebut: dateDebut,
           accesEtendu: isChecked(data[i][COL_ACCES_ETENDU]),
+          formule: formule,
         });
       }
     }

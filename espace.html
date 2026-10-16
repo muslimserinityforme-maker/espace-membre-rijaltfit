@@ -550,7 +550,16 @@
       });
 
       updateRing();
-      renderDashboardTab();
+      // Lien direct vers un chapitre (ex. depuis un jour du coaching) : espace.html?mod=…&idx=…&sous=…
+      var deepLink = new URLSearchParams(window.location.search);
+      var deepMod = deepLink.get('mod');
+      var deepIdx = Number(deepLink.get('idx') || 0);
+      var deepMod2 = deepMod && RF_MODULES.filter(function (m) { return m.id === deepMod; })[0];
+      if (deepMod2 && deepMod2.niveaux[deepIdx]) {
+        renderNiveau(deepMod, deepIdx, deepLink.get('sous') === null ? undefined : Number(deepLink.get('sous')));
+      } else {
+        renderDashboardTab();
+      }
     })();
   </script>
 </body>

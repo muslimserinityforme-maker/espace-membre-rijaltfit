@@ -45,7 +45,8 @@ module.exports = async (req, res) => {
     let sent = 0;
     for (const row of rows) {
       const jour = computeJourCourant(row.dateDebut);
-      const bloqueApresJ90 = jour > 90 && !row.accesEtendu;
+      const estRijal = String(row.formule || '').trim().toLowerCase() === 'rijal';
+      const bloqueApresJ90 = jour > 90 && !row.accesEtendu && !estRijal;
       if (jour < 1 || jour > 730 || bloqueApresJ90) continue;
 
       const lien = `${siteUrl}/programme.html?jour=${jour}`;
