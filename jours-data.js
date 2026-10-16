@@ -68,7 +68,7 @@ RF_JOURS_OVERRIDES[3] = {
     { text: '<strong>🔥 JOUR 3 : obligatoire ! 🔥</strong>' },
     { text: 'C’est parti pour ton jour 3 !' },
     { text: '<strong>Présente-toi !</strong>' },
-    { text: 'Réalise une vidéo OU un audio pour répondre aux questions suivantes :' },
+    { text: 'Réalise une vidéo OU un audio pour répondre aux 8 questions suivantes :' },
     { text: '<strong>1. Comment t’appelles-tu ?</strong><br>Exemple : je m’appelle Matthieu.' },
     { text: '<strong>2. Quel âge as-tu ?</strong><br>Exemple : j’ai 32 ans.' },
     { text: '<strong>3. Comment as-tu rencontré Rijal Fit ?</strong><br>Exemple : Matthieu m’a contacté sur Instagram.' },
