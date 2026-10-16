@@ -3183,7 +3183,12 @@ const RF_MODULES = [
         videoId: null,
         minFormule: 'thabit',
         blocks: [
-          { text: '<div class="video-embed"><iframe src="https://www.youtube.com/embed/KTHeQe32K-4" title="Semaines 8 à 9 : semaines blanches" allowfullscreen loading="lazy"></iframe></div>' },
+          { image: 'images/protocoles-forme/perte-de-masse-grasse-semaines-blanches.jpg' },
+          { text: '<strong><u>Protocole de perte de masse grasse : semaines 8 et 9</u></strong>' },
+          { text: 'Dans ce PDF, tu trouves les deux semaines de pause de ton protocole, appelées semaines blanches.' },
+          { text: 'Tu y découvres pourquoi on les place après sept semaines de déficit, combien tu manges, comment répartir tes calories, comment adapter ton entraînement, et à quoi t’attendre sur la balance.' },
+          { text: 'Lis-le avant de commencer ta semaine 8 et garde-le sous la main.' },
+          { text: 'Si ton objectif est de prendre du muscle ou de gagner en énergie, une section te dit ce qui change pour toi.' },
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/protocoles-forme/perte-de-masse-grasse-semaines-8-et-9.pdf" target="_blank" rel="noopener">📄 Protocole perte de masse grasse : semaines 8 et 9 (semaines blanches)</a>' },
         ],
       },
