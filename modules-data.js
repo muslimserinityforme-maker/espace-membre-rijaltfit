@@ -2090,7 +2090,6 @@ const RF_MODULES = [
     nom: 'Dépasse-Forme',
     desc: "Les protocoles d'entraînement pour progresser concrètement.",
     niveaux: [
-      { titre: 'Niveau 1 — Philosophie des protocoles', videoId: null, texte: 'Texte du niveau 1 à venir.' },
       {
         titre: 'Phase 1 : Fondation',
         videoId: null,
