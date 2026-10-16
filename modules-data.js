@@ -3192,6 +3192,20 @@ const RF_MODULES = [
           { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/protocoles-forme/perte-de-masse-grasse-semaines-8-et-9.pdf" target="_blank" rel="noopener">📄 Protocole perte de masse grasse : semaines 8 et 9 (semaines blanches)</a>' },
         ],
       },
+      {
+        titre: '3. Protocole perte de masse grasse : semaines 10 à 14 (ou 16) et fin de protocole',
+        videoId: null,
+        minFormule: 'thabit',
+        blocks: [
+          { image: 'images/protocoles-forme/perte-de-masse-grasse-semaines-10-a-16.jpg' },
+          { text: '<strong><u>Protocole de perte de masse grasse : semaines 10 à 14 (ou 16) et fin de protocole</u></strong>' },
+          { text: 'Dans ce PDF, tu trouves la dernière phase de ton protocole : la reprise du déficit, de la semaine 10 à la semaine 14 ou 16.' },
+          { text: 'Tu y découvres comment ton entraînement évolue, comment suivre ta progression, et ce que tu fais à la fin pour consolider ton résultat : une semaine de remise à plat, puis une phase de stabilisation.' },
+          { text: 'Le PDF explique aussi pourquoi on ne propose pas de cure détox, et ce que tu fais à la place.' },
+          { text: 'Si ton objectif est de prendre du muscle ou de gagner en énergie, une section te dit ce qui change pour toi.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/protocoles-forme/perte-de-masse-grasse-semaines-10-a-16.pdf" target="_blank" rel="noopener">📄 Protocole perte de masse grasse : semaines 10 à 14 (ou 16) et fin de protocole</a>' },
+        ],
+      },
     ],
   },
   {
