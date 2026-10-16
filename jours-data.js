@@ -58,6 +58,9 @@ RF_JOURS_OVERRIDES[2] = {
     { text: 'Bienvenue à toi dans ton accompagnement Rijal Fit !' },
     { text: 'Dans cette vidéo, je t’explique comment va se dérouler ton suivi :' },
     { video: 'BYNIRBaGlpE' },
+    { text: '<strong><u>🌙 Mission sommeil : partie 1</u></strong>' },
+    { image: 'images/semaines/mission-sommeil-partie-1.jpg' },
+    { chapter: { mod: 'follow-forme', niveau: 0, sous: 13 } },
   ],
 };
 
@@ -134,6 +137,22 @@ RF_JOURS_OVERRIDES[6] = {
     { image: 'images/protocole-poings.jpg' },
     { text: 'Si tu as des questions ou des doutes, n’hésite pas à en parler à ton coach.' },
     { text: '<a class="btn btn--primary recette-pdf-btn" href="espace.html?mod=introduction&idx=4">Ton protocole nutrition</a>' },
+    { text: '<strong><u>😴 Mission sommeil : partie 2</u></strong>' },
+    { text: '<img src="images/semaines/mission-sommeil-partie-2.png" alt="Mission sommeil optimal, partie 2" style="max-width:160px;height:auto">' },
+    { text: '<strong>🔬 Science : 🥼</strong>' },
+    { text: 'Le sommeil ne commence pas au coucher : il se construit dès le réveil, via le cortisol.' },
+    { text: 'Pic de cortisol naturel le matin → s’il est bien géré toute la journée → la mélatonine monte correctement le soir.' },
+    { text: 'Si le cortisol reste élevé en soirée → sommeil fragmenté, réveils nocturnes, pas de récupération profonde. C’est exactement ce que tu vis.' },
+    { text: '<strong>NOUVEAU PROTOCOLE SOMMEIL OPTIMAL !</strong>' },
+    { text: '<strong>⚠️ Chaque nouveau protocole s’ajoute au précédent ! ⚠️</strong>' },
+    { text: '<strong>🌅 MATIN : lancer la journée sans cortisol</strong>' },
+    { text: '• Se lever sans snooze (le bouton rappel du réveil) : chaque snooze = un nouveau pic de cortisol.<br>• Lumière naturelle dans les 10 minutes (elle régule l’horloge circadienne).<br>• Cohérence cardiaque 5 minutes avant ou après le dou’a du réveil.<br>• Identifier 3 tâches maximum pour la journée, et commencer par la plus lourde.' },
+    { text: '<strong>🕌 PRIÈRES : transformer chaque salat en outil anti-stress</strong>' },
+    { text: '• Cohérence cardiaque 2 à 3 minutes avant la prière (elle prépare le système nerveux).<br>• Inspiration et expiration profondes à chaque mouvement.<br>• Le soujoud en particulier : une position qui active naturellement le nerf vague.' },
+    { text: '<strong>🌆 APRÈS-MIDI : couper le cortisol de la journée</strong>' },
+    { text: '• Sieste courte après dohr (20 minutes maximum) si besoin.<br>• Pas d’écrans stimulants après asr.<br>• Repas du soir léger et tôt (avant 20 h idéalement).' },
+    { text: '<strong>🌙 SOIR : descente progressive vers le sommeil</strong>' },
+    { text: '• Le protocole existant (adhkars, respiration, suivi).' },
   ],
 };
 
