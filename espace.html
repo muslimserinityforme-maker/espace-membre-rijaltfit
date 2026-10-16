@@ -96,11 +96,27 @@
         try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(list)); } catch (err) { /* rien à faire */ }
       }
 
+      // Favoris proposés au départ : tant que le membre n'a rien modifié, ils s'affichent.
+      function defaultFavorites() {
+        var list = [];
+        function mod(id) { return RF_MODULES.filter(function (m) { return m.id === id; })[0]; }
+        function allSous(modId, idx) {
+          var n = mod(modId) && mod(modId).niveaux[idx];
+          if (!n) return;
+          if (!n.sousNiveaux) { list.push(niveauKey(modId, idx)); return; }
+          n.sousNiveaux.forEach(function (s, j) { list.push(niveauKey(modId, idx, j)); });
+        }
+        [0, 1, 2, 3].forEach(function (i) { if (mod('introduction') && mod('introduction').niveaux[i]) list.push(niveauKey('introduction', i)); });
+        allSous('motive-forme', 0);
+        allSous('nutri-forme', 0);
+        return list;
+      }
+
       function getFavorites() {
         try {
           var raw = localStorage.getItem(FAVORITES_KEY);
-          return raw ? JSON.parse(raw) : [];
-        } catch (err) { return []; }
+          return raw ? JSON.parse(raw) : defaultFavorites();
+        } catch (err) { return defaultFavorites(); }
       }
 
       function setFavorites(list) {
@@ -438,22 +454,27 @@
         } else {
           html += '<div class="modules-grid">';
           favorites.forEach(function (key) {
-            var sepIdx = key.lastIndexOf('-');
-            var modId = key.slice(0, sepIdx);
-            var idx = Number(key.slice(sepIdx + 1));
-            var mod = RF_MODULES.find(function (m) { return m.id === modId; });
+            var m = /^(.*)-(\d+)(?:-s(\d+))?$/.exec(key);
+            if (!m) return;
+            var modId = m[1];
+            var idx = Number(m[2]);
+            var sous = m[3] === undefined ? null : Number(m[3]);
+            var mod = RF_MODULES.find(function (x) { return x.id === modId; });
             if (!mod || !mod.niveaux[idx]) return;
-            html += '<button type="button" class="module-card favorite-card" data-mod="' + modId + '" data-idx="' + idx + '">' +
+            var niveau = mod.niveaux[idx];
+            var sn = (sous !== null && niveau.sousNiveaux) ? niveau.sousNiveaux[sous] : null;
+            if (sous !== null && !sn) return;
+            html += '<button type="button" class="module-card favorite-card" data-mod="' + modId + '" data-idx="' + idx + '"' + (sn ? ' data-sous="' + sous + '"' : '') + '>' +
               '<span class="module-card__body">' +
-              '<span class="module-card__name">' + mod.niveaux[idx].titre + '</span>' +
-              '<span class="module-card__desc">' + mod.nom + '</span>' +
+              '<span class="module-card__name">' + (sn ? sn.titre : niveau.titre) + '</span>' +
+              '<span class="module-card__desc">' + mod.nom + (sn ? ' · ' + niveau.titre : '') + '</span>' +
               '</span><span class="module-card__arrow">→</span></button>';
           });
           html += '</div>';
         }
         main.innerHTML = html;
         main.querySelectorAll('.favorite-card').forEach(function (btn) {
-          btn.addEventListener('click', function () { renderNiveau(btn.dataset.mod, Number(btn.dataset.idx)); });
+          btn.addEventListener('click', function () { renderNiveau(btn.dataset.mod, Number(btn.dataset.idx), btn.dataset.sous === undefined ? undefined : Number(btn.dataset.sous)); });
         });
       }
 
