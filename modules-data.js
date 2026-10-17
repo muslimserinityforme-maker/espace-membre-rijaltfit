@@ -2590,6 +2590,30 @@ const RF_MODULES = [
     desc: 'Garder ta forme et ta régularité pendant les 30 jours de Ramadan.',
     niveaux: [
       {
+        titre: 'En route vers le Ramadan : ton suivi de 24 semaines',
+        videoId: null,
+        blocks: [
+          { image: 'images/ramadan-forme/en-route-vers-le-ramadan.jpg' },
+          { text: '<strong><u>En route vers le Ramadan : « Ton corps au service de ta foi »</u></strong>' },
+          { text: 'As-salâmu ʿalaykum mes frères,' },
+          { text: 'Les pieux prédécesseurs ne laissaient pas le Ramadan les surprendre. Muʿallâ ibn al-Faḍl rapporte à leur sujet :' },
+          { text: '<span dir="rtl" lang="ar" style="display:block;font-size:1.4em;line-height:1.9;text-align:center">كانوا يدعون الله ستة أشهر أن يبلغهم رمضان، ثم يدعونه ستة أشهر أن يتقبل منهم</span>' },
+          { text: '« Ils invoquaient Allah six mois pour qu’Il leur fasse atteindre le Ramadan, puis six mois pour qu’Il l’accepte d’eux. »<br>(Rapporté par Ibn Rajab, Laṭâʾif al-Maʿârif)' },
+          { text: 'Le Ramadan se prépare. Il ne commence pas le premier jour.' },
+          { text: 'C’est l’intention de ce challenge : arriver au Ramadan avec une foi déjà en mouvement, et un corps qui suit.' },
+          { text: '<strong>Côté foi :</strong> une nouvelle habitude chaque jour la première semaine, puis une par semaine, pendant 24 semaines. Coran, invocations, intention, bon comportement. Chaque mission est accompagnée de son hadith et de sa récompense, et 10 versets du Coran t’accompagnent chaque semaine. On ajoute sans jamais perdre ce qui est acquis.' },
+          { text: '<strong>Côté corps :</strong> hydratation, repas, sommeil, activité physique. Pour que la prière de l’aube, les longues nuits et le jeûne ne soient plus un combat contre la fatigue.' },
+          { text: '<strong>Chaque semaine, ton bilan</strong> te montre où tu es régulier et ce que tu peux consolider.' },
+          { text: 'Une précision importante : ce suivi mesure la régularité de tes habitudes. Jamais ta sincérité, ta piété ou ta valeur auprès d’Allah. Il n’y a ni classement ni comparaison entre frères. Tes objectifs physiques sont adaptés à TES capacités.' },
+          { text: '<strong><u>Ce que contient le fichier</u></strong><br>• Mon suivi quotidien : ta journée en 2 minutes (missions, eau, repas, sommeil, sport).<br>• Mon bilan : ton score et ton analyse de la semaine, calculés automatiquement.<br>• Ma progression : ta courbe sur 24 semaines.<br>• Mes missions : les 30 missions du programme, avec comment les faire, le hadith et la récompense.<br>• Versets : 10 versets par semaine avec leur traduction.' },
+          { text: '<strong><u>Comment commencer</u></strong><br>1. Télécharge le fichier ci-dessous et ouvre-le avec Excel (ordinateur, Mac, ou application Excel sur téléphone).<br>2. Lis d’abord l’onglet « MODE D’EMPLOI » : il te guide pas à pas.<br>3. Note ta date de départ dans « MON SUIVI QUOTIDIEN » : tes missions et tes versets de la semaine s’affichent tout seuls.' },
+          { text: 'Le programme dure 24 semaines, soit environ 6 mois. Si tu commences moins de 24 semaines avant le Ramadan, commence quand même et ne saute aucune mission : demande conseil à ton coach pour adapter le rythme.' },
+          { text: 'Les récompenses citées dans le fichier sont le sens de hadiths dont la référence est indiquée. Elles t’encouragent : elles ne sont jamais une note sur ta foi.' },
+          { text: 'Qu’Allah nous fasse tous atteindre le Ramadan, et qu’Il l’accepte de nous.' },
+          { text: '<a class="btn btn--primary recette-pdf-btn" href="pdf/ramadan-forme/RijalFit_EnRouteVersLeRamadan.xlsx" download target="_blank" rel="noopener">📊 Télécharger le fichier Excel : En route vers le Ramadan</a>' },
+        ],
+      },
+      {
         titre: 'Jour 1 : L’intention',
         videoId: null,
         blocks: [
