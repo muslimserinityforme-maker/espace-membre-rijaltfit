@@ -129,7 +129,7 @@ const RF_MODULES = [
         titre: 'Les recettes Rijal Fit',
         videoId: null,
         blocks: [
-          { image: 'images/intro-recettes.png' },
+          { image: 'images/intro-recettes.jpg' },
           { text: '<strong><u>Les meilleures recettes de Rijal Fit</u></strong>' },
           { text: 'Aucune excuse possible.' },
           { text: 'Tu peux désormais respecter tes macros en te faisant plaisir. Choisi les recettes qui te conviennent : classique, végan, sans gluten ou boost ta testostérone !' },
@@ -147,7 +147,7 @@ const RF_MODULES = [
         titre: 'F.A.Q Nutri-Forme',
         videoId: null,
         blocks: [
-          { image: 'images/intro-faq-nutrition.png' },
+          { image: 'images/intro-faq-nutrition.jpg' },
           { text: '<strong><u>FAQ — Méthode F.A.C.I.L.E.</u></strong>' },
 
           { text: '<strong><u>1. Est-ce que je dois peser mes aliments pour avoir des résultats ?</u></strong>' },
@@ -275,52 +275,52 @@ const RF_MODULES = [
           { text: '<strong><u>Matériel sport</u></strong>' },
           { text:
             '<div class="shop-grid">' +
-            '<div class="shop-item"><img src="images/shop-kit-halteres.png" alt="Kit haltères Rijal Fit" loading="lazy"><p class="shop-item__name">Kit haltères Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-barre-tractions.png" alt="Barre de tractions Rijal Fit" loading="lazy"><p class="shop-item__name">Barre de tractions Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-chaise-romaine.png" alt="Chaise romaine Rijal Fit" loading="lazy"><p class="shop-item__name">Chaise romaine Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-veste-lestee.png" alt="Veste lestée Rijal Fit" loading="lazy"><p class="shop-item__name">Veste lestée Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-chevilliere.png" alt="Chevillère Rijal Fit" loading="lazy"><p class="shop-item__name">Chevillère Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-tapis.png" alt="Tapis Rijal Fit" loading="lazy"><p class="shop-item__name">Tapis Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-serviette.png" alt="Serviette Rijal Fit" loading="lazy"><p class="shop-item__name">Serviette Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-shaker.png" alt="Shaker Rijal Fit" loading="lazy"><p class="shop-item__name">Shaker Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-kit-halteres.jpg" alt="Kit haltères Rijal Fit" loading="lazy"><p class="shop-item__name">Kit haltères Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-barre-tractions.jpg" alt="Barre de tractions Rijal Fit" loading="lazy"><p class="shop-item__name">Barre de tractions Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-chaise-romaine.jpg" alt="Chaise romaine Rijal Fit" loading="lazy"><p class="shop-item__name">Chaise romaine Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-veste-lestee.jpg" alt="Veste lestée Rijal Fit" loading="lazy"><p class="shop-item__name">Veste lestée Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-chevilliere.jpg" alt="Chevillère Rijal Fit" loading="lazy"><p class="shop-item__name">Chevillère Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-tapis.jpg" alt="Tapis Rijal Fit" loading="lazy"><p class="shop-item__name">Tapis Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-serviette.jpg" alt="Serviette Rijal Fit" loading="lazy"><p class="shop-item__name">Serviette Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-shaker.jpg" alt="Shaker Rijal Fit" loading="lazy"><p class="shop-item__name">Shaker Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
             '</div>'
           },
           { text: '<hr class="shop-divider">' },
           { text: '<strong><u>Accessoires</u></strong>' },
           { text:
             '<div class="shop-grid">' +
-            '<div class="shop-item"><img src="images/shop-balance-impedancemetre.png" alt="Balance impédancemètre Rijal Fit" loading="lazy"><p class="shop-item__name">Balance impédancemètre Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-montre-connectee.png" alt="Montre connectée Rijal Fit" loading="lazy"><p class="shop-item__name">Montre connectée<br>Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-ruban-metre.png" alt="Ruban mètre couture Rijal Fit" loading="lazy"><p class="shop-item__name">Ruban mètre couture<br>Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-poster.png" alt="Poster Rijal Fit" loading="lazy"><p class="shop-item__name">Poster Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-sac-sport.png" alt="Sac de sport Rijal Fit" loading="lazy"><p class="shop-item__name">Sac de sport Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-sac-a-dos.png" alt="Sac à dos Rijal Fit" loading="lazy"><p class="shop-item__name">Sac à dos Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-balance-impedancemetre.jpg" alt="Balance impédancemètre Rijal Fit" loading="lazy"><p class="shop-item__name">Balance impédancemètre Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-montre-connectee.jpg" alt="Montre connectée Rijal Fit" loading="lazy"><p class="shop-item__name">Montre connectée<br>Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-ruban-metre.jpg" alt="Ruban mètre couture Rijal Fit" loading="lazy"><p class="shop-item__name">Ruban mètre couture<br>Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-poster.jpg" alt="Poster Rijal Fit" loading="lazy"><p class="shop-item__name">Poster Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-sac-sport.jpg" alt="Sac de sport Rijal Fit" loading="lazy"><p class="shop-item__name">Sac de sport Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-sac-a-dos.jpg" alt="Sac à dos Rijal Fit" loading="lazy"><p class="shop-item__name">Sac à dos Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
             '</div>'
           },
           { text: '<hr class="shop-divider">' },
           { text: '<strong><u>Vêtements</u></strong>' },
           { text:
             '<div class="shop-grid shop-grid--2col">' +
-            '<div class="shop-item"><img src="images/shop-tshirt.png" alt="T-shirt Rijal Fit" loading="lazy"><p class="shop-item__name">T-shirt Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-debardeur.png" alt="Débardeur Rijal Fit" loading="lazy"><p class="shop-item__name">Débardeur Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-tshirt.jpg" alt="T-shirt Rijal Fit" loading="lazy"><p class="shop-item__name">T-shirt Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-debardeur.jpg" alt="Débardeur Rijal Fit" loading="lazy"><p class="shop-item__name">Débardeur Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
             '</div>'
           },
           { text:
             '<div class="shop-grid shop-grid--3col">' +
-            '<div class="shop-item"><img src="images/shop-jogging-simple.png" alt="Jogging simple Rijal Fit" loading="lazy"><p class="shop-item__name">Jogging simple Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-jogging-allonge.png" alt="Jogging allongé Rijal Fit" loading="lazy"><p class="shop-item__name">Jogging allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-sarwel-allonge.png" alt="Sarwel allongé Rijal Fit" loading="lazy"><p class="shop-item__name">Sarwel allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-jogging-simple.jpg" alt="Jogging simple Rijal Fit" loading="lazy"><p class="shop-item__name">Jogging simple Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-jogging-allonge.jpg" alt="Jogging allongé Rijal Fit" loading="lazy"><p class="shop-item__name">Jogging allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-sarwel-allonge.jpg" alt="Sarwel allongé Rijal Fit" loading="lazy"><p class="shop-item__name">Sarwel allongé Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
             '</div>'
           },
           { text: '<hr class="shop-divider">' },
           { text: '<strong><u>Soins pour homme</u></strong>' },
           { text:
             '<div class="shop-grid">' +
-            '<div class="shop-item"><img src="images/shop-boite-soin.png" alt="Boîte soin homme Rijal Fit" loading="lazy"><p class="shop-item__name">Boîte soin homme Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-soin-visage.png" alt="Soin visage homme Rijal Fit" loading="lazy"><p class="shop-item__name">Soin visage homme Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-baume-barbe.png" alt="Baume à barbe Rijal Fit" loading="lazy"><p class="shop-item__name">Baume à barbe Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-brosse-barbe.png" alt="Brosse à barbe Rijal Fit" loading="lazy"><p class="shop-item__name">Brosse à barbe Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
-            '<div class="shop-item"><img src="images/shop-parfum-mekka.png" alt="Parfum Mekka Rijal Fit" loading="lazy"><p class="shop-item__name">Parfum Mekka Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-boite-soin.jpg" alt="Boîte soin homme Rijal Fit" loading="lazy"><p class="shop-item__name">Boîte soin homme Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-soin-visage.jpg" alt="Soin visage homme Rijal Fit" loading="lazy"><p class="shop-item__name">Soin visage homme Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-baume-barbe.jpg" alt="Baume à barbe Rijal Fit" loading="lazy"><p class="shop-item__name">Baume à barbe Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-brosse-barbe.jpg" alt="Brosse à barbe Rijal Fit" loading="lazy"><p class="shop-item__name">Brosse à barbe Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
+            '<div class="shop-item"><img src="images/shop-parfum-mekka.jpg" alt="Parfum Mekka Rijal Fit" loading="lazy"><p class="shop-item__name">Parfum Mekka Rijal Fit</p><p class="shop-item__status">Non disponible</p><button type="button" class="btn btn--primary" disabled>Acheter</button></div>' +
             '</div>'
           },
         ],
@@ -329,7 +329,7 @@ const RF_MODULES = [
         titre: 'F.A.Q Dépasse-Forme',
         videoId: null,
         blocks: [
-          { image: 'images/intro-faq-depasse-forme.png' },
+          { image: 'images/intro-faq-depasse-forme.jpg' },
           { text: '<strong><u>FAQ — Dépasse-Forme</u></strong>' },
 
           { text: '<strong><u>1. Je dois choisir entre le programme salle et le programme maison ?</u></strong>' },
